@@ -1,23 +1,31 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>uap10.0</TargetFramework>
-    <Title>Windows Community Toolkit</Title>
+    <TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71</TargetFrameworks>
+     <Title>Windows Community Toolkit</Title>
     <Description>This package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc.</Description>
     <PackageTags>UWP Toolkit Windows</PackageTags>
     <UseUwpMetaPackage>true</UseUwpMetaPackage>
   </PropertyGroup>
 
+	<Import Project="..\CrossTargeting.props" />
+	<Import Project="..\CrossTargeting.targets" />
 
-  <ItemGroup>
+	<ItemGroup>
     
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     
     <!-- TODO: Update to later version -->
     <PackageReference Include="Microsoft.Identity.Client" Version="1.1.2-preview0008" />
-
+    <PackageReference Include="Uno.UI">
+      <Version>1.23.1-dev.1453</Version>
+    </PackageReference>
     <ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
 
   </ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
+		<PackageReference Include="Uno.UI" Version="1.23.1-dev.1453" />
+	</ItemGroup>
 
 </Project>

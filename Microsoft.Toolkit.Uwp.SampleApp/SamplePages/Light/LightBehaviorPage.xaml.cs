@@ -31,6 +31,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         {
             base.OnNavigatedTo(e);
 
+#if NETFX_CORE // UNO TODO
             if (!AnimationExtensions.IsLightingSupported)
             {
                 WarningText.Visibility = Visibility.Visible;

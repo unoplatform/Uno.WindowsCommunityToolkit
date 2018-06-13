@@ -13,9 +13,6 @@ using Microsoft.Toolkit.Uwp.SampleApp.Controls;
 using Microsoft.Toolkit.Uwp.SampleApp.Pages;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using Microsoft.Toolkit.Uwp.UI.Extensions;
-using Monaco;
-using Monaco.Editor;
-using Monaco.Helpers;
 using Windows.System;
 using Windows.System.Profile;
 using Windows.System.Threading;
@@ -193,7 +190,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 HamburgerMenu.CurrentSample = null;
                 category = navigationEventArgs.Parameter as SampleCategory;
 
-                if (category != null)
+#if NETFX_CORE // UNO TODO
+				if (category != null)
                 {
                     TrackingManager.TrackPage($"{navigationEventArgs.SourcePageType.Name} - {category.Name}");
                 }
@@ -201,13 +199,16 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 {
                     TrackingManager.TrackPage($"{navigationEventArgs.SourcePageType.Name}");
                 }
+#endif
 
-                HideInfoArea();
+				HideInfoArea();
             }
             else
             {
+#if NETFX_CORE // UNO TODO
                 TrackingManager.TrackPage(navigationEventArgs.SourcePageType.Name);
-                Commands.Clear();
+#endif
+				Commands.Clear();
                 ShowInfoArea();
 
                 var sampleName = navigationEventArgs.Parameter.ToString();
@@ -239,9 +240,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     InfoAreaPivot.Items.Add(PropertiesPivotItem);
                 }
 
+#if NETFX_CORE // UNO TODO
                 if (HamburgerMenu.CurrentSample.HasXAMLCode)
                 {
                     if (AnalyticsInfo.VersionInfo.GetDeviceFormFactor() != DeviceFormFactor.Desktop || HamburgerMenu.CurrentSample.DisableXamlEditorRendering)
+#else
+				if (true)
+#endif
                     {
                         // Only makes sense (and works) for now to show Live Xaml on Desktop, so fallback to old system here otherwise.
                         XamlReadOnlyCodeRenderer.SetCode(HamburgerMenu.CurrentSample.UpdatedXamlCode, "xaml");
@@ -250,11 +255,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     }
                     else
                     {
+#if NETFX_CORE // UNO TODO
                         XamlCodeRenderer.Text = HamburgerMenu.CurrentSample.UpdatedXamlCode;
 
                         InfoAreaPivot.Items.Add(XamlPivotItem);
-
-                        _xamlCodeRendererSupported = true;
+#endif
+					_xamlCodeRendererSupported = true;
                     }
 
                     InfoAreaPivot.SelectedIndex = 0;
@@ -457,9 +463,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             {
                 if (DataContext is Sample sample)
                 {
-                    TrackingManager.TrackEvent("PropertyGrid", (InfoAreaPivot.SelectedItem as FrameworkElement)?.Name, sample.Name);
-                }
-            }
+#if NETFX_CORE // UNO TODO
+                   TrackingManager.TrackEvent("PropertyGrid", (InfoAreaPivot.SelectedItem as FrameworkElement)?.Name, sample.Name);
+#endif
+				}
+			}
 
             if (HamburgerMenu.CurrentSample == null)
             {
@@ -479,10 +487,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 return;
             }
 
+#if NETFX_CORE // UNO TODO
             if (HamburgerMenu.CurrentSample.HasXAMLCode && InfoAreaPivot.SelectedItem == XamlPivotItem && _lastRenderedProperties)
             {
-                // Use this flag so we don't re-render the XAML tab if we're switching from tabs other than the properties one.
-                _lastRenderedProperties = false;
+				// Use this flag so we don't re-render the XAML tab if we're switching from tabs other than the properties one.
+				_lastRenderedProperties = false;
 
                 // If we switch to the Live Preview, then we want to use the Value based Text
                 XamlCodeRenderer.Text = HamburgerMenu.CurrentSample.UpdatedXamlCode;
@@ -493,8 +502,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 XamlCodeRenderer.Focus(FocusState.Programmatic);
                 return;
             }
+#endif
 
-            if (HamburgerMenu.CurrentSample.HasXAMLCode && InfoAreaPivot.SelectedItem == XamlReadOnlyPivotItem)
+		if (_currentSample.HasXAMLCode && InfoAreaPivot.SelectedItem == XamlReadOnlyPivotItem)
             {
                 // Update Read-Only XAML tab on non-desktop devices to show changes to Properties
                 XamlReadOnlyCodeRenderer.SetCode(HamburgerMenu.CurrentSample.UpdatedXamlCode, "xaml");
@@ -519,8 +529,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         private async void DocumentationTextblock_OnLinkClicked(object sender, LinkClickedEventArgs e)
         {
+#if NETFX_CORE // UNO TODO
             TrackingManager.TrackEvent("Link", e.Link);
-            if (Uri.TryCreate(e.Link, UriKind.Absolute, out Uri result))
+#endif
+			if (Uri.TryCreate(e.Link, UriKind.Absolute, out Uri result))
             {
                 await Launcher.LaunchUriAsync(new Uri(e.Link));
             }
@@ -577,21 +589,25 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             return value > 0 ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        private CssLineStyle _errorStyle = new CssLineStyle()
+#if NETFX_CORE // UNO TODO
+		private CssLineStyle _errorStyle = new CssLineStyle()
         {
             BackgroundColor = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xD6, 0xD6))
         };
 
-        private CssGlyphStyle _errorIconStyle = new CssGlyphStyle()
-        {
-            GlyphImage = new Uri("ms-appx-web:///Icons/Error.png")
-        };
+		private CssGlyphStyle _errorIconStyle = new CssGlyphStyle()
+		{
+			GlyphImage = new Uri("ms-appx-web:///Icons/Error.png")
+		};
+#endif
 
-        private async Task UpdateXamlRenderAsync(string text)
+		private async Task UpdateXamlRenderAsync(string text)
         {
-            // Hide any Previous Errors
-            XamlCodeRenderer.Decorations.Clear();
+#if NETFX_CORE // UNO TODO
+			// Hide any Previous Errors
+			XamlCodeRenderer.Decorations.Clear();
             XamlCodeRenderer.Options.GlyphMargin = false;
+#endif
 
             // Try and Render Xaml to a UIElement
             UIElement element = null;
@@ -628,7 +644,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     (content as IXamlRenderListener)?.OnXamlRendered(element as FrameworkElement);
                 });
             }
-            else if (_xamlRenderer.Errors.Count > 0)
+#if NETFX_CORE // UNO TODO
+           else if (_xamlRenderer.Errors.Count > 0)
             {
                 var error = _xamlRenderer.Errors.First();
 
@@ -646,9 +663,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     range,
                     new IModelDecorationOptions() { IsWholeLine = true, GlyphMarginClassName = _errorIconStyle, GlyphMarginHoverMessage = new string[] { error.Message } }));
             }
-        }
+#endif // UNO TODO
+		}
 
-        private static readonly int[] NonCharacterCodes = new int[]
+		private static readonly int[] NonCharacterCodes = new int[]
         {
             // Modifier Keys
             16, 17, 18, 20, 91,
@@ -663,7 +681,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123
         };
 
-        private void XamlCodeRenderer_KeyDown(Monaco.CodeEditor sender, Monaco.Helpers.WebKeyEventArgs args)
+#if NETFX_CORE // UNO TODO
+		private void XamlCodeRenderer_KeyDown(Monaco.CodeEditor sender, Monaco.Helpers.WebKeyEventArgs args)
         {
             // Handle Shortcuts.
             // Ctrl+Enter or F5 Update // TODO: Do we need this in the app handler too? (Thinking no)
@@ -702,23 +721,26 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     }, TimeSpan.FromSeconds(0.5));
             }
         }
+#endif
 
-        private void XamlCodeRenderer_Loading(object sender, RoutedEventArgs e)
+		private void XamlCodeRenderer_Loading(object sender, RoutedEventArgs e)
         {
             XamlCodeRenderer.Options.Folding = true;
         }
 
         private void XamlCodeRenderer_InternalException(CodeEditor sender, Exception args)
         {
+#if NETFX_CORE // UNO TODO
             TrackingManager.TrackException(args);
+#endif
 
-            // If you hit an issue here, please report repro steps along with all the info from the Exception object.
+		// If you hit an issue here, please report repro steps along with all the info from the Exception object.
 #if DEBUG
             Debugger.Break();
 #endif
-        }
+	}
 
-        private void ProcessSampleEditorTime()
+	private void ProcessSampleEditorTime()
         {
             if (HamburgerMenu.CurrentSample != null &&
                 HamburgerMenu.CurrentSample.HasXAMLCode &&

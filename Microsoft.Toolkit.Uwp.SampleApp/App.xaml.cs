@@ -32,7 +32,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             Suspending += OnSuspending;
         }
 
-        protected override async void OnActivated(IActivatedEventArgs args)
+		protected override async void OnActivated(IActivatedEventArgs args)
         {
             await RunAppInitialization(null);
 
@@ -86,7 +86,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         {
             base.OnBackgroundActivated(args);
 
-            var deferral = args.TaskInstance.GetDeferral();
+#if NETFX_CORE // UNO TODO
+ var deferral = args.TaskInstance.GetDeferral();
 
             switch (args.TaskInstance.Task.Name)
             {
@@ -96,10 +97,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             }
 
             deferral.Complete();
-        }
+#endif
+		}
 
-        private async System.Threading.Tasks.Task RunAppInitialization(string launchParameters)
+		private async System.Threading.Tasks.Task RunAppInitialization(string launchParameters)
         {
+#if NETFX_CORE // UNO TODO
             // Go fullscreen on Xbox
             if (AnalyticsInfo.VersionInfo.GetDeviceFormFactor() == DeviceFormFactor.Xbox)
             {
@@ -111,11 +114,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             {
                 Constants.ApplicationDisplayName = (await Package.Current.GetAppListEntriesAsync())[0].DisplayInfo.DisplayName;
             }
+#endif
 
             // Check if the Cache is Latest, wipe if not.
             Sample.EnsureCacheLatest();
 
-            Frame rootFrame = Window.Current.Content as Frame;
+			// UNO TODO
+			Frame rootFrame = Windows.UI.Xaml.Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
@@ -126,8 +131,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
+				// Place the frame in the current Window
+				// UNO TODO
+				Windows.UI.Xaml.Window.Current.Content = rootFrame;
             }
 
             if (rootFrame.Content == null)
@@ -138,8 +144,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 rootFrame.Navigate(typeof(Shell), launchParameters);
             }
 
-            // Ensure the current window is active
-            Window.Current.Activate();
+			// Ensure the current window is active
+			// UNO TODO
+			Windows.UI.Xaml.Window.Current.Activate();
         }
 
         /// <summary>

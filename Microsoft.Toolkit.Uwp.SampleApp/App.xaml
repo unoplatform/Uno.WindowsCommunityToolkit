@@ -1,17 +1,21 @@
 ﻿<Application x:Class="Microsoft.Toolkit.Uwp.SampleApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
              xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
              xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
              xmlns:controls="using:Microsoft.Toolkit.Uwp.SampleApp.Controls"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
              xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
              xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
              xmlns:local="using:Microsoft.Toolkit.Uwp.SampleApp"
              xmlns:toolkitControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
              RequestedTheme="Light"
-             RequiresPointerMode="Auto">
+             RequiresPointerMode="Auto"
+			 mc:Ignorable="d">
 
     <Application.Resources>
 
@@ -59,7 +63,8 @@
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
         <!--  Styles  -->
-        <Style TargetType="controls:CodeRenderer">
+		<!--  UNO TODO -->
+        <Style x:Key="rendererStyle" TargetType="controls:CodeRenderer">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="controls:CodeRenderer">

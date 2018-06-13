@@ -17,7 +17,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
     /// </summary>
     public sealed partial class MasterDetailsViewPage : Page, IXamlRenderListener
     {
-        private double _previousWidth = Window.Current.Bounds.Width;
+		// UNO TODO
+		private double _previousWidth = Windows.UI.Xaml.Window.Current.Bounds.Width;
 
         public MasterDetailsViewPage()
         {
@@ -58,12 +59,14 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Window.Current.SizeChanged += Current_SizeChanged;
+			// UNO TODO
+			Windows.UI.Xaml.Window.Current.SizeChanged += Current_SizeChanged;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            Window.Current.SizeChanged -= Current_SizeChanged;
+			// UNO TODO
+			Windows.UI.Xaml.Window.Current.SizeChanged -= Current_SizeChanged;
         }
 
         // workaround for loaded unloaded getting called in wrong order when shell template gets swapped

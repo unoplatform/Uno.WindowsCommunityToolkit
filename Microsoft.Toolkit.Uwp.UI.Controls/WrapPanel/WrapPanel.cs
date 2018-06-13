@@ -14,6 +14,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// </summary>
     public partial class WrapPanel : Panel
     {
+		// UNO TODO
+		public WrapPanel()
+		{
+
+		}
+		
         /// <summary>
         /// Gets or sets a uniform Horizontal distance (in pixels) between items when <see cref="Orientation"/> is set to Horizontal,
         /// or between columns of items when <see cref="Orientation"/> is set to Vertical.
@@ -118,11 +124,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             var spacingMeasure = new UvMeasure(Orientation, HorizontalSpacing, VerticalSpacing);
             var lineMeasure = UvMeasure.Zero;
 
-            foreach (var child in Children)
-            {
-                child.Measure(availableSize);
+			foreach (var nativeChild in Children)
+			{
+				// UNO TODO
+				if (nativeChild is UIElement child)
+				{
+					child.Measure(availableSize);
 
-                var currentMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+					var currentMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
 
                 if (parentMeasure.U >= currentMeasure.U + lineMeasure.U + spacingMeasure.U)
                 {
@@ -136,24 +145,25 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     totalMeasure.U = Math.Max(lineMeasure.U, totalMeasure.U);
                     totalMeasure.V += lineMeasure.V + spacingMeasure.V;
 
-                    // if the next new row still can handle more controls
-                    if (parentMeasure.U > currentMeasure.U)
-                    {
-                        // set lineMeasure initial values to the currentMeasure to be calculated later on the new loop
-                        lineMeasure = currentMeasure;
-                    }
+						// if the next new row still can handle more controls
+						if (parentMeasure.U > currentMeasure.U)
+						{
+							// set lineMeasure initial values to the currentMeasure to be calculated later on the new loop
+							lineMeasure = currentMeasure;
+						}
 
-                    // the control will take one row alone
-                    else
-                    {
-                        // validate the new control measures
-                        totalMeasure.U = Math.Max(currentMeasure.U, totalMeasure.U);
-                        totalMeasure.V += currentMeasure.V;
+						// the control will take one row alone
+						else
+						{
+							// validate the new control measures
+							totalMeasure.U = Math.Max(currentMeasure.U, totalMeasure.U);
+							totalMeasure.V += currentMeasure.V;
 
-                        // add new empty line
-                        lineMeasure = UvMeasure.Zero;
-                    }
-                }
+							// add new empty line
+							lineMeasure = UvMeasure.Zero;
+						}
+					}
+				}
             }
 
             // update value with the last line
@@ -179,9 +189,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             var position = new UvMeasure(Orientation, Padding.Left, Padding.Top);
 
             double currentV = 0;
-            foreach (var child in Children)
-            {
-                var desiredMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+			foreach (var nativeChild in Children)
+			{
+				// UNO TODO
+				if (nativeChild is UIElement child)
+				{
+
+					var desiredMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
                 if ((desiredMeasure.U + position.U + paddingEnd.U) > parentMeasure.U)
                 {
                     // next row!
@@ -190,15 +204,15 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     currentV = 0;
                 }
 
-                // Place the item
-                if (Orientation == Orientation.Horizontal)
-                {
-                    child.Arrange(new Rect(position.U, position.V, child.DesiredSize.Width, child.DesiredSize.Height));
-                }
-                else
-                {
-                    child.Arrange(new Rect(position.V, position.U, child.DesiredSize.Width, child.DesiredSize.Height));
-                }
+					// Place the item
+					if (Orientation == Orientation.Horizontal)
+					{
+						child.Arrange(new Rect(position.U, position.V, child.DesiredSize.Width, child.DesiredSize.Height));
+					}
+					else
+					{
+						child.Arrange(new Rect(position.V, position.U, child.DesiredSize.Width, child.DesiredSize.Height));
+					}
 
                 // adjust the location for the next items
                 position.U += desiredMeasure.U + spacingMeasure.U;

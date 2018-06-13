@@ -25,7 +25,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     [TemplatePart(Name = PartLeftCommandPanel, Type = typeof(StackPanel))]
     [TemplatePart(Name = PartRightCommandPanel, Type = typeof(StackPanel))]
     [Obsolete("The SlidableListItem will be removed in a future major release. Please use the SwipeControl available in the Fall Creators Update")]
-    public class SlidableListItem : ContentControl
+    public partial class SlidableListItem : ContentControl
     {
         /// <summary>
         /// Identifies the <see cref="ExtraSwipeThreshold"/> property
@@ -641,11 +641,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 {
                     if (SwipeStatus == SwipeStatus.SwipingToRightThreshold)
                     {
-                        // The control was just put below the threshold.
-                        // Run an animation to put the text and icon
-                        // in the correct position.
-                        _leftCommandAnimationSet = _leftCommandPanel.Offset((float)(SnappedCommandMargin - _leftCommandTransform.TranslateX), duration: AnimationSetDuration);
-                        _leftCommandAnimationSet.Start();
+						// The control was just put below the threshold.
+						// Run an animation to put the text and icon
+						// in the correct position.
+#if NETFX_CORE // UNO TODO
+						_leftCommandAnimationSet = _leftCommandPanel.Offset((float)(SnappedCommandMargin - _leftCommandTransform.TranslateX), duration: AnimationSetDuration);
+#endif
+						_leftCommandAnimationSet.Start();
                     }
                     else if (SwipeStatus != SwipeStatus.SwipingPassedRightThreshold)
                     {
@@ -682,12 +684,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 {
                     if (SwipeStatus == SwipeStatus.SwipingToLeftThreshold)
                     {
-                        // The control was just put below the threshold.
-                        // Run an animation to put the text and icon
-                        // in the correct position.
-                        _rightCommandAnimationSet = _rightCommandPanel.Offset((float)(-SnappedCommandMargin - _rightCommandTransform.TranslateX), duration: AnimationSetDuration);
-                        _rightCommandAnimationSet.Start();
-                    }
+						// The control was just put below the threshold.
+						// Run an animation to put the text and icon
+						// in the correct position.
+#if NETFX_CORE // UNO TODO
+						_rightCommandAnimationSet = _rightCommandPanel.Offset((float)(-SnappedCommandMargin - _rightCommandTransform.TranslateX), duration: AnimationSetDuration);
+#endif
+						_rightCommandAnimationSet.Start();
+					}
                     else if (SwipeStatus != SwipeStatus.SwipingPassedLeftThreshold)
                     {
                         // This will cover extreme cases when previous state wasn't

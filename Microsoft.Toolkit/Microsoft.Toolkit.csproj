@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFrameworks>xamarinios10;netstandard1.4;uap10.0;MonoAndroid71</TargetFrameworks>
     <Title>Windows Community Toolkit .NET Standard</Title>
     <Description>This package includes .NET Standard code only helpers.</Description>
     <PackageTags>UWP Toolkit Windows</PackageTags>
@@ -9,5 +9,8 @@
     <!-- This is a temporary workaround for https://github.com/dotnet/sdk/issues/955 -->
     <DebugType>Full</DebugType>
   </PropertyGroup>
+	
+	<Import Project="..\CrossTargeting.props" />
+	<Import Project="..\CrossTargeting.targets" />
 
 </Project>

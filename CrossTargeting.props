@@ -1,0 +1,128 @@
+﻿<Project ToolsVersion="15.0">
+
+	<PropertyGroup>
+		<DebugType>full</DebugType>
+		<DebugSymbols>True</DebugSymbols>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+		<GenerateLibraryLayout>true</GenerateLibraryLayout>
+		<CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+		<NugetTargetMoniker>UAP,Version=v10.0</NugetTargetMoniker>
+		<TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+		<TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+		<TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+		<TargetFrameworkIdentifier>.NETCore</TargetFrameworkIdentifier>
+		<TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+		<DefineConstants>$(DefineConstants);NETFX_CORE</DefineConstants>
+		<LanguageTargets>$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets</LanguageTargets>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(TargetFramework)' == 'xamarinios10'">
+		<!-- 
+			NoCompilerStandardLib and NoStdLib is required to 
+			avoid common .NET targets to add .NET 4.5 mscorlib, and use 
+			Xamarin's provided mscorlib.
+			This requires an explicit reference to mscorlib in the 
+			references section below.
+			-->
+		<NoCompilerStandardLib>true</NoCompilerStandardLib>
+		<NoStdLib>true</NoStdLib>
+
+		<iOSTargetFramework>xamarinios10</iOSTargetFramework>
+		<TargetFrameworkIdentifier>Xamarin.iOS</TargetFrameworkIdentifier>
+		<TargetFrameworkVersion>v1.0</TargetFrameworkVersion>
+		<IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+		<DefineConstants>$(DefineConstants);IOS1_0;XAMARIN</DefineConstants>
+		<DebugType>full</DebugType>
+		<LanguageTargets>$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets</LanguageTargets>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(TargetFramework)' == 'MonoAndroid60'">
+		<TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
+		<TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+		<AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+		<AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
+		<DebugType>full</DebugType>
+		<DefineConstants>$(DefineConstants);XAMARIN;XAMARIN_ANDROID</DefineConstants>
+		<LanguageTargets>$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets</LanguageTargets>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(TargetFramework)' == 'MonoAndroid70'">
+		<TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
+		<TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+		<AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+		<AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
+		<DebugType>full</DebugType>
+		<DefineConstants>$(DefineConstants);XAMARIN;XAMARIN_ANDROID</DefineConstants>
+		<LanguageTargets>$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets</LanguageTargets>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(TargetFramework)' == 'MonoAndroid71'">
+		<TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
+		<TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+		<AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+		<DebugType>full</DebugType>
+		<AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
+		<DefineConstants>$(DefineConstants);XAMARIN;XAMARIN_ANDROID</DefineConstants>
+		<LanguageTargets>$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets</LanguageTargets>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(TargetFramework)' == 'MonoAndroid80'">
+		<TargetFrameworkIdentifier>MonoAndroid</TargetFrameworkIdentifier>
+		<TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+		<AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+		<DebugType>full</DebugType>
+		<AndroidUseIntermediateDesignerFile>True</AndroidUseIntermediateDesignerFile>
+		<DefineConstants>$(DefineConstants);XAMARIN;XAMARIN_ANDROID</DefineConstants>
+		<LanguageTargets>$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets</LanguageTargets>
+	</PropertyGroup>
+	
+	<ItemGroup Condition=" '$(TargetPlatformIdentifier)' == 'UAP' ">
+		<PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform " Version="5.3.4" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Xamarin.Build.Download" Version="0.4.7" />
+	</ItemGroup>
+	
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+		<Reference Include="WindowsBase" />
+	</ItemGroup>
+	
+	<ItemGroup Condition=" '$(TargetFramework)' == 'xamarinios10' ">
+		<Reference Include="System" />
+		<Reference Include="mscorlib" />
+		<Reference Include="System.Runtime" />
+		<Reference Include="System.Collections" />
+		<Reference Include="System.Threading.Tasks" />
+		<Reference Include="System.IdentityModel" />
+		<Reference Include="System.Net.Http" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Xml.Linq" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Runtime.Serialization" />
+		<Reference Include="Xamarin.iOS" />
+		<Compile Include="Platforms\xamarinios10\**\*.cs" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' ">
+		<Reference Include="Mono.Android" />
+		<Reference Include="System" />
+		<Reference Include="System.Collections" />
+		<Reference Include="System.Threading.Tasks" />
+		<Reference Include="System.Core" />
+		<Reference Include="System.Runtime" />
+		<Reference Include="System.Threading.Tasks" />
+		<Reference Include="System.IdentityModel" />
+		<Reference Include="System.Net.Http" />
+		<Reference Include="System.Xml.Linq" />
+		<Reference Include="System.Runtime.Serialization" />
+		<Reference Include="System.Xml" />
+		<Compile Include="Platforms\$(TargetFramework)\**\*.cs" />
+		<Compile Include="Resources\**\*.cs" />
+		<AndroidResource Include="Resources\**\*.axml" />
+		<AndroidResource Include="Resources\**\*.xml" />
+	</ItemGroup>
+
+</Project>

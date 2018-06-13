@@ -52,9 +52,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <param name="element">Parent element.</param>
         /// <returns>Descendant control or null if not found.</returns>
         public static T FindDescendant<T>(this DependencyObject element)
-            where T : DependencyObject
-        {
-            T retValue = null;
+#if XAMARIN
+			where T : class, DependencyObject
+#else
+			where T : DependencyObject
+#endif
+		{
+			T retValue = null;
             var childrenCount = VisualTreeHelper.GetChildrenCount(element);
 
             for (var i = 0; i < childrenCount; i++)
@@ -85,9 +89,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <param name="element">Parent element.</param>
         /// <returns>Descendant controls or empty if not found.</returns>
         public static IEnumerable<T> FindDescendants<T>(this DependencyObject element)
-            where T : DependencyObject
-        {
-            var childrenCount = VisualTreeHelper.GetChildrenCount(element);
+#if XAMARIN
+			where T : class, DependencyObject
+#else
+			where T : DependencyObject
+#endif
+		{
+			var childrenCount = VisualTreeHelper.GetChildrenCount(element);
 
             for (var i = 0; i < childrenCount; i++)
             {
@@ -140,9 +148,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <param name="element">Child element.</param>
         /// <returns>Ascendant control or null if not found.</returns>
         public static T FindAscendant<T>(this DependencyObject element)
-            where T : DependencyObject
-        {
-            var parent = VisualTreeHelper.GetParent(element);
+#if XAMARIN
+			where T : class, DependencyObject
+#else
+			where T : DependencyObject
+#endif
+		{
+			var parent = VisualTreeHelper.GetParent(element);
 
             if (parent == null)
             {

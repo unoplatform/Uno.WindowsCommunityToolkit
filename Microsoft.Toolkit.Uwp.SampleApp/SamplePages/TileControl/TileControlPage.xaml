@@ -8,10 +8,10 @@
 
     <!-- Shallow Copy -->
     <Grid Visibility="Collapsed">
-        <controls:TileControl>
+        <!-- UNO TODO <controls:TileControl>
             <FlipView>
                 <Border />
             </FlipView>
-        </controls:TileControl>
+        </controls:TileControl>-->
     </Grid>
 </Page>

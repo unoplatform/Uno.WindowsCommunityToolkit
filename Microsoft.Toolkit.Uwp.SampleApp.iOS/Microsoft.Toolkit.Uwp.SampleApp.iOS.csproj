@@ -1,0 +1,1118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{484385EA-7766-49DC-BD09-F9B5DD035847}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Microsoft.Toolkit.Uwp.SampleApp.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>Microsoft.Toolkit.Uwp.SampleApp.iOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\App.xaml.cs">
+      <Link>App.xaml.cs</Link>
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\AnalyticsVersionInfoExtensions.cs">
+      <Link>Common\AnalyticsVersionInfoExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\AnimationHelper.cs">
+      <Link>Common\AnimationHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\BindableBase.cs">
+      <Link>Common\BindableBase.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\BoolStringConverter.cs">
+      <Link>Common\BoolStringConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\Constants.cs">
+      <Link>Common\Constants.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\DelegateCommand.cs">
+      <Link>Common\DelegateCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\DelegateCommand{T}.cs">
+      <Link>Common\DelegateCommand{T}.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\EnumConverter.cs">
+      <Link>Common\EnumConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\IXamlRenderListener.cs">
+      <Link>Common\IXamlRenderListener.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\ListViewHoverScroll.cs">
+      <Link>Common\ListViewHoverScroll.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\SampleCommand.cs">
+      <Link>Common\SampleCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\SolidColorBrushConverter.cs">
+      <Link>Common\SolidColorBrushConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Common\Tools.cs">
+      <Link>Common\Tools.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Controls\CodeRenderer\CodeRenderer.cs">
+      <Link>Controls\CodeRenderer\CodeRenderer.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Controls\CodeRenderer\CodeRenderer.Properties.cs">
+      <Link>Controls\CodeRenderer\CodeRenderer.Properties.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Controls\PropertyControl.xaml.cs">
+      <Link>Controls\PropertyControl.xaml.cs</Link>
+      <DependentUpon>PropertyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Controls\XamlExceptionRange.cs">
+      <Link>Controls\XamlExceptionRange.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Controls\XamlRenderService.cs">
+      <Link>Controls\XamlRenderService.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Data\GitHub.cs">
+      <Link>Data\GitHub.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Data\PhotoDataItem.cs">
+      <Link>Data\PhotoDataItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Data\PhotoDataItemWithDimension.cs">
+      <Link>Data\PhotoDataItemWithDimension.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Data\PhotosDataSource.cs">
+      <Link>Data\PhotosDataSource.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\Email.cs">
+      <Link>Models\Email.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\GitHubRelease.cs">
+      <Link>Models\GitHubRelease.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\Item.cs">
+      <Link>Models\Item.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\LandingPageLink.cs">
+      <Link>Models\LandingPageLink.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\LandingPageLinks.cs">
+      <Link>Models\LandingPageLinks.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\LandingPageResource.cs">
+      <Link>Models\LandingPageResource.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\Option.cs">
+      <Link>Models\Option.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\PropertyDescriptor\PropertyDescriptor.cs">
+      <Link>Models\PropertyDescriptor\PropertyDescriptor.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\PropertyDescriptor\PropertyKind.cs">
+      <Link>Models\PropertyDescriptor\PropertyKind.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\PropertyDescriptor\PropertyOptions.cs">
+      <Link>Models\PropertyDescriptor\PropertyOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\PropertyDescriptor\SliderPropertyOptions.cs">
+      <Link>Models\PropertyDescriptor\SliderPropertyOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\PropertyDescriptor\ValueHolder.cs">
+      <Link>Models\PropertyDescriptor\ValueHolder.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\Sample.cs">
+      <Link>Models\Sample.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\SampleCategory.cs">
+      <Link>Models\SampleCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Models\Samples.cs">
+      <Link>Models\Samples.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Pages\About.xaml.cs">
+      <Link>Pages\About.xaml.cs</Link>
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Pages\SamplePicker.xaml.cs">
+      <Link>Pages\SamplePicker.xaml.cs</Link>
+      <DependentUpon>SamplePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AdaptiveGridView\AdaptiveGridViewPage.xaml.cs">
+      <Link>SamplePages\AdaptiveGridView\AdaptiveGridViewPage.xaml.cs</Link>
+      <DependentUpon>AdaptiveGridViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AdvancedCollectionView\AdvancedCollectionViewPage.xaml.cs">
+      <Link>SamplePages\AdvancedCollectionView\AdvancedCollectionViewPage.xaml.cs</Link>
+      <DependentUpon>AdvancedCollectionViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AlignmentGrid\AlignmentGridPage.xaml.cs">
+      <Link>SamplePages\AlignmentGrid\AlignmentGridPage.xaml.cs</Link>
+      <DependentUpon>AlignmentGridPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Analytics\AnalyticsPage.xaml.cs">
+      <Link>SamplePages\Analytics\AnalyticsPage.xaml.cs</Link>
+      <DependentUpon>AnalyticsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\BladeView\BladePage.xaml.cs">
+      <Link>SamplePages\BladeView\BladePage.xaml.cs</Link>
+      <DependentUpon>BladePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Blur\BlurBehaviorPage.xaml.cs">
+      <Link>SamplePages\Blur\BlurBehaviorPage.xaml.cs</Link>
+      <DependentUpon>BlurBehaviorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Carousel\CarouselPage.xaml.cs">
+      <Link>SamplePages\Carousel\CarouselPage.xaml.cs</Link>
+      <DependentUpon>CarouselPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\DispatcherHelper\DispatcherHelperPage.xaml.cs">
+      <Link>SamplePages\DispatcherHelper\DispatcherHelperPage.xaml.cs</Link>
+      <DependentUpon>DispatcherHelperPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\DropShadowPanel\DropShadowPanelPage.xaml.cs">
+      <Link>SamplePages\DropShadowPanel\DropShadowPanelPage.xaml.cs</Link>
+      <DependentUpon>DropShadowPanelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Expander\ExpanderPage.xaml.cs">
+      <Link>SamplePages\Expander\ExpanderPage.xaml.cs</Link>
+      <DependentUpon>ExpanderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\FadeHeader\FadeHeaderBehaviorPage.xaml.cs">
+      <Link>SamplePages\FadeHeader\FadeHeaderBehaviorPage.xaml.cs</Link>
+      <DependentUpon>FadeHeaderBehaviorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Fade\FadeBehaviorPage.xaml.cs">
+      <Link>SamplePages\Fade\FadeBehaviorPage.xaml.cs</Link>
+      <DependentUpon>FadeBehaviorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\FocusTracker\FocusTrackerPage.xaml.cs">
+      <Link>SamplePages\FocusTracker\FocusTrackerPage.xaml.cs</Link>
+      <DependentUpon>FocusTrackerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\GridSplitter\GridSplitterPage.xaml.cs">
+      <Link>SamplePages\GridSplitter\GridSplitterPage.xaml.cs</Link>
+      <DependentUpon>GridSplitterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\HamburgerMenu\HamburgerMenuPage.xaml.cs">
+      <Link>SamplePages\HamburgerMenu\HamburgerMenuPage.xaml.cs</Link>
+      <DependentUpon>HamburgerMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\HeaderedTextBlock\HeaderedTextBlockPage.xaml.cs">
+      <Link>SamplePages\HeaderedTextBlock\HeaderedTextBlockPage.xaml.cs</Link>
+      <DependentUpon>HeaderedTextBlockPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ImageCache\ImageCachePage.xaml.cs">
+      <Link>SamplePages\ImageCache\ImageCachePage.xaml.cs</Link>
+      <DependentUpon>ImageCachePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ImageEx\ImageExPage.xaml.cs">
+      <Link>SamplePages\ImageEx\ImageExPage.xaml.cs</Link>
+      <DependentUpon>ImageExPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\InAppNotification\InAppNotificationPage.xaml.cs">
+      <Link>SamplePages\InAppNotification\InAppNotificationPage.xaml.cs</Link>
+      <DependentUpon>InAppNotificationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Incremental Loading Collection\IncrementalLoadingCollectionPage.xaml.cs">
+      <Link>SamplePages\Incremental Loading Collection\IncrementalLoadingCollectionPage.xaml.cs</Link>
+      <DependentUpon>IncrementalLoadingCollectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Incremental Loading Collection\PeopleSource.cs">
+      <Link>SamplePages\Incremental Loading Collection\PeopleSource.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Incremental Loading Collection\Person.cs">
+      <Link>SamplePages\Incremental Loading Collection\Person.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Light\LightBehaviorPage.xaml.cs">
+      <Link>SamplePages\Light\LightBehaviorPage.xaml.cs</Link>
+      <DependentUpon>LightBehaviorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ListViewBase\ListViewBasePage.xaml.cs">
+      <Link>SamplePages\ListViewBase\ListViewBasePage.xaml.cs</Link>
+      <DependentUpon>ListViewBasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Loading\LoadingPage.xaml.cs">
+      <Link>SamplePages\Loading\LoadingPage.xaml.cs</Link>
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MarkdownTextBlock\MarkdownTextBlockPage.xaml.cs">
+      <Link>SamplePages\MarkdownTextBlock\MarkdownTextBlockPage.xaml.cs</Link>
+      <DependentUpon>MarkdownTextBlockPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MasterDetailsView\MasterDetailsViewPage.xaml.cs">
+      <Link>SamplePages\MasterDetailsView\MasterDetailsViewPage.xaml.cs</Link>
+      <DependentUpon>MasterDetailsViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Menu\Commands\VsCommands.cs">
+      <Link>SamplePages\Menu\Commands\VsCommands.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Menu\MenuPage.xaml.cs">
+      <Link>SamplePages\Menu\MenuPage.xaml.cs</Link>
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Object Storage\ObjectStoragePage.xaml.cs">
+      <Link>SamplePages\Object Storage\ObjectStoragePage.xaml.cs</Link>
+      <DependentUpon>ObjectStoragePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Offset\OffsetBehaviorPage.xaml.cs">
+      <Link>SamplePages\Offset\OffsetBehaviorPage.xaml.cs</Link>
+      <DependentUpon>OffsetBehaviorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\OrbitView\OrbitViewPage.xaml.cs">
+      <Link>SamplePages\OrbitView\OrbitViewPage.xaml.cs</Link>
+      <DependentUpon>OrbitViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ParallaxService\ParallaxPage.xaml.cs">
+      <Link>SamplePages\ParallaxService\ParallaxPage.xaml.cs</Link>
+      <DependentUpon>ParallaxPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\PrintHelper\PrintHelperPage.xaml.cs">
+      <Link>SamplePages\PrintHelper\PrintHelperPage.xaml.cs</Link>
+      <DependentUpon>PrintHelperPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\PullToRefreshListView\PullToRefreshListViewPage.xaml.cs">
+      <Link>SamplePages\PullToRefreshListView\PullToRefreshListViewPage.xaml.cs</Link>
+      <DependentUpon>PullToRefreshListViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RadialGauge\RadialGaugePage.xaml.cs">
+      <Link>SamplePages\RadialGauge\RadialGaugePage.xaml.cs</Link>
+      <DependentUpon>RadialGaugePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RadialProgressBar\RadialProgressBarPage.xaml.cs">
+      <Link>SamplePages\RadialProgressBar\RadialProgressBarPage.xaml.cs</Link>
+      <DependentUpon>RadialProgressBarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RangeSelector\RangeSelectorPage.xaml.cs">
+      <Link>SamplePages\RangeSelector\RangeSelectorPage.xaml.cs</Link>
+      <DependentUpon>RangeSelectorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ReorderGridAnimation\ReorderGridPage.xaml.cs">
+      <Link>SamplePages\ReorderGridAnimation\ReorderGridPage.xaml.cs</Link>
+      <DependentUpon>ReorderGridPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Rotate\RotateBehaviorPage.xaml.cs">
+      <Link>SamplePages\Rotate\RotateBehaviorPage.xaml.cs</Link>
+      <DependentUpon>RotateBehaviorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RotatorTile\RotatorTilePage.xaml.cs">
+      <Link>SamplePages\RotatorTile\RotatorTilePage.xaml.cs</Link>
+      <DependentUpon>RotatorTilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Saturation\SaturationBehaviorPage.xaml.cs">
+      <Link>SamplePages\Saturation\SaturationBehaviorPage.xaml.cs</Link>
+      <DependentUpon>SaturationBehaviorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Scale\ScaleBehaviorPage.xaml.cs">
+      <Link>SamplePages\Scale\ScaleBehaviorPage.xaml.cs</Link>
+      <DependentUpon>ScaleBehaviorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ScrollHeader\ScrollHeaderPage.xaml.cs">
+      <Link>SamplePages\ScrollHeader\ScrollHeaderPage.xaml.cs</Link>
+      <DependentUpon>ScrollHeaderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SlidableListItem\SlidableListItemPage.xaml.cs">
+      <Link>SamplePages\SlidableListItem\SlidableListItemPage.xaml.cs</Link>
+      <DependentUpon>SlidableListItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SurfaceDialTextbox\SurfaceDialTextboxPage.xaml.cs">
+      <Link>SamplePages\SurfaceDialTextbox\SurfaceDialTextboxPage.xaml.cs</Link>
+      <DependentUpon>SurfaceDialTextboxPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SystemInformation\SystemInformationPage.xaml.cs">
+      <Link>SamplePages\SystemInformation\SystemInformationPage.xaml.cs</Link>
+      <DependentUpon>SystemInformationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextBoxMask\TextBoxMaskPage.xaml.cs">
+      <Link>SamplePages\TextBoxMask\TextBoxMaskPage.xaml.cs</Link>
+      <DependentUpon>TextBoxMaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextBoxRegex\TextBoxRegexPage.xaml.cs">
+      <Link>SamplePages\TextBoxRegex\TextBoxRegexPage.xaml.cs</Link>
+      <DependentUpon>TextBoxRegexPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextToolbar\SampleFormatter.cs">
+      <Link>SamplePages\TextToolbar\SampleFormatter.cs</Link>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextToolbar\TextToolbarPage.xaml.cs">
+      <Link>SamplePages\TextToolbar\TextToolbarPage.xaml.cs</Link>
+      <DependentUpon>TextToolbarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TileControl\TileControlPage.xaml.cs">
+      <Link>SamplePages\TileControl\TileControlPage.xaml.cs</Link>
+      <DependentUpon>TileControlPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ViewExtensions\ViewExtensionsPage.xaml.cs">
+      <Link>SamplePages\ViewExtensions\ViewExtensionsPage.xaml.cs</Link>
+      <DependentUpon>ViewExtensionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\WrapPanel\WrapPanelPage.xaml.cs">
+      <Link>SamplePages\WrapPanel\WrapPanelPage.xaml.cs</Link>
+      <DependentUpon>WrapPanelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\Microsoft.Toolkit.Uwp.SampleApp\Shell.xaml.cs">
+      <Link>Shell.xaml.cs</Link>
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AdaptiveGridView\AdaptiveGridViewCode.bind">
+      <Link>SamplePages\AdaptiveGridView\AdaptiveGridViewCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AdvancedCollectionView\AdvancedCollectionView.bind">
+      <Link>SamplePages\AdvancedCollectionView\AdvancedCollectionView.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AlignmentGrid\AlignmentGridXaml.bind">
+      <Link>SamplePages\AlignmentGrid\AlignmentGridXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Analytics\AnalyticsCode.bind">
+      <Link>SamplePages\Analytics\AnalyticsCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\BladeView\BladeCode.bind">
+      <Link>SamplePages\BladeView\BladeCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Blur\BlurBehaviorCode.bind">
+      <Link>SamplePages\Blur\BlurBehaviorCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Blur\BlurBehaviorXaml.bind">
+      <Link>SamplePages\Blur\BlurBehaviorXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Carousel\CarouselCode.bind">
+      <Link>SamplePages\Carousel\CarouselCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\DispatcherHelper\DispatcherHelperCode.bind">
+      <Link>SamplePages\DispatcherHelper\DispatcherHelperCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\DropShadowPanel\DropShadowPanelXaml.bind">
+      <Link>SamplePages\DropShadowPanel\DropShadowPanelXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Expander\ExpanderXaml.bind">
+      <Link>SamplePages\Expander\ExpanderXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\FadeHeader\FadeHeaderBehavior.png">
+      <Link>SamplePages\FadeHeader\FadeHeaderBehavior.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Fade\FadeBehaviorCode.bind">
+      <Link>SamplePages\Fade\FadeBehaviorCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Fade\FadeBehaviorXaml.bind">
+      <Link>SamplePages\Fade\FadeBehaviorXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\FadeHeader\FadeHeaderBehaviorCode.bind">
+      <Link>SamplePages\FadeHeader\FadeHeaderBehaviorCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\FadeHeader\FadeHeaderBehaviorXaml.bind">
+      <Link>SamplePages\FadeHeader\FadeHeaderBehaviorXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\FocusTracker\FocusTrackerXaml.bind">
+      <Link>SamplePages\FocusTracker\FocusTrackerXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\GridSplitter\GridSplitter.bind">
+      <Link>SamplePages\GridSplitter\GridSplitter.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\HamburgerMenu\HamburgerMenuCode.bind">
+      <Link>SamplePages\HamburgerMenu\HamburgerMenuCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\HeaderedTextBlock\HeaderedTextBlockCode.bind">
+      <Link>SamplePages\HeaderedTextBlock\HeaderedTextBlockCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ImageCache\ImageCacheCode.bind">
+      <Link>SamplePages\ImageCache\ImageCacheCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ImageCache\ImageCacheXaml.bind">
+      <Link>SamplePages\ImageCache\ImageCacheXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ImageEx\ImageExCode.bind">
+      <Link>SamplePages\ImageEx\ImageExCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\InAppNotification\InAppNotificationCode.bind">
+      <Link>SamplePages\InAppNotification\InAppNotificationCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\InAppNotification\InAppNotificationXaml.bind">
+      <Link>SamplePages\InAppNotification\InAppNotificationXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Incremental Loading Collection\IncrementalLoadingCollectionCode.bind">
+      <Link>SamplePages\Incremental Loading Collection\IncrementalLoadingCollectionCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Light\LightBehaviorCode.bind">
+      <Link>SamplePages\Light\LightBehaviorCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Light\LightBehaviorXaml.bind">
+      <Link>SamplePages\Light\LightBehaviorXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ListViewBase\ListViewBaseCode.bind">
+      <Link>SamplePages\ListViewBase\ListViewBaseCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Loading\LoadingCode.bind">
+      <Link>SamplePages\Loading\LoadingCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MarkdownTextBlock\InitialContent.md">
+      <Link>SamplePages\MarkdownTextBlock\InitialContent.md</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MarkdownTextBlock\MarkdownTextBlock.bind">
+      <Link>SamplePages\MarkdownTextBlock\MarkdownTextBlock.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MarkdownTextBlock\MarkdownTextBlockCode.bind">
+      <Link>SamplePages\MarkdownTextBlock\MarkdownTextBlockCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MasterDetailsView\MasterDetailsView.bind">
+      <Link>SamplePages\MasterDetailsView\MasterDetailsView.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MasterDetailsView\MasterDetailsViewCode.bind">
+      <Link>SamplePages\MasterDetailsView\MasterDetailsViewCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Menu\Menu.bind">
+      <Link>SamplePages\Menu\Menu.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Object Storage\ObjectStorageCode.bind">
+      <Link>SamplePages\Object Storage\ObjectStorageCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Offset\OffsetBehaviorCode.bind">
+      <Link>SamplePages\Offset\OffsetBehaviorCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Offset\OffsetBehaviorXaml.bind">
+      <Link>SamplePages\Offset\OffsetBehaviorXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\OrbitView\OrbitViewXaml.bind">
+      <Link>SamplePages\OrbitView\OrbitViewXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ParallaxService\ParallaxPage.bind">
+      <Link>SamplePages\ParallaxService\ParallaxPage.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\PrintHelper\PrintHelperCode.bind">
+      <Link>SamplePages\PrintHelper\PrintHelperCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\PullToRefreshListView\PullToRefreshListViewCode.bind">
+      <Link>SamplePages\PullToRefreshListView\PullToRefreshListViewCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\PullToRefreshListView\PullToRefreshListViewXaml.bind">
+      <Link>SamplePages\PullToRefreshListView\PullToRefreshListViewXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RadialGauge\RadialGaugeCode.bind">
+      <Link>SamplePages\RadialGauge\RadialGaugeCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RadialProgressBar\RadialProgressBarCode.bind">
+      <Link>SamplePages\RadialProgressBar\RadialProgressBarCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RangeSelector\RangeSelectorCode.bind">
+      <Link>SamplePages\RangeSelector\RangeSelectorCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ReorderGridAnimation\ReorderGrid.bind">
+      <Link>SamplePages\ReorderGridAnimation\ReorderGrid.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Rotate\RotateBehaviorCode.bind">
+      <Link>SamplePages\Rotate\RotateBehaviorCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Rotate\RotateBehaviorXaml.bind">
+      <Link>SamplePages\Rotate\RotateBehaviorXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RotatorTile\RotatorTileCode.bind">
+      <Link>SamplePages\RotatorTile\RotatorTileCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Saturation\SaturationBehaviorCode.bind">
+      <Link>SamplePages\Saturation\SaturationBehaviorCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Saturation\SaturationBehaviorXaml.bind">
+      <Link>SamplePages\Saturation\SaturationBehaviorXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Scale\ScaleBehaviorCode.bind">
+      <Link>SamplePages\Scale\ScaleBehaviorCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Scale\ScaleBehaviorXaml.bind">
+      <Link>SamplePages\Scale\ScaleBehaviorXaml.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ScrollHeader\ScrollHeaderCode.bind">
+      <Link>SamplePages\ScrollHeader\ScrollHeaderCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SlidableListItem\SlidableListItemCode.bind">
+      <Link>SamplePages\SlidableListItem\SlidableListItemCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SurfaceDialTextbox\SurfaceDialTextboxCode.bind">
+      <Link>SamplePages\SurfaceDialTextbox\SurfaceDialTextboxCode.bind</Link>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SystemInformation\SystemInformationCode.bind">
+      <Link>SamplePages\SystemInformation\SystemInformationCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextBoxMask\TextBoxMask.bind">
+      <Link>SamplePages\TextBoxMask\TextBoxMask.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextBoxRegex\TextBoxRegex.bind">
+      <Link>SamplePages\TextBoxRegex\TextBoxRegex.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextToolbar\TextToolbar.bind">
+      <Link>SamplePages\TextToolbar\TextToolbar.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextToolbar\TextToolbarCode.bind">
+      <Link>SamplePages\TextToolbar\TextToolbarCode.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TileControl\TileControl.bind">
+      <Link>SamplePages\TileControl\TileControl.bind</Link>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ViewExtensions\ViewExtensionsCode.bind">
+      <Link>SamplePages\ViewExtensions\ViewExtensionsCode.bind</Link>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\WrapPanel\WrapPanel.bind">
+      <Link>SamplePages\WrapPanel\WrapPanel.bind</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\samples.json">
+      <Link>SamplePages\samples.json</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\landingPageLinks.json">
+      <Link>landingPageLinks.json</Link>
+    </Content>
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AdaptiveGridView\AdaptiveGridView.png">
+      <Link>SamplePages\AdaptiveGridView\AdaptiveGridView.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AdvancedCollectionView\AdvancedCollectionView.png">
+      <Link>SamplePages\AdvancedCollectionView\AdvancedCollectionView.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AlignmentGrid\AlignmentGrid.png">
+      <Link>SamplePages\AlignmentGrid\AlignmentGrid.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Analytics\Analytics.png">
+      <Link>SamplePages\Analytics\Analytics.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\BladeView\BladeView.png">
+      <Link>SamplePages\BladeView\BladeView.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Blur\BlurBehavior.png">
+      <Link>SamplePages\Blur\BlurBehavior.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Carousel\Carousel.png">
+      <Link>SamplePages\Carousel\Carousel.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\DropShadowPanel\DropShadowPanel.png">
+      <Link>SamplePages\DropShadowPanel\DropShadowPanel.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\DropShadowPanel\Trex.png">
+      <Link>SamplePages\DropShadowPanel\Trex.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\DropShadowPanel\Unicorn.png">
+      <Link>SamplePages\DropShadowPanel\Unicorn.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Expander\Expander.png">
+      <Link>SamplePages\Expander\Expander.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Fade\FadeBehavior.png">
+      <Link>SamplePages\Fade\FadeBehavior.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\FocusTracker\FocusTracker.png">
+      <Link>SamplePages\FocusTracker\FocusTracker.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\GridSplitter\GridSplitter.png">
+      <Link>SamplePages\GridSplitter\GridSplitter.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\HamburgerMenu\HamburgerMenu.png">
+      <Link>SamplePages\HamburgerMenu\HamburgerMenu.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\HeaderedTextBlock\HeaderedTextBlock.png">
+      <Link>SamplePages\HeaderedTextBlock\HeaderedTextBlock.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ImageCache\ImageEx.png">
+      <Link>SamplePages\ImageCache\ImageEx.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ImageEx\ImageEx.png">
+      <Link>SamplePages\ImageEx\ImageEx.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\InAppNotification\InAppNotification.png">
+      <Link>SamplePages\InAppNotification\InAppNotification.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Incremental Loading Collection\icon.png">
+      <Link>SamplePages\Incremental Loading Collection\icon.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Light\LightBehavior.png">
+      <Link>SamplePages\Light\LightBehavior.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Loading\Loading.png">
+      <Link>SamplePages\Loading\Loading.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MarkdownTextBlock\MarkdownTextBlock.png">
+      <Link>SamplePages\MarkdownTextBlock\MarkdownTextBlock.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MasterDetailsView\MasterDetailsView.png">
+      <Link>SamplePages\MasterDetailsView\MasterDetailsView.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MasterDetailsView\OneDriveLogo.png">
+      <Link>SamplePages\MasterDetailsView\OneDriveLogo.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Menu\Menu.png">
+      <Link>SamplePages\Menu\Menu.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Object Storage\ObjectStorage.png">
+      <Link>SamplePages\Object Storage\ObjectStorage.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Offset\OffsetBehavior.png">
+      <Link>SamplePages\Offset\OffsetBehavior.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\OrbitView\OrbitView.png">
+      <Link>SamplePages\OrbitView\OrbitView.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ParallaxService\Parallax.png">
+      <Link>SamplePages\ParallaxService\Parallax.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\PrintHelper\PrintHelper.png">
+      <Link>SamplePages\PrintHelper\PrintHelper.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\PullToRefreshListView\PullToRefreshListView.png">
+      <Link>SamplePages\PullToRefreshListView\PullToRefreshListView.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RadialGauge\RadialGauge.png">
+      <Link>SamplePages\RadialGauge\RadialGauge.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RadialProgressBar\RadialProgressBar.png">
+      <Link>SamplePages\RadialProgressBar\RadialProgressBar.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RangeSelector\RangeSelector.png">
+      <Link>SamplePages\RangeSelector\RangeSelector.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ReorderGridAnimation\ReorderGrid.png">
+      <Link>SamplePages\ReorderGridAnimation\ReorderGrid.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Rotate\RotateBehavior.png">
+      <Link>SamplePages\Rotate\RotateBehavior.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RotatorTile\RotatorTile.png">
+      <Link>SamplePages\RotatorTile\RotatorTile.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Saturation\SaturationBehavior.png">
+      <Link>SamplePages\Saturation\SaturationBehavior.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Scale\ScaleBehavior.png">
+      <Link>SamplePages\Scale\ScaleBehavior.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ScrollHeader\ScrollHeader.png">
+      <Link>SamplePages\ScrollHeader\ScrollHeader.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SlidableListItem\SlidableListItem.png">
+      <Link>SamplePages\SlidableListItem\SlidableListItem.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SurfaceDialTextbox\SurfaceDialTextbox.png">
+      <Link>SamplePages\SurfaceDialTextbox\SurfaceDialTextbox.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextBoxMask\TextBoxMask.png">
+      <Link>SamplePages\TextBoxMask\TextBoxMask.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextBoxRegex\TextBoxRegex.png">
+      <Link>SamplePages\TextBoxRegex\TextBoxRegex.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextToolbar\TextToolbar.png">
+      <Link>SamplePages\TextToolbar\TextToolbar.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TileControl\Animations.png">
+      <Link>SamplePages\TileControl\Animations.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TileControl\TileControl.png">
+      <Link>SamplePages\TileControl\TileControl.png</Link>
+    </Content>
+    <Content Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\WrapPanel\WrapPanel.png">
+      <Link>SamplePages\WrapPanel\WrapPanel.png</Link>
+    </Content>
+    <Content Include="Entitlements.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Collections" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Uno.Xaml">
+      <HintPath>C:\Users\jayly\.nuget\packages\uno.ui\1.21.1-dev.1226\lib\xamarinios10\Uno.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.0-uno0214</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.UI" Version="1.23.1-dev.1453" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="..\Microsoft.Toolkit.Uwp.SampleApp\App.xaml">
+      <Link>App.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\Controls\PropertyControl.xaml">
+      <Link>Controls\PropertyControl.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\Pages\About.xaml">
+      <Link>Pages\About.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\Pages\SamplePicker.xaml">
+      <Link>Pages\SamplePicker.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AdaptiveGridView\AdaptiveGridViewPage.xaml">
+      <Link>SamplePages\AdaptiveGridView\AdaptiveGridViewPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AdvancedCollectionView\AdvancedCollectionViewPage.xaml">
+      <Link>SamplePages\AdvancedCollectionView\AdvancedCollectionViewPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\AlignmentGrid\AlignmentGridPage.xaml">
+      <Link>SamplePages\AlignmentGrid\AlignmentGridPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Analytics\AnalyticsPage.xaml">
+      <Link>SamplePages\Analytics\AnalyticsPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\BladeView\BladePage.xaml">
+      <Link>SamplePages\BladeView\BladePage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Blur\BlurBehaviorPage.xaml">
+      <Link>SamplePages\Blur\BlurBehaviorPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Carousel\CarouselPage.xaml">
+      <Link>SamplePages\Carousel\CarouselPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\DispatcherHelper\DispatcherHelperPage.xaml">
+      <Link>SamplePages\DispatcherHelper\DispatcherHelperPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\DropShadowPanel\DropShadowPanelPage.xaml">
+      <Link>SamplePages\DropShadowPanel\DropShadowPanelPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Expander\ExpanderPage.xaml">
+      <Link>SamplePages\Expander\ExpanderPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\FadeHeader\FadeHeaderBehaviorPage.xaml">
+      <Link>SamplePages\FadeHeader\FadeHeaderBehaviorPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Fade\FadeBehaviorPage.xaml">
+      <Link>SamplePages\Fade\FadeBehaviorPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\FocusTracker\FocusTrackerPage.xaml">
+      <Link>SamplePages\FocusTracker\FocusTrackerPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\GridSplitter\GridSplitterPage.xaml">
+      <Link>SamplePages\GridSplitter\GridSplitterPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\HamburgerMenu\HamburgerMenuPage.xaml">
+      <Link>SamplePages\HamburgerMenu\HamburgerMenuPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\HeaderedTextBlock\HeaderedTextBlockPage.xaml">
+      <Link>SamplePages\HeaderedTextBlock\HeaderedTextBlockPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ImageCache\ImageCachePage.xaml">
+      <Link>SamplePages\ImageCache\ImageCachePage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ImageEx\ImageExPage.xaml">
+      <Link>SamplePages\ImageEx\ImageExPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\InAppNotification\InAppNotificationPage.xaml">
+      <Link>SamplePages\InAppNotification\InAppNotificationPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Incremental Loading Collection\IncrementalLoadingCollectionPage.xaml">
+      <Link>SamplePages\Incremental Loading Collection\IncrementalLoadingCollectionPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Light\LightBehaviorPage.xaml">
+      <Link>SamplePages\Light\LightBehaviorPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ListViewBase\ListViewBasePage.xaml">
+      <Link>SamplePages\ListViewBase\ListViewBasePage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Loading\LoadingPage.xaml">
+      <Link>SamplePages\Loading\LoadingPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MarkdownTextBlock\MarkdownTextBlockPage.xaml">
+      <Link>SamplePages\MarkdownTextBlock\MarkdownTextBlockPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\MasterDetailsView\MasterDetailsViewPage.xaml">
+      <Link>SamplePages\MasterDetailsView\MasterDetailsViewPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Menu\MenuPage.xaml">
+      <Link>SamplePages\Menu\MenuPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Object Storage\ObjectStoragePage.xaml">
+      <Link>SamplePages\Object Storage\ObjectStoragePage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Offset\OffsetBehaviorPage.xaml">
+      <Link>SamplePages\Offset\OffsetBehaviorPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\OrbitView\OrbitViewPage.xaml">
+      <Link>SamplePages\OrbitView\OrbitViewPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ParallaxService\ParallaxPage.xaml">
+      <Link>SamplePages\ParallaxService\ParallaxPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\PrintHelper\PrintHelperPage.xaml">
+      <Link>SamplePages\PrintHelper\PrintHelperPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\PullToRefreshListView\PullToRefreshListViewPage.xaml">
+      <Link>SamplePages\PullToRefreshListView\PullToRefreshListViewPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RadialGauge\RadialGaugePage.xaml">
+      <Link>SamplePages\RadialGauge\RadialGaugePage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RadialProgressBar\RadialProgressBarPage.xaml">
+      <Link>SamplePages\RadialProgressBar\RadialProgressBarPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RangeSelector\RangeSelectorPage.xaml">
+      <Link>SamplePages\RangeSelector\RangeSelectorPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ReorderGridAnimation\ReorderGridPage.xaml">
+      <Link>SamplePages\ReorderGridAnimation\ReorderGridPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Rotate\RotateBehaviorPage.xaml">
+      <Link>SamplePages\Rotate\RotateBehaviorPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\RotatorTile\RotatorTilePage.xaml">
+      <Link>SamplePages\RotatorTile\RotatorTilePage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Saturation\SaturationBehaviorPage.xaml">
+      <Link>SamplePages\Saturation\SaturationBehaviorPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\Scale\ScaleBehaviorPage.xaml">
+      <Link>SamplePages\Scale\ScaleBehaviorPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ScrollHeader\ScrollHeaderPage.xaml">
+      <Link>SamplePages\ScrollHeader\ScrollHeaderPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SlidableListItem\SlidableListItemPage.xaml">
+      <Link>SamplePages\SlidableListItem\SlidableListItemPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SurfaceDialTextbox\SurfaceDialTextboxPage.xaml">
+      <Link>SamplePages\SurfaceDialTextbox\SurfaceDialTextboxPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\SystemInformation\SystemInformationPage.xaml">
+      <Link>SamplePages\SystemInformation\SystemInformationPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextBoxMask\TextBoxMaskPage.xaml">
+      <Link>SamplePages\TextBoxMask\TextBoxMaskPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextBoxRegex\TextBoxRegexPage.xaml">
+      <Link>SamplePages\TextBoxRegex\TextBoxRegexPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TextToolbar\TextToolbarPage.xaml">
+      <Link>SamplePages\TextToolbar\TextToolbarPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\TileControl\TileControlPage.xaml">
+      <Link>SamplePages\TileControl\TileControlPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\ViewExtensions\ViewExtensionsPage.xaml">
+      <Link>SamplePages\ViewExtensions\ViewExtensionsPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\SamplePages\WrapPanel\WrapPanelPage.xaml">
+      <Link>SamplePages\WrapPanel\WrapPanelPage.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\Microsoft.Toolkit.Uwp.SampleApp\Shell.xaml">
+      <Link>Shell.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.DeveloperTools\Microsoft.Toolkit.Uwp.DeveloperTools.csproj">
+      <Project>{e7697922-9555-4cfb-aee0-c5f4d657e559}</Project>
+      <Name>Microsoft.Toolkit.Uwp.DeveloperTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj">
+      <Project>{b24a296c-b3eb-4e06-a64e-74ac2d1acc91}</Project>
+      <Name>Microsoft.Toolkit.Uwp.UI.Animations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.csproj">
+      <Project>{e9faabfb-d726-42c1-83c1-cb46a29fea81}</Project>
+      <Name>Microsoft.Toolkit.Uwp.UI.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj">
+      <Project>{3dd8aa7c-3569-4e51-992f-0c2257e8878e}</Project>
+      <Name>Microsoft.Toolkit.Uwp.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj">
+      <Project>{805f80df-75c6-4c2f-8fd9-b47f6d0df5a3}</Project>
+      <Name>Microsoft.Toolkit.Uwp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj">
+      <Project>{6fe128a8-cefa-4a61-a987-ec92de6b538e}</Project>
+      <Name>Microsoft.Toolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

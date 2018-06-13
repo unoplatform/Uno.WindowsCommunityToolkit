@@ -10,14 +10,14 @@
 
     <!-- Shallow Copy -->
     <Grid Visibility="Collapsed">
-        <Image>
+        <!-- UNO TODO <Image>
             <interactivity:Interaction.Behaviors>
                 <behaviors:Scale />
             </interactivity:Interaction.Behaviors>
             <Image.RenderTransform>
                 <TranslateTransform />
             </Image.RenderTransform>
-        </Image>
+        </Image>-->
         <StackPanel>
             <Button>
                 <interactivity:Interaction.Behaviors>

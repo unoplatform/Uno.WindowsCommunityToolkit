@@ -1,5 +1,6 @@
 ﻿<Page x:Class="Microsoft.Toolkit.Uwp.SampleApp.Pages.About"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -31,7 +32,7 @@
         </DataTemplate>
 
         <DataTemplate x:DataType="sampleapp:Sample" x:Key="NewSampleTemplate">
-            <HyperlinkButton Width="267" HorizontalContentAlignment="Left" Style="{StaticResource AboutHyperlinkButtonStyle}" Click="NewSample_Click">
+            <HyperlinkButton Width="267" HorizontalContentAlignment="Left" Style="{StaticResource AboutHyperlinkButtonStyle}"> <!--TODO JELA Click="NewSample_Click"-->
                 <TextBlock Text="{x:Bind Name}"></TextBlock>
             </HyperlinkButton>
         </DataTemplate>
@@ -41,14 +42,14 @@
                              HorizontalContentAlignment="Stretch" 
                              NavigateUri="{x:Bind Url}"
                              Width="208"
-                             Click="ReleaseNotes_Click"
                              Style="{StaticResource AboutHyperlinkButtonStyle}">
+                             <!-- TODO JELA Click="ReleaseNotes_Click"-->
                 <Grid>
                     <TextBlock Text="{x:Bind FullName}"></TextBlock>
-                    <TextBlock HorizontalAlignment="Right"
+					<TextBlock HorizontalAlignment="Right"
                                Opacity="0.5"
                                Foreground="Black"
-                               Text="{x:Bind Published.ToString('MMM d', {x:Null})}"></TextBlock>
+                               Text="{x:Bind Published}"><!-- UNO TODO --></TextBlock>
                 </Grid>
             </HyperlinkButton>
         </DataTemplate>
@@ -56,7 +57,7 @@
         <DataTemplate x:DataType="sampleapp:LandingPageLink" x:Key="LinkTemplate">
             <HyperlinkButton Style="{StaticResource AboutHyperlinkButtonStyle}" 
                              NavigateUri="{x:Bind Url}"
-                             Click="Link_Clicked">
+                             ><!-- UNO TODO Click="Link_Clicked"-->
                 <TextBlock Text="{x:Bind Title}"></TextBlock>
             </HyperlinkButton>
         </DataTemplate>
@@ -177,10 +178,12 @@
                                 <TextBlock FontSize="20" FontFamily="Segoe UI" FontWeight="Normal">About the App</TextBlock>
                                 <ItemsControl Margin="0,16,0,0">
                                     <TextBlock x:Name="Version" FontSize="12" Margin="0,0,0,10"></TextBlock>
-                                    <HyperlinkButton Style="{StaticResource AboutHyperlinkButtonStyle}" NavigateUri="http://www.newtonsoft.com/json" Click="Link_Clicked">
+                                    <HyperlinkButton Style="{StaticResource AboutHyperlinkButtonStyle}" NavigateUri="http://www.newtonsoft.com/json" >
+                                        <!--UNO TODO Click="Link_Clicked"-->
                                         <TextBlock>Newtonsoft Json (Dependency)</TextBlock>
                                     </HyperlinkButton>
-                                    <HyperlinkButton Style="{StaticResource AboutHyperlinkButtonStyle}" NavigateUri="https://github.com/google/code-prettify" Click="Link_Clicked">
+                                    <HyperlinkButton Style="{StaticResource AboutHyperlinkButtonStyle}" NavigateUri="https://github.com/google/code-prettify">
+                                        <!--UNO TODO Click="Link_Clicked"-->
                                         <TextBlock>Code Prettify (Dependency)</TextBlock>
                                     </HyperlinkButton>
                                     <HyperlinkButton Style="{StaticResource AboutHyperlinkButtonStyle}" NavigateUri="https://unsplash.com/@8moments" Click="Link_Clicked">

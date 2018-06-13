@@ -61,7 +61,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 
             _wrapPanelCollection.Remove(item);
         }
-
+		 
         private void AddButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             _wrapPanelCollection.Add(new PhotoDataItemWithDimension

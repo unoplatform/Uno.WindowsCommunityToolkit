@@ -537,8 +537,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                                     catch (Exception ex)
                                     {
                                         Debug.WriteLine($"Unable to extract slider info from {value}({ex.Message})");
-                                        TrackingManager.TrackException(ex);
-                                        continue;
+#if NETFX_CORE // UNO TODO
+                                       TrackingManager.TrackException(ex);
+#endif
+										continue;
                                     }
 
                                     break;
@@ -546,17 +548,22 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                                 case PropertyKind.Enum:
                                     try
                                     {
-                                        options = new PropertyOptions();
                                         var split = value.Split('.');
                                         var typeName = string.Join(".", split.Take(split.Length - 1));
                                         var enumType = LookForTypeByName(typeName);
-                                        options.DefaultValue = Enum.Parse(enumType, split.Last());
+                                            options = new PropertyOptions();
+                                       if (enumType != null)
+                                        {
+                                            options.DefaultValue = Enum.Parse(enumType, split.Last());
+                                        }
                                     }
                                     catch (Exception ex)
                                     {
                                         Debug.WriteLine($"Unable to parse enum from {value}({ex.Message})");
+#if NETFX_CORE // UNO TODO
                                         TrackingManager.TrackException(ex);
-                                        continue;
+#endif
+										continue;
                                     }
 
                                     break;
@@ -582,8 +589,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                                     catch (Exception ex)
                                     {
                                         Debug.WriteLine($"Unable to parse bool from {value}({ex.Message})");
+#if NETFX_CORE // UNO TODO
                                         TrackingManager.TrackException(ex);
-                                        continue;
+#endif
+										continue;
                                     }
 
                                     break;

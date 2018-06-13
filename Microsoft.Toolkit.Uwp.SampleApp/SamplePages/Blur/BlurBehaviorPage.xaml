@@ -1,5 +1,6 @@
 ﻿<Page x:Class="Microsoft.Toolkit.Uwp.SampleApp.SamplePages.BlurBehaviorPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
@@ -27,11 +28,11 @@
         
         <!-- Shadow Copy for Access -->
         <Grid Visibility="Collapsed">
-            <Image>
+            <win:Image>
                 <interactivity:Interaction.Behaviors>
                     <behaviors:Blur/>
                 </interactivity:Interaction.Behaviors>
-            </Image>
+            </win:Image>
             <StackPanel>
                 <Button>
                     <interactivity:Interaction.Behaviors>

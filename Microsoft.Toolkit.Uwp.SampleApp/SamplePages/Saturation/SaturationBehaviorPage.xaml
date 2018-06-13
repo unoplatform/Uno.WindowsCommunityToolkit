@@ -24,7 +24,7 @@
         <!-- Shallow Copy -->
         <Image>
             <interactivity:Interaction.Behaviors>
-                <behaviors:Saturation  />
+                <!-- UNO TODO <behaviors:Saturation  />-->
             </interactivity:Interaction.Behaviors>
         </Image>
         <StackPanel Visibility="Collapsed">

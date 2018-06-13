@@ -22,7 +22,7 @@
         <!-- Shallow Copy -->
         <Image>
             <interactivity:Interaction.Behaviors>
-                <behaviors:Light Color="Red" />
+                <!--UNO TODO <behaviors:Light Color="Red" /> -->
             </interactivity:Interaction.Behaviors>
         </Image>
 

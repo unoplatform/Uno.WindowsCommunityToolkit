@@ -108,20 +108,24 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
 
             Shell.Current.ShowOnlyHeader("About");
 
+#if NETFX_CORE // UNO TODO
             var packageVersion = Package.Current.Id.Version;
             Version.Text = $"Version {packageVersion.Major}.{packageVersion.Minor}.{packageVersion.Build}";
+#else
+			Version.Text = $"Version not implemented";
+#endif
 
             _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
 
             var t = Init();
 
-            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+            Windows.UI.Xaml.Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
-            Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
+            Windows.UI.Xaml.Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
         }
 
         private void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
@@ -176,7 +180,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
                 }
             }
 
-            Root.Visibility = Visibility.Visible;
+			Root.Visibility = Visibility.Visible;
         }
 
         private void RecentSample_Click(object sender, RoutedEventArgs e)
@@ -184,8 +188,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
             var button = sender as HyperlinkButton;
             if (button.DataContext is Sample sample)
             {
-                TrackingManager.TrackEvent("LandingPageRecentClick", sample.Name);
-                Shell.Current.NavigateToSample(sample);
+#if NETFX_CORE // UNO TODO
+               TrackingManager.TrackEvent("LandingPageRecentClick", sample.Name);
+#endif
+				Shell.Current.NavigateToSample(sample);
             }
         }
 
@@ -194,30 +200,37 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
             var button = sender as HyperlinkButton;
             if (button.DataContext is Sample sample)
             {
+#if NETFX_CORE // UNO TODO
                 TrackingManager.TrackEvent("LandingPageNewClick", sample.Name);
-                Shell.Current.NavigateToSample(sample);
+#endif
+
+				Shell.Current.NavigateToSample(sample);
             }
         }
 
         private void ReleaseNotes_Click(object sender, RoutedEventArgs e)
         {
+#if NETFX_CORE // UNO TODO
             var button = sender as HyperlinkButton;
             if (button.DataContext is GitHubRelease release)
             {
                 TrackingManager.TrackEvent("LandingPageReleaseClick", release.Name);
             }
-        }
+#endif
+		}
 
-        private void Link_Clicked(object sender, RoutedEventArgs e)
+		private void Link_Clicked(object sender, RoutedEventArgs e)
         {
-            var button = sender as HyperlinkButton;
+#if NETFX_CORE // UNO TODO
+           var button = sender as HyperlinkButton;
             if (button.Content is TextBlock textBlock)
             {
                 TrackingManager.TrackEvent("LandingPageLinkClick", textBlock.Text);
             }
-        }
+#endif
+		}
 
-        private async Task UpdateSections()
+		private async Task UpdateSections()
         {
             if (LandingPageLinks == null)
             {

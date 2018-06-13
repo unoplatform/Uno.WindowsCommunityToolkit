@@ -1,0 +1,37 @@
+﻿<Project ToolsVersion="15.0">
+
+	<Target Name="_DisplayTargets" BeforeTargets="BeforeBuild">
+		<Message Text="Building target framework: $(TargetFramework) for $(AssemblyName)" Importance="high" Condition="'$(TargetFramework)'!=''" />
+	</Target>
+
+	<!-- Workaround for UWP dependencies for head projects -->
+	<Target Name="GetPackagingOutputs" Condition="'$(TargetFrameworkIdentifier)'=='.NETCore'" />
+	
+	<!-- Workaround for Xamarin dependencies for head projects -->
+	<Target Name="GetBuiltProjectOutputRecursive" Condition="'$(TargetFrameworkIdentifier)'=='Xamarin.iOS' or '$(TargetFrameworkIdentifier)'=='Xamarin.Android'" />
+
+	<Target Name="_OverrideNuget"
+          AfterTargets="AfterBuild"
+          DependsOnTargets="BuiltProjectOutputGroup"
+          Condition="'$(NugetOverrideCacheVersion)'!=''">
+
+		<PropertyGroup>
+			<_OverrideTargetFramework>$(TargetFramework)</_OverrideTargetFramework>
+			<_OverrideTargetFramework Condition="'$(TargetFramework)' == 'xamarinios10'">xamarinios10</_OverrideTargetFramework>
+			<_TargetNugetFolder>$(USERPROFILE)\.nuget\packages\$(AssemblyName)\$(NugetOverrideCacheVersion)\lib\$(_OverrideTargetFramework)</_TargetNugetFolder>
+		</PropertyGroup>
+		<ItemGroup>
+			<_OutputFiles Include="@(BuiltProjectOutputGroupOutput)" />
+			<_OutputFilesPDB Include="@(_OutputFiles->'%(RootDir)\%(Directory)\%(RecursiveDir)%(Filename).pdb')" Condition="Exists('@(BuiltProjectOutputGroupOutput->'%(RootDir)\%(Directory)\%(RecursiveDir)%(Filename).pdb')')" />
+		</ItemGroup>
+		<MakeDir Directories="$(_TargetNugetFolder)" />
+
+		<Warning Importance="high" Text="OVERRIDING NUGET PACKAGE CACHE: $(_TargetNugetFolder)" />
+
+		<Copy SourceFiles="@(_OutputFiles)"
+      DestinationFiles="@(_OutputFiles->'$(_TargetNugetFolder)\%(RecursiveDir)%(Filename)%(Extension)')" />
+		<Copy SourceFiles="@(_OutputFilesPDB)"
+      DestinationFiles="@(_OutputFilesPDB->'$(_TargetNugetFolder)\%(RecursiveDir)%(Filename).pdb')" />
+	</Target>
+
+</Project>

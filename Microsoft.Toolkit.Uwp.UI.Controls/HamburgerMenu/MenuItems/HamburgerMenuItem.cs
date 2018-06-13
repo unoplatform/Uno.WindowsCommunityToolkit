@@ -11,7 +11,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// The HamburgerMenuItem provides an abstract implementation for HamburgerMenu entries.
     /// </summary>
     [Obsolete("The HamburgerMenuItem will be removed alongside the HamburgerMenu in a future major release. Please use the NavigationView control available in the Fall Creators Update")]
-    public abstract class HamburgerMenuItem : DependencyObject
+    public partial abstract class HamburgerMenuItem : DependencyObject
     {
         /// <summary>
         /// Identifies the <see cref="Label"/> dependency property.

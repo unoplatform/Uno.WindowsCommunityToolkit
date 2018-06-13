@@ -11,8 +11,8 @@
     <Grid Visibility="Collapsed">
         <ScrollViewer>
             <StackPanel>
-                <Image Source="ms-appx:///Assets/Photos/BigFourSummerHeat.jpg"
-                       an:ParallaxService.VerticalMultiplier="0.1"/>
+                <!--UNO TODO <Image Source="ms-appx:///Assets/Photos/BigFourSummerHeat.jpg"
+                       an:ParallaxService.VerticalMultiplier="0.1"/>-->
             </StackPanel>
         </ScrollViewer>
     </Grid>
