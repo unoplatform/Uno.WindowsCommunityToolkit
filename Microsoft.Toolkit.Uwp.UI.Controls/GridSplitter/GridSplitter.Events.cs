@@ -38,8 +38,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             if (Element == default(UIElement))
             {
                 CreateGripperDisplay();
-                Element = _gripperDisplay;
-            }
+
+#if NETFX_CORE // UNO TODO
+				Element = _gripperDisplay;
+#endif
+			}
 
             var hoverWrapper = new GripperHoverWrapper(
                 CursorBehavior == SplitterCursorBehavior.ChangeOnSplitterHover
@@ -73,7 +76,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         protected override void OnKeyDown(KeyRoutedEventArgs e)
         {
             var step = 1;
-            var ctrl = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control);
+			// UNO TODO
+			var ctrl = Windows.UI.Xaml.Window.Current.CoreWindow.GetKeyState(VirtualKey.Control);
             if (ctrl.HasFlag(CoreVirtualKeyStates.Down))
             {
                 step = 5;
@@ -122,18 +126,21 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <inheritdoc />
         protected override void OnManipulationStarted(ManipulationStartedRoutedEventArgs e)
         {
-            // saving the previous state
-            PreviousCursor = Window.Current.CoreWindow.PointerCursor;
+			// saving the previous state
+			// UNO TODO
+			PreviousCursor = Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor;
             _resizeDirection = GetResizeDirection();
             _resizeBehavior = GetResizeBehavior();
 
             if (_resizeDirection == GridResizeDirection.Columns)
             {
-                Window.Current.CoreWindow.PointerCursor = ColumnsSplitterCursor;
+				// UNO TODO
+				Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = ColumnsSplitterCursor;
             }
             else if (_resizeDirection == GridResizeDirection.Rows)
             {
-                Window.Current.CoreWindow.PointerCursor = RowSplitterCursor;
+				// UNO TODO
+				Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = RowSplitterCursor;
             }
 
             base.OnManipulationStarted(e);
@@ -142,7 +149,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <inheritdoc />
         protected override void OnManipulationCompleted(ManipulationCompletedRoutedEventArgs e)
         {
-            Window.Current.CoreWindow.PointerCursor = PreviousCursor;
+			// UNO TODO
+			Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = PreviousCursor;
 
             base.OnManipulationCompleted(e);
         }

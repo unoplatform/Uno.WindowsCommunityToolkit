@@ -928,7 +928,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Markdown.Display
             }
 
             var image = new Image();
-            var imageContainer = new InlineUIContainer() { Child = image };
+            var imageContainer = new InlineUIContainer() {
+#if NETFX_CORE // UNO TODO
+				Child = image
+#endif
+			};
 
             image.Source = resolvedImage;
             image.HorizontalAlignment = HorizontalAlignment.Left;
@@ -1008,12 +1012,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Markdown.Display
         {
             Span span = new Span();
 
-            if (TextDecorationsSupported)
+#if NETFX_CORE // UNO TODO
+			if (TextDecorationsSupported)
             {
                 span.TextDecorations = TextDecorations.Strikethrough;
             }
             else
-            {
+#endif
+			{
                 span.FontFamily = new FontFamily("Consolas");
             }
 

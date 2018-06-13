@@ -22,6 +22,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// </summary>
     public partial class WrapPanel : Panel
     {
+		// UNO TODO
+		public WrapPanel()
+		{
+
+		}
+		
         /// <summary>
         /// Gets or sets the orientation of the WrapPanel, Horizontal or vertical means that child controls will be added horizontally until the width of the panel can't fit more control then a new row is added to fit new horizontal added child controls, vertical means that child will be added vertically until the height of the panel is recieved then a new column is added
         /// </summary>
@@ -54,42 +60,46 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             var totalMeasure = UvMeasure.Zero;
             var parentMeasure = new UvMeasure(Orientation, availableSize.Width, availableSize.Height);
             var lineMeasure = UvMeasure.Zero;
-            foreach (var child in Children)
+            foreach (var nativeChild in Children)
             {
-                child.Measure(availableSize);
+				// UNO TODO
+				if (nativeChild is UIElement child)
+				{
+					child.Measure(availableSize);
 
-                var currentMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+					var currentMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
 
-                if (parentMeasure.U > currentMeasure.U + lineMeasure.U)
-                {
-                    lineMeasure.U += currentMeasure.U;
-                    lineMeasure.V = Math.Max(lineMeasure.V, currentMeasure.V);
-                }
-                else
-                {
-                    // new line should be added
-                    // to get the max U to provide it correctly to ui width ex: ---| or -----|
-                    totalMeasure.U = Math.Max(lineMeasure.U, totalMeasure.U);
-                    totalMeasure.V += lineMeasure.V;
+					if (parentMeasure.U > currentMeasure.U + lineMeasure.U)
+					{
+						lineMeasure.U += currentMeasure.U;
+						lineMeasure.V = Math.Max(lineMeasure.V, currentMeasure.V);
+					}
+					else
+					{
+						// new line should be added
+						// to get the max U to provide it correctly to ui width ex: ---| or -----|
+						totalMeasure.U = Math.Max(lineMeasure.U, totalMeasure.U);
+						totalMeasure.V += lineMeasure.V;
 
-                    // if the next new row still can handle more controls
-                    if (parentMeasure.U > currentMeasure.U)
-                    {
-                        // set lineMeasure initial values to the currentMeasure to be calculated later on the new loop
-                        lineMeasure = currentMeasure;
-                    }
+						// if the next new row still can handle more controls
+						if (parentMeasure.U > currentMeasure.U)
+						{
+							// set lineMeasure initial values to the currentMeasure to be calculated later on the new loop
+							lineMeasure = currentMeasure;
+						}
 
-                    // the control will take one row alone
-                    else
-                    {
-                        // validate the new control measures
-                        totalMeasure.U = Math.Max(currentMeasure.U, totalMeasure.U);
-                        totalMeasure.V += currentMeasure.V;
+						// the control will take one row alone
+						else
+						{
+							// validate the new control measures
+							totalMeasure.U = Math.Max(currentMeasure.U, totalMeasure.U);
+							totalMeasure.V += currentMeasure.V;
 
-                        // add new empty line
-                        lineMeasure = UvMeasure.Zero;
-                    }
-                }
+							// add new empty line
+							lineMeasure = UvMeasure.Zero;
+						}
+					}
+				}
             }
 
             // update value with the last line
@@ -112,30 +122,34 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             var position = UvMeasure.Zero;
 
             double currentV = 0;
-            foreach (var child in Children)
-            {
-                var desiredMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
-                if ((desiredMeasure.U + position.U) > parentMeasure.U)
-                {
-                    // next row!
-                    position.U = 0;
-                    position.V += currentV;
-                    currentV = 0;
-                }
+			foreach (var nativeChild in Children)
+			{
+				// UNO TODO
+				if (nativeChild is UIElement child)
+				{
+					var desiredMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+					if ((desiredMeasure.U + position.U) > parentMeasure.U)
+					{
+						// next row!
+						position.U = 0;
+						position.V += currentV;
+						currentV = 0;
+					}
 
-                // Place the item
-                if (Orientation == Orientation.Horizontal)
-                {
-                    child.Arrange(new Rect(position.U, position.V, child.DesiredSize.Width, child.DesiredSize.Height));
-                }
-                else
-                {
-                    child.Arrange(new Rect(position.V, position.U, child.DesiredSize.Width, child.DesiredSize.Height));
-                }
+					// Place the item
+					if (Orientation == Orientation.Horizontal)
+					{
+						child.Arrange(new Rect(position.U, position.V, child.DesiredSize.Width, child.DesiredSize.Height));
+					}
+					else
+					{
+						child.Arrange(new Rect(position.V, position.U, child.DesiredSize.Width, child.DesiredSize.Height));
+					}
 
-                // adjust the location for the next items
-                position.U += desiredMeasure.U;
-                currentV = Math.Max(desiredMeasure.V, currentV);
+					// adjust the location for the next items
+					position.U += desiredMeasure.U;
+					currentV = Math.Max(desiredMeasure.V, currentV);
+				}
             }
 
             return finalSize;

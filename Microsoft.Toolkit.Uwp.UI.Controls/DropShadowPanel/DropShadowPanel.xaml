@@ -21,7 +21,8 @@
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                          Content="{TemplateBinding Content}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

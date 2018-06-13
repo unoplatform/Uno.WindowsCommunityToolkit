@@ -22,7 +22,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons
     /// <summary>
     /// An Interactive button in the TextToolbar, to perform a formatting task.
     /// </summary>
-    public class ToolbarButton : AppBarButton, IToolbarItem, INotifyPropertyChanged
+    public partial class ToolbarButton : AppBarButton, IToolbarItem, INotifyPropertyChanged
     {
         // Using a DependencyProperty as the backing store for Label.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ToolTipProperty =

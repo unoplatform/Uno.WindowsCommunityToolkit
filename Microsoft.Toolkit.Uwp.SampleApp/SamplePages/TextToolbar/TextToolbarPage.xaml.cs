@@ -38,13 +38,15 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         {
             _toolbar = control.FindChildByName("Toolbar") as TextToolbar;
 
+#if NETFX_CORE // UNO TODO
             var editZone = control.FindChildByName("EditZone") as RichEditBox;
             if (editZone != null)
             {
                 editZone.TextChanged += EditZone_TextChanged;
             }
+#endif
 
-            _previewer = control.FindChildByName("Previewer") as MarkdownTextBlock;
+			_previewer = control.FindChildByName("Previewer") as MarkdownTextBlock;
             if (_previewer != null)
             {
                 _previewer.LinkClicked += Previewer_LinkClicked;

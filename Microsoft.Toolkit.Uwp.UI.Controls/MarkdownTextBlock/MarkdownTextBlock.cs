@@ -29,7 +29,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// <summary>
     /// An efficient and extensible control that can parse and render markdown.
     /// </summary>
-    public sealed class MarkdownTextBlock : Control, ILinkRegister, IImageResolver
+    public sealed partial class MarkdownTextBlock : Control, ILinkRegister, IImageResolver
     {
         /// <summary>
         /// Holds a list of hyperlinks we are listening to.

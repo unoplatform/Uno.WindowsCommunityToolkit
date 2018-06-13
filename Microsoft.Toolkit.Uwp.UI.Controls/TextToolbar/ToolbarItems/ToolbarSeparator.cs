@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons
 {
-    public class ToolbarSeparator : AppBarSeparator, IToolbarItem
+    public partial class ToolbarSeparator : AppBarSeparator, IToolbarItem
     {
         public ToolbarSeparator()
         {

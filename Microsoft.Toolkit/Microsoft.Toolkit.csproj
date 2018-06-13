@@ -1,10 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFrameworks>xamarinios10;netstandard1.4;uap10.0;MonoAndroid71</TargetFrameworks>
     <Title>UWP Community Toolkit .NET Standard</Title>
     <Description>This package includes .NET Standard code only helpers.</Description>
     <PackageTags>UWP Toolkit Windows</PackageTags>
   </PropertyGroup>
+	
+	<Import Project="..\CrossTargeting.props" />
+	<Import Project="..\CrossTargeting.targets" />
 
 </Project>

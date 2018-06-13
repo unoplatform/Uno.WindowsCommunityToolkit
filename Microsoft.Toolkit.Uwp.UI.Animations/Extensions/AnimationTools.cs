@@ -17,7 +17,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations
     /// <summary>
     /// Internal tool to link composite transforms to elements
     /// </summary>
-    internal class AnimationTools : DependencyObject
+    internal partial class AnimationTools : DependencyObject
     {
         /// <summary>
         /// Attached property used to link composite transform with UIElement

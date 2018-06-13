@@ -1,6 +1,6 @@
 <Project>
 
-  <PropertyGroup>
+	<PropertyGroup>
     <Authors>Microsoft</Authors>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <NoPackageAnalysis>true</NoPackageAnalysis>
@@ -52,7 +52,7 @@
     <NerdbankGitVersioningVersion>2.0.37-beta</NerdbankGitVersioningVersion>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'native'">
     <PackageReference Include="Nerdbank.GitVersioning" Version="2.0.37-beta" PrivateAssets="all" />
   </ItemGroup>
 

@@ -12,7 +12,7 @@
     <Grid>
         <Image>
             <interactivity:Interaction.Behaviors>
-                <behaviors:Fade />
+                <!-- UNO TODO <behaviors:Fade />-->
             </interactivity:Interaction.Behaviors>
         </Image>
         <StackPanel>

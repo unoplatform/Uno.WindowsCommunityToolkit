@@ -60,7 +60,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarFormats.MarkDown
 
         private void HeaderSelected(object sender, TappedRoutedEventArgs e)
         {
-            var item = sender as FrameworkElement;
+#if NETFX_CORE // UNO TODO
+			var item = sender as FrameworkElement;
 
             var selectStart = Selected.StartPosition;
             var selectEnd = Selected.EndPosition;
@@ -74,6 +75,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarFormats.MarkDown
             Selected.EndPosition = selectEnd + linesStart.Length;
 
             headerFlyout?.Hide();
+#endif
         }
 
         public void FormatCode(ToolbarButton button)

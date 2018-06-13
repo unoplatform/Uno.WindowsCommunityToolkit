@@ -34,7 +34,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetBackgroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
             var titleBar = GetTitleBar();
             if (titleBar != null)
@@ -66,9 +66,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetButtonBackgroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.ButtonBackgroundColor.GetValueOrDefault();
@@ -98,9 +98,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetButtonForegroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.ButtonForegroundColor.GetValueOrDefault();
@@ -130,9 +130,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetButtonHoverBackgroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.ButtonHoverBackgroundColor.GetValueOrDefault();
@@ -162,9 +162,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetButtonHoverForegroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.ButtonHoverForegroundColor.GetValueOrDefault();
@@ -194,9 +194,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetButtonInactiveBackgroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.ButtonInactiveBackgroundColor.GetValueOrDefault();
@@ -226,9 +226,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetButtonInactiveForegroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.ButtonInactiveForegroundColor.GetValueOrDefault();
@@ -258,9 +258,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetButtonPressedBackgroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.ButtonPressedBackgroundColor.GetValueOrDefault();
@@ -290,9 +290,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetButtonPressedForegroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.ButtonPressedForegroundColor.GetValueOrDefault();
@@ -322,9 +322,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetForegroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.ForegroundColor.GetValueOrDefault();
@@ -354,9 +354,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetInactiveBackgroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.InactiveBackgroundColor.GetValueOrDefault();
@@ -386,9 +386,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <returns>Color</returns>
         public static Color GetInactiveForegroundColor(Page page)
         {
-            Color color;
+            Color color = default(Color);
 
-            var titleBar = GetTitleBar();
+			var titleBar = GetTitleBar();
             if (titleBar != null)
             {
                 color = titleBar.InactiveForegroundColor.GetValueOrDefault();

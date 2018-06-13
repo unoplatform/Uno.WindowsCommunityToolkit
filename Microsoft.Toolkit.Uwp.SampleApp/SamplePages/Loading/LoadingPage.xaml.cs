@@ -73,12 +73,15 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
             {
                 if (loadingContentControl != null)
                 {
+
+#if NETFX_CORE // UNO TODO
                     loadingContentControl.ContentTemplate = resources["LogoTemplate"] as DataTemplate;
                     await loadingContentControl.Blur(2, 100).StartAsync();
                     await ShowLoadingDialogAsync();
                     await loadingContentControl.Blur(0, 0).StartAsync();
-                }
-            });
+#endif
+				}
+			});
         }
 
         private async Task ShowLoadingDialogAsync()

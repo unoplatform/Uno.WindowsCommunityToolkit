@@ -38,10 +38,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         {
             base.OnNavigatedTo(e);
 
+#if NETFX_CORE // UNO TODO
             if (!AnimationExtensions.BlurEffect.IsSupported)
             {
                 WarningText.Visibility = Visibility.Visible;
             }
-        }
-    }
+#endif
+		}
+	}
 }

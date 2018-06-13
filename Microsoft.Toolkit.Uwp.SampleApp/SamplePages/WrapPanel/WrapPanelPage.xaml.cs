@@ -68,7 +68,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 
             _wrapPanelCollection.Remove(item);
         }
-
+		 
         private void AddButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             _wrapPanelCollection.Add(new PhotoDataItemWithDimension
@@ -81,8 +81,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         }
 
         private void SwitchButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            var sampleWrapPanel = _itemControl.FindDescendant<WrapPanel>();
+		{
+			// UNO TODO
+			var sampleWrapPanel = _itemControl.FindDescendant<Microsoft.Toolkit.Uwp.UI.Controls.WrapPanel>();
             if (sampleWrapPanel != null)
             {
                 sampleWrapPanel.Orientation = sampleWrapPanel.Orientation == Orientation.Horizontal

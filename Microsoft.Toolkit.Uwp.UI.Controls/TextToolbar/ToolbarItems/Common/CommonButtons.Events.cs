@@ -58,9 +58,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons.Common
             var labelBox = new RichEditBox
             {
                 PlaceholderText = Model.Labels.LabelLabel,
-                Margin = new Thickness(0, 0, 0, 5),
-                AcceptsReturn = false
-            };
+#if NETFX_CORE // UNO TODO
+				Margin = new Thickness(0, 0, 0, 5),
+#endif
+				AcceptsReturn = false
+			};
             var linkBox = new TextBox
             {
                 PlaceholderText = Model.Labels.UrlLabel
@@ -73,7 +75,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons.Common
             var result = await new ContentDialog
             {
                 Title = Model.Labels.CreateLinkLabel,
-                Content = new StackPanel
+#if NETFX_CORE // UNO TODO
+				Content = new StackPanel
                 {
                     Children =
                     {
@@ -81,7 +84,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons.Common
                         linkBox
                     }
                 },
-                PrimaryButtonText = Model.Labels.OkLabel,
+#endif
+				PrimaryButtonText = Model.Labels.OkLabel,
                 SecondaryButtonText = Model.Labels.CancelLabel
             }.ShowAsync();
 

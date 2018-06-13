@@ -35,7 +35,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     [TemplatePart(Name = ScalePartName, Type = typeof(Path))]
     [TemplatePart(Name = TrailPartName, Type = typeof(Path))]
     [TemplatePart(Name = ValueTextPartName, Type = typeof(TextBlock))]
-    public class RadialGauge : Control
+    public partial class RadialGauge : Control
     {
         /// <summary>
         /// Identifies the Minimum dependency property.
@@ -217,7 +217,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         private void RadialGauge_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             var step = 1;
-            var ctrl = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control);
+			// UNO TODO
+			var ctrl = Windows.UI.Xaml.Window.Current.CoreWindow.GetKeyState(VirtualKey.Control);
             if (ctrl.HasFlag(CoreVirtualKeyStates.Down))
             {
                 step = 5;

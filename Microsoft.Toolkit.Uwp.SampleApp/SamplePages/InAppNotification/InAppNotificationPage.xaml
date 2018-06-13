@@ -79,7 +79,8 @@
 
             <DataTemplate x:Key="InAppNotificationWithButtonsTemplate">
                 <UserControl>
-                    <Grid DataContext="{Binding ElementName=CurrentPage}">
+                    <Grid>
+                        <!-- UNO TODO DataContext="{Binding ElementName=CurrentPage}"-->
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup>
                                 <VisualState x:Name="NarrowState">

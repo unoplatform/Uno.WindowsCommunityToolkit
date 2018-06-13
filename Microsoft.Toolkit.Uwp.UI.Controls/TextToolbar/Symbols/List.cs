@@ -15,7 +15,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols
     /// <summary>
     /// Creates a List Icon
     /// </summary>
-    public class List : Symbol
+    public partial class List : Symbol
     {
         public List()
         {

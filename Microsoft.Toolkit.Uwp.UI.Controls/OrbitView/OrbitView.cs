@@ -32,7 +32,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     [TemplatePart(Name = "AnchorCanvas", Type = typeof(Canvas))]
     [TemplatePart(Name = "OrbitGrid", Type = typeof(Grid))]
     [TemplatePart(Name = "CenterContent", Type = typeof(ContentPresenter))]
-    public sealed class OrbitView : ItemsControl
+    public sealed partial class OrbitView : ItemsControl
     {
         private const double AnimationDuration = 200;
 
@@ -705,11 +705,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             var offsetAnimation = _compositor.CreateVector3KeyFrameAnimation();
             offsetAnimation.Target = nameof(Visual.Offset);
+#if NETFX_CORE // UNO TODO
             offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue", easeIn);
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(AnimationDuration);
             offsetAnimation.DelayTime = TimeSpan.FromMilliseconds(delay);
+#endif
 
-            var implicitAnimations = _compositor.CreateImplicitAnimationCollection();
+			var implicitAnimations = _compositor.CreateImplicitAnimationCollection();
             implicitAnimations[nameof(Visual.Offset)] = offsetAnimation;
 
             ElementCompositionPreview.GetElementVisual(element).ImplicitAnimations = implicitAnimations;

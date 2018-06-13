@@ -136,14 +136,17 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
 
         private void CopyButton_Click(object sender, RoutedEventArgs e)
         {
+#if NETFX_CORE // UNO TODO
+
             TrackingManager.TrackEvent("Copy", _displayedText);
 
             var content = new DataPackage();
             content.SetText(_displayedText);
             Clipboard.SetContent(content);
-        }
+#endif
+		}
 
-        private async void PrintButton_Click(object sender, RoutedEventArgs e)
+		private async void PrintButton_Click(object sender, RoutedEventArgs e)
         {
             Shell.Current.DisplayWaitRing = true;
 
@@ -246,8 +249,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
             try
             {
                 var parsedJson = JsonConvert.DeserializeObject(json);
-                string indented = JsonConvert.SerializeObject(parsedJson, Formatting.Indented);
-                return indented;
+                string indented = JsonConvert.SerializeObject(parsedJson,  /* UNO TODO */Newtonsoft.Json.Formatting.Indented);
+
+				return indented;
             }
             catch (Exception)
             {

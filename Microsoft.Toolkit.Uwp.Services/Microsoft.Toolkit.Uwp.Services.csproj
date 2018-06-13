@@ -1,14 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>uap10.0</TargetFramework>
-    <Title>UWP Community Toolkit Services</Title>
+		<TargetFrameworks>uap10.0</TargetFrameworks>
+		<Title>UWP Community Toolkit Services</Title>
     <Description>This library enables access to different data sources like Bing, Facebook, LinkedIn, MicrosoftGraph, OneDrive and Twitter. It is part of the UWP Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Twitter OAuth Facebook Bing MicrosoftGraph LinkedIn OneDrive</PackageTags>
   </PropertyGroup>
 
+	<Import Project="..\CrossTargeting.props" />
+	<Import Project="..\CrossTargeting.targets" />
 
-  <ItemGroup>
+
+	<ItemGroup>
 
 
     <PackageReference Include="Microsoft.Graph" Version="1.2.0" />
@@ -25,6 +28,10 @@
 
     
   </ItemGroup>
+	
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
+		<PackageReference Include="Uno.UI" Version="1.23.1-dev.1453" />
+	</ItemGroup>
 
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+	<Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

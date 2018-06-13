@@ -60,8 +60,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 
         private async void MarkdownTextBlockTextblock_OnLinkClicked(object sender, LinkClickedEventArgs e)
         {
+#if NETFX_CORE // UNO TODO
             TrackingManager.TrackEvent("Link", e.Link);
-            await Launcher.LaunchUriAsync(new Uri(e.Link));
+#endif
+			await Launcher.LaunchUriAsync(new Uri(e.Link));
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Markdown.Display
     /// <summary>
     /// A custom panel control that arranges elements similar to how an HTML table would.
     /// </summary>
-    internal class MarkdownTable : Panel
+    internal partial class MarkdownTable : Panel
     {
         private readonly int _columnCount;
         private readonly int _rowCount;

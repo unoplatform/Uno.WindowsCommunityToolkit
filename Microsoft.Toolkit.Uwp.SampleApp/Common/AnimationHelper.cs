@@ -34,6 +34,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         public static void SetTopLevelShowHideAnimation(FrameworkElement element)
         {
+#if NETFX_CORE // UNO TODO
             if (!IsImplicitHideShowSupported)
             {
                 return;
@@ -51,6 +52,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             showAnimationGroup.Add(GetYOffsetAnimation(compositor, 0, -(float)element.Height, _defaultShowAnimationDuration));
 
             ElementCompositionPreview.SetImplicitShowAnimation(element, showAnimationGroup);
+#endif
         }
 
         public static void SetSecondLevelShowHideAnimation(FrameworkElement element)
@@ -62,34 +64,38 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
             var compositor = ElementCompositionPreview.GetElementVisual(element).Compositor;
 
+#if NETFX_CORE // UNO TODO
             // ElementCompositionPreview.SetImplicitHideAnimation(element, GetOpacityAnimation(0, 1, _defaultHideAnimationDiration));
             ElementCompositionPreview.SetImplicitShowAnimation(element, GetOpacityAnimation(compositor, 1, 0, 200, 200));
-        }
+#endif
+		}
 
-        public static CompositionAnimation GetYOffsetAnimation(Compositor compositor, float y, float from, float duration, float delay = 0)
+		public static CompositionAnimation GetYOffsetAnimation(Compositor compositor, float y, float from, float duration, float delay = 0)
         {
             var animation = compositor.CreateScalarKeyFrameAnimation();
+#if NETFX_CORE // UNO TODO
             animation.Target = "Offset.Y";
             animation.InsertKeyFrame(0, from);
             animation.InsertKeyFrame(1, y);
             animation.Duration = TimeSpan.FromMilliseconds(duration);
             animation.DelayTime = TimeSpan.FromMilliseconds(delay);
             animation.DelayBehavior = AnimationDelayBehavior.SetInitialValueBeforeDelay;
-
-            return animation;
+#endif
+			return animation;
         }
 
         public static CompositionAnimation GetOpacityAnimation(Compositor compositor, float opacity, float from, float duration, float delay = 0)
         {
             var animation = compositor.CreateScalarKeyFrameAnimation();
+#if NETFX_CORE // UNO TODO
             animation.Target = "Opacity";
             animation.InsertKeyFrame(0, from);
             animation.InsertKeyFrame(1, opacity);
             animation.Duration = TimeSpan.FromMilliseconds(duration);
             animation.DelayTime = TimeSpan.FromMilliseconds(delay);
             animation.DelayBehavior = AnimationDelayBehavior.SetInitialValueBeforeDelay;
-
-            return animation;
+#endif
+			return animation;
         }
     }
 }

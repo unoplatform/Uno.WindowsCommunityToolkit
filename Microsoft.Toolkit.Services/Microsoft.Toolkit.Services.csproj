@@ -1,14 +1,21 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFrameworks>xamarinios10;netstandard1.4;uap10.0;MonoAndroid71</TargetFrameworks>
     <Description>This .NET standard library enables access to different data sources such as Bing. It is part of the UWP Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Bing</PackageTags>
     <Title>UWP Community Toolkit .NET Standard Services</Title>
   </PropertyGroup>
 
-  <ItemGroup>
+	<Import Project="..\CrossTargeting.props" />
+	<Import Project="..\CrossTargeting.targets" />
+
+	<ItemGroup>
     <ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
   </ItemGroup>
+	
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
+		<PackageReference Include="Uno.UI" Version="1.23.1-dev.1453" />
+	</ItemGroup>
 
 </Project>

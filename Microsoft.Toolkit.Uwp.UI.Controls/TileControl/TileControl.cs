@@ -1,4 +1,5 @@
-﻿// ******************************************************************
+﻿#if NETFX_CORE
+// ******************************************************************
 // Copyright (c) Microsoft. All rights reserved.
 // This code is licensed under the MIT License (MIT).
 // THE CODE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
@@ -89,7 +90,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// A ContentControl that show an image repeated many times.
     /// The control can be synchronized with a Scrollviewer and animated easily.
     /// </summary>
-    public sealed class TileControl : ContentControl
+    public sealed partial class TileControl : ContentControl
     {
         /// <summary>
         /// Identifies the <see cref="ScrollViewerContainer"/> property.
@@ -1131,3 +1132,4 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         }
     }
 }
+#endif

@@ -33,7 +33,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     [TemplatePart(Name = "MaxThumb", Type = typeof(Thumb))]
     [TemplatePart(Name = "ContainerCanvas", Type = typeof(Canvas))]
     [TemplatePart(Name = "ControlGrid", Type = typeof(Grid))]
-    public class RangeSelector : Control
+    public partial class RangeSelector : Control
     {
         /// <summary>
         /// Identifies the Minimum dependency property.

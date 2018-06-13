@@ -12,7 +12,7 @@
     <Grid Visibility="Collapsed">
         <Image>
             <interactivity:Interaction.Behaviors>
-                <behaviors:Rotate />
+                <!--UNO TODO <behaviors:Rotate />-->
             </interactivity:Interaction.Behaviors>
         </Image>
         <StackPanel>

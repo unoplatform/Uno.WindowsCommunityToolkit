@@ -47,13 +47,17 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
                 if (oldEditor != null)
                 {
-                    oldEditor.RemoveHandler(KeyDownEvent, bar.KeyEventHandler);
-                }
+#if NETFX_CORE // UNO TODO
+					oldEditor.RemoveHandler(KeyDownEvent, bar.KeyEventHandler);
+#endif
+				}
 
                 if (newEditor != null)
                 {
-                    newEditor.AddHandler(KeyDownEvent, bar.KeyEventHandler, handledEventsToo: true);
-                    bar.CreateFormatter();
+#if NETFX_CORE // UNO TODO
+					newEditor.AddHandler(KeyDownEvent, bar.KeyEventHandler, handledEventsToo: true);
+#endif
+					bar.CreateFormatter();
                 }
 
                 var editorArgs = new EditorChangedArgs

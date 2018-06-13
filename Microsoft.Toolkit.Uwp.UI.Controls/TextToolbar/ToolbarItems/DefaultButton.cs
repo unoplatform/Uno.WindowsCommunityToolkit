@@ -17,7 +17,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons
     /// <summary>
     /// Specifies a DefaultButton, modifies a Button Instance
     /// </summary>
-    public class DefaultButton : DependencyObject
+    public partial class DefaultButton : DependencyObject
     {
         // Using a DependencyProperty as the backing store for IsVisible.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsVisibleProperty =

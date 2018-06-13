@@ -12,7 +12,7 @@
     <Grid Visibility="Collapsed">
         <Image>
             <interactivity:Interaction.Behaviors>
-                <behaviors:Offset />
+                <!--UNO TODO <behaviors:Offset />-->
             </interactivity:Interaction.Behaviors>
         </Image>
         <StackPanel>

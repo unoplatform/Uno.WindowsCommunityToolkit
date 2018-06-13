@@ -41,22 +41,25 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             UpdateMenuItemsFlyoutPlacement();
 
-            Window.Current.CoreWindow.PointerMoved -= CoreWindow_PointerMoved;
+#if NETFX_CORE // UNO TODO
+			Windows.UI.Xaml.Window.Current.CoreWindow.PointerMoved -= CoreWindow_PointerMoved;
             LostFocus -= Menu_LostFocus;
             LostFocus += Menu_LostFocus;
             Dispatcher.AcceleratorKeyActivated -= Dispatcher_AcceleratorKeyActivated;
-            Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
+			Windows.UI.Xaml.Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
             Dispatcher.AcceleratorKeyActivated += Dispatcher_AcceleratorKeyActivated;
-            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
-            Window.Current.CoreWindow.PointerMoved += CoreWindow_PointerMoved;
+			Windows.UI.Xaml.Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+			Windows.UI.Xaml.Window.Current.CoreWindow.PointerMoved += CoreWindow_PointerMoved;
+#endif
         }
 
         private void Menu_Unloaded(object sender, RoutedEventArgs e)
         {
-            Window.Current.CoreWindow.PointerMoved -= CoreWindow_PointerMoved;
+#if NETFX_CORE // UNO TODO
+		Windows.UI.Xaml.Window.Current.CoreWindow.PointerMoved -= CoreWindow_PointerMoved;
             Dispatcher.AcceleratorKeyActivated -= Dispatcher_AcceleratorKeyActivated;
-            Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
-
+			Windows.UI.Xaml.Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
+#endif
             // Clear Cache
             foreach (MenuItem menuItem in Items)
             {
@@ -72,8 +75,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private void CoreWindow_PointerMoved(CoreWindow sender, PointerEventArgs args)
         {
-            // if contained with the whole Menu control
-            if (IsOpened && _bounds.Contains(args.CurrentPoint.Position))
+#if NETFX_CORE // UNO TODO
+			// if contained with the whole Menu control
+			if (IsOpened && _bounds.Contains(args.CurrentPoint.Position))
             {
                 // if hover over current opened item
                 if (SelectedMenuItem.ContainsPoint(args.CurrentPoint.Position))
@@ -91,11 +95,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     }
                 }
             }
-        }
+#endif
+		}
 
-        private void CoreWindow_KeyDown(CoreWindow sender, KeyEventArgs args)
+		// UNO TODO
+        private void CoreWindow_KeyDown(object sender, KeyEventArgs args)
         {
-            if (IsInTransitionState)
+#if NETFX_CORE // UNO TODO
+			if (IsInTransitionState)
             {
                 return;
             }
@@ -123,7 +130,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     menuFlyoutItem.Command?.Execute(menuFlyoutItem.CommandParameter);
                 }
             }
-        }
+#endif
+		}
 
         private void Menu_LostFocus(object sender, RoutedEventArgs e)
         {
