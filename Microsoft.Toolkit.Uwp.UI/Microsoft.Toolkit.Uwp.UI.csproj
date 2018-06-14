@@ -1,17 +1,18 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>uap10.0</TargetFramework>
+    <TargetFrameworks>uap10.0;MonoAndroid71;xamarinios10</TargetFrameworks>
     <Title>Windows Community Toolkit UI</Title>
     <Description>This library provides UI services. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows UI Converters</PackageTags>
 
 		<UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
 		<UseWindowsMobileSdk>true</UseWindowsMobileSdk>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
 	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Win2D.uwp" Version="1.21.0" />
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+		<PackageReference Include="Win2D.uwp" Version="1.21.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +20,7 @@
   </ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
-		<PackageReference Include="Uno.UI" Version="1.23.1-dev.1453" />
+		<PackageReference Include="Uno.UI" Version="1.31.0-dev.52" />
 	</ItemGroup>
 	
 </Project>

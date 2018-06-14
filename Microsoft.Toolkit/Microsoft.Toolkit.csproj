@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>xamarinios10;netstandard1.4;uap10.0;MonoAndroid71</TargetFrameworks>
+    <TargetFrameworks>netstandard1.4;uap10.0;MonoAndroid71;xamarinios10</TargetFrameworks>
     <Title>Windows Community Toolkit .NET Standard</Title>
     <Description>This package includes .NET Standard code only helpers.</Description>
     <PackageTags>UWP Toolkit Windows</PackageTags>
@@ -10,7 +10,4 @@
     <DebugType>Full</DebugType>
   </PropertyGroup>
 	
-	<Import Project="..\CrossTargeting.props" />
-	<Import Project="..\CrossTargeting.targets" />
-
 </Project>

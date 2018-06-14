@@ -1,3 +1,4 @@
+#if NETFX_CORE
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
@@ -12,7 +13,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Media
     /// </summary>
     public enum ImageBlendMode
     {
-        #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member - see http://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_Effects_BlendEffectMode.htm.
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member - see http://microsoft.github.io/Win2D/html/T_Microsoft_Graphics_Canvas_Effects_BlendEffectMode.htm.
         Multiply = 0,
         Screen = 1,
         Darken = 2,
@@ -55,6 +56,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Media
         Luminosity = 23,
         Subtract = 24,
         Division = 25,
-        #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
+#endif

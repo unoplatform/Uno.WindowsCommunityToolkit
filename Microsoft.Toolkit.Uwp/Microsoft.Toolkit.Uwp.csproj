@@ -1,31 +1,27 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71</TargetFrameworks>
-     <Title>Windows Community Toolkit</Title>
-    <Description>This package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc.</Description>
-    <PackageTags>UWP Toolkit Windows</PackageTags>
-    <UseUwpMetaPackage>true</UseUwpMetaPackage>
-  </PropertyGroup>
-
-	<Import Project="..\CrossTargeting.props" />
-	<Import Project="..\CrossTargeting.targets" />
+	<PropertyGroup>
+		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71</TargetFrameworks>
+		<Title>Windows Community Toolkit</Title>
+		<Description>This package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc.</Description>
+		<PackageTags>UWP Toolkit Windows</PackageTags>
+		<UseUwpMetaPackage>true</UseUwpMetaPackage>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	</PropertyGroup>
 
 	<ItemGroup>
-    
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    
-    <!-- TODO: Update to later version -->
-    <PackageReference Include="Microsoft.Identity.Client" Version="1.1.2-preview0008" />
-    <PackageReference Include="Uno.UI">
-      <Version>1.23.1-dev.1453</Version>
-    </PackageReference>
-    <ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
+		<PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.3" PrivateAssets="All" />
 
-  </ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+
+		<ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
+
+	</ItemGroup>
+
+	<Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
-		<PackageReference Include="Uno.UI" Version="1.23.1-dev.1453" />
+		<PackageReference Include="Uno.UI" Version="1.31.0-dev.52" />
 	</ItemGroup>
 
 </Project>

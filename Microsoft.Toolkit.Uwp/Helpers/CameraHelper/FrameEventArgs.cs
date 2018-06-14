@@ -26,7 +26,8 @@ namespace Microsoft.Toolkit.Uwp.Helpers
         {
             get
             {
-                _semaphore.Wait();
+#if NETFX_CORE
+				_semaphore.Wait();
 
                 // videoFrame could be disposed at any time so we need to create a copy we can use
                 // this api is only available on 17134 - so we return the original VideoFrame on older versions
@@ -45,6 +46,7 @@ namespace Microsoft.Toolkit.Uwp.Helpers
                 }
 
                 _semaphore.Release();
+#endif
                 return _videoFrameCopy ?? _videoFrame;
             }
 

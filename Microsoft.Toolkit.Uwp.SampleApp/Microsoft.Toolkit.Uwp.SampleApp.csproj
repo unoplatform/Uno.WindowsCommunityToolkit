@@ -1344,10 +1344,6 @@
       <Project>{b1e850ff-dde6-44d5-a830-34250e97a687}</Project>
       <Name>Microsoft.Toolkit.Uwp.Connectivity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Microsoft.Toolkit.UWP.Input.GazeInteraction\Microsoft.Toolkit.Uwp.Input.GazeInteraction.vcxproj">
-      <Project>{a5e98964-45b1-442d-a07a-298a3221d81e}</Project>
-      <Name>Microsoft.Toolkit.Uwp.Input.GazeInteraction</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp.DeveloperTools\Microsoft.Toolkit.Uwp.DeveloperTools.csproj">
       <Project>{e7697922-9555-4cfb-aee0-c5f4d657e559}</Project>
       <Name>Microsoft.Toolkit.Uwp.DeveloperTools</Name>

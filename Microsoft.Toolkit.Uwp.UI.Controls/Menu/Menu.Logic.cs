@@ -28,7 +28,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         {
             var element = FocusManager.GetFocusedElement();
 
-            if (element is MenuFlyoutPresenter &&
+#if NETFX_CORE
+			if (element is MenuFlyoutPresenter &&
                 ((args.VirtualKey == VirtualKey.Down) ||
                  (args.VirtualKey == VirtualKey.Up) ||
                  (args.VirtualKey == VirtualKey.Left) ||
@@ -107,6 +108,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 }
             }
 #endif
+
 			return false;
         }
 

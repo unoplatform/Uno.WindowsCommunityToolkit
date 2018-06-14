@@ -13,7 +13,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// <summary>
     /// Arranges child elements into a staggered grid pattern where items are added to the column that has used least amount of space.
     /// </summary>
-    public class StaggeredPanel : Panel
+    public partial class StaggeredPanel : Panel
     {
         private double _columnWidth;
 
@@ -89,10 +89,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             {
                 var columnIndex = GetColumnIndex(columnHeights);
 
-                var child = Children[i];
-                child.Measure(new Size(_columnWidth, availableSize.Height));
-                var elementSize = child.DesiredSize;
-                columnHeights[columnIndex] += elementSize.Height;
+                var nativeChild = Children[i];
+				// UNO TODO
+				if (nativeChild is UIElement child)
+				{
+					child.Measure(new Size(_columnWidth, availableSize.Height));
+					var elementSize = child.DesiredSize;
+					columnHeights[columnIndex] += elementSize.Height;
+				}
             }
 
             double desiredHeight = columnHeights.Max();
@@ -121,22 +125,26 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             {
                 var columnIndex = GetColumnIndex(columnHeights);
 
-                var child = Children[i];
-                var elementSize = child.DesiredSize;
+				var nativeChild = Children[i];
+				// UNO TODO
+				if (nativeChild is UIElement child)
+				{
+					var elementSize = child.DesiredSize;
 
-                double elementWidth = elementSize.Width;
-                double elementHeight = elementSize.Height;
-                if (elementWidth > _columnWidth)
-                {
-                    double differencePercentage = _columnWidth / elementWidth;
-                    elementHeight = elementHeight * differencePercentage;
-                    elementWidth = _columnWidth;
-                }
+					double elementWidth = elementSize.Width;
+					double elementHeight = elementSize.Height;
+					if (elementWidth > _columnWidth)
+					{
+						double differencePercentage = _columnWidth / elementWidth;
+						elementHeight = elementHeight * differencePercentage;
+						elementWidth = _columnWidth;
+					}
 
-                Rect bounds = new Rect(horizontalOffset + (_columnWidth * columnIndex), columnHeights[columnIndex] + verticalOffset, elementWidth, elementHeight);
-                child.Arrange(bounds);
+					Rect bounds = new Rect(horizontalOffset + (_columnWidth * columnIndex), columnHeights[columnIndex] + verticalOffset, elementWidth, elementHeight);
+					child.Arrange(bounds);
 
-                columnHeights[columnIndex] += elementSize.Height;
+					columnHeights[columnIndex] += elementSize.Height;
+				}
             }
 
             return base.ArrangeOverride(finalSize);

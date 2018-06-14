@@ -132,7 +132,8 @@ namespace Microsoft.Toolkit.Uwp.Helpers
 
                 if (_previewFrameSource != null)
                 {
-                    _frameReader = await _mediaCapture.CreateFrameReaderAsync(_previewFrameSource);
+#if NETFX_CORE
+					_frameReader = await _mediaCapture.CreateFrameReaderAsync(_previewFrameSource);
                     if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.Media.Capture.Frames.MediaFrameReader", "AcquisitionMode"))
                     {
                         _frameReader.AcquisitionMode = MediaFrameReaderAcquisitionMode.Realtime;
@@ -152,6 +153,7 @@ namespace Microsoft.Toolkit.Uwp.Helpers
                             result = CameraHelperResult.StartFrameReaderFailed;
                         }
                     }
+#endif
                 }
 
                 _initialized = result == CameraHelperResult.Success;

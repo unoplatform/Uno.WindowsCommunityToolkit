@@ -11,7 +11,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Microsoft.Toolkit.Uwp.UI.Controls
 {
-    internal class InfiniteCanvasTextBox : Control
+    internal partial class InfiniteCanvasTextBox : Control
     {
         private TextBox _editZone;
 

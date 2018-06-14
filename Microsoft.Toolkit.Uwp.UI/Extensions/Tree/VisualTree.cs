@@ -52,7 +52,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <param name="element">Parent element.</param>
         /// <returns>Descendant control or null if not found.</returns>
         public static T FindDescendant<T>(this DependencyObject element)
-#if XAMARIN
+#if HAS_UNO
 			where T : class, DependencyObject
 #else
 			where T : DependencyObject
@@ -89,7 +89,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <param name="element">Parent element.</param>
         /// <returns>Descendant controls or empty if not found.</returns>
         public static IEnumerable<T> FindDescendants<T>(this DependencyObject element)
-#if XAMARIN
+#if HAS_UNO
 			where T : class, DependencyObject
 #else
 			where T : DependencyObject
@@ -148,7 +148,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Extensions
         /// <param name="element">Child element.</param>
         /// <returns>Ascendant control or null if not found.</returns>
         public static T FindAscendant<T>(this DependencyObject element)
-#if XAMARIN
+#if HAS_UNO
 			where T : class, DependencyObject
 #else
 			where T : DependencyObject

@@ -190,13 +190,15 @@ namespace Microsoft.Toolkit.Uwp.Helpers
         }
 
 #endif
-        /// <summary>
-        /// Read stream content as a string.
-        /// </summary>
-        /// <param name="stream">Stream to read from.</param>
-        /// <param name="encoding">Encoding to use. Can be set to null (ASCII will be used in this case).</param>
-        /// <returns>Stream content.</returns>
-        public static async Task<string> ReadTextAsync(
+
+#if NETFX_CORE
+		/// <summary>
+		/// Read stream content as a string.
+		/// </summary>
+		/// <param name="stream">Stream to read from.</param>
+		/// <param name="encoding">Encoding to use. Can be set to null (ASCII will be used in this case).</param>
+		/// <returns>Stream content.</returns>
+		public static async Task<string> ReadTextAsync(
             this IRandomAccessStream stream,
             Encoding encoding = null)
         {

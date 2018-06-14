@@ -70,7 +70,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons.Common
             {
                 Children =
                     {
+#if NETFX_CORE // UNO TODO
                         labelBox,
+#endif
                         linkBox
                     }
             };
