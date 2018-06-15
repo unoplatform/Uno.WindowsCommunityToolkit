@@ -823,17 +823,23 @@
                                            Grid.Column="1"
                                            Margin="2,0,0,0"
                                            VerticalAlignment="Center"
-                                           animations:Implicit.HideAnimations="{StaticResource FromRightHideAnimation}"
-                                           animations:Implicit.ShowAnimations="{StaticResource FromRightShowAnimation}"
                                            FontFamily="Segoe UI"
                                            FontSize="15px"
                                            FontWeight="Normal"
                                            Text="{TemplateBinding Title}" />
+                                           <!--
+											UNO TODO 
+											animations:Implicit.HideAnimations="{StaticResource FromRightHideAnimation}"
+                                            animations:Implicit.ShowAnimations="{StaticResource FromRightShowAnimation}"
+											-->
 
                                 <Grid x:Name="SearchGrid"
                                       Grid.Column="2"
-                                      animations:Implicit.HideAnimations="{StaticResource FromRightHideAnimation}"
-                                      animations:Implicit.ShowAnimations="{StaticResource FromRightShowAnimation}">
+									  >
+                                      <!--
+										UNO TODO 
+									  animations:Implicit.HideAnimations="{StaticResource FromRightHideAnimation}"
+                                      animations:Implicit.ShowAnimations="{StaticResource FromRightShowAnimation}"-->
                                     <Button Name="SearchButton"
                                             Padding="0"
                                             HorizontalAlignment="Right"
@@ -871,8 +877,6 @@
 
                                 <ListView x:Name="OptionsListView"
                                           Grid.Column="3"
-                                          animations:Implicit.HideAnimations="{StaticResource FromRightHideAnimation}"
-                                          animations:Implicit.ShowAnimations="{StaticResource FromRightShowAnimation}"
                                           AutomationProperties.Name="Option items"
                                           IsItemClickEnabled="True"
                                           ItemContainerStyle="{StaticResource HamburgerMenuItemStyle}"
@@ -885,6 +889,11 @@
                                           SelectedItem="{Binding SelectedOptionsItem, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                           SelectionMode="Single"
                                           TabIndex="2">
+                                          <!--
+											UNO TODO
+											animations:Implicit.HideAnimations="{StaticResource FromRightHideAnimation}"
+											animations:Implicit.ShowAnimations="{StaticResource FromRightShowAnimation}"
+											-->
                                     <ListView.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <ItemsStackPanel Orientation="Horizontal" />

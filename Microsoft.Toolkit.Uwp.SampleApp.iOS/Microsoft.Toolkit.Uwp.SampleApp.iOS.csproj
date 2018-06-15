@@ -22,6 +22,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <NoWarn>Uno0001</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -118,6 +119,10 @@
     <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj">
       <Project>{42ca4935-54be-42ea-ac19-992378c08de6}</Project>
       <Name>Microsoft.Toolkit.Parsers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.DeveloperTools\Microsoft.Toolkit.Uwp.DeveloperTools.csproj">
+      <Project>{e7697922-9555-4cfb-aee0-c5f4d657e559}</Project>
+      <Name>Microsoft.Toolkit.Uwp.DeveloperTools</Name>
     </ProjectReference>
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj">
       <Project>{b24a296c-b3eb-4e06-a64e-74ac2d1acc91}</Project>

@@ -169,8 +169,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
 
         protected override void OnApplyTemplate()
         {
-            Window.Current.CoreWindow.CharacterReceived -= CoreWindow_CharacterReceived;
-            Window.Current.CoreWindow.CharacterReceived += CoreWindow_CharacterReceived;
+			// UNO TODO
+            Windows.UI.Xaml.Window.Current.CoreWindow.CharacterReceived -= CoreWindow_CharacterReceived;
+            Windows.UI.Xaml.Window.Current.CoreWindow.CharacterReceived += CoreWindow_CharacterReceived;
 
             base.OnApplyTemplate();
 
@@ -525,7 +526,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
         {
             if (_isCreatorsUpdateOrAbove && _moreInfoImage != null && _moreInfoContent.DataContext != null)
             {
-                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("sample_icon", _moreInfoImage);
+#if NETFX_CORE // UNO TODO
+				ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("sample_icon", _moreInfoImage);
+#endif
             }
 
             _moreInfoCanvas.Visibility = Visibility.Collapsed;

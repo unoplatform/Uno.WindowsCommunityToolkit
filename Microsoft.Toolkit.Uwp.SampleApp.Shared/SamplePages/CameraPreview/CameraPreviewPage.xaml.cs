@@ -54,7 +54,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
                 _cameraPreviewControl.CameraHelper.FrameArrived += CameraPreviewControl_FrameArrived;
             }
 
-            _imageControl = control.FindDescendantByName("CurrentFrameImage") as Image;
+#if NETFX_CORE
+			_imageControl = control.FindDescendantByName("CurrentFrameImage") as Image;
             if (_imageControl != null)
             {
                 _softwareBitmapSource = new SoftwareBitmapSource();
@@ -62,6 +63,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
             }
 
             _errorMessageText = control.FindDescendantByName("ErrorMessage") as TextBlock;
+#endif
 
             semaphoreSlim.Release();
         }

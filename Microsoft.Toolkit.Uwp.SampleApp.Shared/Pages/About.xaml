@@ -26,7 +26,8 @@
             <HyperlinkButton Width="267"
                              HorizontalContentAlignment="Left"
                              Style="{StaticResource AboutHyperlinkButtonStyle}"
-                             Click="RecentSample_Click">
+                             >
+				<!-- UNO TODO Click="RecentSample_Click" -->
                 <TextBlock Text="{x:Bind Name}"></TextBlock>
             </HyperlinkButton>
         </DataTemplate>

@@ -37,7 +37,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
             InitializeComponent();
         }
 
-        private void PropertyControl_OnDataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
+        private void PropertyControl_OnDataContextChanged(/* UNO TODO */DependencyObject sender, DataContextChangedEventArgs args)
         {
             if (args.NewValue == _currentSample)
             {
@@ -169,7 +169,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
 
                             controlToAdd = thicknessTextBox;
                             dependencyProperty = TextBox.TextProperty;
-                            converter = new ThicknessConverter();
+#if NETFX_CORE // UNO TODO
+							converter = new ThicknessConverter();
+#endif
                             break;
                         default:
                             var textBox = new TextBox { Text = (propertyDict[option.Name] as ValueHolder).Value.ToString() };

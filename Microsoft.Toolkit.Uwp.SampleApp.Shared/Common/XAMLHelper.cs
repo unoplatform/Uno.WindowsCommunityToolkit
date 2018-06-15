@@ -54,7 +54,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 else
                 {
                     backgroundProperty.SetValue(d, new SolidColorBrush(color));
-                    ((FrameworkElement)d).Blur(3, duration: 0).Start();
+
+#if NETFX_CORE
+					((FrameworkElement)d).Blur(3, duration: 0).Start();
+#endif
                 }
             }
         }

@@ -169,7 +169,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
                 }
                 else
                 {
-                    Implicit.GetShowAnimations(child).Add(new OpacityAnimation()
+#if NETFX_CORE
+                   Implicit.GetShowAnimations(child).Add(new OpacityAnimation()
                     {
                         From = 0,
                         To = 1,
@@ -177,6 +178,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
                         Delay = TimeSpan.FromMilliseconds(counter++ * delay),
                         SetInitialValueBeforeDelay = true
                     });
+#endif
                 }
             }
 
@@ -310,7 +312,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
                 {
                     Source = Scroller,
                     VerticalShift = 50,
-                    Child = background
+#if NETFX_CORE
+					Child = background
+#endif
                 };
 
                 BackgroundBorder.Child = parallaxView;

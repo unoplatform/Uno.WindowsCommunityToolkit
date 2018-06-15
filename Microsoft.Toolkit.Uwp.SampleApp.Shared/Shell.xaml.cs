@@ -504,13 +504,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             }
 #endif
 
-		if (_currentSample.HasXAMLCode && InfoAreaPivot.SelectedItem == XamlReadOnlyPivotItem)
-            {
-                // Update Read-Only XAML tab on non-desktop devices to show changes to Properties
-                XamlReadOnlyCodeRenderer.SetCode(HamburgerMenu.CurrentSample.UpdatedXamlCode, "xaml");
-            }
-
-            if (HamburgerMenu.CurrentSample.HasCSharpCode && InfoAreaPivot.SelectedItem == CSharpPivotItem)
+			if (HamburgerMenu.CurrentSample.HasCSharpCode && InfoAreaPivot.SelectedItem == CSharpPivotItem)
             {
                 var code = await HamburgerMenu.CurrentSample.GetCSharpSourceAsync();
                 CSharpCodeRenderer.SetCode(code, "c#");
@@ -725,8 +719,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
 		private void XamlCodeRenderer_Loading(object sender, RoutedEventArgs e)
         {
+#if NETFX_CORE // UNO TODO
             XamlCodeRenderer.Options.Folding = true;
-        }
+#endif
+		}
 
 #if NETFX_CORE // UNO TODO
         private void XamlCodeRenderer_InternalException(CodeEditor sender, Exception args)
