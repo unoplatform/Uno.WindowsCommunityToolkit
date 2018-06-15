@@ -92,6 +92,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Microsoft.Toolkit.Uwp.SampleApp.Shared\Microsoft.Toolkit.Uwp.SampleApp.Shared.projitems*{30cb6cf1-80f7-43d5-b619-c737503724b0}*SharedItemsImports = 13
+		Microsoft.Toolkit.Uwp.SampleApp.Shared\Microsoft.Toolkit.Uwp.SampleApp.Shared.projitems*{484385ea-7766-49dc-bd09-f9b5dd035847}*SharedItemsImports = 4
 		UnitTests\UnitTests.Notifications.Shared\UnitTests.Notifications.Shared.projitems*{982cc826-aacd-4855-9075-430bb6ce40a9}*SharedItemsImports = 13
 		UnitTests\UnitTests.Notifications.Shared\UnitTests.Notifications.Shared.projitems*{bab1caf4-c400-4a7f-a987-c576de63cffd}*SharedItemsImports = 4
 		UnitTests\UnitTests.Notifications.Shared\UnitTests.Notifications.Shared.projitems*{efa96b3c-857e-4659-b942-6bef7719f4ca}*SharedItemsImports = 4

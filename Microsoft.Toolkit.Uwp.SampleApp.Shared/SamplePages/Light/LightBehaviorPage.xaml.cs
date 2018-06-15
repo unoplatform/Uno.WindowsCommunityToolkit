@@ -36,6 +36,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
             {
                 WarningText.Visibility = Visibility.Visible;
             }
+#endif
         }
     }
 }

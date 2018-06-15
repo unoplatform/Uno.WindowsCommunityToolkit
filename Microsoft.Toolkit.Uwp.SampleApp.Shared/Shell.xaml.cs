@@ -240,12 +240,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     InfoAreaPivot.Items.Add(PropertiesPivotItem);
                 }
 
-#if NETFX_CORE // UNO TODO
                 if (HamburgerMenu.CurrentSample.HasXAMLCode)
                 {
+#if NETFX_CORE // UNO TODO
                     if (AnalyticsInfo.VersionInfo.GetDeviceFormFactor() != DeviceFormFactor.Desktop || HamburgerMenu.CurrentSample.DisableXamlEditorRendering)
 #else
-				if (true)
+					if (true)
 #endif
                     {
                         // Only makes sense (and works) for now to show Live Xaml on Desktop, so fallback to old system here otherwise.
@@ -728,17 +728,17 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             XamlCodeRenderer.Options.Folding = true;
         }
 
+#if NETFX_CORE // UNO TODO
         private void XamlCodeRenderer_InternalException(CodeEditor sender, Exception args)
         {
-#if NETFX_CORE // UNO TODO
             TrackingManager.TrackException(args);
-#endif
 
 		// If you hit an issue here, please report repro steps along with all the info from the Exception object.
 #if DEBUG
             Debugger.Break();
 #endif
 	}
+#endif
 
 	private void ProcessSampleEditorTime()
         {

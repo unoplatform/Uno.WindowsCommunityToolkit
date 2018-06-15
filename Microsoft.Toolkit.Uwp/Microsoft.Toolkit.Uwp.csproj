@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
 	<PropertyGroup>
 		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71</TargetFrameworks>
@@ -10,15 +10,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="MSBuild.Sdk.Extras" Version="1.5.3" PrivateAssets="All" />
-
 		<PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
 
 		<ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
-
 	</ItemGroup>
-
-	<Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
 		<PackageReference Include="Uno.UI" Version="1.31.0-dev.52" />

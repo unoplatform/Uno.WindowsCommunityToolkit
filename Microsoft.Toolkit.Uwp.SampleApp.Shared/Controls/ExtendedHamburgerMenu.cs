@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Media.Animation;
 namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
 {
 #pragma warning disable CS0618 // Type or member is obsolete
-    public class ExtendedHamburgerMenu : HamburgerMenu
+    public partial class ExtendedHamburgerMenu : HamburgerMenu
 #pragma warning restore CS0618 // Type or member is obsolete
     {
         private static readonly bool _isCreatorsUpdateOrAbove = ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 4);

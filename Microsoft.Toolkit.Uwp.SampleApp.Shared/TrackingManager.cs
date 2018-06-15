@@ -3,13 +3,17 @@
 // See the LICENSE file in the project root for more information.
 
 using System;
+
+#if NETFX_CORE
 using Microsoft.Services.Store.Engagement;
+#endif
 
 namespace Microsoft.Toolkit.Uwp.SampleApp
 {
     public static class TrackingManager
     {
-        private static StoreServicesCustomEventLogger logger;
+ #if NETFX_CORE
+       private static StoreServicesCustomEventLogger logger;
 
         static TrackingManager()
         {
@@ -22,10 +26,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 // Ignoring error
             }
         }
+#endif
 
         public static void TrackException(Exception ex)
         {
-            try
+#if NETFX_CORE
+        try
             {
                 logger.Log($"exception - {ex.Message} - {ex.StackTrace}");
             }
@@ -33,11 +39,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             {
                 // Ignore error
             }
+#endif
         }
 
         public static void TrackEvent(string category, string action, string label = "", long value = 0)
         {
-            try
+#if NETFX_CORE
+           try
             {
                 logger.Log($"{category} - {action} - {label} - {value.ToString()}");
             }
@@ -45,11 +53,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             {
                 // Ignore error
             }
+#endif
         }
 
         public static void TrackPage(string pageName)
         {
-            try
+#if NETFX_CORE
+           try
             {
                 logger.Log($"pageView - {pageName}");
             }
@@ -57,6 +67,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             {
                 // Ignore error
             }
+#endif
         }
     }
 }

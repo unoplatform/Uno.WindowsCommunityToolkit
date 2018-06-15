@@ -21,13 +21,17 @@ namespace Microsoft.Toolkit.Uwp.Helpers
     {
         private static HttpClient client = new HttpClient();
 
-        /// <summary>
-        /// Get the response stream returned by a HTTP get request.
-        /// </summary>
-        /// <param name="uri">Uri to request.</param>
-        /// <param name="cancellationToken">instance of <see cref="CancellationToken"/></param>
-        /// <returns>Response stream</returns>
-        public static async Task<IRandomAccessStream> GetHttpStreamAsync(this Uri uri, CancellationToken cancellationToken = default(CancellationToken))
+#if HAS_UNO
+		public static Stream AsStream(this Stream s) => s;
+#endif
+
+		/// <summary>
+		/// Get the response stream returned by a HTTP get request.
+		/// </summary>
+		/// <param name="uri">Uri to request.</param>
+		/// <param name="cancellationToken">instance of <see cref="CancellationToken"/></param>
+		/// <returns>Response stream</returns>
+		public static async Task<IRandomAccessStream> GetHttpStreamAsync(this Uri uri, CancellationToken cancellationToken = default(CancellationToken))
         {
             var outputStream = new InMemoryRandomAccessStream();
 

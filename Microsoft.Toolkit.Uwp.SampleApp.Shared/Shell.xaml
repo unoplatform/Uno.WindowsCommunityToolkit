@@ -171,14 +171,14 @@
                             </ScrollViewer>
                         </PivotItem>
 
-                <PivotItem x:Name="XamlPivotItem"
+                <win:PivotItem x:Name="XamlPivotItem"
                             Header="XAML">
                     <monaco:CodeEditor x:Name="XamlCodeRenderer"
                                        CodeLanguage="xml"
                                        KeyDown="XamlCodeRenderer_KeyDown"
                                        Loading="XamlCodeRenderer_Loading"
                                        InternalException="XamlCodeRenderer_InternalException"/>
-                </PivotItem>
+                </win:PivotItem>
 
                 <PivotItem x:Name="XamlReadOnlyPivotItem"
                             Header="XAML">

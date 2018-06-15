@@ -696,7 +696,7 @@
 
                             <Grid Grid.Row="1">
 
-                                <Border x:Name="ContentShadow"
+                                <win:Border x:Name="ContentShadow"
                                         Background="#33000000"
                                         Visibility="{Binding Visibility, ElementName=SamplePickerGrid}">
                                     <interactivity:Interaction.Behaviors>
@@ -715,7 +715,7 @@
                                                                      To="0"
                                                                      Duration="0:0:0.2" />
                                     </animations:Implicit.HideAnimations>
-                                </Border>
+                                </win:Border>
 
                                 <Grid x:Name="SamplePickerGrid"
                                       VerticalAlignment="Top"
@@ -949,7 +949,7 @@
                                                                          OffsetY="6"
                                                                          ShadowOpacity="0.6"
                                                                          Color="Black">
-                                            <Border Background="#F4F3F3F3"
+                                            <win:Border Background="#F4F3F3F3"
                                                     Opacity="0.96">
                                                 <interactivity:Interaction.Behaviors>
                                                     <behaviors:Blur AutomaticallyStart="True"
@@ -957,7 +957,7 @@
                                                                     Value="3"
                                                                     Duration="0" />
                                                 </interactivity:Interaction.Behaviors>
-                                            </Border>
+                                            </win:Border>
                                         </toolkitControls:DropShadowPanel>
 
                                         <Grid Padding="10">
