@@ -42,7 +42,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         public static async void EnsureCacheLatest()
         {
-            var settingsStorage = new LocalObjectStorageHelper();
+#if !HAS_UNO
+			var settingsStorage = new LocalObjectStorageHelper();
 
             var onlineDocsSHA = await GetDocsSHA();
             var cacheSHA = settingsStorage.Read<string>(_cacheSHAKey);
@@ -67,6 +68,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 // Update Cache Version info.
                 settingsStorage.Save(_cacheSHAKey, onlineDocsSHA);
             }
+#endif
         }
 
         private string _cachedDocumentation = string.Empty;

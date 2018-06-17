@@ -146,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <Content Include="landingPageLinks.json" />
     <None Include="Microsoft.Toolkit.Uwp.SampleApp.ruleset" />
     <None Include="readme.md" />
   </ItemGroup>

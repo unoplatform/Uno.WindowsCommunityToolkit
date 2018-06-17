@@ -719,8 +719,8 @@
 
                                 <Grid x:Name="SamplePickerGrid"
                                       VerticalAlignment="Top"
-                                      x:DeferLoadStrategy="Lazy"
                                       Visibility="Collapsed">
+                                      <!-- UNO TODO (Invalid ElementStub) x:DeferLoadStrategy="Lazy"-->
                                     <toolkitControls:DropShadowPanel Margin="0,0,0,-3"
                                                                      VerticalAlignment="Bottom"
                                                                      HorizontalContentAlignment="Stretch"
@@ -737,20 +737,21 @@
                                               animations:ReorderGridAnimation.Duration="200"
                                               IsItemClickEnabled="True"
                                               ItemContainerStyle="{StaticResource SecondaryHamburgerMenuItemStyle}"
-                                              ItemContainerTransitions="{x:Null}"
                                               ItemTemplate="{StaticResource SampleTemplate}"
                                               SelectionMode="Single"
-                                              Transitions="{x:Null}">
-                                        <animations:Implicit.ShowAnimations>
+											  >
+                                              <!--Transitions="{x:Null}"
+                                              ItemContainerTransitions="{x:Null}"-->
+                                        <!--<animations:Implicit.ShowAnimations>
                                             <animations:OpacityAnimation Delay="0:0:0.2"
                                                                          SetInitialValueBeforeDelay="True"
                                                                          From="0"
                                                                          To="1"
                                                                          Duration="0:0:0.3" />
-                                        </animations:Implicit.ShowAnimations>
+                                        </animations:Implicit.ShowAnimations>-->
                                     </GridView>
 
-                                    <animations:Implicit.ShowAnimations>
+                                    <!--<animations:Implicit.ShowAnimations>
                                         <animations:OpacityAnimation From="0"
                                                                      To="1"
                                                                      Duration="0:0:0.3" />
@@ -765,7 +766,7 @@
                                         <animations:TranslationAnimation From="0"
                                                                          To="0, -1000, 0"
                                                                          Duration="0:0:0.5" />
-                                    </animations:Implicit.HideAnimations>
+                                    </animations:Implicit.HideAnimations>-->
                                 </Grid>
                             </Grid>
 

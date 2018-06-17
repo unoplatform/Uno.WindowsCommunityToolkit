@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-	<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71</TargetFrameworks>
+	<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71;netstandard2.0</TargetFrameworks>
     <Title>Windows Community Toolkit Developer Tools</Title>
     <Description>This library provides XAML user controls and services to help developer building their app. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Controls XAML Developer Tools Accessibility</PackageTags>
@@ -12,7 +12,7 @@
     <None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
   </ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
 		<PackageReference Include="Uno.UI" Version="1.31.0-dev.52" />
 	</ItemGroup>
 

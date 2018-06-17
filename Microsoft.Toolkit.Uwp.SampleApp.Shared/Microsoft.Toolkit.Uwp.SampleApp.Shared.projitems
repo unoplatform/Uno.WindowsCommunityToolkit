@@ -524,6 +524,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Icons\More.png" />
     <Content Include="$(MSBuildThisFileDirectory)Icons\Notifications.png" />
     <Content Include="$(MSBuildThisFileDirectory)Icons\Services.png" />
+    <Content Include="$(MSBuildThisFileDirectory)landingPageLinks.json" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\AadLogin\AadLogin.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\AadLogin\AadLoginCode.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\AadLogin\AadLoginXaml.bind" />

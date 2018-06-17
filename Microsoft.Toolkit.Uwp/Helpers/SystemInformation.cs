@@ -228,8 +228,10 @@ namespace Microsoft.Toolkit.Uwp.Helpers
                 }
             }
 
-            Windows.UI.Core.CoreWindow.GetForCurrentThread().VisibilityChanged -= App_VisibilityChanged;
+#if !HAS_UNO
+			Windows.UI.Core.CoreWindow.GetForCurrentThread().VisibilityChanged -= App_VisibilityChanged;
             Windows.UI.Core.CoreWindow.GetForCurrentThread().VisibilityChanged += App_VisibilityChanged;
+#endif
         }
 
         /// <summary>
@@ -269,7 +271,8 @@ namespace Microsoft.Toolkit.Uwp.Helpers
         /// </summary>
         static SystemInformation()
         {
-            ApplicationName = Package.Current.DisplayName;
+#if !HAS_UNO
+			ApplicationName = Package.Current.DisplayName;
             ApplicationVersion = Package.Current.Id.Version;
             try
             {
@@ -299,9 +302,12 @@ namespace Microsoft.Toolkit.Uwp.Helpers
             FirstUseTime = DetectFirstUseTime();
             FirstVersionInstalled = DetectFirstVersionInstalled();
             InitializeValuesSetWithTrackAppUse();
-        }
+#else
+			ApplicationName = "Unknown";
+#endif
+		}
 
-        private static bool DetectIfFirstUse()
+		private static bool DetectIfFirstUse()
         {
             if (_localObjectStorageHelper.KeyExists(nameof(IsFirstRun)))
             {

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
 	<PropertyGroup>
-		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71</TargetFrameworks>
+		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71;netstandard2.0</TargetFrameworks>
 		<Title>Windows Community Toolkit</Title>
 		<Description>This package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc.</Description>
 		<PackageTags>UWP Toolkit Windows</PackageTags>
@@ -15,7 +15,7 @@
 		<ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
 		<PackageReference Include="Uno.UI" Version="1.31.0-dev.52" />
 	</ItemGroup>
 

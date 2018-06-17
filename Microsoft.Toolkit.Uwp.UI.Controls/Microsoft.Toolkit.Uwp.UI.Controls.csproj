@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
 	<PropertyGroup>
-		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71</TargetFrameworks>
+		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71;netstandard2.0</TargetFrameworks>
 		<Title>Windows Community Toolkit Controls</Title>
 		<Description>This library provides XAML user controls. It is part of the Windows Community Toolkit.</Description>
 		<PackageTags>UWP Toolkit Windows Controls XAML Hamburger Range WrapPanel Adaptive Markdown</PackageTags>
@@ -21,7 +21,7 @@
 		<PackageReference Include="Robmikh.CompositionSurfaceFactory" Version="0.7.3" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
 		<PackageReference Include="Uno.UI" Version="1.31.0-dev.52" />
 	</ItemGroup>
 
