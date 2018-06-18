@@ -442,8 +442,17 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
             if (_propertyDescriptor == null)
             {
-                // Get Xaml code
-                using (var codeStream = await StreamHelper.GetPackagedFileStreamAsync($"SamplePages/{Name}/{XamlCodeFile}"))
+				var manifestName = typeof(Samples).Assembly
+					.GetManifestResourceNames()
+					.FirstOrDefault(n => n.EndsWith($"{Name}.{XamlCodeFile}".Replace(" ", "_"), StringComparison.OrdinalIgnoreCase));
+
+				if(manifestName == null)
+				{
+					throw new InvalidOperationException($"Failed to find resource [{Name}.{XamlCodeFile}]");
+				}
+
+				// Get Xaml code
+				using (var codeStream = typeof(Samples).Assembly.GetManifestResourceStream(manifestName))
                 {
                     XamlCode = await codeStream.ReadTextAsync(Encoding.UTF8);
 

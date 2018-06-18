@@ -181,6 +181,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         private async void NavigationFrame_Navigating(object sender, NavigatingCancelEventArgs navigationEventArgs)
         {
+			Console.WriteLine($"Navigation: {navigationEventArgs.Parameter}");
+
             ProcessSampleEditorTime();
 
             SampleCategory category;
@@ -754,7 +756,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 }
             }
 
-            _timeSampleEditedFirst = _timeSampleEditedLast = DateTime.MinValue;
-        }
-    }
+			// Split in two lines because of https://github.com/mono/mono/issues/9023
+			_timeSampleEditedFirst = DateTime.MinValue;
+			_timeSampleEditedLast = DateTime.MinValue;
+		}
+	}
 }
