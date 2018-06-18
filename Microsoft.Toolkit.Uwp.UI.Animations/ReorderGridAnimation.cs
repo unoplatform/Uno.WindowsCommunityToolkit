@@ -114,11 +114,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations
         private static CompositionAnimationGroup CreateOffsetAnimation(Compositor compositor, double duration)
         {
             Vector3KeyFrameAnimation offsetAnimation = compositor.CreateVector3KeyFrameAnimation();
+#if NETFX_CORE // UNO TODO
             offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(duration);
             offsetAnimation.Target = nameof(Visual.Offset);
+#endif
 
-            CompositionAnimationGroup animationGroup = compositor.CreateAnimationGroup();
+			CompositionAnimationGroup animationGroup = compositor.CreateAnimationGroup();
             animationGroup.Add(offsetAnimation);
 
             return animationGroup;

@@ -125,7 +125,7 @@ Task("Verify")
     .IsDependentOn("Clean")
     .Does(() =>
 {
-    VerifyHeaders(false);
+    // VerifyHeaders(false);
 });
 
 Task("Version")
@@ -156,7 +156,8 @@ Task("Build")
     Information("\nBuilding Solution");
     var buildSettings = new MSBuildSettings
     {
-        MaxCpuCount = 0
+        MaxCpuCount = 0,
+		MSBuildPlatform = MSBuildPlatform.x86
     }
     .SetConfiguration("Release")
     .WithTarget("Restore");
@@ -169,7 +170,8 @@ Task("Build")
 	// Build once with normal dependency ordering
     buildSettings = new MSBuildSettings
     {
-        MaxCpuCount = 0
+        MaxCpuCount = 0,
+		MSBuildPlatform = MSBuildPlatform.x86
     }
     .SetConfiguration("Release")
     .WithTarget("Build")
@@ -215,7 +217,8 @@ Task("Package")
 {
 	// Invoke the pack target in the end
     var buildSettings = new MSBuildSettings {
-        MaxCpuCount = 0
+        MaxCpuCount = 0,
+		MSBuildPlatform = MSBuildPlatform.x86
     }
     .SetConfiguration("Release")
     .WithTarget("Pack")
@@ -228,7 +231,8 @@ Task("Package")
     // Build and pack C++ packages
     buildSettings = new MSBuildSettings
     {
-        MaxCpuCount = 0
+        MaxCpuCount = 0,
+		MSBuildPlatform = MSBuildPlatform.x86
     }
     .SetConfiguration("Native");
 

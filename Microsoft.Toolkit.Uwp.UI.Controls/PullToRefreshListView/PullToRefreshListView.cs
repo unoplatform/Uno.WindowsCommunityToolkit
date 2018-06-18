@@ -27,7 +27,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     [TemplatePart(Name = PartDefaultIndicatorContent, Type = typeof(TextBlock))]
     [TemplatePart(Name = PullAndReleaseIndicatorContent, Type = typeof(ContentPresenter))]
     [Obsolete("The PullToRefreshListView will be removed in a future major release. Please use the RefreshContainer control available in the 1803 version of Windows")]
-    public class PullToRefreshListView : ListView
+    public partial class PullToRefreshListView : ListView
     {
         /// <summary>
         /// Identifies the <see cref="OverscrollLimit"/> property.
@@ -494,8 +494,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     if (headerContent != null)
                     {
                         _headerTransform = new CompositeTransform();
-                        headerContent.RenderTransform = _headerTransform;
-                    }
+
+#if NETFX_CORE // UNO TODO
+						headerContent.RenderTransform = _headerTransform;
+#endif
+					}
                 }
 
                 if (_footerTransform == null && VisualTreeHelper.GetChildrenCount(footerContent) > 0)
@@ -503,8 +506,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     if (footerContent != null)
                     {
                         _footerTransform = new CompositeTransform();
-                        footerContent.RenderTransform = _footerTransform;
-                    }
+#if NETFX_CORE // UNO TODO
+						footerContent.RenderTransform = _footerTransform;
+#endif
+					}
                 }
 
                 if (itemsPanel == null)
@@ -513,8 +518,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 }
 
                 _contentTransform = new CompositeTransform();
-                itemsPanel.RenderTransform = _contentTransform;
-            }
+#if NETFX_CORE // UNO TODO
+				itemsPanel.RenderTransform = _contentTransform;
+#endif
+			}
 
             Rect elementBounds = _scrollerContent.TransformToVisual(_root).TransformBounds(default(Rect));
 

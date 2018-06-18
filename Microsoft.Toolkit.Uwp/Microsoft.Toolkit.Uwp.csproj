@@ -1,23 +1,22 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
-  <PropertyGroup>
-    <TargetFramework>uap10.0</TargetFramework>
-    <Title>Windows Community Toolkit</Title>
-    <Description>This package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc.</Description>
-    <PackageTags>UWP Toolkit Windows</PackageTags>
-    <UseUwpMetaPackage>true</UseUwpMetaPackage>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71;netstandard2.0</TargetFrameworks>
+		<Title>Windows Community Toolkit</Title>
+		<Description>This package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc.</Description>
+		<PackageTags>UWP Toolkit Windows</PackageTags>
+		<UseUwpMetaPackage>true</UseUwpMetaPackage>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	</PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
 
-  <ItemGroup>
-    
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    
-    <!-- TODO: Update to later version -->
-    <PackageReference Include="Microsoft.Identity.Client" Version="1.1.2-preview0008" />
+		<ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
+	</ItemGroup>
 
-    <ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
-
-  </ItemGroup>
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
+		<PackageReference Include="Uno.UI" Version="1.31.0-dev.52" />
+	</ItemGroup>
 
 </Project>

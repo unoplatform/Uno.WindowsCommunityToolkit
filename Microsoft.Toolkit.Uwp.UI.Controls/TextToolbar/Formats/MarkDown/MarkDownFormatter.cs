@@ -63,7 +63,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarFormats.MarkDown
 
         private void HeaderSelected(object sender, TappedRoutedEventArgs e)
         {
-            var item = sender as FrameworkElement;
+#if NETFX_CORE // UNO TODO
+			var item = sender as FrameworkElement;
 
             EnsureAtStartOfCurrentLine();
             string linesStart = (item.Tag as string) + " ";
@@ -82,6 +83,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarFormats.MarkDown
 
             Selected.StartPosition = Selected.EndPosition;
             headerFlyout?.Hide();
+#endif
         }
 
         /// <summary>

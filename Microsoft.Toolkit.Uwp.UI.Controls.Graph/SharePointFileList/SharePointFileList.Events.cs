@@ -162,8 +162,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             if (_list.SelectedItem is DriveItem driveItem)
             {
                 MessageDialog confirmDialog = new MessageDialog(DeleteConfirmMessage);
-                confirmDialog.Commands.Add(new UICommand(DeleteConfirmOkMessage, cmd => { }, commandId: 0));
-                confirmDialog.Commands.Add(new UICommand(DeleteConfirmCancelMessage, cmd => { }, commandId: 1));
+                confirmDialog.Commands.Add(new UICommand(DeleteConfirmOkMessage, cmd => { }, 0));
+                confirmDialog.Commands.Add(new UICommand(DeleteConfirmCancelMessage, cmd => { }, 1));
 
                 confirmDialog.DefaultCommandIndex = 0;
                 confirmDialog.CancelCommandIndex = 1;

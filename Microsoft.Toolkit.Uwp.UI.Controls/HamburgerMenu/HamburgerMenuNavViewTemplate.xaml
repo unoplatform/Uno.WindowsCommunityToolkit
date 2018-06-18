@@ -86,7 +86,9 @@
                                 <VisualState x:Name="ClosedCompact">
                                     <VisualState.Setters>
                                         <Setter Target="RevealBorder.HorizontalAlignment" Value="Left" />
-                                        <Setter Target="RevealBorder.Width" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CompactPaneLength}" />
+                                        <!--
+										UNO TODO
+										<Setter Target="RevealBorder.Width" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CompactPaneLength}" />-->
                                     </VisualState.Setters>
                                 </VisualState>
                             </VisualStateGroup>
@@ -146,12 +148,14 @@
         </Setter>
     </Style>
 
+	<!-- UNO TODO -->
+    <converters:VisibilityToBoolConverter x:Key="VisibilityToBoolConverter"></converters:VisibilityToBoolConverter>
+    <local:HamburgerMenuNavViewItemStyleSelector x:Key="HamburgerMenuNavViewItemStyleSelector"
+                                                    MenuItemStyle="{StaticResource NavigationViewItemToolkitStyle}"></local:HamburgerMenuNavViewItemStyleSelector>
+	
     <ControlTemplate x:Key="HamburgerMenuNavViewTemplate" TargetType="local:HamburgerMenu">
         <Grid>
             <Grid.Resources>
-                <converters:VisibilityToBoolConverter x:Key="VisibilityToBoolConverter"></converters:VisibilityToBoolConverter>
-                <local:HamburgerMenuNavViewItemStyleSelector x:Key="HamburgerMenuNavViewItemStyleSelector"
-                                                             MenuItemStyle="{StaticResource NavigationViewItemToolkitStyle}"></local:HamburgerMenuNavViewItemStyleSelector>
             </Grid.Resources>
             <Windows10FallCreatorsUpdate:NavigationView x:Name="NavView"
                             IsPaneOpen="{Binding IsPaneOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"

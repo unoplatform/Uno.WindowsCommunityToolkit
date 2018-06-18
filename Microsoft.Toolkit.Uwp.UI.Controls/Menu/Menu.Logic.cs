@@ -28,7 +28,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         {
             var element = FocusManager.GetFocusedElement();
 
-            if (element is MenuFlyoutPresenter &&
+#if NETFX_CORE
+			if (element is MenuFlyoutPresenter &&
                 ((args.VirtualKey == VirtualKey.Down) ||
                  (args.VirtualKey == VirtualKey.Up) ||
                  (args.VirtualKey == VirtualKey.Left) ||
@@ -106,8 +107,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     return true;
                 }
             }
+#endif
 
-            return false;
+			return false;
         }
 
         private static MenuItem GetNextMenuItem(Menu menu, int moveCount)
@@ -121,9 +123,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private static string MapInputToGestureKey(VirtualKey key, bool menuHasFocus = false)
         {
-            var isCtrlDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control).HasFlag(CoreVirtualKeyStates.Down);
-            var isShiftDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift).HasFlag(CoreVirtualKeyStates.Down);
-            var isAltDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu).HasFlag(CoreVirtualKeyStates.Down) || menuHasFocus;
+			// UNO TODO
+			var isCtrlDown = Windows.UI.Xaml.Window.Current.CoreWindow.GetKeyState(VirtualKey.Control).HasFlag(CoreVirtualKeyStates.Down);
+            var isShiftDown = Windows.UI.Xaml.Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift).HasFlag(CoreVirtualKeyStates.Down);
+            var isAltDown = Windows.UI.Xaml.Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu).HasFlag(CoreVirtualKeyStates.Down) || menuHasFocus;
 
             if (!isCtrlDown && !isShiftDown && !isAltDown)
             {
@@ -186,14 +189,16 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal FlyoutPlacementMode GetMenuFlyoutPlacementMode()
         {
-            var ttv = TransformToVisual(Window.Current.Content);
+			// UNO TODO
+			var ttv = TransformToVisual(Windows.UI.Xaml.Window.Current.Content);
             var menuCoords = ttv.TransformPoint(new Point(0, 0));
 
             if (Orientation == Orientation.Horizontal)
             {
                 var menuCenter = menuCoords.Y + (ActualHeight / 2);
 
-                if (menuCenter <= Window.Current.Bounds.Height / 2)
+				// UNO TODO
+				if (menuCenter <= Windows.UI.Xaml.Window.Current.Bounds.Height / 2)
                 {
                     return FlyoutPlacementMode.Bottom;
                 }
@@ -206,7 +211,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             {
                 var menuCenter = menuCoords.X + (ActualWidth / 2);
 
-                if (menuCenter <= Window.Current.Bounds.Width / 2)
+				// UNO TODO
+				if (menuCenter <= Windows.UI.Xaml.Window.Current.Bounds.Width / 2)
                 {
                     return FlyoutPlacementMode.Right;
                 }
@@ -283,7 +289,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal void CalculateBounds()
         {
-            var ttv = TransformToVisual(Window.Current.Content);
+			// UNO TODO
+			var ttv = TransformToVisual(Windows.UI.Xaml.Window.Current.Content);
             Point screenCoords = ttv.TransformPoint(new Point(0, 0));
             _bounds.X = screenCoords.X;
             _bounds.Y = screenCoords.Y;

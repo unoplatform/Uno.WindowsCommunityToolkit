@@ -1,0 +1,92 @@
+<Project>
+
+	<ItemGroup>
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropBlurBrush\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropBlurBrush\**" />
+		
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\AadLogin\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\AadLogin\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BluetoothLEHelper\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BluetoothLEHelper\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Facebook Service\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Facebook Service\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeInteraction\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeInteraction\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeTracing\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeTracing\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LinkedIn Service\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LinkedIn Service\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LiveTile\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LiveTile\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Graph Service\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Graph Service\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Translator Service\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Translator Service\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\NetworkHelper\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\NetworkHelper\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\OneDrive Service\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\OneDrive Service\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PeoplePicker\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PeoplePicker\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ProfileCard\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ProfileCard\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\SharePointFileList\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\SharePointFileList\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Toast\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Toast\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Twitter Service\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Twitter Service\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\WeatherLiveTileAndToast\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\WeatherLiveTileAndToast\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\InfiniteCanvas\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\InfiniteCanvas\**" />
+		
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropGammaTransferBrush\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropGammaTransferBrush\**" />
+		
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSaturationBrush\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSaturationBrush\**" />
+		
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSepiaBrush\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSepiaBrush\**" />
+		
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropInvertBrush\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropInvertBrush\**" />
+		
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackgroundTaskHelper\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackgroundTaskHelper\**" />
+		
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Connected Animations\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Connected Animations\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Bing Service\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Bing Service\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Implicit Animations\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Implicit Animations\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\RadialGradientBrush\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\RadialGradientBrush\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ImageBlendBrush\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ImageBlendBrush\**" />
+	</ItemGroup>
+
+</Project>

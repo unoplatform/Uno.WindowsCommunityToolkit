@@ -21,7 +21,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// <summary>
     /// Menu Item is the items main container for Class Menu control
     /// </summary>
-    public class MenuItem : HeaderedItemsControl
+    public partial class MenuItem : HeaderedItemsControl
     {
         private const string FlyoutButtonName = "FlyoutButton";
         private const char UnderlineCharacter = '^';
@@ -77,8 +77,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal bool ContainsPoint(Point point)
         {
-            return _bounds.Contains(point);
-        }
+#if NETFX_CORE // UNO TODO
+			return _bounds.Contains(point);
+#else
+			return false;
+#endif
+		}
 
         /// <summary>
         /// This method is used to hide the menu for current item
@@ -143,7 +147,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal void CalculateBounds()
         {
-            var ttv = TransformToVisual(Window.Current.Content);
+			// UNO TODO
+			var ttv = TransformToVisual(Windows.UI.Xaml.Window.Current.Content);
             Point screenCoords = ttv.TransformPoint(new Point(0, 0));
             _bounds.X = screenCoords.X;
             _bounds.Y = screenCoords.Y;
@@ -156,10 +161,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             var allItems = new List<MenuFlyoutItemBase>();
             if (MenuFlyout != null)
             {
+#if NETFX_CORE // UNO TODO
                 GetMenuFlyoutItemItems(MenuFlyout.Items, allItems);
-            }
+#endif
+			}
 
-            return allItems;
+			return allItems;
         }
 
         private void GetMenuFlyoutItemItems(IList<MenuFlyoutItemBase> menuFlyoutItems, List<MenuFlyoutItemBase> allItems)
@@ -234,7 +241,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private void AddItemToFlyout(object item)
         {
-            var menuItem = item as MenuFlyoutItemBase;
+#if NETFX_CORE // UNO TODO
+			var menuItem = item as MenuFlyoutItemBase;
             if (menuItem != null)
             {
                 MenuFlyout.Items.Add(menuItem);
@@ -245,14 +253,17 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 newMenuItem.DataContext = item;
                 MenuFlyout.Items.Add(newMenuItem);
             }
-        }
+#endif
+		}
 
         private void InsertItemToFlyout(object item, int index)
         {
             var menuItem = item as MenuFlyoutItemBase;
             if (menuItem != null)
             {
-                MenuFlyout.Items.Insert(index, menuItem);
+#if NETFX_CORE // UNO TODO
+               MenuFlyout.Items.Insert(index, menuItem);
+#endif
             }
             else
             {
@@ -314,7 +325,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             if (!_menuFlyoutRepositioned)
             {
-                var popup = VisualTreeHelper.GetOpenPopups(Window.Current).FirstOrDefault(p => p.Child is MenuFlyoutPresenter);
+				// UNO TODO
+				var popup = VisualTreeHelper.GetOpenPopups(Windows.UI.Xaml.Window.Current).FirstOrDefault(p => p.Child is MenuFlyoutPresenter);
 
                 if (popup != null)
                 {
@@ -322,11 +334,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     var height = mfp.ActualHeight;
                     var width = mfp.ActualWidth;
 
-                    var flytoutButtonPoint = FlyoutButton.TransformToVisual(Window.Current.Content).TransformPoint(new Point(0, 0));
+					// UNO TODO
+					var flytoutButtonPoint = FlyoutButton.TransformToVisual(Windows.UI.Xaml.Window.Current.Content).TransformPoint(new Point(0, 0));
 
-                    if ((width > Window.Current.Bounds.Width - flytoutButtonPoint.X &&
+					// UNO TODO
+					if ((width > Windows.UI.Xaml.Window.Current.Bounds.Width - flytoutButtonPoint.X &&
                         (MenuFlyout.Placement == FlyoutPlacementMode.Bottom)) ||
-                        (height > Window.Current.Bounds.Height - flytoutButtonPoint.Y &&
+                        (height > Windows.UI.Xaml.Window.Current.Bounds.Height - flytoutButtonPoint.Y &&
                         (MenuFlyout.Placement == FlyoutPlacementMode.Right)))
                     {
                         ShowMenuRepositioned(width, height);
@@ -423,12 +437,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 Text = underlinedCharacter.ToString()
             };
 
-            if (_isTextTextDecorationsSupported)
+#if NETFX_CORE // UNO TODO
+			if (_isTextTextDecorationsSupported)
             {
                 runWithUnderlinedCharacter.TextDecorations = Windows.UI.Text.TextDecorations.Underline;
             }
+#endif
 
-            var firstPartBuilder = new StringBuilder();
+			var firstPartBuilder = new StringBuilder();
             var secondPartBuilder = new StringBuilder();
 
             for (int i = 0; i < underlineCharacterIndex; i++)

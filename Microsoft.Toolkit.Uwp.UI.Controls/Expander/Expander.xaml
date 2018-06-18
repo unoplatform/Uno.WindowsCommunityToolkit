@@ -443,7 +443,10 @@
                                         <Setter Target="ColumnOne.Width" Value="*" />
                                         <Setter Target="ColumnTwo.Width" Value="Auto" />
                                         <Setter Target="PART_MainContent.RenderTransformOrigin" Value="1, 0.5" />
-                                        <Setter Target="PART_ExpanderToggleButton.Background" Value="{Binding ElementName=PART_MainContent, Path=Background}" />
+                                        <!--
+										UNO TODO
+										<Setter Target="PART_ExpanderToggleButton.Background" Value="{Binding ElementName=PART_MainContent, Path=Background}" />
+										-->
                                     </VisualState.Setters>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="ContentPresenter"
@@ -463,7 +466,10 @@
                                 </VisualState>
                                 <VisualState x:Name="CollapsedDown">
                                     <VisualState.Setters>
-                                        <Setter Target="PART_ExpanderToggleButton.Background" Value="{Binding ElementName=PART_MainContent, Path=Background}" />
+                                        <!--
+										UNO TODO
+										<Setter Target="PART_ExpanderToggleButton.Background" Value="{Binding ElementName=PART_MainContent, Path=Background}" />
+										-->
                                     </VisualState.Setters>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="ContentPresenter"
@@ -496,7 +502,10 @@
                                         <Setter Target="PART_ContentOverlay.(Grid.Column)" Value="1" />
                                         <Setter Target="PART_ContentOverlay.(Grid.ColumnSpan)" Value="1" />
                                         <Setter Target="RotateLayoutTransform.Angle" Value="-90" />
-                                        <Setter Target="PART_ExpanderToggleButton.Background" Value="{Binding ElementName=PART_MainContent, Path=Background}" />
+                                        <!--
+										UNO TODO
+										<Setter Target="PART_ExpanderToggleButton.Background" Value="{Binding ElementName=PART_MainContent, Path=Background}" />
+										-->
                                     </VisualState.Setters>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="ContentPresenter"
@@ -532,7 +541,10 @@
                                         <Setter Target="RowTwo.Height" Value="Auto" />
                                         <Setter Target="RotateLayoutTransform.Angle" Value="0" />
                                         <Setter Target="PART_MainContent.RenderTransformOrigin" Value="0.5, 1" />
-                                        <Setter Target="PART_ExpanderToggleButton.Background" Value="{Binding ElementName=PART_MainContent, Path=Background}" />
+                                        <!--
+										UNO TODO
+										<Setter Target="PART_ExpanderToggleButton.Background" Value="{Binding ElementName=PART_MainContent, Path=Background}" />
+										-->
                                     </VisualState.Setters>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="ContentPresenter"

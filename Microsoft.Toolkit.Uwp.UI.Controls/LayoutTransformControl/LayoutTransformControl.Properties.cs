@@ -74,7 +74,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <remarks>
         /// Corresponds to UIElement.RenderTransform.
         /// </remarks>
-        public Transform Transform
+        public new Transform Transform
         {
             get { return (Transform)GetValue(TransformProperty); }
             set { SetValue(TransformProperty, value); }
