@@ -72,12 +72,12 @@
             <Grid x:Name="DemoAreaGrid" Grid.Row="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
                 <Frame x:Name="NavigationFrame" ></Frame>
                 <controls:DropShadowPanel Grid.Row="1" Color="Black" ShadowOpacity="0.2" BlurRadius="40"
-                                            HorizontalContentAlignment="Stretch" Margin="8,0,8,8"
-                                            Visibility="{x:Bind GreaterThanZero(Commands.Count), Mode=OneWay}">
+                                            HorizontalContentAlignment="Stretch" Margin="8,0,8,8">
+                                            <!-- UNO TODO Visibility="{x:Bind GreaterThanZero(Commands.Count), Mode=OneWay}"-->
                     <animations:Implicit.ShowAnimations>
                         <animations:TranslationAnimation From="0, 100, 0" To="0" Duration="0:0:0.3"></animations:TranslationAnimation>
                         <animations:OpacityAnimation From="0" To="1" Duration="0:0:0.3"></animations:OpacityAnimation>
@@ -114,7 +114,7 @@
                         </ItemsControl>
                     </Border>
                 </controls:DropShadowPanel>
-                    
+
             </Grid>
             <Grid x:Name="InfoAreaGrid"
                   Grid.Row="1"

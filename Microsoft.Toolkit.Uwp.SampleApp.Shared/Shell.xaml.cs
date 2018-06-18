@@ -321,7 +321,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             RootGrid.ColumnDefinitions[1].Width = GridLength.Auto;
             RootGrid.RowDefinitions[2].Height = GridLength.Auto;
             HamburgerMenu.CurrentSample = null;
-            Commands.Clear();
+			Commands.Clear();
             Splitter.Visibility = Visibility.Collapsed;
             HamburgerMenu.Title = string.Empty;
             ApplicationViewExtensions.SetTitle(this, string.Empty);
