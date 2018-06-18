@@ -17,6 +17,10 @@
 		<ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj" />
 	</ItemGroup>
 
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
+	</PropertyGroup>
+
 	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
 		<PackageReference Include="Robmikh.CompositionSurfaceFactory" Version="0.7.3" />
 	</ItemGroup>
@@ -27,7 +31,7 @@
 
 	<ItemGroup>
 		<None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
-		<None Include="$(OutDir)\Design\$(MSBuildProjectName).Design.dll" Pack="true" PackagePath="lib\$(TargetFramework)\Design" />
+		<!--<None Include="$(OutDir)\Design\$(MSBuildProjectName).Design.dll" Pack="true" PackagePath="lib\$(TargetFramework)\Design" />-->
 	</ItemGroup>
 
 	<!-- https://weblogs.asp.net/rweigelt/disable-warnings-in-generated-c-files-of-uwp-app -->

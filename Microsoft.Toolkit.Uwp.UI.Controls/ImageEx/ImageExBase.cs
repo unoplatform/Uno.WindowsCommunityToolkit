@@ -128,8 +128,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             if (image != null)
             {
-                image.ImageFailed += handler;
-            }
+#if __WASM__ // UNO TODO
+				// image.ImageFailed += handler;
+#else
+				image.ImageFailed += handler;
+#endif
+			}
             else if (brush != null)
             {
                 brush.ImageFailed += handler;
@@ -147,9 +151,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             if (image != null)
             {
-                image.ImageFailed -= handler;
-            }
-            else if (brush != null)
+#if __WASM__ // UNO TODO
+				// image.ImageFailed -= handler;
+#else
+				image.ImageFailed -= handler;
+#endif
+			}
+			else if (brush != null)
             {
                 brush.ImageFailed -= handler;
             }

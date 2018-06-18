@@ -294,7 +294,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             var localpath = $"{uri.Host}/{uri.LocalPath}";
 
             // Cache only in Release
-#if !DEBUG
+#if !DEBUG && !HAS_UNO
             try
             {
                 imageStream = await StreamHelper.GetLocalCacheFileStreamAsync(localpath, Windows.Storage.FileAccessMode.Read);

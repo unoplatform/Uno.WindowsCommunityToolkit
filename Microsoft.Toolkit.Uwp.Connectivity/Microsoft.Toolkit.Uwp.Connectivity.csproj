@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
     <TargetFramework>uap10.0</TargetFramework>
@@ -6,9 +6,6 @@
     <Description>This library enables easier consumption of Devices / Peripherals connected to Windows device. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Devices Bluetooth BTLE Networking</PackageTags>
   </PropertyGroup>
-
-	<Import Project="..\CrossTargeting.props" />
-	<Import Project="..\CrossTargeting.targets" />
 
 	<ItemGroup>
 

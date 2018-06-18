@@ -148,4 +148,7 @@
   <Import Project="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\Microsoft.Toolkit.Uwp.SampleApp.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="Exclusions.props" />
+	
+	<!-- fake target to allow the nuget pack to work solution wide -->
+	<Target Name="Pack" />
 </Project>

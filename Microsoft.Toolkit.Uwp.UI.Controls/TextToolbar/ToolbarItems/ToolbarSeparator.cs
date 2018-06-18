@@ -16,7 +16,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons
         /// </summary>
         public ToolbarSeparator()
         {
-            this.DefaultStyleKey = typeof(ToolbarSeparator);
+#if !__WASM__
+			this.DefaultStyleKey = typeof(ToolbarSeparator);
+#endif
         }
 
         /// <inheritdoc/>

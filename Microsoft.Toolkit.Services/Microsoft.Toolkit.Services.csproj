@@ -1,7 +1,7 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>uap10.0;netstandard1.4;net461;xamarinios10;MonoAndroid71</TargetFrameworks>
+    <TargetFrameworks>uap10.0;netstandard1.4;net461</TargetFrameworks>
     <Description>This .NET standard library enables access to different data sources such as Bing, Microsoft Graph, and OneDrive. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Bing Microsoft Graph OneDrive</PackageTags>
     <Title>Windows Community Toolkit .NET Standard Services</Title>
