@@ -6,6 +6,7 @@
 		<Description>This library provides XAML user controls and services to help developer building their app. It is part of the Windows Community Toolkit.</Description>
 		<PackageTags>UWP Toolkit Windows Controls XAML Developer Tools Accessibility</PackageTags>
 		<UseUwpMetaPackage>true</UseUwpMetaPackage>
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.DeveloperTools</PackageId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">

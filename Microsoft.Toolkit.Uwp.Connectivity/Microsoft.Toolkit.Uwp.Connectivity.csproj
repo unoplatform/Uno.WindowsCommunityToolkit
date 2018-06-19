@@ -5,7 +5,8 @@
     <Title>Windows Community Toolkit Devices</Title>
     <Description>This library enables easier consumption of Devices / Peripherals connected to Windows device. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Devices Bluetooth BTLE Networking</PackageTags>
-  </PropertyGroup>
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.Connectivity</PackageId>
+	</PropertyGroup>
 
 	<ItemGroup>
 

@@ -5,6 +5,7 @@
     <Title>Windows Community Toolkit .NET Standard</Title>
     <Description>This package includes .NET Standard code only helpers.</Description>
     <PackageTags>UWP Toolkit Windows</PackageTags>
+		<PackageId>Uno.Microsoft.Toolkit</PackageId>
 
     <!-- This is a temporary workaround for https://github.com/dotnet/sdk/issues/955 -->
     <DebugType>Full</DebugType>

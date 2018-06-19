@@ -7,6 +7,8 @@
 		<PackageTags>UWP Toolkit Windows Controls XAML Hamburger Range WrapPanel Adaptive Markdown</PackageTags>
 
 		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>

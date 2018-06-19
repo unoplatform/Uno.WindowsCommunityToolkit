@@ -7,6 +7,8 @@
     <PackageTags>UWP Toolkit Windows Animations Composition</PackageTags>
 		
 		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Animations</PackageId>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">

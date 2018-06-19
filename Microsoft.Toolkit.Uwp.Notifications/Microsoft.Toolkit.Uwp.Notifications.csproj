@@ -8,7 +8,9 @@
 Supports adaptive tiles and adaptive/interactive toasts for Windows 10. It is part of the Windows Community Toolkit. Supports C# and C++ UWP project types (see Microsoft.Toolkit.Uwp.Notifications.JavaScript for the JS version). Also works with C# portable class libraries and non-UWP C# projects like server projects.</Description>
     <PackageTags>notifications win10 windows 10 tile tiles toast toasts badge xml uwp c# csharp c++</PackageTags>
     <ExtrasImplicitPlatformPackageIsPrivate Condition=" '$(TargetFramework)' == 'native' ">true</ExtrasImplicitPlatformPackageIsPrivate>
-  </PropertyGroup>
+		
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.Notifications</PackageId>
+	</PropertyGroup>
   
   <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'native' ">
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.4" />

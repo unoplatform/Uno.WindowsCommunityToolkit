@@ -5,8 +5,9 @@
     <Description>This .NET standard library contains various Parsers. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Parsers Parsing Markdown RSS</PackageTags>
     <Title>Windows Community Toolkit .NET Standard Parsers</Title>
+		<PackageId>Uno.Microsoft.Toolkit.Parsers</PackageId>
 
-    <!-- This is a temporary workaround for https://github.com/dotnet/sdk/issues/955 -->
+		<!-- This is a temporary workaround for https://github.com/dotnet/sdk/issues/955 -->
     <DebugType>Full</DebugType>
   </PropertyGroup>
   
