@@ -25,7 +25,7 @@ steps:
     arguments: -c $(BuildConfiguration)   
   displayName: Set Version
 
-- powershell: .\build\build.ps1 -target=Pack
+- powershell: .\build\build.ps1 -target=Package
   displayName: Build 
 #  env:
 #    SignClientSecret: $(SignClientSecret)
@@ -35,7 +35,14 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: Publish Package Artifacts
   inputs:
+    pathToPublish: .\Microsoft.Toolkit.Uwp.SampleApp.Wasm\bin\Release\netstandard2.0\dist
+    artifactType: container
+    artifactName: Wasm
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish Package Artifacts
+  inputs:
     pathToPublish: .\bin\nupkg
     artifactType: container
-    artifactName: Packages
+    artifactName: WCT-Packages
   condition: always()
