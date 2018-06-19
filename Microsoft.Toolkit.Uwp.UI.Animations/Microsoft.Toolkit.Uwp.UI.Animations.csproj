@@ -1,22 +1,32 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>uap10.0</TargetFramework>
+		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71;netstandard2.0</TargetFrameworks>
     <Title>Windows Community Toolkit Animations</Title>
     <Description>This library provides helpers and services on top of Windows Composition and XAML storyboards. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Animations Composition</PackageTags>
-  </PropertyGroup>
+		
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Animations</PackageId>
+	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
+	</PropertyGroup>
 
-  <ItemGroup>
-    
-    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
-    
-    <PackageReference Include="Win2D.uwp" Version="1.21.0" />
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed" Version="1.1.0" />
+	<ItemGroup>
+		<PackageReference Include="System.ValueTuple" Version="4.4.0" />
+		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.Uwp.Managed" Version="2.0.1-uno.26" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+		<PackageReference Include="Win2D.uwp" Version="1.21.0" />
+	</ItemGroup>
 
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj" />
-
-  </ItemGroup>
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
+		<PackageReference Include="Uno.UI" Version="1.31.0-dev.62" />
+	</ItemGroup>
 
 </Project>

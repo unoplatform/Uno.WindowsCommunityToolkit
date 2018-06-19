@@ -7,6 +7,7 @@
         <TargetPlatformVersion>10.0.$(DefaultTargetPlatformVersion).0</TargetPlatformVersion>
         <TargetPlatformMinVersion>10.0.$(DefaultTargetPlatformMinVersion).0</TargetPlatformMinVersion>
         <DebugType>Full</DebugType>
+				<ExtrasUwpMetaPackageVersion>6.1.4</ExtrasUwpMetaPackageVersion>
       </PropertyGroup>
 
       <ItemGroup>

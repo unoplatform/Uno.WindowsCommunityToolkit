@@ -10,7 +10,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// <summary>
     /// Provides the base implementation for all controls that contain single content and have a header.
     /// </summary>
-    public class HeaderedContentControl : ContentControl
+    public partial class HeaderedContentControl : ContentControl
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="HeaderedContentControl"/> class.

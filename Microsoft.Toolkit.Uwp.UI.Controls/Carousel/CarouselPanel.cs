@@ -17,7 +17,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// <summary>
     /// The panel used in the <see cref="Carousel"/> control
     /// </summary>
-    public class CarouselPanel : Panel
+    public partial class CarouselPanel : Panel
     {
         // Storyboard on gesture
         private Storyboard storyboard = new Storyboard();
@@ -74,17 +74,20 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             for (int i = 0; i < Children.Count; i++)
             {
-                var child = Children[i];
-                var rect = child.TransformToVisual(this).TransformBounds(new Rect(0, 0, child.DesiredSize.Width, child.DesiredSize.Height));
+				// UNO TODO
+				if (Children[i] is UIElement child)
+				{
+					var rect = child.TransformToVisual(this).TransformBounds(new Rect(0, 0, child.DesiredSize.Width, child.DesiredSize.Height));
 
-                if (!(position.X >= rect.Left && position.X <= rect.Right && position.Y >= rect.Top && position.Y <= rect.Bottom))
-                {
-                    continue;
-                }
+					if (!(position.X >= rect.Left && position.X <= rect.Right && position.Y >= rect.Top && position.Y <= rect.Bottom))
+					{
+						continue;
+					}
 
-                Carousel.SelectedIndex = i;
+					Carousel.SelectedIndex = i;
 
-                return;
+					return;
+				}
             }
         }
 
@@ -97,37 +100,39 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             for (int i = 0; i < Children.Count; i++)
             {
-                var item = Children[i];
+				// UNO TODO
+				if (Children[i] is UIElement item)
+				{
+					var delta = Carousel.Orientation == Orientation.Horizontal ? e.Delta.Translation.X : e.Delta.Translation.Y;
+					var itemLength = Carousel.Orientation == Orientation.Horizontal ? item.DesiredSize.Width : item.DesiredSize.Height;
 
-                var delta = Carousel.Orientation == Orientation.Horizontal ? e.Delta.Translation.X : e.Delta.Translation.Y;
-                var itemLength = Carousel.Orientation == Orientation.Horizontal ? item.DesiredSize.Width : item.DesiredSize.Height;
+					var proj = GetProjectionFromManipulation(item, delta);
 
-                var proj = GetProjectionFromManipulation(item, delta);
+					ApplyProjection(item, proj);
 
-                ApplyProjection(item, proj);
+					// We have to take care of the first and last items when manipulating
+					if ((i == 0 && proj.Position > itemLength / 2) || (i == Children.Count - 1 && proj.Position < -itemLength))
+					{
+						e.Handled = true;
+						e.Complete();
+						Carousel.SelectedIndex = i;
 
-                // We have to take care of the first and last items when manipulating
-                if ((i == 0 && proj.Position > itemLength / 2) || (i == Children.Count - 1 && proj.Position < -itemLength))
-                {
-                    e.Handled = true;
-                    e.Complete();
-                    Carousel.SelectedIndex = i;
+						// force refresh if we are already on the first / last item
+						if (previousIndex == i)
+						{
+							UpdatePosition();
+						}
 
-                    // force refresh if we are already on the first / last item
-                    if (previousIndex == i)
-                    {
-                        UpdatePosition();
-                    }
+						return;
+					}
 
-                    return;
-                }
+					// Calculate the Z index to be sure selected item is over all others
+					var zindexItemIndex = delta > 0 ? Carousel.SelectedIndex - 1 : Carousel.SelectedIndex + 1;
+					var deltaFromSelectedIndex = Math.Abs(zindexItemIndex - i);
 
-                // Calculate the Z index to be sure selected item is over all others
-                var zindexItemIndex = delta > 0 ? Carousel.SelectedIndex - 1 : Carousel.SelectedIndex + 1;
-                var deltaFromSelectedIndex = Math.Abs(zindexItemIndex - i);
-
-                int zindex = (Children.Count * 100) - deltaFromSelectedIndex;
-                Canvas.SetZIndex(item, zindex);
+					int zindex = (Children.Count * 100) - deltaFromSelectedIndex;
+					Canvas.SetZIndex(item, zindex);
+				}
             }
 
             e.Handled = true;
@@ -138,8 +143,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// </summary>
         internal void OnManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
         {
-            // Need to know which direction we took for this manipulation.
-            var translation = Carousel.Orientation == Orientation.Horizontal ? e.Cumulative.Translation.X : e.Cumulative.Translation.Y;
+#if NETFX_CORE // UNO TODO
+			// Need to know which direction we took for this manipulation.
+			var translation = Carousel.Orientation == Orientation.Horizontal ? e.Cumulative.Translation.X : e.Cumulative.Translation.Y;
 
             // if manipulation is not enough to change index we will have to force refresh
             var lastIndex = Carousel.SelectedIndex;
@@ -149,28 +155,30 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             for (int i = 0; i < Children.Count - 1; i++)
             {
-                var child = Children[i];
+				// UNO TODO
+				if (Children[i] is UIElement child)
+				{
+					PlaneProjection projection = child.Projection as PlaneProjection;
+					CompositeTransform compositeTransform = child.RenderTransform as CompositeTransform;
 
-                PlaneProjection projection = child.Projection as PlaneProjection;
-                CompositeTransform compositeTransform = child.RenderTransform as CompositeTransform;
+					if (projection == null || compositeTransform == null)
+					{
+						continue;
+					}
 
-                if (projection == null || compositeTransform == null)
-                {
-                    continue;
-                }
+					var margin = Carousel.ItemMargin;
+					var size = Carousel.Orientation == Orientation.Horizontal ? desiredWidth : desiredHeight;
+					var left = Carousel.Orientation == Orientation.Horizontal ? compositeTransform.TranslateX : compositeTransform.TranslateY;
+					var right = left + size + margin;
+					var condition = translation < 0 ? (left > 0) : (right > 0);
 
-                var margin = Carousel.ItemMargin;
-                var size = Carousel.Orientation == Orientation.Horizontal ? desiredWidth : desiredHeight;
-                var left = Carousel.Orientation == Orientation.Horizontal ? compositeTransform.TranslateX : compositeTransform.TranslateY;
-                var right = left + size + margin;
-                var condition = translation < 0 ? (left > 0) : (right > 0);
-
-                if (condition)
-                {
-                    Carousel.SelectedIndex = i;
-                    hasBreak = true;
-                    break;
-                }
+					if (condition)
+					{
+						Carousel.SelectedIndex = i;
+						hasBreak = true;
+						break;
+					}
+				}
             }
 
             if (!hasBreak)
@@ -179,37 +187,41 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
 
             e.Handled = true;
-        }
+#endif
+		}
 
-        /// <summary>
-        /// Update all positions. Launch every animations on all items with a unique StoryBoard
-        /// </summary>
-        internal void UpdatePosition()
+		/// <summary>
+		/// Update all positions. Launch every animations on all items with a unique StoryBoard
+		/// </summary>
+		internal void UpdatePosition()
         {
             storyboard = new Storyboard();
             ManipulationMode = ManipulationModes.None;
 
             for (int i = 0; i < Children.Count; i++)
             {
-                var item = Children[i];
+				// UNO TODO
+				if (Children[i] is UIElement item)
+				{
 
-                PlaneProjection planeProjection = item.Projection as PlaneProjection;
+					PlaneProjection planeProjection = item.Projection as PlaneProjection;
 
-                if (planeProjection == null)
-                {
-                    continue;
-                }
+					if (planeProjection == null)
+					{
+						continue;
+					}
 
-                // Get target projection
-                var props = GetProjectionFromSelectedIndex(i);
+					// Get target projection
+					var props = GetProjectionFromSelectedIndex(i);
 
-                // Apply projection
-                ApplyProjection(item, props, storyboard);
+					// Apply projection
+					ApplyProjection(item, props, storyboard);
 
-                // Zindex and Opacity
-                var deltaFromSelectedIndex = Math.Abs(Carousel.SelectedIndex - i);
-                int zindex = (Carousel.Items.Count * 100) - deltaFromSelectedIndex;
-                Canvas.SetZIndex(item, zindex);
+					// Zindex and Opacity
+					var deltaFromSelectedIndex = Math.Abs(Carousel.SelectedIndex - i);
+					int zindex = (Carousel.Items.Count * 100) - deltaFromSelectedIndex;
+					Canvas.SetZIndex(item, zindex);
+				}
             }
 
             // When storyboard completed, Invalidate
@@ -332,8 +344,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// </summary>
         private void ApplyProjection(UIElement element, Proj proj, Storyboard storyboard = null)
         {
-            // then apply the plane projection transform
-            PlaneProjection planeProjection = element.Projection as PlaneProjection;
+#if NETFX_CORE // UNO TODO
+			// then apply the plane projection transform
+			PlaneProjection planeProjection = element.Projection as PlaneProjection;
             CompositeTransform compositeTransform = element.RenderTransform as CompositeTransform;
 
             if (planeProjection == null || compositeTransform == null)
@@ -372,7 +385,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 AddAnimation(storyboard, element, Carousel.TransitionDuration, proj.RotationY, rotationYProjection, Carousel.EasingFunction);
                 AddAnimation(storyboard, element, Carousel.TransitionDuration, proj.RotationZ, rotationZProjection, Carousel.EasingFunction);
             }
-        }
+#endif
+		}
 
         /// <summary>
         /// Calculate a new projection after a manipulation delta
@@ -380,7 +394,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <returns>Return the new projection</returns>
         private Proj GetProjectionFromManipulation(UIElement element, double delta)
         {
-            PlaneProjection projection = element.Projection as PlaneProjection;
+#if NETFX_CORE // UNO TODO
+			PlaneProjection projection = element.Projection as PlaneProjection;
             CompositeTransform compositeTransform = element.RenderTransform as CompositeTransform;
 
             var bounds = Carousel.Orientation == Orientation.Horizontal ? desiredWidth : desiredHeight;
@@ -421,7 +436,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
 
             return new Proj { Position = newPosition, Depth = depth, RotationX = rotationX, RotationY = rotationY, RotationZ = rotationZ };
-        }
+#else
+			throw new NotSupportedException();
+#endif
+		}
 
         /// <summary>
         /// get the projection from a current index. Used On ArrangeOverride step

@@ -54,9 +54,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons.Common
             var labelBox = new RichEditBox
             {
                 PlaceholderText = Model.Labels.LabelLabel,
-                Margin = new Thickness(0, 0, 0, 5),
-                AcceptsReturn = false
-            };
+#if NETFX_CORE // UNO TODO
+				Margin = new Thickness(0, 0, 0, 5),
+#endif
+				AcceptsReturn = false
+			};
             var linkBox = new TextBox
             {
                 PlaceholderText = Model.Labels.UrlLabel
@@ -68,7 +70,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarButtons.Common
             {
                 Children =
                     {
+#if NETFX_CORE // UNO TODO
                         labelBox,
+#endif
                         linkBox
                     }
             };

@@ -5,12 +5,16 @@
     <Title>Windows Community Toolkit Devices</Title>
     <Description>This library enables easier consumption of Devices / Peripherals connected to Windows device. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Devices Bluetooth BTLE Networking</PackageTags>
-  </PropertyGroup>
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.Connectivity</PackageId>
+	</PropertyGroup>
 
-  <ItemGroup>
+	<ItemGroup>
 
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />
 
   </ItemGroup>
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
+		<PackageReference Include="Uno.UI" Version="1.23.1-dev.1453" />
+	</ItemGroup>
 
 </Project>

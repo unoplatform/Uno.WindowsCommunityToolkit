@@ -372,13 +372,14 @@ namespace Microsoft.Toolkit.Uwp.UI
         /// </summary>
         public IEnumerable SourceCollection => _source;
 
-        /// <summary>
-        /// IComparer implementation
-        /// </summary>
-        /// <param name="x">Object A</param>
-        /// <param name="y">Object B</param>
-        /// <returns>Comparison value</returns>
-        int IComparer<object>.Compare(object x, object y)
+
+		/// <summary>
+		/// IComparer implementation
+		/// </summary>
+		/// <param name="x">Object A</param>
+		/// <param name="y">Object B</param>
+		/// <returns>Comparison value</returns>
+		int IComparer<object>.Compare(object x, object y)
         {
             if (!_sortProperties.Any())
             {
@@ -763,5 +764,5 @@ namespace Microsoft.Toolkit.Uwp.UI
             OnCurrentChanged(null);
             return true;
         }
-    }
+	}
 }
