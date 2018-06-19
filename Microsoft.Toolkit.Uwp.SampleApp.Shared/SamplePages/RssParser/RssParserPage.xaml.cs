@@ -16,7 +16,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         public RssParserPage()
         {
             this.InitializeComponent();
-            ParseRSS();
+			Loaded += (s, e) => ParseRSS();
         }
 
         public string Url { get; set; } = "https://visualstudiomagazine.com/rss-feeds/news.aspx";

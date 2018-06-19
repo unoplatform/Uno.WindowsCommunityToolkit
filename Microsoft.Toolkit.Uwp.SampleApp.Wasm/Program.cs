@@ -38,8 +38,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 					//{ "Windows.UI.Xaml.Controls.Panel", LogLevel.Debug },
 
 					// Binding related messages
-					// { "Windows.UI.Xaml.Data", LogLevel.Debug },
-					// { "Windows.UI.Xaml.Data", LogLevel.Debug },
+					 // { "Windows.UI.Xaml.Data", LogLevel.Debug },
+					// { "Windows.UI.Xaml.DependencyObjectStore", LogLevel.Debug },
+					// { "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
 
 					//  Binder memory references tracking
 					// { "ReferenceHolder", LogLevel.Debug },

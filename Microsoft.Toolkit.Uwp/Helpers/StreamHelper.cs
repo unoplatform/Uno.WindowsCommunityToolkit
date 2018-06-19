@@ -19,10 +19,15 @@ namespace Microsoft.Toolkit.Uwp.Helpers
     /// </summary>
     public static class StreamHelper
     {
-        private static HttpClient client = new HttpClient();
 
 #if HAS_UNO
 		public static Stream AsStream(this Stream s) => s;
+#endif
+
+#if __WASM__
+		private static HttpClient client = new HttpClient(new Uno.UI.Wasm.WasmHttpHandler());
+#else
+		private static HttpClient client = new HttpClient();
 #endif
 
 		/// <summary>

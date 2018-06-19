@@ -62,7 +62,10 @@
 
         <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
-        <!--  Styles  -->
+		<converters:FormatStringConverter x:Key="FormatStringConverter" />
+		<converters:CollectionVisibilityConverter x:Key="EmptyCollectionToVisibility" EmptyValue="Visible" NotEmptyValue="Collapsed"  />
+
+		<!--  Styles  -->
 		<!--  UNO TODO -->
         <Style x:Key="rendererStyle" TargetType="controls:CodeRenderer">
             <Setter Property="Template">

@@ -27,7 +27,16 @@
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />
     <ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
   </ItemGroup>
-	
+
+	<ItemGroup>
+		<EmbeddedResource Include="WasmCSS\**\*.css" />
+		<EmbeddedResource Include="WasmScripts\**\*.js" />
+
+		<UpToDateCheckInput Include="ts\**\*" />
+		<UpToDateCheckInput Include="WasmCSS\**\*" />
+		<UpToDateCheckInput Include="WasmScripts\**\*" />
+	</ItemGroup>
+
 	<ItemGroup>
 		<LinkerDescriptor Include="LinkerConfig.xml" />
 	</ItemGroup>

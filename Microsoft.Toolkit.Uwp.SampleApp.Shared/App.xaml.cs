@@ -13,6 +13,12 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using System.Threading.Tasks;
+
+#if HAS_UNO
+using Uno.Extensions;
+using Uno.Logging;
+#endif
 
 namespace Microsoft.Toolkit.Uwp.SampleApp
 {
@@ -30,7 +36,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         {
             InitializeComponent();
             Suspending += OnSuspending;
-        }
+		}
 
 		protected override async void OnActivated(IActivatedEventArgs args)
         {
@@ -62,7 +68,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         /// <param name="e">Details about the launch request and process.</param>
         protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Windows.Foundation.Size(500, 500));
+#if HAS_UNO
+			Application.Current.UnhandledException += (s, args) => this.Log().Error($"Unhandled exception: {args.Exception}");
+			AppDomain.CurrentDomain.UnhandledException += (s, args) => this.Log().Error($"AppDomain Unhandled exception: {args.ExceptionObject}");
+			TaskScheduler.UnobservedTaskException += (s, args) => this.Log().Error($"AppDomain Unhandled exception: {args.Exception}");
+#endif
+
+			ApplicationView.GetForCurrentView().SetPreferredMinSize(new Windows.Foundation.Size(500, 500));
 
             if (e.PrelaunchActivated)
             {

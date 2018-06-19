@@ -60,16 +60,16 @@
   //      "DeprecatedWarning": "The HamburgerMenu is deprecated and will be removed in a future major release. Please use the NavigationView available in the Fall Creators Update.",
   //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HamburgerMenu.md"
   //    },
-  //    {
-  //      "Name": "RangeSelector",
-  //      "Type": "RangeSelectorPage",
-  //      "About": "The RangeSelector is a \"double slider\" control for range values.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RangeSelector",
-  //      "XamlCodeFile": "RangeSelectorCode.bind",
-  //      "Icon": "/SamplePages/RangeSelector/RangeSelector.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RangeSelector.md"
-  //    },
-  //    {
+      {
+        "Name": "RangeSelector",
+        "Type": "RangeSelectorPage",
+        "About": "The RangeSelector is a \"double slider\" control for range values.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RangeSelector",
+        "XamlCodeFile": "RangeSelectorCode.bind",
+        "Icon": "/SamplePages/RangeSelector/RangeSelector.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RangeSelector.md"
+      },
+//      {
   //      "Name": "ImageEx",
   //      "Type": "ImageExPage",
   //      "About": "Images are downloaded asynchronously showing a load indicator. Source images are then stored in the App local cache to preserve resources and load time.",
@@ -78,16 +78,16 @@
   //      "Icon": "/SamplePages/ImageEx/ImageEx.png",
   //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/ImageEx.md"
   //    },
-  //    {
-  //      "Name": "HeaderedTextBlock",
-  //      "Type": "HeaderedTextBlockPage",
-  //      "About": "The HeaderedTextBlock control is designed to provide a header for read only text. This control is useful for displaying read only forms.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedTextBlock",
-  //      "XamlCodeFile": "HeaderedTextBlockCode.bind",
-  //      "Icon": "/SamplePages/HeaderedTextBlock/HeaderedTextBlock.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedTextBlock.md"
-  //    },
-  //    {
+      {
+        "Name": "HeaderedTextBlock",
+        "Type": "HeaderedTextBlockPage",
+        "About": "The HeaderedTextBlock control is designed to provide a header for read only text. This control is useful for displaying read only forms.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedTextBlock",
+        "XamlCodeFile": "HeaderedTextBlockCode.bind",
+        "Icon": "/SamplePages/HeaderedTextBlock/HeaderedTextBlock.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedTextBlock.md"
+      },
+ //     {
   //      "Name": "MasterDetailsView",
   //      "Type": "MasterDetailsViewPage",
   //      "About": "The MasterDetailsView control allows the user to implement the Master/Details design pattern.",
@@ -97,17 +97,17 @@
   //      "Icon": "/SamplePages/MasterDetailsView/MasterDetailsView.png",
   //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MasterDetailsView.md"
   //    },
-  //    {
-  //      "Name": "MarkdownTextBlock",
-  //      "Type": "MarkdownTextBlockPage",
-  //      "About": "An efficient and extensible control that can parse and render markdown.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/MarkdownTextBlock",
-  //      "XamlCodeFile": "MarkdownTextBlock.bind",
-  //      "CodeFile": "MarkdownTextBlockCode.bind",
-  //      "Icon": "/SamplePages/MarkdownTextBlock/MarkdownTextBlock.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MarkdownTextBlock.md"
-  //    },
-  //    {
+      {
+        "Name": "MarkdownTextBlock",
+        "Type": "MarkdownTextBlockPage",
+        "About": "An efficient and extensible control that can parse and render markdown.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/MarkdownTextBlock",
+        "XamlCodeFile": "MarkdownTextBlock.bind",
+        "CodeFile": "MarkdownTextBlockCode.bind",
+        "Icon": "/SamplePages/MarkdownTextBlock/MarkdownTextBlock.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MarkdownTextBlock.md"
+      },
+      // {
   //      "Name": "RadialGauge",
   //      "Type": "RadialGaugePage",
   //      "About": "The radial gauge displays a value within a range, using a needle on a circular face.",
