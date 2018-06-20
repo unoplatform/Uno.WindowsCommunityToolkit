@@ -525,24 +525,24 @@
   //      "Icon": "/SamplePages/Twitter Service/TwitterLogo.png",
   //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/Twitter.md"
   //    },
-  //    {
-  //      "Name": "Microsoft Graph Service",
-  //      "Type": "MicrosoftGraphPage",
-  //      "About": "The Microsoft Graph service allows you to connect to Microsoft Graph Office 365 API.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Services/Services/MicrosoftGraph",
-  //      "CodeFile": "MicrosoftGraphCode.bind",
-  //      "Icon": "/SamplePages/Microsoft Graph Service/mslogo.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/MicrosoftGraph.md"
-  //    },
-  //    {
-  //      "Name": "OneDrive Service",
-  //      "Type": "OneDrivePage",
-  //      "About": "The OneDrive service allows you to get your files from OneDrive using an Microsoft Account or OneDrive For Business using an Office 365 account",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Services/Services/OneDrive/",
-  //      "CodeFile": "OneDriveCode.bind",
-  //      "Icon": "/SamplePages/OneDrive Service/OneDriveLogo.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/OneDrive.md"
-  //    },
+      {
+        "Name": "Microsoft Graph Service",
+        "Type": "MicrosoftGraphPage",
+        "About": "The Microsoft Graph service allows you to connect to Microsoft Graph Office 365 API.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Services/Services/MicrosoftGraph",
+        "CodeFile": "MicrosoftGraphCode.bind",
+        "Icon": "/SamplePages/Microsoft Graph Service/mslogo.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/MicrosoftGraph.md"
+      },
+      {
+        "Name": "OneDrive Service",
+        "Type": "OneDrivePage",
+        "About": "The OneDrive service allows you to get your files from OneDrive using an Microsoft Account or OneDrive For Business using an Office 365 account",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Services/Services/OneDrive/",
+        "CodeFile": "OneDriveCode.bind",
+        "Icon": "/SamplePages/OneDrive Service/OneDriveLogo.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/OneDrive.md"
+      },
   //    {
   //      "Name": "LinkedIn Service",
   //      "Type": "LinkedInPage",

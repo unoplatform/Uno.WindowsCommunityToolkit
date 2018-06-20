@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>uap10.0;netstandard1.4;net461</TargetFrameworks>
+    <TargetFrameworks>uap10.0;netstandard1.4;net461;xamarinios10;MonoAndroid71;netstandard2.0</TargetFrameworks>
     <Description>This .NET standard library enables access to different data sources such as Bing, Microsoft Graph, and OneDrive. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Bing Microsoft Graph OneDrive</PackageTags>
     <Title>Windows Community Toolkit .NET Standard Services</Title>
@@ -11,8 +11,12 @@
     <DebugType>Full</DebugType>
   </PropertyGroup>
   
-  <PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+  <PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0' ">
     <DefineConstants Condition="'$(DisableImplicitFrameworkDefines)' != 'true'">$(DefineConstants);WINRT</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'MonoAndroid71' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFramework)' == 'netstandard2.0' ">
+    <DefineConstants>$(DefineConstants);WINRT</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,12 +26,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Graph" Version="1.8.1" />
-    <PackageReference Include="Microsoft.Identity.Client" Version="1.1.2-preview0008" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="1.1.4-preview0002" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Net.Http" Version="4.3.3" />
   </ItemGroup>
+	
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="Uno.UI" Version="1.31.0-dev.62" />
+	</ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='uap10.0'">
+	<ItemGroup Condition="'$(TargetFramework)'=='uap10.0' or '$(TargetFramework)' == 'MonoAndroid71' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="3.13.7" />
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />
   </ItemGroup>
@@ -38,7 +46,12 @@
 
   <ItemGroup Condition="!('$(TargetFramework)'=='uap10.0')">
     <Compile Remove="Services\MicrosoftGraph\Platform\Uwp\**\*" />
-    <Compile Remove="Services\OneDrive\Platform\Uwp\**\*" />
+    <Compile Remove="Services\OneDrive\Platform\Any\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\MicrosoftGraph\Platform\Uwp\" />
+    <Folder Include="Services\OneDrive\Platform\Any\" />
   </ItemGroup>
 
 
