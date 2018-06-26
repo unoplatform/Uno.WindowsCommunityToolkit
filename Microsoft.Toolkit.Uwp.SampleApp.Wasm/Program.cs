@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading;
 using Microsoft.Extensions.Logging;
 using Uno.Extensions;
+using Windows.UI.Xaml;
 
 namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 {
@@ -12,9 +14,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 		{
 			ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
 
-			Console.WriteLine($"DateTime.MinValue: {DateTime.MinValue}");
-
-			new App();
+			Application.Start(e => new App());
 		}
 
 		static void ConfigureFilters(ILoggerFactory factory)
