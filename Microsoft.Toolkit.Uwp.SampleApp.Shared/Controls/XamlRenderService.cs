@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 
@@ -68,6 +69,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
             }
             catch (Exception e)
             {
+				if(e is TargetInvocationException tie)
+				{
+					e = e.InnerException;
+				}
+
                 // Highlight Error (we'll only get one at a time).
                 string msg = e.Message;
 
