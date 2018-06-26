@@ -43,8 +43,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
             }
 
             string subject = TxtSubject.Text;
-            string content;
-            richEditBoxContent.Document.GetText(Windows.UI.Text.TextGetOptions.None, out content);
+			string content = "";
+#if !HAS_UNO
+			richEditBoxContent.Document.GetText(Windows.UI.Text.TextGetOptions.None, out content);
+#endif
             try
             {
                 await MicrosoftGraphService.Instance.User.Message.SendEmailAsync(subject, content, BodyType.Text, toRecipients, ccRecipients, Importance.Normal);
