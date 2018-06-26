@@ -37,7 +37,7 @@
                 </Border>
             </StackPanel>
 
-            <ScrollViewer Grid.Row="1">
+            <ScrollViewer x:Name="scrollViewer1" Grid.Row="1">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
