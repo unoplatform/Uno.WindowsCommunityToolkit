@@ -171,7 +171,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         public async Task<string> GetCSharpSourceAsync()
         {
-            using (var codeStream = await StreamHelper.GetPackagedFileStreamAsync($"SamplePages/{Name}/{CodeFile}"))
+            using (var codeStream = await StreamHelper.GetEmbeddedFileStreamAsync(GetType(), $"SamplePages.{Name}.{CodeFile}"))
             {
                 using (var streamreader = new StreamReader(codeStream.AsStream()))
                 {
@@ -182,7 +182,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         public async Task<string> GetJavaScriptSourceAsync()
         {
-            using (var codeStream = await StreamHelper.GetPackagedFileStreamAsync($"SamplePages/{Name}/{JavaScriptCodeFile}"))
+            using (var codeStream = await StreamHelper.GetEmbeddedFileStreamAsync(GetType(), $"SamplePages.{Name}.{JavaScriptCodeFile}"))
             {
                 using (var streamreader = new StreamReader(codeStream.AsStream()))
                 {
@@ -260,7 +260,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             {
                 try
                 {
-                    using (var localDocsStream = await StreamHelper.GetPackagedFileStreamAsync($"docs/{filepath}"))
+                    using (var localDocsStream = await StreamHelper.GetEmbeddedFileStreamAsync(GetType(), $"docs.{filepath}"))
                     {
                         var result = await localDocsStream.ReadTextAsync();
                         _cachedDocumentation = ProcessDocs(result);
