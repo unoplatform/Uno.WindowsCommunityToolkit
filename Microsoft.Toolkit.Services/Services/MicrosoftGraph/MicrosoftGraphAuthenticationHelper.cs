@@ -201,7 +201,7 @@ namespace Microsoft.Toolkit.Services.MicrosoftGraph
 					appClientId,
 					new Uri(DefaultRedirectUri),
 #if __IOS__
-					new IdentityModel.Clients.ActiveDirectory.PlatformParameters(/* UNO TODO */ null, false)
+					new IdentityModel.Clients.ActiveDirectory.PlatformParameters(Windows.UI.Xaml.Application.Current.Window.RootViewController, false)
 #elif NETFX_CORE
 					new IdentityModel.Clients.ActiveDirectory.PlatformParameters(PromptBehavior.Always, false)
 #elif __ANDROID__

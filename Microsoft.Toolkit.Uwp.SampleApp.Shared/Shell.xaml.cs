@@ -257,7 +257,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 #if NETFX_CORE // UNO TODO
                     if (AnalyticsInfo.VersionInfo.GetDeviceFormFactor() != DeviceFormFactor.Desktop || HamburgerMenu.CurrentSample.DisableXamlEditorRendering)
 #else
-					if (true)
+					if (HamburgerMenu.CurrentSample.DisableXamlEditorRendering)
 #endif
                     {
                         // Only makes sense (and works) for now to show Live Xaml on Desktop, so fallback to old system here otherwise.
@@ -267,12 +267,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     }
                     else
                     {
-#if NETFX_CORE // UNO TODO
                         XamlCodeRenderer.Text = HamburgerMenu.CurrentSample.UpdatedXamlCode;
 
-                        InfoAreaPivot.Items.Add(XamlPivotItem);
-#endif
-					_xamlCodeRendererSupported = true;
+						InfoAreaPivot.Items.Add(XamlPivotItem);
+						_xamlCodeRendererSupported = true;
                     }
 
                     InfoAreaPivot.SelectedIndex = 0;
@@ -501,7 +499,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 return;
             }
 
-#if NETFX_CORE // UNO TODO
             if (HamburgerMenu.CurrentSample.HasXAMLCode && InfoAreaPivot.SelectedItem == XamlPivotItem && _lastRenderedProperties)
             {
 				// Use this flag so we don't re-render the XAML tab if we're switching from tabs other than the properties one.
@@ -511,12 +508,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 XamlCodeRenderer.Text = HamburgerMenu.CurrentSample.UpdatedXamlCode;
 
                 var t = UpdateXamlRenderAsync(HamburgerMenu.CurrentSample.UpdatedXamlCode);
+#if NETFX_CORE // UNO TODO
                 await XamlCodeRenderer.RevealPositionAsync(new Position(1, 1));
+#endif
 
                 XamlCodeRenderer.Focus(FocusState.Programmatic);
                 return;
             }
-#endif
 
 			if (HamburgerMenu.CurrentSample.HasCSharpCode && InfoAreaPivot.SelectedItem == CSharpPivotItem)
             {
@@ -690,12 +688,16 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123
         };
 
-#if NETFX_CORE // UNO TODO
+#if NETFX_CORE
 		private void XamlCodeRenderer_KeyDown(Monaco.CodeEditor sender, Monaco.Helpers.WebKeyEventArgs args)
-        {
-            // Handle Shortcuts.
-            // Ctrl+Enter or F5 Update // TODO: Do we need this in the app handler too? (Thinking no)
-            if ((args.KeyCode == 13 && args.CtrlKey) ||
+#else
+		private void XamlCodeRenderer_KeyDown(object sender, EventArgs args)
+#endif
+		{
+#if NETFX_CORE
+			// Handle Shortcuts.
+			// Ctrl+Enter or F5 Update // TODO: Do we need this in the app handler too? (Thinking no)
+			if ((args.KeyCode == 13 && args.CtrlKey) ||
                  args.KeyCode == 116)
             {
                 var t = UpdateXamlRenderAsync(XamlCodeRenderer.Text);
@@ -729,8 +731,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                         });
                     }, TimeSpan.FromSeconds(0.5));
             }
-        }
 #endif
+        }
 
 		private void XamlCodeRenderer_Loading(object sender, RoutedEventArgs e)
         {

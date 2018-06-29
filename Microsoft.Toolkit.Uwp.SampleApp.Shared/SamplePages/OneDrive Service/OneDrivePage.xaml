@@ -424,7 +424,7 @@
                                              Visibility="Visible"
                                              />
                             <TextBlock>Select the permissions you want to use</TextBlock>
-                            <ListBox x:Name="DelegatedPermissions" Margin="0,10,0,0" SelectionMode="Multiple" Height="Auto"/>
+                            <ListView x:Name="DelegatedPermissions" Margin="0,10,0,0" SelectionMode="Multiple" Height="Auto"/>
                             <Button Content="Sign in" 
                                     x:Name="ConnectButton" 
                                     Click="ConnectButton_Click" 

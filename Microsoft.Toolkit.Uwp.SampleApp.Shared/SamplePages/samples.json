@@ -3,6 +3,69 @@
     "Name": "Controls",
     "Icon": "Icons/Foundation.png",
     "Samples": [
+      {
+        "Name": "UniformGrid",
+        "Type": "UniformGridPage",
+        "About": "Presents items in a evenly-spaced set of rows or columns to fill the total available display space. It reacts to changes in the layout as well as the content so it can adapt to different form factors automatically.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/UniformGrid",
+        "XamlCodeFile": "UniformGridXaml.bind",
+        "Icon": "/SamplePages/UniformGrid/UniformGrid.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/UniformGrid.md"
+      },
+      {
+        "Name": "HeaderedTextBlock",
+        "Type": "HeaderedTextBlockPage",
+        "About": "The HeaderedTextBlock control is designed to provide a header for read only text. This control is useful for displaying read only forms.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedTextBlock",
+        "XamlCodeFile": "HeaderedTextBlockCode.bind",
+        "Icon": "/SamplePages/HeaderedTextBlock/HeaderedTextBlock.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedTextBlock.md"
+      },
+      {
+        "Name": "WrapPanel",
+        "Type": "WrapPanelPage",
+        "About": "The WrapPanel Control positions child elements in sequential position from left to right, breaking content to the next line at the edge of the containing box.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/WrapPanel",
+        "XamlCodeFile": "WrapPanel.bind",
+        "Icon": "/SamplePages/WrapPanel/WrapPanel.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/WrapPanel.md"
+      },
+      {
+        "Name": "DockPanel",
+        "Type": "DockPanelPage",
+        "About": "Defines an area where you can arrange child elements either horizontally or vertically, relative to each other.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/DockPanel",
+        "XamlCodeFile": "DockPanel.bind",
+        "Icon": "/SamplePages/DockPanel/DockPanel.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/DockPanel.md"
+      },
+      {
+        "Name": "StaggeredPanel",
+        "Type": "StaggeredPanelPage",
+        "About": "Allows items to be displayed with a specified header.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/StaggeredPanel",
+        "XamlCodeFile": "StaggeredPanel.bind",
+        "Icon": "/SamplePages/StaggeredPanel/StaggeredPanel.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/StaggeredPanel.md"
+      },
+      {
+        "Name": "HeaderedItemsControl",
+        "Type": "HeaderedItemsControlPage",
+        "About": "Allows items to be displayed with a specified header.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedItemsControl",
+        "XamlCodeFile": "HeaderedItemsControlXaml.bind",
+        "Icon": "/SamplePages/HeaderedItemsControl/HeaderedItemsControl.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedItemsControl.md"
+      },
+      {
+        "Name": "HeaderedContentControl",
+        "Type": "HeaderedContentControlPage",
+        "About": "Allows content to be displayed with a specified header.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedContentControl",
+        "XamlCodeFile": "HeaderedContentControlXaml.bind",
+        "Icon": "/SamplePages/HeaderedContentControl/HeaderedContentControl.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedContentControl.md"
+      },
       //{
       //  "Name": "TextToolbar",
       //  "Type": "TextToolbarPage",
@@ -30,15 +93,6 @@
       //  "XamlCodeFile": "AdaptiveGridViewCode.bind",
       //  "Icon": "/SamplePages/AdaptiveGridView/AdaptiveGridView.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/AdaptiveGridView.md"
-      //},
-      //{
-      //  "Name": "UniformGrid",
-      //  "Type": "UniformGridPage",
-      //  "About": "Presents items in a evenly-spaced set of rows or columns to fill the total available display space. It reacts to changes in the layout as well as the content so it can adapt to different form factors automatically.",
-      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/UniformGrid",
-      //  "XamlCodeFile": "UniformGridXaml.bind",
-      //  "Icon": "/SamplePages/UniformGrid/UniformGrid.png",
-      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/UniformGrid.md"
       //},
       //{
       //  "Name": "HamburgerMenu",
@@ -69,15 +123,6 @@
       //  "Icon": "/SamplePages/ImageEx/ImageEx.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/ImageEx.md"
       //},
-      {
-        "Name": "HeaderedTextBlock",
-        "Type": "HeaderedTextBlockPage",
-        "About": "The HeaderedTextBlock control is designed to provide a header for read only text. This control is useful for displaying read only forms.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedTextBlock",
-        "XamlCodeFile": "HeaderedTextBlockCode.bind",
-        "Icon": "/SamplePages/HeaderedTextBlock/HeaderedTextBlock.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedTextBlock.md"
-      },
       //{
       //  "Name": "MasterDetailsView",
       //  "Type": "MasterDetailsViewPage",
@@ -88,25 +133,25 @@
       //  "Icon": "/SamplePages/MasterDetailsView/MasterDetailsView.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MasterDetailsView.md"
       //},
-      {
-        "Name": "MarkdownTextBlock",
-        "Type": "MarkdownTextBlockPage",
-        "About": "An efficient and extensible control that can parse and render markdown.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/MarkdownTextBlock",
-        "XamlCodeFile": "MarkdownTextBlock.bind",
-        "CodeFile": "MarkdownTextBlockCode.bind",
-        "Icon": "/SamplePages/MarkdownTextBlock/MarkdownTextBlock.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MarkdownTextBlock.md"
-      },
-      {
-        "Name": "RadialGauge",
-        "Type": "RadialGaugePage",
-        "About": "The radial gauge displays a value within a range, using a needle on a circular face.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RadialGauge",
-        "XamlCodeFile": "RadialGaugeCode.bind",
-        "Icon": "/SamplePages/RadialGauge/RadialGauge.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RadialGauge.md"
-      },
+      //{
+      //  "Name": "MarkdownTextBlock",
+      //  "Type": "MarkdownTextBlockPage",
+      //  "About": "An efficient and extensible control that can parse and render markdown.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/MarkdownTextBlock",
+      //  "XamlCodeFile": "MarkdownTextBlock.bind",
+      //  "CodeFile": "MarkdownTextBlockCode.bind",
+      //  "Icon": "/SamplePages/MarkdownTextBlock/MarkdownTextBlock.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MarkdownTextBlock.md"
+      //},
+      //{
+      //  "Name": "RadialGauge",
+      //  "Type": "RadialGaugePage",
+      //  "About": "The radial gauge displays a value within a range, using a needle on a circular face.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RadialGauge",
+      //  "XamlCodeFile": "RadialGaugeCode.bind",
+      //  "Icon": "/SamplePages/RadialGauge/RadialGauge.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RadialGauge.md"
+      //},
       //{
       //  "Name": "RadialProgressBar",
       //  "Type": "RadialProgressBarPage",
@@ -149,15 +194,6 @@
       //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RotatorTile.md"
       //},
       //{
-      //  "Name": "BladeView",
-      //  "Type": "BladePage",
-      //  "About": "BladeView provides a horizontal collection of blades for master-detail scenarios. The control is based on the experience demonstrated by the Azure Portal.",
-      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/BladeView",
-      //  "XamlCodeFile": "BladeCode.bind",
-      //  "Icon": "/SamplePages/BladeView/BladeView.png",
-      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/BladeView.md"
-      //},
-      //{
       //  "Name": "ScrollHeader",
       //  "Type": "ScrollHeaderPage",
       //  "About": "A UI control that works as a ListView or GridView header control with quick return, sticky and fade behavior.",
@@ -166,15 +202,15 @@
       //  "Icon": "/SamplePages/ScrollHeader/ScrollHeader.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/ScrollHeader.md"
       //},
-      {
-        "Name": "GridSplitter",
-        "Type": "GridSplitterPage",
-        "About": "GridSplitter represents the control that redistributes space between columns or rows of a Grid control.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/GridSplitter",
-        "XamlCodeFile": "GridSplitter.bind",
-        "Icon": "/SamplePages/GridSplitter/GridSplitter.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/GridSplitter.md"
-      },
+      //{
+      //  "Name": "GridSplitter",
+      //  "Type": "GridSplitterPage",
+      //  "About": "GridSplitter represents the control that redistributes space between columns or rows of a Grid control.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/GridSplitter",
+      //  "XamlCodeFile": "GridSplitter.bind",
+      //  "Icon": "/SamplePages/GridSplitter/GridSplitter.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/GridSplitter.md"
+      //},
       //{
       //  "Name": "DropShadowPanel",
       //  "Type": "DropShadowPanelPage",
@@ -213,15 +249,6 @@
       //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/TileControl.md"
       //},
       //{
-      //  "Name": "WrapPanel",
-      //  "Type": "WrapPanelPage",
-      //  "About": "The WrapPanel Control positions child elements in sequential position from left to right, breaking content to the next line at the edge of the containing box.",
-      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/WrapPanel",
-      //  "XamlCodeFile": "WrapPanel.bind",
-      //  "Icon": "/SamplePages/WrapPanel/WrapPanel.png",
-      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/WrapPanel.md"
-      //},
-      //{
       //  "Name": "OrbitView",
       //  "Type": "OrbitViewPage",
       //  "About": "The OrbitView Control positions items in a circle around a center element and supports orbits and anchors.",
@@ -249,42 +276,6 @@
       //  "Icon": "/SamplePages/InAppNotification/InAppNotification.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/InAppNotification.md"
       //},
-      {
-        "Name": "DockPanel",
-        "Type": "DockPanelPage",
-        "About": "Defines an area where you can arrange child elements either horizontally or vertically, relative to each other.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/DockPanel",
-        "XamlCodeFile": "DockPanel.bind",
-        "Icon": "/SamplePages/DockPanel/DockPanel.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/DockPanel.md"
-      },
-      //{
-      //  "Name": "HeaderedContentControl",
-      //  "Type": "HeaderedContentControlPage",
-      //  "About": "Allows content to be displayed with a specified header.",
-      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedContentControl",
-      //  "XamlCodeFile": "HeaderedContentControlXaml.bind",
-      //  "Icon": "/SamplePages/HeaderedContentControl/HeaderedContentControl.png",
-      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedContentControl.md"
-      //},
-      //{
-      //  "Name": "HeaderedItemsControl",
-      //  "Type": "HeaderedItemsControlPage",
-      //  "About": "Allows items to be displayed with a specified header.",
-      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedItemsControl",
-      //  "XamlCodeFile": "HeaderedItemsControlXaml.bind",
-      //  "Icon": "/SamplePages/HeaderedItemsControl/HeaderedItemsControl.png",
-      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedItemsControl.md"
-      //},
-      //{
-      //  "Name": "StaggeredPanel",
-      //  "Type": "StaggeredPanelPage",
-      //  "About": "Allows items to be displayed with a specified header.",
-      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/StaggeredPanel",
-      //  "XamlCodeFile": "StaggeredPanel.bind",
-      //  "Icon": "/SamplePages/StaggeredPanel/StaggeredPanel.png",
-      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/StaggeredPanel.md"
-      //},
       //{
       //  "Name": "LayoutTransformControl",
       //  "Type": "LayoutTransformControlPage",
@@ -293,7 +284,7 @@
       //  "XamlCodeFile": "LayoutTransformControlXaml.bind",
       //  "Icon": "/SamplePages/LayoutTransformControl/LayoutTransformControl.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/LayoutTransformControl.md"
-      //},
+      //}
       //{
       //  "Name": "CameraPreview",
       //  "Type": "CameraPreviewPage",
@@ -450,55 +441,55 @@
   //    }
   //  ]
   //},
-  {
-    "Name": "Graph Controls",
-    "Icon": "Icons/Foundation.png",
-    "Samples": [
-      {
-        "Name": "AadLogin",
-        "Type": "AadLoginPage",
-        "About": "The AadLogin Control leverages existing .NET login libraries to support basic AAD sign-in processes for Microsoft Graph.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.Graph/AadLogin",
-        "CodeFile": "AadLoginCode.bind",
-        "XamlCodeFile": "AadLoginXaml.bind",
-        "Icon": "/SamplePages/AadLogin/AadLogin.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/graph/AadLogin.md"
-      },
-      {
-        "Name": "ProfileCard",
-        "Type": "ProfileCardPage",
-        "About": "The ProfileCard Control is a simple way to display a user in multiple different formats and mixes of name/image/e-mail.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.Graph/ProfileCard",
-        "XamlCodeFile": "ProfileCardXaml.bind",
-        "Icon": "/SamplePages/ProfileCard/ProfileCard.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/graph/ProfileCard.md"
-      },
-      {
-        "Name": "PeoplePicker",
-        "Type": "PeoplePickerPage",
-        "About": "The PeoplePicker Control is a simple control that allows for selection of one or more users from an organizational AD.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.Graph/PeoplePicker",
-        "XamlCodeFile": "PeoplePickerXaml.bind",
-        "Icon": "/SamplePages/PeoplePicker/PeoplePicker.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/graph/PeoplePicker.md"
-      },
-      {
-        "Name": "SharePointFileList",
-        "Type": "SharePointFileListPage",
-        "About": "The SharePointFileList Control displays a simple list of SharePoint Files.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.Graph/SharePointFileList",
-        "CodeFile": "SharePointFileListCode.bind",
-        "XamlCodeFile": "SharePointFileListXaml.bind",
-        "Icon": "/SamplePages/SharePointFileList/SharePointFileList.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/graph/SharePointFileList.md"
-      }
-    ]
-  },
   //{
-  //  "Name": "Services",
-  //  "Icon": "Icons/Services.png",
+  //  "Name": "Graph Controls",
+  //  "Icon": "Icons/Foundation.png",
   //  "Samples": [
   //    {
+  //      "Name": "AadLogin",
+  //      "Type": "AadLoginPage",
+  //      "About": "The AadLogin Control leverages existing .NET login libraries to support basic AAD sign-in processes for Microsoft Graph.",
+  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.Graph/AadLogin",
+  //      "CodeFile": "AadLoginCode.bind",
+  //      "XamlCodeFile": "AadLoginXaml.bind",
+  //      "Icon": "/SamplePages/AadLogin/AadLogin.png",
+  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/graph/AadLogin.md"
+  //    },
+  //    {
+  //      "Name": "ProfileCard",
+  //      "Type": "ProfileCardPage",
+  //      "About": "The ProfileCard Control is a simple way to display a user in multiple different formats and mixes of name/image/e-mail.",
+  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.Graph/ProfileCard",
+  //      "XamlCodeFile": "ProfileCardXaml.bind",
+  //      "Icon": "/SamplePages/ProfileCard/ProfileCard.png",
+  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/graph/ProfileCard.md"
+  //    },
+  //    {
+  //      "Name": "PeoplePicker",
+  //      "Type": "PeoplePickerPage",
+  //      "About": "The PeoplePicker Control is a simple control that allows for selection of one or more users from an organizational AD.",
+  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.Graph/PeoplePicker",
+  //      "XamlCodeFile": "PeoplePickerXaml.bind",
+  //      "Icon": "/SamplePages/PeoplePicker/PeoplePicker.png",
+  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/graph/PeoplePicker.md"
+  //    },
+  //    {
+  //      "Name": "SharePointFileList",
+  //      "Type": "SharePointFileListPage",
+  //      "About": "The SharePointFileList Control displays a simple list of SharePoint Files.",
+  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.Graph/SharePointFileList",
+  //      "CodeFile": "SharePointFileListCode.bind",
+  //      "XamlCodeFile": "SharePointFileListXaml.bind",
+  //      "Icon": "/SamplePages/SharePointFileList/SharePointFileList.png",
+  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/graph/SharePointFileList.md"
+  //    }
+  //  ]
+  //},
+  // {
+    //"Name": "Services",
+    //"Icon": "Icons/Services.png",
+    //"Samples": [
+//      {
   //      "Name": "Bing Service",
   //      "Type": "BingPage",
   //      "About": "The Bing Service allows you to retrieve Microsoft Bing web search engine results.",
@@ -542,7 +533,7 @@
       //  "CodeFile": "OneDriveCode.bind",
       //  "Icon": "/SamplePages/OneDrive Service/OneDriveLogo.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/OneDrive.md"
-//      },
+      //},
   //    {
   //      "Name": "LinkedIn Service",
   //      "Type": "LinkedInPage",
@@ -796,80 +787,6 @@
     "Icon": "Icons/Extensions.png",
     "Samples": [
       {
-        "Name": "ListViewExtensions",
-        "Type": "ListViewExtensionsPage",
-        "About": "Extensions for all controls that inherit from ListViewBase like ListView.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/ListViewExtensions",
-        "XamlCodeFile": "ListViewExtensionsCode.bind",
-        "Icon": "/Assets/Helpers.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ListViewExtensions.md"
-      },
-      {
-        "Name": "ViewExtensions",
-        "Type": "ViewExtensionsPage",
-        "About": "View extensions to set StatusBar and TitleBar properties.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions",
-        "XamlCodeFile": "ViewExtensionsCode.bind",
-        "Icon": "/SamplePages/ViewExtensions/ViewExtensions.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ViewExtensions.md"
-      },
-      {
-        "Name": "TextBoxMask",
-        "Type": "TextBoxMaskPage",
-        "About": "TextBox Mask property allows a user to more easily enter fixed width text in TextBox control where you would like them to enter the data in a certain format",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/TextBoxMask",
-        "XamlCodeFile": "TextBoxMask.bind",
-        "Icon": "/SamplePages/TextBoxMask/TextBoxMask.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/TextBoxMask.md"
-      },
-      {
-        "Name": "Mouse",
-        "Type": "MouseCursorPage",
-        "About": "Mouse.Cursor attached property enables you to easily change the mouse cursor over specific Framework elements.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/Mouse",
-        "XamlCodeFile": "MouseCursorPage.bind",
-        "Icon": "/SamplePages/Mouse/MouseCursor.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/MouseCursor.md"
-      },
-      {
-        "Name": "TextBoxRegex",
-        "Type": "TextBoxRegexPage",
-        "About": "TextBoxRegex helps developer to validate a TextBox with a regular expression using the Regex property.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/TextBoxRegEx",
-        "XamlCodeFile": "TextBoxRegex.bind",
-        "Icon": "/SamplePages/TextBoxRegex/TextBoxRegex.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/TextBoxRegex.md"
-      },
-      {
-        "Name": "SurfaceDialTextbox",
-        "Type": "SurfaceDialTextboxPage",
-        "About": "Enables support for Surface Dial on any given Textbox. Rotate the Dial to change the numeric value of the Textbox.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/SurfaceDialTextbox",
-        "XamlCodeFile": "SurfaceDialTextboxCode.bind",
-        "Icon": "/SamplePages/SurfaceDialTextbox/SurfaceDialTextbox.png",
-        "BadgeUpdateVersionRequired": "Anniversary Update required",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/SurfaceDialTextboxHelper.md"
-      },
-      {
-        "Name": "Visual Extensions",
-        "Type": "VisualExtensionsPage",
-        "About": "Attached properties to modify object visual properties through XAML",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/Visual",
-        "XamlCodeFile": "VisualExtensionsCode.bind",
-        "Icon": "/SamplePages/Visual Extensions/VisualExtensions.png",
-        "BadgeUpdateVersionRequired": "Creators Update required",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/VisualExtensions.md"
-      },
-      {
-        "Name": "FrameworkElementExtensions",
-        "Type": "FrameworkElementExtensionsPage",
-        "About": "Extensions for all the FrameworkElement controls.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/FrameworkElement",
-        "XamlCodeFile": "FrameworkElementExtensionsCode.bind",
-        "Icon": "/Assets/Helpers.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/FrameworkElementExtensions.md"
-      },
-      {
         "Name": "StringExtensions",
         "Type": "StringExtensionsPage",
         "About": "String Extensions to validate strings",
@@ -877,26 +794,100 @@
         "Icon": "/Assets/Helpers.png",
         "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/StringExtensions.md"
       },
-      {
-        "Name": "NavigationViewStyles",
-        "Type": "NavigationViewStylesPage",
-        "XamlCodeFile": "NavigationViewStylesXaml.bind",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/NavigationView.md",
-        "Icon": "/SamplePages/NavigationViewStyles/NavigationViewStyles.png",
-        "About": "Style extensions for the NavigationView to appear like the one used by Visual Studio Code.",
-        "BadgeUpdateVersionRequired": "Fall Creators Update required",
-        "ApiCheck": "Windows.UI.Xaml.Controls.NavigationView",
-        "CodeUrl": "https://github.com/Microsoft/UWPCommunitToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/NavigationView"
-      },
-      {
-        "Name": "ScrollViewerExtensions",
-        "Type": "ScrollViewerExtensionsPage",
-        "About": "Extensions for all controls that contain a ScrollViewer like ListView.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/ScrollViewer",
-        "XamlCodeFile": "ScrollViewerExtensionsCode.bind",
-        "Icon": "/Assets/Helpers.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ScrollViewerExtensions.md"
-      }
+      //{
+      //  "Name": "ListViewExtensions",
+      //  "Type": "ListViewExtensionsPage",
+      //  "About": "Extensions for all controls that inherit from ListViewBase like ListView.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/ListViewExtensions",
+      //  "XamlCodeFile": "ListViewExtensionsCode.bind",
+      //  "Icon": "/Assets/Helpers.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ListViewExtensions.md"
+      //},
+      //{
+      //  "Name": "ViewExtensions",
+      //  "Type": "ViewExtensionsPage",
+      //  "About": "View extensions to set StatusBar and TitleBar properties.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions",
+      //  "XamlCodeFile": "ViewExtensionsCode.bind",
+      //  "Icon": "/SamplePages/ViewExtensions/ViewExtensions.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ViewExtensions.md"
+      //},
+      //{
+      //  "Name": "TextBoxMask",
+      //  "Type": "TextBoxMaskPage",
+      //  "About": "TextBox Mask property allows a user to more easily enter fixed width text in TextBox control where you would like them to enter the data in a certain format",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/TextBoxMask",
+      //  "XamlCodeFile": "TextBoxMask.bind",
+      //  "Icon": "/SamplePages/TextBoxMask/TextBoxMask.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/TextBoxMask.md"
+      //},
+      //{
+      //  "Name": "Mouse",
+      //  "Type": "MouseCursorPage",
+      //  "About": "Mouse.Cursor attached property enables you to easily change the mouse cursor over specific Framework elements.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/Mouse",
+      //  "XamlCodeFile": "MouseCursorPage.bind",
+      //  "Icon": "/SamplePages/Mouse/MouseCursor.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/MouseCursor.md"
+      //},
+      //{
+      //  "Name": "TextBoxRegex",
+      //  "Type": "TextBoxRegexPage",
+      //  "About": "TextBoxRegex helps developer to validate a TextBox with a regular expression using the Regex property.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/TextBoxRegEx",
+      //  "XamlCodeFile": "TextBoxRegex.bind",
+      //  "Icon": "/SamplePages/TextBoxRegex/TextBoxRegex.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/TextBoxRegex.md"
+      //},
+      //{
+      //  "Name": "SurfaceDialTextbox",
+      //  "Type": "SurfaceDialTextboxPage",
+      //  "About": "Enables support for Surface Dial on any given Textbox. Rotate the Dial to change the numeric value of the Textbox.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/SurfaceDialTextbox",
+      //  "XamlCodeFile": "SurfaceDialTextboxCode.bind",
+      //  "Icon": "/SamplePages/SurfaceDialTextbox/SurfaceDialTextbox.png",
+      //  "BadgeUpdateVersionRequired": "Anniversary Update required",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/SurfaceDialTextboxHelper.md"
+      //},
+      //{
+      //  "Name": "Visual Extensions",
+      //  "Type": "VisualExtensionsPage",
+      //  "About": "Attached properties to modify object visual properties through XAML",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/Visual",
+      //  "XamlCodeFile": "VisualExtensionsCode.bind",
+      //  "Icon": "/SamplePages/Visual Extensions/VisualExtensions.png",
+      //  "BadgeUpdateVersionRequired": "Creators Update required",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/VisualExtensions.md"
+      //},
+      //{
+      //  "Name": "FrameworkElementExtensions",
+      //  "Type": "FrameworkElementExtensionsPage",
+      //  "About": "Extensions for all the FrameworkElement controls.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/FrameworkElement",
+      //  "XamlCodeFile": "FrameworkElementExtensionsCode.bind",
+      //  "Icon": "/Assets/Helpers.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/FrameworkElementExtensions.md"
+      //},
+      //{
+      //  "Name": "NavigationViewStyles",
+      //  "Type": "NavigationViewStylesPage",
+      //  "XamlCodeFile": "NavigationViewStylesXaml.bind",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/NavigationView.md",
+      //  "Icon": "/SamplePages/NavigationViewStyles/NavigationViewStyles.png",
+      //  "About": "Style extensions for the NavigationView to appear like the one used by Visual Studio Code.",
+      //  "BadgeUpdateVersionRequired": "Fall Creators Update required",
+      //  "ApiCheck": "Windows.UI.Xaml.Controls.NavigationView",
+      //  "CodeUrl": "https://github.com/Microsoft/UWPCommunitToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/NavigationView"
+      //},
+      //{
+      //  "Name": "ScrollViewerExtensions",
+      //  "Type": "ScrollViewerExtensionsPage",
+      //  "About": "Extensions for all controls that contain a ScrollViewer like ListView.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/ScrollViewer",
+      //  "XamlCodeFile": "ScrollViewerExtensionsCode.bind",
+      //  "Icon": "/Assets/Helpers.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ScrollViewerExtensions.md"
+      //}
     ]
   },
   {
@@ -932,22 +923,22 @@
         "Icon": "/SamplePages/AlignmentGrid/AlignmentGrid.png",
         "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/developer-tools/AlignmentGrid.md"
       },
-      {
-        "Name": "FocusTracker",
-        "Type": "FocusTrackerPage",
-        "About": "FocusTracker can be used to display information about the current focused XAML element.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.DeveloperTools/FocusTracker",
-        "XamlCodeFile": "FocusTrackerXaml.bind",
-        "Icon": "/SamplePages/FocusTracker/FocusTracker.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/developer-tools/FocusTracker.md"
-      },
-      {
-        "Name": "Analytics",
-        "Type": "AnalyticsPage",
-        "About": "List of frameworks to help you track activity in your apps.",
-        "CodeFile": "AnalyticsCode.bind",
-        "Icon": "/SamplePages/Analytics/Analytics.png"
-      }
+      //{
+      //  "Name": "FocusTracker",
+      //  "Type": "FocusTrackerPage",
+      //  "About": "FocusTracker can be used to display information about the current focused XAML element.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.DeveloperTools/FocusTracker",
+      //  "XamlCodeFile": "FocusTrackerXaml.bind",
+      //  "Icon": "/SamplePages/FocusTracker/FocusTracker.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/developer-tools/FocusTracker.md"
+      //},
+      //{
+      //  "Name": "Analytics",
+      //  "Type": "AnalyticsPage",
+      //  "About": "List of frameworks to help you track activity in your apps.",
+      //  "CodeFile": "AnalyticsCode.bind",
+      //  "Icon": "/SamplePages/Analytics/Analytics.png"
+      //}
     ]
   },
   //{
