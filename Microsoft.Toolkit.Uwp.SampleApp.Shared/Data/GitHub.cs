@@ -30,8 +30,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Data
             {
                 try
                 {
-                    using (var client = new HttpClient())
-                    {
+#if __WASM__
+					using (var client = new HttpClient(new Uno.UI.Wasm.WasmHttpHandler()))
+#else
+					using (var client = new HttpClient())
+#endif
+					{
 						const string userAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko";
 
 #if HAS_UNO
@@ -41,9 +45,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Data
 #endif
 
 						var uri = $"{_root}/repos/{_repoOwner}/{_repoName}/releases";
-                        var result = await client.GetStringAsync(new Uri(uri));
-                        _releases = JsonConvert.DeserializeObject<List<GitHubRelease>>(result).Take(5).ToList();
-                    }
+						var result = await client.GetStringAsync(new Uri(uri));
+						_releases = JsonConvert.DeserializeObject<List<GitHubRelease>>(result).Take(5).ToList();
+					}
                 }
                 catch (Exception)
                 {

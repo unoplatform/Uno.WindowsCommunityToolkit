@@ -106,6 +106,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
         {
             base.OnNavigatedTo(e);
 
+			Console.WriteLine("-> About: OnNavigatedTo");
+
             Shell.Current.ShowOnlyHeader("About");
 
 #if NETFX_CORE // UNO TODO
@@ -120,9 +122,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
             var t = Init();
 
             Windows.UI.Xaml.Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
-        }
 
-        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+			Console.WriteLine("<- About: OnNavigatedTo");
+		}
+
+		protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
             Windows.UI.Xaml.Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
@@ -139,36 +143,38 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
 
         private async Task Init()
         {
-            var loadDataTask = UpdateSections();
-            var recentSamplesTask = Samples.GetRecentSamples();
-            var gitHubTask = Data.GitHub.GetPublishedReleases();
+			try
+			{
+				var loadDataTask = UpdateSections();
+				var recentSamplesTask = Samples.GetRecentSamples();
+				var gitHubTask = Data.GitHub.GetPublishedReleases();
 
-            await Task.WhenAll(loadDataTask, recentSamplesTask, gitHubTask);
+				await Task.WhenAll(loadDataTask, recentSamplesTask, gitHubTask);
 
-            RecentSamples = recentSamplesTask.Result;
-            GitHubReleases = gitHubTask.Result;
+				RecentSamples = recentSamplesTask.Result;
+				GitHubReleases = gitHubTask.Result;
 
-            var counter = 1;
-            var delay = 70;
+				var counter = 1;
+				var delay = 70;
 
-            foreach (var child in InnerGrid.Children)
-            {
-                if (child is ItemsControl itemsControl)
-                {
-                    foreach (var childOfChild in itemsControl.Items)
-                    {
-                        Implicit.GetShowAnimations((UIElement)childOfChild).Add(new OpacityAnimation()
-                        {
-                            From = 0,
-                            To = 1,
-                            Duration = TimeSpan.FromMilliseconds(300),
-                            Delay = TimeSpan.FromMilliseconds(counter++ * delay),
-                            SetInitialValueBeforeDelay = true
-                        });
-                    }
-                }
-                else
-                {
+				foreach (var child in InnerGrid.Children)
+				{
+					if (child is ItemsControl itemsControl)
+					{
+						foreach (var childOfChild in itemsControl.Items)
+						{
+							Implicit.GetShowAnimations((UIElement)childOfChild).Add(new OpacityAnimation()
+							{
+								From = 0,
+								To = 1,
+								Duration = TimeSpan.FromMilliseconds(300),
+								Delay = TimeSpan.FromMilliseconds(counter++ * delay),
+								SetInitialValueBeforeDelay = true
+							});
+						}
+					}
+					else
+					{
 #if NETFX_CORE
                    Implicit.GetShowAnimations(child).Add(new OpacityAnimation()
                     {
@@ -179,10 +185,16 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
                         SetInitialValueBeforeDelay = true
                     });
 #endif
-                }
-            }
+					}
+				}
+				
 
-			Root.Visibility = Visibility.Visible;
+				Root.Visibility = Visibility.Visible;
+			}
+			catch(Exception e)
+			{
+				Console.WriteLine($"About init failed: {e}");
+			}
         }
 
         private void RecentSample_Click(object sender, RoutedEventArgs e)
@@ -236,9 +248,18 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
         {
             if (LandingPageLinks == null)
             {
-                using (var jsonStream = await StreamHelper.GetPackagedFileStreamAsync("landingPageLinks.json"))
-                {
-                    var jsonString = await jsonStream.ReadTextAsync();
+				var manifestName = typeof(Samples).Assembly
+					.GetManifestResourceNames()
+					.FirstOrDefault(n => n.EndsWith("landingPageLinks.json", StringComparison.OrdinalIgnoreCase));
+
+				if (manifestName == null)
+				{
+					throw new InvalidOperationException($"Failed to find resource");
+				}
+
+				using (var jsonStream = typeof(Samples).Assembly.GetManifestResourceStream(manifestName))
+				{
+					var jsonString = await jsonStream.ReadTextAsync();
                     LandingPageLinks = JsonConvert.DeserializeObject<LandingPageLinks>(jsonString);
                 }
 
@@ -277,8 +298,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
                     {
                         Margin = new Thickness(0, 16, 0, 0),
                         ItemsSource = section.Links,
-                        ItemTemplate = Resources["LinkTemplate"] as DataTemplate
-                    });
+#if HAS_UNO
+						ItemTemplate = StaticResources.LinkTemplate
+#else
+						ItemTemplate = Resources["LinkTemplate"] as DataTemplate
+#endif
+					});
 
                 ResourcesSection.Items.Insert(0, stackPanel);
             }

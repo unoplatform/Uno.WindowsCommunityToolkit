@@ -181,7 +181,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         private async void NavigationFrame_Navigating(object sender, NavigatingCancelEventArgs navigationEventArgs)
         {
-			Console.WriteLine($"Navigation: {navigationEventArgs.Parameter}");
+			Console.WriteLine($"-> Navigation: {navigationEventArgs.Parameter}");
 
             ProcessSampleEditorTime();
 
@@ -313,9 +313,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 HamburgerMenu.Title = $"{category.Name} > {HamburgerMenu.CurrentSample?.Name}";
                 ApplicationViewExtensions.SetTitle(this, $"{category.Name} > {HamburgerMenu.CurrentSample?.Name}");
             }
-        }
 
-        private void HideInfoArea()
+			Console.WriteLine($"<- Navigation: {navigationEventArgs.Parameter}");
+		}
+
+		private void HideInfoArea()
         {
             InfoAreaGrid.Visibility = Visibility.Collapsed;
             RootGrid.ColumnDefinitions[1].Width = GridLength.Auto;
@@ -439,24 +441,24 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         private void HamburgerMenu_OnOptionsItemClick(object sender, ItemClickEventArgs e)
         {
-            var option = e.ClickedItem as Option;
-            if (option == null)
-            {
-                return;
-            }
+			var option = e.ClickedItem as Option;
+			if (option == null)
+			{
+				return;
+			}
 
-            if (NavigationFrame.CurrentSourcePageType != option.PageType)
-            {
-                NavigationFrame.Navigate(option.PageType);
-            }
+			if (NavigationFrame.CurrentSourcePageType != option.PageType)
+			{
+				NavigationFrame.Navigate(option.PageType);
+			}
 
-            HamburgerMenu.IsPaneOpen = false;
+			HamburgerMenu.IsPaneOpen = false;
 
-            var expanders = HamburgerMenu.FindDescendants<Expander>();
-            foreach (var expander in expanders)
-            {
-                expander.IsExpanded = false;
-            }
+			var expanders = HamburgerMenu.FindDescendants<Expander>();
+			foreach (var expander in expanders)
+			{
+				expander.IsExpanded = false;
+			}
         }
 
         private async void InfoAreaPivot_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
