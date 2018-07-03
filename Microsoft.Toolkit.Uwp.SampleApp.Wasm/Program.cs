@@ -12,7 +12,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 
 		static void Main(string[] args)
 		{
+#if DEBUG
 			ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
+#endif
 
 			Application.Start(e => new App());
 		}
