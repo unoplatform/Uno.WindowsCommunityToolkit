@@ -181,9 +181,10 @@
 										   Loading="XamlCodeRenderer_Loading"
 										   InternalException="XamlCodeRenderer_InternalException"/>
 					</win:Grid>
-					<TextBox x:Name="XamlCodeRenderer"
-									 KeyDown="XamlCodeRenderer_KeyDown" 
-									AcceptsReturn="True" />
+					<xamarin:TextBox x:Name="XamlCodeRenderer"
+									 KeyDown="XamlCodeRenderer_KeyDown"
+									 FontFamily="Courier New"
+									 AcceptsReturn="True" />
 				</PivotItem>
 
                 <PivotItem x:Name="XamlReadOnlyPivotItem"

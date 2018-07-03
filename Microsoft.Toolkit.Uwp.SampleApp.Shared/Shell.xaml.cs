@@ -504,8 +504,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 				// Use this flag so we don't re-render the XAML tab if we're switching from tabs other than the properties one.
 				_lastRenderedProperties = false;
 
-                // If we switch to the Live Preview, then we want to use the Value based Text
-                XamlCodeRenderer.Text = HamburgerMenu.CurrentSample.UpdatedXamlCode;
+				// If we switch to the Live Preview, then we want to use the Value based Text
+				XamlCodeRenderer.Text = HamburgerMenu.CurrentSample.UpdatedXamlCode;
 
                 var t = UpdateXamlRenderAsync(HamburgerMenu.CurrentSample.UpdatedXamlCode);
 #if NETFX_CORE // UNO TODO
@@ -691,7 +691,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 #if NETFX_CORE
 		private void XamlCodeRenderer_KeyDown(Monaco.CodeEditor sender, Monaco.Helpers.WebKeyEventArgs args)
 #else
-		private void XamlCodeRenderer_KeyDown(object sender, EventArgs args)
+		private void XamlCodeRenderer_KeyDown(object sender, KeyRoutedEventArgs args)
 #endif
 		{
 #if NETFX_CORE
@@ -708,6 +708,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
             // Ignore as a change to the document if we handle it as a shortcut above or it's a special char.
             if (!args.Handled && Array.IndexOf(NonCharacterCodes, args.KeyCode) == -1)
+#endif
             {
                 // TODO: Mark Dirty here if we want to prevent overwrites.
 
@@ -731,7 +732,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                         });
                     }, TimeSpan.FromSeconds(0.5));
             }
-#endif
         }
 
 		private void XamlCodeRenderer_Loading(object sender, RoutedEventArgs e)
@@ -753,7 +753,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 	}
 #endif
 
-	private void ProcessSampleEditorTime()
+		private void ProcessSampleEditorTime()
         {
             if (HamburgerMenu.CurrentSample != null &&
                 HamburgerMenu.CurrentSample.HasXAMLCode &&
