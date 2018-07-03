@@ -196,7 +196,20 @@ namespace Microsoft.Toolkit.Services.MicrosoftGraph
             // refresh silently the token
             if (TokenForUser == null)
             {
-                IdentityModel.Clients.ActiveDirectory.AuthenticationResult userAuthnResult = await _azureAdContext.AcquireTokenAsync(MicrosoftGraphResource, appClientId, new Uri(DefaultRedirectUri), new IdentityModel.Clients.ActiveDirectory.PlatformParameters(PromptBehavior.Always, false));
+                IdentityModel.Clients.ActiveDirectory.AuthenticationResult userAuthnResult = await _azureAdContext.AcquireTokenAsync(
+					MicrosoftGraphResource,
+					appClientId,
+					new Uri(DefaultRedirectUri),
+#if __IOS__
+					new IdentityModel.Clients.ActiveDirectory.PlatformParameters(Windows.UI.Xaml.Application.Current.Window.RootViewController, false)
+#elif NETFX_CORE
+					new IdentityModel.Clients.ActiveDirectory.PlatformParameters(PromptBehavior.Always, false)
+#elif __ANDROID__
+					new IdentityModel.Clients.ActiveDirectory.PlatformParameters(/*UNO TODO */ null, false)
+#else
+					new IdentityModel.Clients.ActiveDirectory.PlatformParameters()
+#endif
+				);
                 TokenForUser = userAuthnResult.AccessToken;
                 Expiration = userAuthnResult.ExpiresOn;
             }
@@ -239,5 +252,5 @@ namespace Microsoft.Toolkit.Services.MicrosoftGraph
             return true;
         }
 #endif
-    }
+			}
 }

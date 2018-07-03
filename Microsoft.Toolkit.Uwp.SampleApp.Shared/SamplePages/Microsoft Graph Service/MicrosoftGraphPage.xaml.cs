@@ -28,7 +28,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         public MicrosoftGraphPage()
         {
             InitializeComponent();
-            EventsBox.Visibility = Visibility.Collapsed;
+
+			scrollViewer1.ApplyTemplate();
+
+			EventsBox.Visibility = Visibility.Collapsed;
             MessagesBox.Visibility = Visibility.Collapsed;
             UserBox.Visibility = Visibility.Collapsed;
             LogOutButton.Visibility = Visibility.Collapsed;

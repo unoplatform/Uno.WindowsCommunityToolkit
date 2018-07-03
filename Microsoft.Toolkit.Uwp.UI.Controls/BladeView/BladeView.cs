@@ -24,7 +24,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         private ScrollViewer _scrollViewer;
 
         private Dictionary<BladeItem, Size> _cachedBladeItemSizes = new Dictionary<BladeItem, Size>();
-
+		 
         /// <summary>
         /// Initializes a new instance of the <see cref="BladeView"/> class.
         /// </summary>

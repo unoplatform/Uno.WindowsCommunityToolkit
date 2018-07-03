@@ -6,6 +6,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Microsoft.Toolkit.Uwp.SampleApp.Common;
@@ -150,33 +151,42 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            NavigationFrame.Navigating += NavigationFrame_Navigating;
-            NavigationFrame.Navigated += NavigationFrameOnNavigated;
-            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
-            // Get list of samples
-            var sampleCategories = (await Samples.GetCategoriesAsync()).ToList();
+			Console.WriteLine($"NavigatedTo ctx:{SynchronizationContext.Current}");
+			try
+			{
+				NavigationFrame.Navigating += NavigationFrame_Navigating;
+				NavigationFrame.Navigated += NavigationFrameOnNavigated;
+				SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
 
-            HamburgerMenu.ItemsSource = sampleCategories;
+				// Get list of samples
+				var sampleCategories = (await Samples.GetCategoriesAsync()).ToList();
 
-            // Options
-            HamburgerMenu.OptionsItemsSource = new[]
-            {
-                new Option { Glyph = "\xE10F", Name = "About", PageType = typeof(About) }
-            };
+				HamburgerMenu.ItemsSource = sampleCategories;
 
-            HideInfoArea();
-            NavigationFrame.Navigate(typeof(About));
+				// Options
+				HamburgerMenu.OptionsItemsSource = new[]
+				{
+				new Option { Glyph = "\xE10F", Name = "About", PageType = typeof(About) }
+			};
 
-            if (!string.IsNullOrWhiteSpace(e?.Parameter?.ToString()))
-            {
-                var parser = DeepLinkParser.Create(e.Parameter.ToString());
-                var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
-                if (targetSample != null)
-                {
-                    NavigateToSample(targetSample);
-                }
-            }
+				HideInfoArea();
+				NavigationFrame.Navigate(typeof(About));
+
+				if (!string.IsNullOrWhiteSpace(e?.Parameter?.ToString()))
+				{
+					var parser = DeepLinkParser.Create(e.Parameter.ToString());
+					var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
+					if (targetSample != null)
+					{
+						NavigateToSample(targetSample);
+					}
+				}
+			}
+			catch(Exception ex)
+			{
+				Console.WriteLine("OnNavigatedTo Failed" + ex);
+			}
         }
 
         private async void NavigationFrame_Navigating(object sender, NavigatingCancelEventArgs navigationEventArgs)
@@ -247,7 +257,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 #if NETFX_CORE // UNO TODO
                     if (AnalyticsInfo.VersionInfo.GetDeviceFormFactor() != DeviceFormFactor.Desktop || HamburgerMenu.CurrentSample.DisableXamlEditorRendering)
 #else
-					if (true)
+					if (HamburgerMenu.CurrentSample.DisableXamlEditorRendering)
 #endif
                     {
                         // Only makes sense (and works) for now to show Live Xaml on Desktop, so fallback to old system here otherwise.
@@ -257,12 +267,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     }
                     else
                     {
-#if NETFX_CORE // UNO TODO
                         XamlCodeRenderer.Text = HamburgerMenu.CurrentSample.UpdatedXamlCode;
 
-                        InfoAreaPivot.Items.Add(XamlPivotItem);
-#endif
-					_xamlCodeRendererSupported = true;
+						InfoAreaPivot.Items.Add(XamlPivotItem);
+						_xamlCodeRendererSupported = true;
                     }
 
                     InfoAreaPivot.SelectedIndex = 0;
@@ -491,22 +499,22 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 return;
             }
 
-#if NETFX_CORE // UNO TODO
             if (HamburgerMenu.CurrentSample.HasXAMLCode && InfoAreaPivot.SelectedItem == XamlPivotItem && _lastRenderedProperties)
             {
 				// Use this flag so we don't re-render the XAML tab if we're switching from tabs other than the properties one.
 				_lastRenderedProperties = false;
 
-                // If we switch to the Live Preview, then we want to use the Value based Text
-                XamlCodeRenderer.Text = HamburgerMenu.CurrentSample.UpdatedXamlCode;
+				// If we switch to the Live Preview, then we want to use the Value based Text
+				XamlCodeRenderer.Text = HamburgerMenu.CurrentSample.UpdatedXamlCode;
 
                 var t = UpdateXamlRenderAsync(HamburgerMenu.CurrentSample.UpdatedXamlCode);
+#if NETFX_CORE // UNO TODO
                 await XamlCodeRenderer.RevealPositionAsync(new Position(1, 1));
+#endif
 
                 XamlCodeRenderer.Focus(FocusState.Programmatic);
                 return;
             }
-#endif
 
 			if (HamburgerMenu.CurrentSample.HasCSharpCode && InfoAreaPivot.SelectedItem == CSharpPivotItem)
             {
@@ -642,11 +650,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     (content as IXamlRenderListener)?.OnXamlRendered(element as FrameworkElement);
                 });
             }
-#if NETFX_CORE // UNO TODO
            else if (_xamlRenderer.Errors.Count > 0)
             {
                 var error = _xamlRenderer.Errors.First();
-
+#if NETFX_CORE // UNO TODO
                 XamlCodeRenderer.Options.GlyphMargin = true;
 
                 var range = new Range(error.StartLine, 1, error.EndLine, await XamlCodeRenderer.GetModel().GetLineMaxColumnAsync(error.EndLine));
@@ -660,9 +667,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 XamlCodeRenderer.Decorations.Add(new IModelDeltaDecoration(
                     range,
                     new IModelDecorationOptions() { IsWholeLine = true, GlyphMarginClassName = _errorIconStyle, GlyphMarginHoverMessage = new string[] { error.Message } }));
-            }
-#endif // UNO TODO
+#else
+				Console.WriteLine("Failed to parse XAML: " + error.Message);
+#endif
 		}
+	}
 
 		private static readonly int[] NonCharacterCodes = new int[]
         {
@@ -679,12 +688,16 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123
         };
 
-#if NETFX_CORE // UNO TODO
+#if NETFX_CORE
 		private void XamlCodeRenderer_KeyDown(Monaco.CodeEditor sender, Monaco.Helpers.WebKeyEventArgs args)
-        {
-            // Handle Shortcuts.
-            // Ctrl+Enter or F5 Update // TODO: Do we need this in the app handler too? (Thinking no)
-            if ((args.KeyCode == 13 && args.CtrlKey) ||
+#else
+		private void XamlCodeRenderer_KeyDown(object sender, KeyRoutedEventArgs args)
+#endif
+		{
+#if NETFX_CORE
+			// Handle Shortcuts.
+			// Ctrl+Enter or F5 Update // TODO: Do we need this in the app handler too? (Thinking no)
+			if ((args.KeyCode == 13 && args.CtrlKey) ||
                  args.KeyCode == 116)
             {
                 var t = UpdateXamlRenderAsync(XamlCodeRenderer.Text);
@@ -695,6 +708,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
             // Ignore as a change to the document if we handle it as a shortcut above or it's a special char.
             if (!args.Handled && Array.IndexOf(NonCharacterCodes, args.KeyCode) == -1)
+#endif
             {
                 // TODO: Mark Dirty here if we want to prevent overwrites.
 
@@ -719,7 +733,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     }, TimeSpan.FromSeconds(0.5));
             }
         }
-#endif
 
 		private void XamlCodeRenderer_Loading(object sender, RoutedEventArgs e)
         {
@@ -740,7 +753,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 	}
 #endif
 
-	private void ProcessSampleEditorTime()
+		private void ProcessSampleEditorTime()
         {
             if (HamburgerMenu.CurrentSample != null &&
                 HamburgerMenu.CurrentSample.HasXAMLCode &&

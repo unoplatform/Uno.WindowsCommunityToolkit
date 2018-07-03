@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading;
 using Microsoft.Extensions.Logging;
 using Uno.Extensions;
+using Windows.UI.Xaml;
 
 namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 {
@@ -10,11 +12,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 
 		static void Main(string[] args)
 		{
+#if DEBUG
 			ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
+#endif
 
-			Console.WriteLine($"DateTime.MinValue: {DateTime.MinValue}");
-
-			new App();
+			Application.Start(e => new App());
 		}
 
 		static void ConfigureFilters(ILoggerFactory factory)
@@ -39,8 +41,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 
 					// Binding related messages
 					 // { "Windows.UI.Xaml.Data", LogLevel.Debug },
-					// { "Windows.UI.Xaml.DependencyObjectStore", LogLevel.Debug },
-					// { "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
+					//{ "Windows.UI.Xaml.DependencyObjectStore", LogLevel.Debug },
+					 { "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
 
 					//  Binder memory references tracking
 					// { "ReferenceHolder", LogLevel.Debug },

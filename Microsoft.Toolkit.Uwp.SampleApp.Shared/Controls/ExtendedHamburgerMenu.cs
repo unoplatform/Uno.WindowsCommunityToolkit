@@ -396,7 +396,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
             {
                 var category = await Samples.GetCategoryBySample(_currentSample);
 
-                if (Items.Contains(category))
+				if (Items.Contains(category))
                 {
                     SelectedItem = category;
                     SelectedOptionsItem = null;

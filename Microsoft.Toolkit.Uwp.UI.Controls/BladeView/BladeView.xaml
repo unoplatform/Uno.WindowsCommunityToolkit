@@ -1,6 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls">
+                    xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:xamarin="http://uno/xamarin"
+                    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+					xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+					xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+					mc:Ignorable="d xamarin">
 
     <Style x:Key="HorizontalGridView"
            TargetType="GridView">
@@ -19,11 +24,11 @@
         <Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="False" />
         <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Enabled" />
         <Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="True" />
-        <Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
+        <!--<Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />-->
         <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
         <Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True" />
         <Setter Property="UseSystemFocusVisuals" Value="True" />
-        <Setter Property="ItemContainerTransitions">
+        <win:Setter Property="ItemContainerTransitions">
             <Setter.Value>
                 <TransitionCollection>
                     <AddDeleteThemeTransition />
@@ -32,11 +37,12 @@
                     <EntranceThemeTransition IsStaggeringEnabled="False" />
                 </TransitionCollection>
             </Setter.Value>
-        </Setter>
+        </win:Setter>
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <ItemsStackPanel Orientation="Horizontal" />
+                    <win:ItemsStackPanel Orientation="Horizontal" />
+                    <xamarin:StackPanel Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -50,7 +56,8 @@
                                       AutomationProperties.AccessibilityView="Raw"
                                       BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}"
                                       HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}"
-                                      HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
+                                      win:HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}"
+                                      xamarin:HorizontalScrollMode="{TemplateBinding ScrollViewer.Enabled}"
                                       IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
                                       IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}"
                                       IsHorizontalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsHorizontalScrollChainingEnabled}"
@@ -179,6 +186,8 @@
                         <ContentPresenter x:Name="ContentPresenter"
                                           Grid.Row="1"
                                           VerticalAlignment="Stretch"
+										  xamarin:Content="{TemplateBinding Content}"
+										  xamarin:ContentTemplate="{TemplateBinding ContentTemplate}"
                                           Background="{TemplateBinding Background}"
                                           Visibility="{TemplateBinding IsOpen}" />
                     </Grid>

@@ -1,6 +1,7 @@
 ﻿<Page
     x:Class="Microsoft.Toolkit.Uwp.SampleApp.SamplePages.OneDrivePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Microsoft.Toolkit.Uwp.SampleApp.SamplePages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -72,7 +73,7 @@
                                          Content="Rename"                                        
                                          VerticalAlignment="Bottom" 
                                          Width="48" Height="48"
-                                         Click="RenameButton_Click">
+                                         win:Click="RenameButton_Click">
                                     </AppBarButton>
                                 </Grid>
                                 <!--DELETE-->
@@ -91,7 +92,7 @@
                                          VerticalAlignment="Bottom" 
                                          Width="48" 
                                          Height="48"
-                                         Click="DeleteButton_Click">
+                                         win:Click="DeleteButton_Click">
                                     </AppBarButton>
                                 </Grid>
                                 <!--Copy to-->
@@ -110,7 +111,7 @@
                                          VerticalAlignment="Bottom" 
                                          Width="48" 
                                          Height="48"
-                                         Click="CopyToButton_Click">
+                                         win:Click="CopyToButton_Click">
                                     </AppBarButton>
                                 </Grid>
                                 <!--Move to -->
@@ -129,7 +130,7 @@
                                          VerticalAlignment="Bottom" 
                                          Width="48" 
                                          Height="48"
-                                         Click="MoveButton_Click">
+                                         win:Click="MoveButton_Click">
                                     </AppBarButton>
                                 </Grid>
                             </StackPanel>
@@ -163,7 +164,7 @@
                            Margin="10,0,0,0" 
                            HorizontalAlignment="Left" 
                            VerticalAlignment="Center" 
-                           PointerEntered="FileNameTextBlock_PointerEntered"
+                           win:PointerEntered="FileNameTextBlock_PointerEntered"
                     >
                 <ToolTipService.ToolTip>
                     <StackPanel>
@@ -209,7 +210,7 @@
                                          VerticalAlignment="Bottom" 
                                          Width="48" 
                                          Height="48"
-                                         Click="RenameButton_Click">
+                                         win:Click="RenameButton_Click">
 
                                     </AppBarButton>
                                 </Grid>
@@ -228,7 +229,7 @@
                                          VerticalAlignment="Bottom" 
                                          Width="48" 
                                          Height="48"
-                                         Click="DeleteButton_Click">
+                                         win:Click="DeleteButton_Click">
                                     </AppBarButton>
                                 </Grid>
                                 <!--Download-->
@@ -247,7 +248,7 @@
                                          VerticalAlignment="Bottom" 
                                          Width="48" 
                                          Height="48"
-                                         Click="DownloadButton_Click">
+                                         win:Click="DownloadButton_Click">
 
                                     </AppBarButton>
                                 </Grid>
@@ -267,7 +268,7 @@
                                          VerticalAlignment="Bottom" 
                                          Width="48" 
                                          Height="48"
-                                         Click="CopyToButton_Click">
+                                         win:Click="CopyToButton_Click">
                                     </AppBarButton>
                                 </Grid>
                                 <!--Move to -->
@@ -286,7 +287,7 @@
                                          VerticalAlignment="Bottom" 
                                          Width="48" 
                                          Height="48"
-                                         Click="MoveButton_Click">
+                                         win:Click="MoveButton_Click">
                                     </AppBarButton>
                                 </Grid>
                                 <Grid>
@@ -305,7 +306,7 @@
                                          VerticalAlignment="Bottom" 
                                          Width="48" 
                                          Height="48"
-                                         Click="ThumbnailButton_Click">
+                                         win:Click="ThumbnailButton_Click">
                                     </AppBarButton>
                                 </Grid>
                             </StackPanel>
@@ -423,7 +424,7 @@
                                              Visibility="Visible"
                                              />
                             <TextBlock>Select the permissions you want to use</TextBlock>
-                            <ListBox x:Name="DelegatedPermissions" Margin="0,10,0,0" SelectionMode="Multiple" Height="Auto"/>
+                            <ListView x:Name="DelegatedPermissions" Margin="0,10,0,0" SelectionMode="Multiple" Height="Auto"/>
                             <Button Content="Sign in" 
                                     x:Name="ConnectButton" 
                                     Click="ConnectButton_Click" 

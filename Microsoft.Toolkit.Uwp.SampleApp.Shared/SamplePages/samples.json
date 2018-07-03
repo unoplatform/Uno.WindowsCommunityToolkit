@@ -4,80 +4,14 @@
     "Icon": "Icons/Foundation.png",
     "Samples": [
       {
-        "Name": "DockPanel",
-        "Type": "DockPanelPage",
-        "About": "Defines an area where you can arrange child elements either horizontally or vertically, relative to each other.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/DockPanel",
-        "XamlCodeFile": "DockPanel.bind",
-        "Icon": "/SamplePages/DockPanel/DockPanel.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/DockPanel.md"
+        "Name": "UniformGrid",
+        "Type": "UniformGridPage",
+        "About": "Presents items in a evenly-spaced set of rows or columns to fill the total available display space. It reacts to changes in the layout as well as the content so it can adapt to different form factors automatically.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/UniformGrid",
+        "XamlCodeFile": "UniformGridXaml.bind",
+        "Icon": "/SamplePages/UniformGrid/UniformGrid.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/UniformGrid.md"
       },
-  //    {
-  //      "Name": "TextToolbar",
-  //      "Type": "TextToolbarPage",
-  //      "About": "A Toolbar for Editing Text attached to a RichEditBox. It can format RTF and Markdown, or use a Custom Formatter, and specify your own Formatter with Buttons and Actions.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/TextToolbar",
-  //      "XamlCodeFile": "TextToolbar.bind",
-  //      "CodeFile": "TextToolbarCode.bind",
-  //      "Icon": "/SamplePages/TextToolbar/TextToolbar.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/TextToolbar.md"
-  //    },
-  //    {
-  //      "Name": "Carousel",
-  //      "Type": "CarouselPage",
-  //      "About": "Presents items in a carousel control. It reacts to changes in the layout as well as the content so it can adapt to different form factors automatically.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Carousel",
-  //      "XamlCodeFile": "CarouselCode.bind",
-  //      "Icon": "/SamplePages/Carousel/Carousel.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/Carousel.md"
-  //    },
-  //    {
-  //      "Name": "AdaptiveGridView",
-  //      "Type": "AdaptiveGridViewPage",
-  //      "About": "Presents items in a evenly-spaced set of columns to fill the total available display space. It reacts to changes in the layout as well as the content so it can adapt to different form factors automatically.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/AdaptiveGridView",
-  //      "XamlCodeFile": "AdaptiveGridViewCode.bind",
-  //      "Icon": "/SamplePages/AdaptiveGridView/AdaptiveGridView.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/AdaptiveGridView.md"
-  //    },
-  //    {
-  //      "Name": "UniformGrid",
-  //      "Type": "UniformGridPage",
-  //      "About": "Presents items in a evenly-spaced set of rows or columns to fill the total available display space. It reacts to changes in the layout as well as the content so it can adapt to different form factors automatically.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/UniformGrid",
-  //      "XamlCodeFile": "UniformGridXaml.bind",
-  //      "Icon": "/SamplePages/UniformGrid/UniformGrid.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/UniformGrid.md"
-  //    },
-  //    {
-  //      "Name": "HamburgerMenu",
-  //      "Type": "HamburgerMenuPage",
-  //      "About": "The HamburgerMenu is deprecated and will be removed in a future major release. Please use the NavigationView available in the Fall Creators Update.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HamburgerMenu",
-  //      "XamlCodeFile": "HamburgerMenuCode.bind",
-  //      "Icon": "/SamplePages/HamburgerMenu/HamburgerMenu.png",
-  //      "BadgeUpdateVersionRequired": "DEPRECATED",
-  //      "DeprecatedWarning": "The HamburgerMenu is deprecated and will be removed in a future major release. Please use the NavigationView available in the Fall Creators Update.",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HamburgerMenu.md"
-  //    },
-      {
-        "Name": "RangeSelector",
-        "Type": "RangeSelectorPage",
-        "About": "The RangeSelector is a \"double slider\" control for range values.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RangeSelector",
-        "XamlCodeFile": "RangeSelectorCode.bind",
-        "Icon": "/SamplePages/RangeSelector/RangeSelector.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RangeSelector.md"
-      },
-//      {
-  //      "Name": "ImageEx",
-  //      "Type": "ImageExPage",
-  //      "About": "Images are downloaded asynchronously showing a load indicator. Source images are then stored in the App local cache to preserve resources and load time.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/ImageEx",
-  //      "XamlCodeFile": "ImageExCode.bind",
-  //      "Icon": "/SamplePages/ImageEx/ImageEx.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/ImageEx.md"
-  //    },
       {
         "Name": "HeaderedTextBlock",
         "Type": "HeaderedTextBlockPage",
@@ -87,238 +21,295 @@
         "Icon": "/SamplePages/HeaderedTextBlock/HeaderedTextBlock.png",
         "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedTextBlock.md"
       },
- //     {
-  //      "Name": "MasterDetailsView",
-  //      "Type": "MasterDetailsViewPage",
-  //      "About": "The MasterDetailsView control allows the user to implement the Master/Details design pattern.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/MasterDetailsView",
-  //      "XamlCodeFile": "MasterDetailsView.bind",
-  //      "CodeFile": "MasterDetailsViewCode.bind",
-  //      "Icon": "/SamplePages/MasterDetailsView/MasterDetailsView.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MasterDetailsView.md"
-  //    },
       {
-        "Name": "MarkdownTextBlock",
-        "Type": "MarkdownTextBlockPage",
-        "About": "An efficient and extensible control that can parse and render markdown.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/MarkdownTextBlock",
-        "XamlCodeFile": "MarkdownTextBlock.bind",
-        "CodeFile": "MarkdownTextBlockCode.bind",
-        "Icon": "/SamplePages/MarkdownTextBlock/MarkdownTextBlock.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MarkdownTextBlock.md"
+        "Name": "WrapPanel",
+        "Type": "WrapPanelPage",
+        "About": "The WrapPanel Control positions child elements in sequential position from left to right, breaking content to the next line at the edge of the containing box.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/WrapPanel",
+        "XamlCodeFile": "WrapPanel.bind",
+        "Icon": "/SamplePages/WrapPanel/WrapPanel.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/WrapPanel.md"
       },
-      // {
-  //      "Name": "RadialGauge",
-  //      "Type": "RadialGaugePage",
-  //      "About": "The radial gauge displays a value within a range, using a needle on a circular face.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RadialGauge",
-  //      "XamlCodeFile": "RadialGaugeCode.bind",
-  //      "Icon": "/SamplePages/RadialGauge/RadialGauge.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RadialGauge.md"
-  //    },
-  //    {
-  //      "Name": "RadialProgressBar",
-  //      "Type": "RadialProgressBarPage",
-  //      "About": "The radial progress bar displays progress as a circle getting filled.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RadialProgressBar",
-  //      "XamlCodeFile": "RadialProgressBarCode.bind",
-  //      "Icon": "/SamplePages/RadialProgressBar/RadialProgressBar.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RadialProgressBar.md"
-  //    },
-  //    {
-  //      "Name": "SlidableListItem",
-  //      "Type": "SlidableListItemPage",
-  //      "About": "The SlidableListItem is deprecated and will be removed in a future major release. Please use the SwipeControl available in the Fall Creators Update.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/SlidableListItem",
-  //      "XamlCodeFile": "SlidableListItemCode.bind",
-  //      "Icon": "/SamplePages/SlidableListItem/SlidableListItem.png",
-  //      "BadgeUpdateVersionRequired": "DEPRECATED",
-  //      "DeprecatedWarning": "The SlidableListItem is deprecated and will be removed in a future major release. Please use the SwipeControl available in the Fall Creators Update.",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/SlidableListItem.md"
-  //    },
-  //    {
-  //      "Name": "PullToRefreshListView",
-  //      "Type": "PullToRefreshListViewPage",
-  //      "About": "The PullToRefreshListView will be removed in a future major release. Please use the RefreshContainer control available in the 1803 version of Windows.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/PullToRefreshListView",
-  //      "CodeFile": "PullToRefreshListViewCode.bind",
-  //      "XamlCodeFile": "PullToRefreshListViewXaml.bind",
-  //      "Icon": "/SamplePages/PullToRefreshListView/PullToRefreshListView.png",
-  //      "BadgeUpdateVersionRequired": "DEPRECATED",
-  //      "DeprecatedWarning": "The PullToRefreshListView will be removed in a future major release. Please use the RefreshContainer control available in the 1803 version of Windows.",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/PullToRefreshListview.md"
-  //    },
-  //    {
-  //      "Name": "RotatorTile",
-  //      "Type": "RotatorTilePage",
-  //      "About": "RotatorTile is an ItemsControl that rotates through a set of items one-by-one. It enables you to show multiple items of data in a live-tile like way.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RotatorTile",
-  //      "XamlCodeFile": "RotatorTileCode.bind",
-  //      "Icon": "/SamplePages/RotatorTile/RotatorTile.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RotatorTile.md"
-  //    },
-  //    {
-  //      "Name": "BladeView",
-  //      "Type": "BladePage",
-  //      "About": "BladeView provides a horizontal collection of blades for master-detail scenarios. The control is based on the experience demonstrated by the Azure Portal.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/BladeView",
-  //      "XamlCodeFile": "BladeCode.bind",
-  //      "Icon": "/SamplePages/BladeView/BladeView.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/BladeView.md"
-  //    },
-  //    {
-  //      "Name": "ScrollHeader",
-  //      "Type": "ScrollHeaderPage",
-  //      "About": "A UI control that works as a ListView or GridView header control with quick return, sticky and fade behavior.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/ScrollHeader",
-  //      "XamlCodeFile": "ScrollHeaderCode.bind",
-  //      "Icon": "/SamplePages/ScrollHeader/ScrollHeader.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/ScrollHeader.md"
-  //    },
-  //    {
-  //      "Name": "GridSplitter",
-  //      "Type": "GridSplitterPage",
-  //      "About": "GridSplitter represents the control that redistributes space between columns or rows of a Grid control.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/GridSplitter",
-  //      "XamlCodeFile": "GridSplitter.bind",
-  //      "Icon": "/SamplePages/GridSplitter/GridSplitter.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/GridSplitter.md"
-  //    },
-  //    {
-  //      "Name": "DropShadowPanel",
-  //      "Type": "DropShadowPanelPage",
-  //      "About": "DropShadowPanel contol allows the creation of a DropShadow for any Xaml FrameworkElement in markup.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/DropShadowPanel",
-  //      "XamlCodeFile": "DropShadowPanelXaml.bind",
-  //      "Icon": "/SamplePages/DropShadowPanel/DropShadowPanel.png",
-  //      "BadgeUpdateVersionRequired": "Anniversary Update required",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/DropShadowPanel.md"
-  //    },
-  //    {
-  //      "Name": "Loading",
-  //      "Type": "LoadingPage",
-  //      "About": "LoadingControl helps to show content with animation to the user while the app is doing some calculation.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Loading",
-  //      "XamlCodeFile": "LoadingCode.bind",
-  //      "Icon": "/SamplePages/Loading/Loading.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/Loading.md"
-  //    },
-  //    {
-  //      "Name": "Expander",
-  //      "Type": "ExpanderPage",
-  //      "About": "Expander control allows user to show/hide content based on a boolean state.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Expander",
-  //      "XamlCodeFile": "ExpanderXaml.bind",
-  //      "Icon": "/SamplePages/Expander/Expander.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/Expander.md"
-  //    },
-  //    {
-  //      "Name": "TileControl",
-  //      "Type": "TileControlPage",
-  //      "About": "A ContentControl that show an image repeated many times.The control can be synchronized with a Scrollviewer and animated easily",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/TileControl",
-  //      "XamlCodeFile": "TileControl.bind",
-  //      "Icon": "/SamplePages/TileControl/TileControl.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/TileControl.md"
-  //    },
-  //    {
-  //      "Name": "WrapPanel",
-  //      "Type": "WrapPanelPage",
-  //      "About": "The WrapPanel Control positions child elements in sequential position from left to right, breaking content to the next line at the edge of the containing box.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/WrapPanel",
-  //      "XamlCodeFile": "WrapPanel.bind",
-  //      "Icon": "/SamplePages/WrapPanel/WrapPanel.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/WrapPanel.md"
-  //    },
-  //    {
-  //      "Name": "OrbitView",
-  //      "Type": "OrbitViewPage",
-  //      "About": "The OrbitView Control positions items in a circle around a center element and supports orbits and anchors.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/OrbitView",
-  //      "XamlCodeFile": "OrbitViewXaml.bind",
-  //      "Icon": "/SamplePages/OrbitView/OrbitView.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/OrbitView.md"
-  //    },
-  //    {
-  //      "Name": "Menu",
-  //      "Type": "MenuPage",
-  //      "About": "Represents a Windows menu control that enables you to hierarchically organize elements associated with commands and event handlers.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Menu",
-  //      "XamlCodeFile": "Menu.bind",
-  //      "Icon": "/SamplePages/Menu/Menu.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/Menu.md"
-  //    },
-  //    {
-  //      "Name": "InAppNotification",
-  //      "Type": "InAppNotificationPage",
-  //      "About": "The In App Notification control offers the ability to show local notifications in your application.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/InAppNotification",
-  //      "XamlCodeFile": "InAppNotificationXaml.bind",
-  //      "CodeFile": "InAppNotificationCode.bind",
-  //      "Icon": "/SamplePages/InAppNotification/InAppNotification.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/InAppNotification.md"
-  //    },
-  //    {
-  //      "Name": "HeaderedContentControl",
-  //      "Type": "HeaderedContentControlPage",
-  //      "About": "Allows content to be displayed with a specified header.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedContentControl",
-  //      "XamlCodeFile": "HeaderedContentControlXaml.bind",
-  //      "Icon": "/SamplePages/HeaderedContentControl/HeaderedContentControl.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedContentControl.md"
-  //    },
-  //    {
-  //      "Name": "HeaderedItemsControl",
-  //      "Type": "HeaderedItemsControlPage",
-  //      "About": "Allows items to be displayed with a specified header.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedItemsControl",
-  //      "XamlCodeFile": "HeaderedItemsControlXaml.bind",
-  //      "Icon": "/SamplePages/HeaderedItemsControl/HeaderedItemsControl.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedItemsControl.md"
-  //    },
-  //    {
-  //      "Name": "StaggeredPanel",
-  //      "Type": "StaggeredPanelPage",
-  //      "About": "Allows items to be displayed with a specified header.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/StaggeredPanel",
-  //      "XamlCodeFile": "StaggeredPanel.bind",
-  //      "Icon": "/SamplePages/StaggeredPanel/StaggeredPanel.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/StaggeredPanel.md"
-  //    },
-  //    {
-  //      "Name": "LayoutTransformControl",
-  //      "Type": "LayoutTransformControlPage",
-  //      "About": "Control that implements support for transformations as if applied by LayoutTransform.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/LayoutTransformControl",
-  //      "XamlCodeFile": "LayoutTransformControlXaml.bind",
-  //      "Icon": "/SamplePages/LayoutTransformControl/LayoutTransformControl.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/LayoutTransformControl.md"
-  //    },
-  //    {
-  //      "Name": "CameraPreview",
-  //      "Type": "CameraPreviewPage",
-  //      "About": "Allows to easily preview video from available camera frame source groups and also get realtime video frames/ software bitmaps from the selected source.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/CameraPreview",
-  //      "XamlCodeFile": "CameraPreviewXaml.bind",
-  //      "CodeFile": "CameraPreviewCode.bind",
-  //      "Icon": "/SamplePages/CameraPreview/CameraPreview.png",
-  //      "BadgeUpdateVersionRequired": "April 2018 update required",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/CameraPreview.md",
-  //      "ApiCheck": "Windows.Devices.Input.Preview.GazeInputSourcePreview" // check for April update
-  //    },
-  //    {
-  //      "Name": "InfiniteCanvas",
-  //      "Type": "InfiniteCanvasPage",
-  //      "About": "InfiniteCanvas is a canvas that supports Infinite Scrolling, Ink, Text, Format Text, Zoom in/out, Redo, Undo, Export canvas data, Import canvas data.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/InfiniteCanvas",
-  //      "XamlCodeFile": "InfiniteCanvas.bind",
-  //      "Icon": "/SamplePages/InfiniteCanvas/InfiniteCanvas.png",
-  //      "ApiCheck": "Windows.UI.Xaml.Controls.ColorPicker",
-  //      "BadgeUpdateVersionRequired": "Fall Creators Update required",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/InfiniteCanvas.md"
-  //    }
-  //  ]
-  //},
+      {
+        "Name": "DockPanel",
+        "Type": "DockPanelPage",
+        "About": "Defines an area where you can arrange child elements either horizontally or vertically, relative to each other.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/DockPanel",
+        "XamlCodeFile": "DockPanel.bind",
+        "Icon": "/SamplePages/DockPanel/DockPanel.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/DockPanel.md"
+      },
+      {
+        "Name": "StaggeredPanel",
+        "Type": "StaggeredPanelPage",
+        "About": "Allows items to be displayed with a specified header.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/StaggeredPanel",
+        "XamlCodeFile": "StaggeredPanel.bind",
+        "Icon": "/SamplePages/StaggeredPanel/StaggeredPanel.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/StaggeredPanel.md"
+      },
+      {
+        "Name": "HeaderedItemsControl",
+        "Type": "HeaderedItemsControlPage",
+        "About": "Allows items to be displayed with a specified header.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedItemsControl",
+        "XamlCodeFile": "HeaderedItemsControlXaml.bind",
+        "Icon": "/SamplePages/HeaderedItemsControl/HeaderedItemsControl.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedItemsControl.md"
+      },
+      {
+        "Name": "HeaderedContentControl",
+        "Type": "HeaderedContentControlPage",
+        "About": "Allows content to be displayed with a specified header.",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedContentControl",
+        "XamlCodeFile": "HeaderedContentControlXaml.bind",
+        "Icon": "/SamplePages/HeaderedContentControl/HeaderedContentControl.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HeaderedContentControl.md"
+      },
+      //{
+      //  "Name": "TextToolbar",
+      //  "Type": "TextToolbarPage",
+      //  "About": "A Toolbar for Editing Text attached to a RichEditBox. It can format RTF and Markdown, or use a Custom Formatter, and specify your own Formatter with Buttons and Actions.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/TextToolbar",
+      //  "XamlCodeFile": "TextToolbar.bind",
+      //  "CodeFile": "TextToolbarCode.bind",
+      //  "Icon": "/SamplePages/TextToolbar/TextToolbar.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/TextToolbar.md"
+      //},
+      //{
+      //  "Name": "Carousel",
+      //  "Type": "CarouselPage",
+      //  "About": "Presents items in a carousel control. It reacts to changes in the layout as well as the content so it can adapt to different form factors automatically.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Carousel",
+      //  "XamlCodeFile": "CarouselCode.bind",
+      //  "Icon": "/SamplePages/Carousel/Carousel.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/Carousel.md"
+      //},
+      //{
+      //  "Name": "AdaptiveGridView",
+      //  "Type": "AdaptiveGridViewPage",
+      //  "About": "Presents items in a evenly-spaced set of columns to fill the total available display space. It reacts to changes in the layout as well as the content so it can adapt to different form factors automatically.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/AdaptiveGridView",
+      //  "XamlCodeFile": "AdaptiveGridViewCode.bind",
+      //  "Icon": "/SamplePages/AdaptiveGridView/AdaptiveGridView.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/AdaptiveGridView.md"
+      //},
+      //{
+      //  "Name": "HamburgerMenu",
+      //  "Type": "HamburgerMenuPage",
+      //  "About": "The HamburgerMenu is deprecated and will be removed in a future major release. Please use the NavigationView available in the Fall Creators Update.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HamburgerMenu",
+      //  "XamlCodeFile": "HamburgerMenuCode.bind",
+      //  "Icon": "/SamplePages/HamburgerMenu/HamburgerMenu.png",
+      //  "BadgeUpdateVersionRequired": "DEPRECATED",
+      //  "DeprecatedWarning": "The HamburgerMenu is deprecated and will be removed in a future major release. Please use the NavigationView available in the Fall Creators Update.",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/HamburgerMenu.md"
+      //},
+      //{
+      //  "Name": "RangeSelector",
+      //  "Type": "RangeSelectorPage",
+      //  "About": "The RangeSelector is a \"double slider\" control for range values.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RangeSelector",
+      //  "XamlCodeFile": "RangeSelectorCode.bind",
+      //  "Icon": "/SamplePages/RangeSelector/RangeSelector.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RangeSelector.md"
+      //},
+      //{
+      //  "Name": "ImageEx",
+      //  "Type": "ImageExPage",
+      //  "About": "Images are downloaded asynchronously showing a load indicator. Source images are then stored in the App local cache to preserve resources and load time.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/ImageEx",
+      //  "XamlCodeFile": "ImageExCode.bind",
+      //  "Icon": "/SamplePages/ImageEx/ImageEx.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/ImageEx.md"
+      //},
+      //{
+      //  "Name": "MasterDetailsView",
+      //  "Type": "MasterDetailsViewPage",
+      //  "About": "The MasterDetailsView control allows the user to implement the Master/Details design pattern.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/MasterDetailsView",
+      //  "XamlCodeFile": "MasterDetailsView.bind",
+      //  "CodeFile": "MasterDetailsViewCode.bind",
+      //  "Icon": "/SamplePages/MasterDetailsView/MasterDetailsView.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MasterDetailsView.md"
+      //},
+      //{
+      //  "Name": "MarkdownTextBlock",
+      //  "Type": "MarkdownTextBlockPage",
+      //  "About": "An efficient and extensible control that can parse and render markdown.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/MarkdownTextBlock",
+      //  "XamlCodeFile": "MarkdownTextBlock.bind",
+      //  "CodeFile": "MarkdownTextBlockCode.bind",
+      //  "Icon": "/SamplePages/MarkdownTextBlock/MarkdownTextBlock.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/MarkdownTextBlock.md"
+      //},
+      //{
+      //  "Name": "RadialGauge",
+      //  "Type": "RadialGaugePage",
+      //  "About": "The radial gauge displays a value within a range, using a needle on a circular face.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RadialGauge",
+      //  "XamlCodeFile": "RadialGaugeCode.bind",
+      //  "Icon": "/SamplePages/RadialGauge/RadialGauge.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RadialGauge.md"
+      //},
+      //{
+      //  "Name": "RadialProgressBar",
+      //  "Type": "RadialProgressBarPage",
+      //  "About": "The radial progress bar displays progress as a circle getting filled.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RadialProgressBar",
+      //  "XamlCodeFile": "RadialProgressBarCode.bind",
+      //  "Icon": "/SamplePages/RadialProgressBar/RadialProgressBar.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RadialProgressBar.md"
+      //},
+      //{
+      //  "Name": "SlidableListItem",
+      //  "Type": "SlidableListItemPage",
+      //  "About": "The SlidableListItem is deprecated and will be removed in a future major release. Please use the SwipeControl available in the Fall Creators Update.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/SlidableListItem",
+      //  "XamlCodeFile": "SlidableListItemCode.bind",
+      //  "Icon": "/SamplePages/SlidableListItem/SlidableListItem.png",
+      //  "BadgeUpdateVersionRequired": "DEPRECATED",
+      //  "DeprecatedWarning": "The SlidableListItem is deprecated and will be removed in a future major release. Please use the SwipeControl available in the Fall Creators Update.",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/SlidableListItem.md"
+      //},
+      //{
+      //  "Name": "PullToRefreshListView",
+      //  "Type": "PullToRefreshListViewPage",
+      //  "About": "The PullToRefreshListView will be removed in a future major release. Please use the RefreshContainer control available in the 1803 version of Windows.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/PullToRefreshListView",
+      //  "CodeFile": "PullToRefreshListViewCode.bind",
+      //  "XamlCodeFile": "PullToRefreshListViewXaml.bind",
+      //  "Icon": "/SamplePages/PullToRefreshListView/PullToRefreshListView.png",
+      //  "BadgeUpdateVersionRequired": "DEPRECATED",
+      //  "DeprecatedWarning": "The PullToRefreshListView will be removed in a future major release. Please use the RefreshContainer control available in the 1803 version of Windows.",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/PullToRefreshListview.md"
+      //},
+      //{
+      //  "Name": "RotatorTile",
+      //  "Type": "RotatorTilePage",
+      //  "About": "RotatorTile is an ItemsControl that rotates through a set of items one-by-one. It enables you to show multiple items of data in a live-tile like way.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RotatorTile",
+      //  "XamlCodeFile": "RotatorTileCode.bind",
+      //  "Icon": "/SamplePages/RotatorTile/RotatorTile.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/RotatorTile.md"
+      //},
+      //{
+      //  "Name": "ScrollHeader",
+      //  "Type": "ScrollHeaderPage",
+      //  "About": "A UI control that works as a ListView or GridView header control with quick return, sticky and fade behavior.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/ScrollHeader",
+      //  "XamlCodeFile": "ScrollHeaderCode.bind",
+      //  "Icon": "/SamplePages/ScrollHeader/ScrollHeader.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/ScrollHeader.md"
+      //},
+      //{
+      //  "Name": "GridSplitter",
+      //  "Type": "GridSplitterPage",
+      //  "About": "GridSplitter represents the control that redistributes space between columns or rows of a Grid control.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/GridSplitter",
+      //  "XamlCodeFile": "GridSplitter.bind",
+      //  "Icon": "/SamplePages/GridSplitter/GridSplitter.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/GridSplitter.md"
+      //},
+      //{
+      //  "Name": "DropShadowPanel",
+      //  "Type": "DropShadowPanelPage",
+      //  "About": "DropShadowPanel contol allows the creation of a DropShadow for any Xaml FrameworkElement in markup.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/DropShadowPanel",
+      //  "XamlCodeFile": "DropShadowPanelXaml.bind",
+      //  "Icon": "/SamplePages/DropShadowPanel/DropShadowPanel.png",
+      //  "BadgeUpdateVersionRequired": "Anniversary Update required",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/DropShadowPanel.md"
+      //},
+      //{
+      //  "Name": "Loading",
+      //  "Type": "LoadingPage",
+      //  "About": "LoadingControl helps to show content with animation to the user while the app is doing some calculation.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Loading",
+      //  "XamlCodeFile": "LoadingCode.bind",
+      //  "Icon": "/SamplePages/Loading/Loading.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/Loading.md"
+      //},
+      //{
+      //  "Name": "Expander",
+      //  "Type": "ExpanderPage",
+      //  "About": "Expander control allows user to show/hide content based on a boolean state.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Expander",
+      //  "XamlCodeFile": "ExpanderXaml.bind",
+      //  "Icon": "/SamplePages/Expander/Expander.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/Expander.md"
+      //},
+      //{
+      //  "Name": "TileControl",
+      //  "Type": "TileControlPage",
+      //  "About": "A ContentControl that show an image repeated many times.The control can be synchronized with a Scrollviewer and animated easily",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/TileControl",
+      //  "XamlCodeFile": "TileControl.bind",
+      //  "Icon": "/SamplePages/TileControl/TileControl.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/TileControl.md"
+      //},
+      //{
+      //  "Name": "OrbitView",
+      //  "Type": "OrbitViewPage",
+      //  "About": "The OrbitView Control positions items in a circle around a center element and supports orbits and anchors.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/OrbitView",
+      //  "XamlCodeFile": "OrbitViewXaml.bind",
+      //  "Icon": "/SamplePages/OrbitView/OrbitView.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/OrbitView.md"
+      //},
+      //{
+      //  "Name": "Menu",
+      //  "Type": "MenuPage",
+      //  "About": "Represents a Windows menu control that enables you to hierarchically organize elements associated with commands and event handlers.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Menu",
+      //  "XamlCodeFile": "Menu.bind",
+      //  "Icon": "/SamplePages/Menu/Menu.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/Menu.md"
+      //},
+      //{
+      //  "Name": "InAppNotification",
+      //  "Type": "InAppNotificationPage",
+      //  "About": "The In App Notification control offers the ability to show local notifications in your application.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/InAppNotification",
+      //  "XamlCodeFile": "InAppNotificationXaml.bind",
+      //  "CodeFile": "InAppNotificationCode.bind",
+      //  "Icon": "/SamplePages/InAppNotification/InAppNotification.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/InAppNotification.md"
+      //},
+      //{
+      //  "Name": "LayoutTransformControl",
+      //  "Type": "LayoutTransformControlPage",
+      //  "About": "Control that implements support for transformations as if applied by LayoutTransform.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/LayoutTransformControl",
+      //  "XamlCodeFile": "LayoutTransformControlXaml.bind",
+      //  "Icon": "/SamplePages/LayoutTransformControl/LayoutTransformControl.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/LayoutTransformControl.md"
+      //}
+      //{
+      //  "Name": "CameraPreview",
+      //  "Type": "CameraPreviewPage",
+      //  "About": "Allows to easily preview video from available camera frame source groups and also get realtime video frames/ software bitmaps from the selected source.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/CameraPreview",
+      //  "XamlCodeFile": "CameraPreviewXaml.bind",
+      //  "CodeFile": "CameraPreviewCode.bind",
+      //  "Icon": "/SamplePages/CameraPreview/CameraPreview.png",
+      //  "BadgeUpdateVersionRequired": "April 2018 update required",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/CameraPreview.md",
+      //  "ApiCheck": "Windows.Devices.Input.Preview.GazeInputSourcePreview" // check for April update
+      //},
+      //{
+      //  "Name": "InfiniteCanvas",
+      //  "Type": "InfiniteCanvasPage",
+      //  "About": "InfiniteCanvas is a canvas that supports Infinite Scrolling, Ink, Text, Format Text, Zoom in/out, Redo, Undo, Export canvas data, Import canvas data.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/InfiniteCanvas",
+      //  "XamlCodeFile": "InfiniteCanvas.bind",
+      //  "Icon": "/SamplePages/InfiniteCanvas/InfiniteCanvas.png",
+      //  "ApiCheck": "Windows.UI.Xaml.Controls.ColorPicker",
+      //  "BadgeUpdateVersionRequired": "Fall Creators Update required",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/controls/InfiniteCanvas.md"
+      //}
+    ]
+  },
   //{
   //  "Name": "Animations",
   //  "Icon": "Icons/Animations.png",
@@ -494,11 +485,11 @@
   //    }
   //  ]
   //},
-  //{
-  //  "Name": "Services",
-  //  "Icon": "Icons/Services.png",
-  //  "Samples": [
-  //    {
+  // {
+    //"Name": "Services",
+    //"Icon": "Icons/Services.png",
+    //"Samples": [
+//      {
   //      "Name": "Bing Service",
   //      "Type": "BingPage",
   //      "About": "The Bing Service allows you to retrieve Microsoft Bing web search engine results.",
@@ -525,24 +516,24 @@
   //      "Icon": "/SamplePages/Twitter Service/TwitterLogo.png",
   //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/Twitter.md"
   //    },
-  //    {
-  //      "Name": "Microsoft Graph Service",
-  //      "Type": "MicrosoftGraphPage",
-  //      "About": "The Microsoft Graph service allows you to connect to Microsoft Graph Office 365 API.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Services/Services/MicrosoftGraph",
-  //      "CodeFile": "MicrosoftGraphCode.bind",
-  //      "Icon": "/SamplePages/Microsoft Graph Service/mslogo.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/MicrosoftGraph.md"
-  //    },
-  //    {
-  //      "Name": "OneDrive Service",
-  //      "Type": "OneDrivePage",
-  //      "About": "The OneDrive service allows you to get your files from OneDrive using an Microsoft Account or OneDrive For Business using an Office 365 account",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Services/Services/OneDrive/",
-  //      "CodeFile": "OneDriveCode.bind",
-  //      "Icon": "/SamplePages/OneDrive Service/OneDriveLogo.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/OneDrive.md"
-  //    },
+      //{
+      //  "Name": "Microsoft Graph Service",
+      //  "Type": "MicrosoftGraphPage",
+      //  "About": "The Microsoft Graph service allows you to connect to Microsoft Graph Office 365 API.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Services/Services/MicrosoftGraph",
+      //  "CodeFile": "MicrosoftGraphCode.bind",
+      //  "Icon": "/SamplePages/Microsoft Graph Service/mslogo.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/MicrosoftGraph.md"
+      //},
+      //{
+      //  "Name": "OneDrive Service",
+      //  "Type": "OneDrivePage",
+      //  "About": "The OneDrive service allows you to get your files from OneDrive using an Microsoft Account or OneDrive For Business using an Office 365 account",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Services/Services/OneDrive/",
+      //  "CodeFile": "OneDriveCode.bind",
+      //  "Icon": "/SamplePages/OneDrive Service/OneDriveLogo.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/services/OneDrive.md"
+      //},
   //    {
   //      "Name": "LinkedIn Service",
   //      "Type": "LinkedInPage",
@@ -791,112 +782,112 @@
   //    }
   //  ]
   //},
-  //{
-  //  "Name": "Extensions",
-  //  "Icon": "Icons/Extensions.png",
-  //  "Samples": [
-  //    {
-  //      "Name": "ListViewExtensions",
-  //      "Type": "ListViewExtensionsPage",
-  //      "About": "Extensions for all controls that inherit from ListViewBase like ListView.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/ListViewExtensions",
-  //      "XamlCodeFile": "ListViewExtensionsCode.bind",
-  //      "Icon": "/Assets/Helpers.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ListViewExtensions.md"
-  //    },
-  //    {
-  //      "Name": "ViewExtensions",
-  //      "Type": "ViewExtensionsPage",
-  //      "About": "View extensions to set StatusBar and TitleBar properties.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions",
-  //      "XamlCodeFile": "ViewExtensionsCode.bind",
-  //      "Icon": "/SamplePages/ViewExtensions/ViewExtensions.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ViewExtensions.md"
-  //    },
-  //    {
-  //      "Name": "TextBoxMask",
-  //      "Type": "TextBoxMaskPage",
-  //      "About": "TextBox Mask property allows a user to more easily enter fixed width text in TextBox control where you would like them to enter the data in a certain format",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/TextBoxMask",
-  //      "XamlCodeFile": "TextBoxMask.bind",
-  //      "Icon": "/SamplePages/TextBoxMask/TextBoxMask.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/TextBoxMask.md"
-  //    },
-  //    {
-  //      "Name": "Mouse",
-  //      "Type": "MouseCursorPage",
-  //      "About": "Mouse.Cursor attached property enables you to easily change the mouse cursor over specific Framework elements.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/Mouse",
-  //      "XamlCodeFile": "MouseCursorPage.bind",
-  //      "Icon": "/SamplePages/Mouse/MouseCursor.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/MouseCursor.md"
-  //    },
-  //    {
-  //      "Name": "TextBoxRegex",
-  //      "Type": "TextBoxRegexPage",
-  //      "About": "TextBoxRegex helps developer to validate a TextBox with a regular expression using the Regex property.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/TextBoxRegEx",
-  //      "XamlCodeFile": "TextBoxRegex.bind",
-  //      "Icon": "/SamplePages/TextBoxRegex/TextBoxRegex.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/TextBoxRegex.md"
-  //    },
-  //    {
-  //      "Name": "SurfaceDialTextbox",
-  //      "Type": "SurfaceDialTextboxPage",
-  //      "About": "Enables support for Surface Dial on any given Textbox. Rotate the Dial to change the numeric value of the Textbox.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/SurfaceDialTextbox",
-  //      "XamlCodeFile": "SurfaceDialTextboxCode.bind",
-  //      "Icon": "/SamplePages/SurfaceDialTextbox/SurfaceDialTextbox.png",
-  //      "BadgeUpdateVersionRequired": "Anniversary Update required",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/SurfaceDialTextboxHelper.md"
-  //    },
-  //    {
-  //      "Name": "Visual Extensions",
-  //      "Type": "VisualExtensionsPage",
-  //      "About": "Attached properties to modify object visual properties through XAML",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/Visual",
-  //      "XamlCodeFile": "VisualExtensionsCode.bind",
-  //      "Icon": "/SamplePages/Visual Extensions/VisualExtensions.png",
-  //      "BadgeUpdateVersionRequired": "Creators Update required",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/VisualExtensions.md"
-  //    },
-  //    {
-  //      "Name": "FrameworkElementExtensions",
-  //      "Type": "FrameworkElementExtensionsPage",
-  //      "About": "Extensions for all the FrameworkElement controls.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/FrameworkElement",
-  //      "XamlCodeFile": "FrameworkElementExtensionsCode.bind",
-  //      "Icon": "/Assets/Helpers.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/FrameworkElementExtensions.md"
-  //    },
-  //    {
-  //      "Name": "StringExtensions",
-  //      "Type": "StringExtensionsPage",
-  //      "About": "String Extensions to validate strings",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit/Extensions",
-  //      "Icon": "/Assets/Helpers.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/StringExtensions.md"
-  //    },
-  //    {
-  //      "Name": "NavigationViewStyles",
-  //      "Type": "NavigationViewStylesPage",
-  //      "XamlCodeFile": "NavigationViewStylesXaml.bind",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/NavigationView.md",
-  //      "Icon": "/SamplePages/NavigationViewStyles/NavigationViewStyles.png",
-  //      "About": "Style extensions for the NavigationView to appear like the one used by Visual Studio Code.",
-  //      "BadgeUpdateVersionRequired": "Fall Creators Update required",
-  //      "ApiCheck": "Windows.UI.Xaml.Controls.NavigationView",
-  //      "CodeUrl": "https://github.com/Microsoft/UWPCommunitToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/NavigationView"
-  //    },
-  //    {
-  //      "Name": "ScrollViewerExtensions",
-  //      "Type": "ScrollViewerExtensionsPage",
-  //      "About": "Extensions for all controls that contain a ScrollViewer like ListView.",
-  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/ScrollViewer",
-  //      "XamlCodeFile": "ScrollViewerExtensionsCode.bind",
-  //      "Icon": "/Assets/Helpers.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ScrollViewerExtensions.md"
-  //    }
+  {
+    "Name": "Extensions",
+    "Icon": "Icons/Extensions.png",
+    "Samples": [
+      {
+        "Name": "StringExtensions",
+        "Type": "StringExtensionsPage",
+        "About": "String Extensions to validate strings",
+        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit/Extensions",
+        "Icon": "/Assets/Helpers.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/StringExtensions.md"
+      },
+      //{
+      //  "Name": "ListViewExtensions",
+      //  "Type": "ListViewExtensionsPage",
+      //  "About": "Extensions for all controls that inherit from ListViewBase like ListView.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/ListViewExtensions",
+      //  "XamlCodeFile": "ListViewExtensionsCode.bind",
+      //  "Icon": "/Assets/Helpers.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ListViewExtensions.md"
+      //},
+      //{
+      //  "Name": "ViewExtensions",
+      //  "Type": "ViewExtensionsPage",
+      //  "About": "View extensions to set StatusBar and TitleBar properties.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions",
+      //  "XamlCodeFile": "ViewExtensionsCode.bind",
+      //  "Icon": "/SamplePages/ViewExtensions/ViewExtensions.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ViewExtensions.md"
+      //},
+      //{
+      //  "Name": "TextBoxMask",
+      //  "Type": "TextBoxMaskPage",
+      //  "About": "TextBox Mask property allows a user to more easily enter fixed width text in TextBox control where you would like them to enter the data in a certain format",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/TextBoxMask",
+      //  "XamlCodeFile": "TextBoxMask.bind",
+      //  "Icon": "/SamplePages/TextBoxMask/TextBoxMask.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/TextBoxMask.md"
+      //},
+      //{
+      //  "Name": "Mouse",
+      //  "Type": "MouseCursorPage",
+      //  "About": "Mouse.Cursor attached property enables you to easily change the mouse cursor over specific Framework elements.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/Mouse",
+      //  "XamlCodeFile": "MouseCursorPage.bind",
+      //  "Icon": "/SamplePages/Mouse/MouseCursor.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/MouseCursor.md"
+      //},
+      //{
+      //  "Name": "TextBoxRegex",
+      //  "Type": "TextBoxRegexPage",
+      //  "About": "TextBoxRegex helps developer to validate a TextBox with a regular expression using the Regex property.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/TextBoxRegEx",
+      //  "XamlCodeFile": "TextBoxRegex.bind",
+      //  "Icon": "/SamplePages/TextBoxRegex/TextBoxRegex.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/TextBoxRegex.md"
+      //},
+      //{
+      //  "Name": "SurfaceDialTextbox",
+      //  "Type": "SurfaceDialTextboxPage",
+      //  "About": "Enables support for Surface Dial on any given Textbox. Rotate the Dial to change the numeric value of the Textbox.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/SurfaceDialTextbox",
+      //  "XamlCodeFile": "SurfaceDialTextboxCode.bind",
+      //  "Icon": "/SamplePages/SurfaceDialTextbox/SurfaceDialTextbox.png",
+      //  "BadgeUpdateVersionRequired": "Anniversary Update required",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/SurfaceDialTextboxHelper.md"
+      //},
+      //{
+      //  "Name": "Visual Extensions",
+      //  "Type": "VisualExtensionsPage",
+      //  "About": "Attached properties to modify object visual properties through XAML",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/Visual",
+      //  "XamlCodeFile": "VisualExtensionsCode.bind",
+      //  "Icon": "/SamplePages/Visual Extensions/VisualExtensions.png",
+      //  "BadgeUpdateVersionRequired": "Creators Update required",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/VisualExtensions.md"
+      //},
+      //{
+      //  "Name": "FrameworkElementExtensions",
+      //  "Type": "FrameworkElementExtensionsPage",
+      //  "About": "Extensions for all the FrameworkElement controls.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/FrameworkElement",
+      //  "XamlCodeFile": "FrameworkElementExtensionsCode.bind",
+      //  "Icon": "/Assets/Helpers.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/FrameworkElementExtensions.md"
+      //},
+      //{
+      //  "Name": "NavigationViewStyles",
+      //  "Type": "NavigationViewStylesPage",
+      //  "XamlCodeFile": "NavigationViewStylesXaml.bind",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/NavigationView.md",
+      //  "Icon": "/SamplePages/NavigationViewStyles/NavigationViewStyles.png",
+      //  "About": "Style extensions for the NavigationView to appear like the one used by Visual Studio Code.",
+      //  "BadgeUpdateVersionRequired": "Fall Creators Update required",
+      //  "ApiCheck": "Windows.UI.Xaml.Controls.NavigationView",
+      //  "CodeUrl": "https://github.com/Microsoft/UWPCommunitToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/NavigationView"
+      //},
+      //{
+      //  "Name": "ScrollViewerExtensions",
+      //  "Type": "ScrollViewerExtensionsPage",
+      //  "About": "Extensions for all controls that contain a ScrollViewer like ListView.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI/Extensions/ScrollViewer",
+      //  "XamlCodeFile": "ScrollViewerExtensionsCode.bind",
+      //  "Icon": "/Assets/Helpers.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/extensions/ScrollViewerExtensions.md"
+      //}
     ]
   },
   {
@@ -932,48 +923,48 @@
         "Icon": "/SamplePages/AlignmentGrid/AlignmentGrid.png",
         "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/developer-tools/AlignmentGrid.md"
       },
-      {
-        "Name": "FocusTracker",
-        "Type": "FocusTrackerPage",
-        "About": "FocusTracker can be used to display information about the current focused XAML element.",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.DeveloperTools/FocusTracker",
-        "XamlCodeFile": "FocusTrackerXaml.bind",
-        "Icon": "/SamplePages/FocusTracker/FocusTracker.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/developer-tools/FocusTracker.md"
-      },
-      {
-        "Name": "Analytics",
-        "Type": "AnalyticsPage",
-        "About": "List of frameworks to help you track activity in your apps.",
-        "CodeFile": "AnalyticsCode.bind",
-        "Icon": "/SamplePages/Analytics/Analytics.png"
-      }
+      //{
+      //  "Name": "FocusTracker",
+      //  "Type": "FocusTrackerPage",
+      //  "About": "FocusTracker can be used to display information about the current focused XAML element.",
+      //  "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.DeveloperTools/FocusTracker",
+      //  "XamlCodeFile": "FocusTrackerXaml.bind",
+      //  "Icon": "/SamplePages/FocusTracker/FocusTracker.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/developer-tools/FocusTracker.md"
+      //},
+      //{
+      //  "Name": "Analytics",
+      //  "Type": "AnalyticsPage",
+      //  "About": "List of frameworks to help you track activity in your apps.",
+      //  "CodeFile": "AnalyticsCode.bind",
+      //  "Icon": "/SamplePages/Analytics/Analytics.png"
+      //}
     ]
   },
-  {
-    "Name": "Gaze",
-    "Icon": "Icons/DeveloperTools.png",
-    "Samples": [
-      {
-        "Name": "GazeInteraction",
-        "Type": "GazeInteractionPage",
-        "About": "Demonstrate the properties and events of the Gaze Interaction library",
-        "XamlCodeFile": "GazeInteractionXaml.bind",
-        "CodeFile": "GazeInteractionCode.bind",
-        "Icon": "/SamplePages/GazeInteraction/GazeInteraction.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/gaze/GazeInteractionLibrary.md",
-        "ApiCheck": "Windows.Devices.Input.Preview.GazeInputSourcePreview"
-      },
-      {
-        "Name": "GazeTracing",
-        "Type": "GazeTracingPage",
-        "About": "Shows how to use the Windows 10 API for eye trackers",
-        "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Input.Gaze/",
-        "XamlCodeFile": "GazeTracingXaml.bind",
-        "CodeFile": "GazeTracingCode.bind",
-        "Icon": "/SamplePages/GazeTracing/GazeTracing.png",
-        "ApiCheck": "Windows.Devices.Input.Preview.GazeInputSourcePreview"
-      }
-    ]
-  }
+  //{
+  //  "Name": "Gaze",
+  //  "Icon": "Icons/DeveloperTools.png",
+  //  "Samples": [
+  //    {
+  //      "Name": "GazeInteraction",
+  //      "Type": "GazeInteractionPage",
+  //      "About": "Demonstrate the properties and events of the Gaze Interaction library",
+  //      "XamlCodeFile": "GazeInteractionXaml.bind",
+  //      "CodeFile": "GazeInteractionCode.bind",
+  //      "Icon": "/SamplePages/GazeInteraction/GazeInteraction.png",
+  //      "DocumentationUrl": "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/master/docs/gaze/GazeInteractionLibrary.md",
+  //      "ApiCheck": "Windows.Devices.Input.Preview.GazeInputSourcePreview"
+  //    },
+  //    {
+  //      "Name": "GazeTracing",
+  //      "Type": "GazeTracingPage",
+  //      "About": "Shows how to use the Windows 10 API for eye trackers",
+  //      "CodeUrl": "https://github.com/Microsoft/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.Input.Gaze/",
+  //      "XamlCodeFile": "GazeTracingXaml.bind",
+  //      "CodeFile": "GazeTracingCode.bind",
+  //      "Icon": "/SamplePages/GazeTracing/GazeTracing.png",
+  //      "ApiCheck": "Windows.Devices.Input.Preview.GazeInputSourcePreview"
+  //    }
+  //  ]
+  //}
 ]

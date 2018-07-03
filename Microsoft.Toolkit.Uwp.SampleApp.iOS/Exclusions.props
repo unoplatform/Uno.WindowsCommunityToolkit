@@ -25,8 +25,8 @@
 		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LiveTile\**" />
 		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LiveTile\**" />
 
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Graph Service\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Graph Service\**" />
+		<!--<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Graph Service\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Graph Service\**" />-->
 
 		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Translator Service\**" />
 		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Translator Service\**" />
@@ -34,8 +34,8 @@
 		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\NetworkHelper\**" />
 		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\NetworkHelper\**" />
 
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\OneDrive Service\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\OneDrive Service\**" />
+		<!--<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\OneDrive Service\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\OneDrive Service\**" />-->
 
 		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PeoplePicker\**" />
 		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PeoplePicker\**" />
