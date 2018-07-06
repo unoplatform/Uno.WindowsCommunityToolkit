@@ -9,9 +9,11 @@
       xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
       xmlns:sampleapp="using:Microsoft.Toolkit.Uwp.SampleApp"
       xmlns:local="using:Microsoft.Toolkit.Uwp.SampleApp.Pages"
+      xmlns:wasm="http://uno/wasm"
+      xmlns:not_wasm="http://uno/not_wasm"
       xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
       Loaded="Page_Loaded"
-      mc:Ignorable="d xamarin">
+      mc:Ignorable="d xamarin wasm not_wasm">
 
     <Page.Resources>
 
@@ -133,6 +135,28 @@
 
                         <Grid Grid.Row="3" Grid.Column="1" animations:Implicit.Animations="{StaticResource ImplicitOffset}">
                             <StackPanel>
+								<xamarin:StackPanel>
+									<TextBlock FontSize="20" FontFamily="Segoe UI" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10">
+										<Run Text="Windows Community Toolkit for Uno Platform" />
+									</TextBlock>
+									<TextBlock TextWrapping="WrapWholeWords">
+										This application is the
+										<not_wasm:Hyperlink NavigateUri="https://github.com/nventive/Uno.WindowsCommunityToolkit">port</not_wasm:Hyperlink>
+										<wasm:Hyperlink NavigateUri="https://github.com/nventive/Uno.WindowsCommunityToolkit">WebAssembly port</wasm:Hyperlink>
+										of the 
+										<Hyperlink NavigateUri="https://github.com/Microsoft/WindowsCommunityToolkit">Windows Community Toolkit</Hyperlink>
+										for 
+										<Hyperlink NavigateUri="https://platform.uno">the Uno Platform.</Hyperlink>
+										<LineBreak />New controls are regularly added along with the progress of the Uno Platform's 
+										support of the UWP APIs. Check back regularly!
+									</TextBlock>
+								</xamarin:StackPanel>
+								<Border
+									BorderThickness="0,1,0,0"
+									BorderBrush="#33000000"
+									Margin="0,48"
+									animations:Implicit.Animations="{StaticResource ImplicitOffset}"></Border>
+								
                                 <TextBlock FontSize="20" FontFamily="Segoe UI" FontWeight="Normal">Recent Activity</TextBlock>
 
                                 <Grid Margin="0,16,0,0">
