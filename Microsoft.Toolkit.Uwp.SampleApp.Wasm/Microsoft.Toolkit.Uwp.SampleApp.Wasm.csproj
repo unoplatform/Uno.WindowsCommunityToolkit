@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
+	<PropertyGroup>
 		<IsPackable>false</IsPackable>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
 		<WasmHead>true</WasmHead>
 		<MonoWasmSDKUri>https://jenkins.mono-project.com/job/test-mono-mainline-wasm/389/label=ubuntu-1804-amd64/Azure/processDownloadRequest/389/ubuntu-1804-amd64/sdks/wasm/mono-wasm-d5d116b7877.zip</MonoWasmSDKUri>
-  </PropertyGroup>
-	
+	</PropertyGroup>
+
 	<ItemGroup>
-		<PackageReference Include="Uno.UI" Version="1.31.0-dev.108" />
+		<PackageReference Include="Uno.UI" Version="1.31.0-dev.116" />
 		<PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.23" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
@@ -18,17 +18,17 @@
 		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
 	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Services\Microsoft.Toolkit.Services.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.DeveloperTools\Microsoft.Toolkit.Uwp.DeveloperTools.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.Graph\Microsoft.Toolkit.Uwp.UI.Controls.Graph.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Services\Microsoft.Toolkit.Services.csproj" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.DeveloperTools\Microsoft.Toolkit.Uwp.DeveloperTools.csproj" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.Graph\Microsoft.Toolkit.Uwp.UI.Controls.Graph.csproj" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.csproj" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />
+		<ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<EmbeddedResource Include="WasmCSS\**\*.css" />
@@ -40,19 +40,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="web.config" />
+		<None Remove="web.config" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="web.config" />
+		<Content Include="web.config" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<LinkerDescriptor Include="LinkerConfig.xml" />
 	</ItemGroup>
-	
-  <Import Project="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\Microsoft.Toolkit.Uwp.SampleApp.Shared.projitems" Label="Shared" />
 
-  <Import Project="..\Microsoft.Toolkit.Uwp.SampleApp.iOS\Exclusions.props" />
+	<Import Project="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\Microsoft.Toolkit.Uwp.SampleApp.Shared.projitems" Label="Shared" />
+
+	<Import Project="..\Microsoft.Toolkit.Uwp.SampleApp.iOS\Exclusions.props" />
 
 </Project>
