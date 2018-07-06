@@ -25,7 +25,7 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 
 #if !HAS_UNO
-using Microsoft.Toolkit.Uwp.Input.GazeInteraction;
+// using Microsoft.Toolkit.Uwp.Input.GazeInteraction;
 using Microsoft.Toolkit.Uwp.UI.Controls.Graph;
 using Microsoft.Toolkit.Uwp.UI.Media;
 #endif
@@ -442,7 +442,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
             if (_propertyDescriptor == null)
             {
-				var manifestName = typeof(Samples).Assembly
+				var manifestName = typeof(Samples).GetTypeInfo().Assembly
 					.GetManifestResourceNames()
 					.FirstOrDefault(n => n.EndsWith($"{Name}.{XamlCodeFile}".Replace(" ", "_"), StringComparison.OrdinalIgnoreCase));
 
@@ -452,7 +452,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 				}
 
 				// Get Xaml code
-				using (var codeStream = typeof(Samples).Assembly.GetManifestResourceStream(manifestName))
+				using (var codeStream = typeof(Samples).GetTypeInfo().Assembly.GetManifestResourceStream(manifestName))
                 {
                     XamlCode = await codeStream.ReadTextAsync(Encoding.UTF8);
 
@@ -714,7 +714,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 }
             }
 
-#if NETFX_CORE
+#if false // NETFX_CORE
 			// Search in Microsoft.Toolkit.Uwp.Input.GazeInteraction
 			var gazeType = Interaction.Enabled;
             assembly = gazeType.GetType().GetTypeInfo().Assembly;

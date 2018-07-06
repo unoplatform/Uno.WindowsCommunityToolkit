@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp.Helpers;
@@ -50,13 +51,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 			{
 				List<SampleCategory> allCategories;
 
-				var manifestName = typeof(Samples).Assembly
+				var manifestName = typeof(Samples).GetTypeInfo().Assembly
 					.GetManifestResourceNames()
 					.FirstOrDefault(n => n.EndsWith("samples.json", StringComparison.OrdinalIgnoreCase));
 
 				if (manifestName != null)
 				{
-					var jsonString = await typeof(Samples).Assembly.GetManifestResourceStream(manifestName).ReadTextAsync();
+					var jsonString = await typeof(Samples).GetTypeInfo().Assembly.GetManifestResourceStream(manifestName).ReadTextAsync();
 					allCategories = JsonConvert.DeserializeObject<List<SampleCategory>>(jsonString);
 
 					// Check API

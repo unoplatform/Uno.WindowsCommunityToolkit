@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Reflection;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -248,7 +249,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
         {
             if (LandingPageLinks == null)
             {
-				var manifestName = typeof(Samples).Assembly
+				var manifestName = typeof(Samples).GetTypeInfo().Assembly
 					.GetManifestResourceNames()
 					.FirstOrDefault(n => n.EndsWith("landingPageLinks.json", StringComparison.OrdinalIgnoreCase));
 
@@ -257,7 +258,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
 					throw new InvalidOperationException($"Failed to find resource");
 				}
 
-				using (var jsonStream = typeof(Samples).Assembly.GetManifestResourceStream(manifestName))
+				using (var jsonStream = typeof(Samples).GetTypeInfo().Assembly.GetManifestResourceStream(manifestName))
 				{
 					var jsonString = await jsonStream.ReadTextAsync();
                     LandingPageLinks = JsonConvert.DeserializeObject<LandingPageLinks>(jsonString);

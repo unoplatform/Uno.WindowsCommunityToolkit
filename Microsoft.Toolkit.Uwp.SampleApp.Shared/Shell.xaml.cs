@@ -54,7 +54,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         {
             InitializeComponent();
 
-            Current = this;
+			Current = this;
             DocumentationTextblock.SetRenderer<SampleAppMarkdownRenderer>();
         }
 
@@ -151,6 +151,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+			var t = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Title;
 
 			Console.WriteLine($"NavigatedTo ctx:{SynchronizationContext.Current}");
 			try
@@ -509,7 +511,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
                 var t = UpdateXamlRenderAsync(HamburgerMenu.CurrentSample.UpdatedXamlCode);
 #if NETFX_CORE // UNO TODO
-                await XamlCodeRenderer.RevealPositionAsync(new Position(1, 1));
+                await XamlCodeRenderer.RevealPositionAsync(new Monaco.Position(1, 1));
 #endif
 
                 XamlCodeRenderer.Focus(FocusState.Programmatic);
@@ -596,12 +598,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         }
 
 #if NETFX_CORE // UNO TODO
-		private CssLineStyle _errorStyle = new CssLineStyle()
+		private Monaco.Helpers.CssLineStyle _errorStyle = new Monaco.Helpers.CssLineStyle()
         {
             BackgroundColor = new SolidColorBrush(Color.FromArgb(0x00, 0xFF, 0xD6, 0xD6))
         };
 
-		private CssGlyphStyle _errorIconStyle = new CssGlyphStyle()
+		private Monaco.Helpers.CssGlyphStyle _errorIconStyle = new Monaco.Helpers.CssGlyphStyle()
 		{
 			GlyphImage = new Uri("ms-appx-web:///Icons/Error.png")
 		};
@@ -656,17 +658,17 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 #if NETFX_CORE // UNO TODO
                 XamlCodeRenderer.Options.GlyphMargin = true;
 
-                var range = new Range(error.StartLine, 1, error.EndLine, await XamlCodeRenderer.GetModel().GetLineMaxColumnAsync(error.EndLine));
+                var range = new Monaco.Range(error.StartLine, 1, error.EndLine, await XamlCodeRenderer.GetModel().GetLineMaxColumnAsync(error.EndLine));
 
                 // Highlight Error Line
-                XamlCodeRenderer.Decorations.Add(new IModelDeltaDecoration(
+                XamlCodeRenderer.Decorations.Add(new Monaco.Editor.IModelDeltaDecoration(
                     range,
-                    new IModelDecorationOptions() { IsWholeLine = true, ClassName = _errorStyle, HoverMessage = new string[] { error.Message } }));
+                    new Monaco.Editor.IModelDecorationOptions() { IsWholeLine = true, ClassName = _errorStyle, HoverMessage = new string[] { error.Message } }));
 
                 // Show Glyph Icon
-                XamlCodeRenderer.Decorations.Add(new IModelDeltaDecoration(
+                XamlCodeRenderer.Decorations.Add(new Monaco.Editor.IModelDeltaDecoration(
                     range,
-                    new IModelDecorationOptions() { IsWholeLine = true, GlyphMarginClassName = _errorIconStyle, GlyphMarginHoverMessage = new string[] { error.Message } }));
+                    new Monaco.Editor.IModelDecorationOptions() { IsWholeLine = true, GlyphMarginClassName = _errorIconStyle, GlyphMarginHoverMessage = new string[] { error.Message } }));
 #else
 				Console.WriteLine("Failed to parse XAML: " + error.Message);
 #endif
@@ -742,7 +744,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 		}
 
 #if NETFX_CORE // UNO TODO
-        private void XamlCodeRenderer_InternalException(CodeEditor sender, Exception args)
+        private void XamlCodeRenderer_InternalException(Monaco.CodeEditor sender, Exception args)
         {
             TrackingManager.TrackException(args);
 
