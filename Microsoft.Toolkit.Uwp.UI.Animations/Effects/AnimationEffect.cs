@@ -133,7 +133,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations.Effects
             }
             else
             {
-                foreach (var effectProperty in _effectProperties)
+#if NETFX_CORE
+				foreach (var effectProperty in _effectProperties)
                 {
                     var animation = Compositor.CreateScalarKeyFrameAnimation();
                     animation.InsertKeyFrame(1f, (float)value, AnimationExtensions.GetCompositionEasingFunction(easingType, Compositor, easingMode));
@@ -142,7 +143,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations.Effects
                     animation.DelayTime = TimeSpan.FromMilliseconds(delay);
 
                     animationSet.AddCompositionEffectAnimation(EffectBrush, animation, effectProperty);
-                }
+				}
+#endif
             }
 
             // Saturation starts from 1 to 0, instead of 0 to 1 so this makes sure the

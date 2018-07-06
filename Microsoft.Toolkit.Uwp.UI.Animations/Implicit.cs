@@ -167,10 +167,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations
 
             if (e.NewValue is AnimationCollection animationCollection && d is UIElement element)
             {
-                animationCollection.Parent = element;
+#if !HAS_UNO
+				animationCollection.Parent = element;
                 animationCollection.AnimationCollectionChanged -= AnimationsCollectionChanged;
                 animationCollection.AnimationCollectionChanged += AnimationsCollectionChanged;
                 ElementCompositionPreview.GetElementVisual(element).ImplicitAnimations = GetImplicitAnimationCollection(animationCollection, element);
+#endif
             }
         }
 

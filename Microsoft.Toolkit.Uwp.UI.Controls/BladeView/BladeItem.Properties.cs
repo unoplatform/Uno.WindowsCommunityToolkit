@@ -1,7 +1,7 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
-
+ 
 using System;
 using Windows.UI;
 using Windows.UI.Xaml;
@@ -86,6 +86,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private static void IsOpenChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
+			Console.WriteLine($"IsOpenChangedCallback {dependencyPropertyChangedEventArgs.NewValue}");
+
             BladeItem bladeItem = (BladeItem)dependencyObject;
             bladeItem.Visibility = bladeItem.IsOpen ? Visibility.Visible : Visibility.Collapsed;
             bladeItem.VisibilityChanged?.Invoke(bladeItem, bladeItem.Visibility);

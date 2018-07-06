@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Data;
 
 namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
 {
-    internal class FileSizeConverter : IValueConverter
+    public class FileSizeConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {

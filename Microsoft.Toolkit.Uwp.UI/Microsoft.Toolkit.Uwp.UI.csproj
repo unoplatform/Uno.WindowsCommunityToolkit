@@ -1,21 +1,31 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>uap10.0</TargetFramework>
+    <TargetFrameworks>uap10.0;MonoAndroid71;xamarinios10;netstandard2.0</TargetFrameworks>
     <Title>Windows Community Toolkit UI</Title>
     <Description>This library provides UI services. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows UI Converters</PackageTags>
 
-    <UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
-    <UseWindowsMobileSdk>true</UseWindowsMobileSdk>
-  </PropertyGroup>
+		<UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
+		<UseWindowsMobileSdk>true</UseWindowsMobileSdk>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI</PackageId>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Win2D.uwp" Version="1.21.0" />
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+		<PackageReference Include="Win2D.uwp" Version="1.21.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />
+	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
+		<PackageReference Include="Uno.UI" Version="1.31.0-dev.116" />
+	</ItemGroup>
+	
 </Project>

@@ -4,7 +4,9 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,15 +21,22 @@ namespace Microsoft.Toolkit.Uwp.Helpers
     /// </summary>
     public static class StreamHelper
     {
-        private static HttpClient client = new HttpClient();
 
-        /// <summary>
-        /// Get the response stream returned by a HTTP get request.
-        /// </summary>
-        /// <param name="uri">Uri to request.</param>
-        /// <param name="cancellationToken">instance of <see cref="CancellationToken"/></param>
-        /// <returns>Response stream</returns>
-        public static async Task<IRandomAccessStream> GetHttpStreamAsync(this Uri uri, CancellationToken cancellationToken = default(CancellationToken))
+		public static Stream AsStream(this Stream s) => s;
+
+#if __WASM__
+		private static HttpClient client = new HttpClient(new Uno.UI.Wasm.WasmHttpHandler());
+#else
+		private static HttpClient client = new HttpClient();
+#endif
+
+		/// <summary>
+		/// Get the response stream returned by a HTTP get request.
+		/// </summary>
+		/// <param name="uri">Uri to request.</param>
+		/// <param name="cancellationToken">instance of <see cref="CancellationToken"/></param>
+		/// <returns>Response stream</returns>
+		public static async Task<IRandomAccessStream> GetHttpStreamAsync(this Uri uri, CancellationToken cancellationToken = default(CancellationToken))
         {
             var outputStream = new InMemoryRandomAccessStream();
 
@@ -71,6 +80,7 @@ namespace Microsoft.Toolkit.Uwp.Helpers
             }
         }
 
+#if NETFX_CORE
         /// <summary>
         /// Return a stream to a specified file from the installation folder.
         /// </summary>
@@ -82,8 +92,9 @@ namespace Microsoft.Toolkit.Uwp.Helpers
             FileAccessMode accessMode = FileAccessMode.Read)
         {
             StorageFolder workingFolder = Package.Current.InstalledLocation;
-            return GetFileStreamAsync(fileName, accessMode, workingFolder);
+            return GetFileRandomAccessStreamAsync(fileName, accessMode, workingFolder);
         }
+
 
         /// <summary>
         /// Return a stream to a specified file from the application local folder.
@@ -96,7 +107,7 @@ namespace Microsoft.Toolkit.Uwp.Helpers
             FileAccessMode accessMode = FileAccessMode.Read)
         {
             StorageFolder workingFolder = ApplicationData.Current.LocalFolder;
-            return GetFileStreamAsync(fileName, accessMode, workingFolder);
+            return GetFileRandomAccessStreamAsync(fileName, accessMode, workingFolder);
         }
 
         /// <summary>
@@ -110,7 +121,7 @@ namespace Microsoft.Toolkit.Uwp.Helpers
             FileAccessMode accessMode = FileAccessMode.Read)
         {
             StorageFolder workingFolder = ApplicationData.Current.LocalCacheFolder;
-            return GetFileStreamAsync(fileName, accessMode, workingFolder);
+            return GetFileRandomAccessStreamAsync(fileName, accessMode, workingFolder);
         }
 
         /// <summary>
@@ -126,16 +137,96 @@ namespace Microsoft.Toolkit.Uwp.Helpers
             FileAccessMode accessMode = FileAccessMode.Read)
         {
             StorageFolder workingFolder = StorageFileHelper.GetFolderFromKnownFolderId(knownFolderId);
+            return GetFileRandomAccessStreamAsync(fileName, accessMode, workingFolder);
+        }
+#else
+		/// <summary>
+		/// Return a stream to a specified file from the installation folder.
+		/// </summary>
+		/// <param name="fileName">Relative name of the file to open. Can contains subfolders.</param>
+		/// <param name="accessMode">File access mode. Default is read.</param>
+		/// <returns>File stream</returns>
+		public static Task<Stream> GetPackagedFileStreamAsync(
+			string fileName,
+			FileAccessMode accessMode = FileAccessMode.Read)
+		{
+			StorageFolder workingFolder = Package.Current.InstalledLocation;
+			return GetFileStreamAsync(fileName, accessMode, workingFolder);
+		}
+
+		/// <summary>
+		/// Return a stream to a specified file from the application local folder.
+		/// </summary>
+		/// <param name="fileName">Relative name of the file to open. Can contains subfolders.</param>
+		/// <param name="accessMode">File access mode. Default is read.</param>
+		/// <returns>File stream</returns>
+		public static Task<Stream> GetLocalFileStreamAsync(
+            string fileName,
+            FileAccessMode accessMode = FileAccessMode.Read)
+        {
+            StorageFolder workingFolder = ApplicationData.Current.LocalFolder;
             return GetFileStreamAsync(fileName, accessMode, workingFolder);
         }
 
         /// <summary>
-        /// Read stream content as a string.
+        /// Return a stream to a specified file from the application local cache folder.
         /// </summary>
-        /// <param name="stream">Stream to read from.</param>
-        /// <param name="encoding">Encoding to use. Can be set to null (ASCII will be used in this case).</param>
-        /// <returns>Stream content.</returns>
-        public static async Task<string> ReadTextAsync(
+        /// <param name="fileName">Relative name of the file to open. Can contains subfolders.</param>
+        /// <param name="accessMode">File access mode. Default is read.</param>
+        /// <returns>File stream</returns>
+        public static Task<Stream> GetLocalCacheFileStreamAsync(
+            string fileName,
+            FileAccessMode accessMode = FileAccessMode.Read)
+        {
+            StorageFolder workingFolder = ApplicationData.Current.LocalCacheFolder;
+            return GetFileStreamAsync(fileName, accessMode, workingFolder);
+        }
+
+        /// <summary>
+        /// Return a stream to a specified file from the application local cache folder.
+        /// </summary>
+        /// <param name="knownFolderId">The well known folder ID to use</param>
+        /// <param name="fileName">Relative name of the file to open. Can contains subfolders.</param>
+        /// <param name="accessMode">File access mode. Default is read.</param>
+        /// <returns>File stream</returns>
+        public static Task<Stream> GetKnowFoldersFileStreamAsync(
+            KnownFolderId knownFolderId,
+            string fileName,
+            FileAccessMode accessMode = FileAccessMode.Read)
+        {
+            StorageFolder workingFolder = StorageFileHelper.GetFolderFromKnownFolderId(knownFolderId);
+            return GetFileStreamAsync(fileName, accessMode, workingFolder);
+        }
+
+#endif
+
+		/// <summary>
+		/// Return a stream to a specified file from the installation folder.
+		/// </summary>
+		/// <param name="assemblyType">The owner type for the embedded file</param>
+		/// <param name="fileName">Relative name of the file to open. Can contains subfolders.</param>
+		/// <returns>File stream</returns>
+		public static async Task<Stream> GetEmbeddedFileStreamAsync(Type assemblyType, string fileName)
+		{
+			var manifestName = assemblyType.GetTypeInfo().Assembly
+				.GetManifestResourceNames()
+				.FirstOrDefault(n => n.EndsWith(fileName.Replace(" ", "_"), StringComparison.OrdinalIgnoreCase));
+
+			if (manifestName == null)
+			{
+				throw new InvalidOperationException($"Failed to find resource [{fileName}]");
+			}
+
+			return assemblyType.GetTypeInfo().Assembly.GetManifestResourceStream(manifestName);
+		}
+
+		/// <summary>
+		/// Read stream content as a string.
+		/// </summary>
+		/// <param name="stream">Stream to read from.</param>
+		/// <param name="encoding">Encoding to use. Can be set to null (ASCII will be used in this case).</param>
+		/// <returns>Stream content.</returns>
+		public static async Task<string> ReadTextAsync(
             this IRandomAccessStream stream,
             Encoding encoding = null)
         {
@@ -154,7 +245,7 @@ namespace Microsoft.Toolkit.Uwp.Helpers
             return encoding.GetString(bytes);
         }
 
-        private static async Task<IRandomAccessStream> GetFileStreamAsync(
+        private static async Task<IRandomAccessStream> GetFileRandomAccessStreamAsync(
             string fullFileName,
             FileAccessMode accessMode,
             StorageFolder workingFolder)
@@ -165,6 +256,35 @@ namespace Microsoft.Toolkit.Uwp.Helpers
             var file = await workingFolder.GetFileAsync(fileName);
 
             return await file.OpenAsync(accessMode);
+        }
+
+		/// <summary>
+		/// Read stream content as a string.
+		/// </summary>
+		/// <param name="stream">Stream to read from.</param>
+		/// <param name="encoding">Encoding to use. Can be set to null (ASCII will be used in this case).</param>
+		/// <returns>Stream content.</returns>
+		public static async Task<string> ReadTextAsync(
+            this Stream stream,
+            Encoding encoding = null)
+        {
+            using (var reader = new StreamReader(stream))
+            {
+                return await reader.ReadToEndAsync();
+            }
+        }
+
+        private static async Task<Stream> GetFileStreamAsync(
+            string fullFileName,
+            FileAccessMode accessMode,
+            StorageFolder workingFolder)
+        {
+            var fileName = Path.GetFileName(fullFileName);
+            workingFolder = await GetSubFolderAsync(fullFileName, workingFolder);
+
+            var file = await workingFolder.GetFileAsync(fileName);
+
+            return File.OpenRead(file.Path);
         }
 
         private static async Task<StorageFolder> GetSubFolderAsync(

@@ -126,7 +126,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
                     Text = SignInAnotherUserDefaultText
                 };
                 AutomationProperties.SetName(signinanotherItem, SignInAnotherUserDefaultText);
-                signinanotherItem.Click += async (object sender, RoutedEventArgs e) =>
+
+#if !HAS_UNO
+				signinanotherItem.Click += async (object sender, RoutedEventArgs e) =>
                 {
                     try
                     {
@@ -152,6 +154,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
                         }
                     }
                 };
+#endif
                 menuFlyout.Items.Add(signinanotherItem);
             }
 
@@ -160,7 +163,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
                 Text = SignOutDefaultText
             };
             AutomationProperties.SetName(signoutItem, SignOutDefaultText);
+#if !HAS_UNO
             signoutItem.Click += (object sender, RoutedEventArgs e) => GraphService.Logout();
+#endif
             menuFlyout.Items.Add(signoutItem);
 
             return menuFlyout;
