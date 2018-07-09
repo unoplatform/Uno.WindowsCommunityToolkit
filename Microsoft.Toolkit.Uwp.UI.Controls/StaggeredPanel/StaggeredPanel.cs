@@ -147,8 +147,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 				}
             }
 
-            return base.ArrangeOverride(finalSize);
-        }
+#if !HAS_UNO
+			return base.ArrangeOverride(finalSize);
+#else
+			// Calling base.ArrangeOverride on a Panel should do nothing, but does in Uno. The first 
+			// item is force arrange to fill the available space.
+			return finalSize;
+#endif
+		}
 
         private static void OnDesiredColumnWidthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
