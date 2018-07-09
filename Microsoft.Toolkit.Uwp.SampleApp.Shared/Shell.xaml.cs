@@ -152,9 +152,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         {
             base.OnNavigatedTo(e);
 
-			var t = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().Title;
-
-			Console.WriteLine($"NavigatedTo ctx:{SynchronizationContext.Current}");
 			try
 			{
 				NavigationFrame.Navigating += NavigationFrame_Navigating;
