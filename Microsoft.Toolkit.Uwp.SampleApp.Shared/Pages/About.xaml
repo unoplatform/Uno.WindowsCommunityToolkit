@@ -183,13 +183,20 @@
                                       Grid.Row="3"
                                       Grid.RowSpan="3"
                                       Grid.Column="4"
-                                      ItemsPanel="{StaticResource ItemsWrapGridHorizontalTemplate}"
                                       animations:Implicit.Animations="{StaticResource ImplicitOffset}">
 
                             <StackPanel x:Name="WhatNewPanel" Margin="0,0,0,48" animations:Implicit.Animations="{StaticResource ImplicitOffset}">
                                 <TextBlock FontSize="20" FontFamily="Segoe UI" FontWeight="Normal" Text="{x:Bind LandingPageLinks.NewSectionTitle, Mode=OneWay}"></TextBlock>
                                 <ItemsControl x:Name="WhatNewItemsControl" Margin="0,16,0,0" ItemsSource="{x:Bind NewSamples, Mode=OneWay}" ItemTemplate="{StaticResource NewSampleTemplate}"></ItemsControl>
+
                             </StackPanel>
+							
+							<Border x:Name="Seperator"
+									BorderThickness="0,1,0,0"
+									Height="1"
+									HorizontalAlignment="Stretch"
+									BorderBrush="#33000000"
+									animations:Implicit.Animations="{StaticResource ImplicitOffset}"></Border>
 
                             <StackPanel x:Name="ReleaseNotesPanel" animations:Implicit.Animations="{StaticResource ImplicitOffset}">
                                 <TextBlock FontSize="20" FontFamily="Segoe UI" FontWeight="Normal">Release Notes</TextBlock>
@@ -220,14 +227,6 @@
                                 </ItemsControl>
                             </StackPanel>
                         </ItemsControl>
-
-                        <Border x:Name="Seperator"
-                                Grid.Row="4"
-                                Grid.Column="4"
-                                BorderThickness="0,1,0,0"
-                                BorderBrush="#33000000"
-                                Margin="0,48"
-                                animations:Implicit.Animations="{StaticResource ImplicitOffset}"></Border>
                         <Border Grid.Row="4"
                                 Grid.Column="1"
                                 BorderThickness="0,1,0,0"
