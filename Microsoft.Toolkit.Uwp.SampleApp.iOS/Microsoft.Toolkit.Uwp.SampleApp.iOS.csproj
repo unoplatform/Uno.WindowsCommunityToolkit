@@ -113,7 +113,7 @@
     <PackageReference Include="Uno.Microsoft.Xaml.Behaviors.Uwp.Managed">
       <Version>2.0.1-uno.28</Version>
     </PackageReference>
-    <PackageReference Include="Uno.UI" Version="1.31.0-dev.116" />
+    <PackageReference Include="Uno.UI" Version="1.31.0-dev.155" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj">
