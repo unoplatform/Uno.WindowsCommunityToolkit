@@ -148,9 +148,10 @@
 										for 
 										<Hyperlink NavigateUri="https://platform.uno">the Uno Platform.</Hyperlink>
 										<LineBreak />New controls are regularly added along with the progress of the Uno Platform's 
-										support of the UWP APIs. Check back regularly!
+										support of the UWP APIs. Check again soon!
 									</TextBlock>
 								</xamarin:StackPanel>
+								
 								<Border
 									BorderThickness="0,1,0,0"
 									BorderBrush="#33000000"
