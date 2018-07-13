@@ -10,8 +10,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Uno.UI" Version="1.31.0-dev.155" />
-		<PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.32" />
+		<PackageReference Include="Uno.UI" Version="1.31.0-dev.184" />
+		<PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.38" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
 		<PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
@@ -43,11 +43,13 @@
 
 	<ItemGroup>
 		<None Remove="manifest.json" />
+		<None Remove="tsconfig.json" />
 		<None Remove="web.config" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="manifest.json" />
+		<Content Include="tsconfig.json" />
 		<Content Include="web.config" />
 	</ItemGroup>
 
