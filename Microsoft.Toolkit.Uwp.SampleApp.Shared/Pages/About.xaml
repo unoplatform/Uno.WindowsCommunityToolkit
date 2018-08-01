@@ -139,7 +139,7 @@
 									<TextBlock FontSize="20" FontFamily="Segoe UI" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10">
 										<Run Text="Windows Community Toolkit for Uno Platform" />
 									</TextBlock>
-									<TextBlock TextWrapping="WrapWholeWords">
+									<TextBlock TextWrapping="WrapWholeWords" Margin="0,0,0,10">
 										This application is the
 										<not_wasm:Hyperlink NavigateUri="https://github.com/nventive/Uno.WindowsCommunityToolkit">port</not_wasm:Hyperlink>
 										<wasm:Hyperlink NavigateUri="https://github.com/nventive/Uno.WindowsCommunityToolkit">WebAssembly port</wasm:Hyperlink>
@@ -150,6 +150,12 @@
 										<LineBreak />New controls are regularly added along with the progress of the Uno Platform's 
 										support of the UWP APIs. Check again soon!
 									</TextBlock>
+									<TextBlock FontStyle="Italic" TextWrapping="Wrap">
+										Note that this app is running the mono interpreted mode
+										(which is about <Hyperlink NavigateUri="https://github.com/stefan-schweiger/dotWasmBenchmark">50x slower
+										than it should be</Hyperlink>), and is for the time being best experienced in Microsoft Edge or Firefox.
+									</TextBlock>
+
 								</xamarin:StackPanel>
 								
 								<Border
