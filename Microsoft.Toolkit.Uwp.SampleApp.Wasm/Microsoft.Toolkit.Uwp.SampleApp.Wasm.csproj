@@ -42,6 +42,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Remove="Fonts\winjs-symbols.woff2" />
 		<None Remove="manifest.json" />
 		<None Remove="tsconfig.json" />
 		<None Remove="web.config" />
@@ -51,6 +52,10 @@
 		<Content Include="manifest.json" />
 		<Content Include="tsconfig.json" />
 		<Content Include="web.config" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Fonts\winjs-symbols.woff2" />
 	</ItemGroup>
 
 	<ItemGroup>
