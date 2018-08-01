@@ -29,7 +29,7 @@ var Uno;
               window.dataLayer = window.dataLayer || [];
               function gtag() { dataLayer.push(arguments); }
               gtag('js', new Date());
-              gtag('config', 'UA-26688675-5');
+              gtag('config', 'UA-26688675-6');
 
               gtag("event", "screen_view", {screen_name: \"${screenName}\", app_name: \"${appName}\"});`;
                     const script1 = document.createElement("script");
