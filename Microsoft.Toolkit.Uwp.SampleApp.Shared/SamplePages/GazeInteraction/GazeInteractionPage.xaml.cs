@@ -6,6 +6,7 @@
 using System;
 using Microsoft.Toolkit.Uwp.Input.GazeInteraction;
 using Microsoft.Toolkit.Uwp.UI.Extensions;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Shapes;
@@ -18,6 +19,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
     public sealed partial class GazeInteractionPage : IXamlRenderListener
     {
         private GazeElement gazeButtonControl;
+        private GazePointer gazePointer;
 
         private int dwellCount = 0;
 
@@ -33,6 +35,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
             WarnUserToPlugInDevice();
 
             var buttonControl = control.FindChildByName("TargetButton") as Button;
+            buttonControl.Click += TargetButton_Click;
 
             if (buttonControl != null)
             {
@@ -51,6 +54,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
                     gazeButtonControl.StateChanged += GazeButtonControl_StateChanged;
                 }
             }
+
+            gazePointer = GazeInput.GetGazePointer(null);
+
+            CoreWindow.GetForCurrentThread().KeyDown += (CoreWindow sender, KeyEventArgs args) => gazePointer.Click();
         }
 
         private void GazeInput_IsDeviceAvailableChanged(object sender, object e)
@@ -126,6 +133,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
                 RepeatRec.Visibility = Visibility.Collapsed;
                 DwellProgressBar.Value = 0;
             }
+        }
+
+        private int _targetButtonClickCount = 0;
+
+        private void TargetButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClickCount.Text = $"Number of clicks = {++_targetButtonClickCount}";
         }
     }
 }

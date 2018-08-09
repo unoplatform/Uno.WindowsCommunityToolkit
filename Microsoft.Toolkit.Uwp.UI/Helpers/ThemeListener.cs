@@ -22,7 +22,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Helpers
     /// and Signals an Event when they occur.
     /// </summary>
     [AllowForWeb]
-    public sealed class ThemeListener
+    public sealed class ThemeListener : IDisposable
     {
         /// <summary>
         /// Gets the Name of the Current Theme.
@@ -131,6 +131,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Helpers
             }
 
             ThemeChanged?.Invoke(this);
+        }
+
+        /// <inheritdoc/>
+        public void Dispose()
+        {
+            _accessible.HighContrastChanged -= Accessible_HighContrastChanged;
+            _settings.ColorValuesChanged -= Settings_ColorValuesChanged;
+            Window.Current.CoreWindow.Activated -= CoreWindow_Activated;
         }
     }
 }

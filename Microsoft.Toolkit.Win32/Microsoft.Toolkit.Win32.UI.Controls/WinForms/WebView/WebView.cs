@@ -55,6 +55,28 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
             Layout += OnWebViewLayout;
         }
 
+        internal WebViewControlHost Host => _webViewControl;
+
+        /// <inheritdoc />
+        protected override void DestroyHandle()
+        {
+            // In RS4 if a component is not completely cleaned up it could cause a hang, which was fixed in RS5
+            // For compatability with RS4, call Close to remove the HWNDs to avoid a possible message storm and UI lock up
+            Close();
+
+            base.DestroyHandle();
+        }
+
+        /// <inheritdoc />
+        protected override void OnHandleDestroyed(EventArgs e)
+        {
+            // In RS4 if a component is not completely cleaned up it could cause a hang, which was fixed in RS5
+            // For compatability with RS4, call Close to remove the HWNDs to avoid a possible message storm and UI lock up
+            Close();
+
+            base.OnHandleDestroyed(e);
+        }
+
         /// <summary>
         /// Gets a value indicating whether <see cref="WebView"/> is supported in this environment.
         /// </summary>
@@ -108,7 +130,12 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
             {
                 Verify.IsFalse(IsDisposed);
                 Verify.Implies(Initializing, !Initialized);
-                Verify.Implies(Initialized, WebViewControlInitialized);
+#if DEBUG
+                if (!DesignMode)
+                {
+                    Verify.Implies(Initialized, WebViewControlInitialized);
+                }
+#endif
                 return WebViewControlInitialized
                     ? _webViewControl.Process.EnterpriseId
                     : _delayedEnterpriseId;
@@ -166,7 +193,12 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
             {
                 Verify.IsFalse(IsDisposed);
                 Verify.Implies(Initializing, !Initialized);
-                Verify.Implies(Initialized, WebViewControlInitialized);
+#if DEBUG
+                if (!DesignMode)
+                {
+                    Verify.Implies(Initialized, WebViewControlInitialized);
+                }
+#endif
                 return WebViewControlInitialized
                     ? _webViewControl.Settings.IsIndexedDBEnabled
                     : _delayedIsIndexDbEnabled;
@@ -200,7 +232,12 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
             {
                 Verify.IsFalse(IsDisposed);
                 Verify.Implies(Initializing, !Initialized);
-                Verify.Implies(Initialized, WebViewControlInitialized);
+#if DEBUG
+                if (!DesignMode)
+                {
+                    Verify.Implies(Initialized, WebViewControlInitialized);
+                }
+#endif
                 return WebViewControlInitialized
                     ? _webViewControl.Settings.IsJavaScriptEnabled
                     : _delayedIsJavaScriptEnabled;
@@ -234,7 +271,12 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
             {
                 Verify.IsFalse(IsDisposed);
                 Verify.Implies(Initializing, !Initialized);
-                Verify.Implies(Initialized, WebViewControlInitialized);
+#if DEBUG
+                if (!DesignMode)
+                {
+                    Verify.Implies(Initialized, WebViewControlInitialized);
+                }
+#endif
                 return WebViewControlInitialized
                     ? _webViewControl.Settings.IsScriptNotifyAllowed
                     : _delayedIsScriptNotifyAllowed;
@@ -269,7 +311,12 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
             {
                 Verify.IsFalse(IsDisposed);
                 Verify.Implies(Initializing, !Initialized);
-                Verify.Implies(Initialized, WebViewControlInitialized);
+#if DEBUG
+                if (!DesignMode)
+                {
+                    Verify.Implies(Initialized, WebViewControlInitialized);
+                }
+#endif
                 return WebViewControlInitialized
                     ? _webViewControl.Process.IsPrivateNetworkClientServerCapabilityEnabled
                     : _delayedPrivateNetworkEnabled;
@@ -311,7 +358,12 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
             {
                 Verify.IsFalse(IsDisposed);
                 Verify.Implies(Initializing, !Initialized);
-                Verify.Implies(Initialized, WebViewControlInitialized);
+#if DEBUG
+                if (!DesignMode)
+                {
+                    Verify.Implies(Initialized, WebViewControlInitialized);
+                }
+#endif
                 return _webViewControl?.Settings;
             }
         }
@@ -331,7 +383,12 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
             {
                 Verify.IsFalse(IsDisposed);
                 Verify.Implies(Initializing, !Initialized);
-                Verify.Implies(Initialized, WebViewControlInitialized);
+#if DEBUG
+                if (!DesignMode)
+                {
+                    Verify.Implies(Initialized, WebViewControlInitialized);
+                }
+#endif
                 return WebViewControlInitialized
                     ? _webViewControl.Source
                     : _delayedSource;
@@ -369,6 +426,20 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Version Version => _webViewControl?.Version;
 
+        /// <inheritdoc />
+        public void AddPreLoadedScript(string script)
+        {
+            Verify.IsFalse(IsDisposed);
+            Verify.Implies(Initializing, !Initialized);
+#if DEBUG
+            if (!DesignMode)
+            {
+                Verify.Implies(Initialized, WebViewControlInitialized);
+            }
+#endif
+            _webViewControl?.AddPreLoadedScript(script);
+        }
+
         /// <summary>
         /// Closes this control.
         /// </summary>
@@ -398,13 +469,18 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
         public WebViewControlDeferredPermissionRequest GetDeferredPermissionRequestById(uint id) => _webViewControl?.GetDeferredPermissionRequestById(id);
 
         /// <inheritdoc />
-        public string InvokeScript(string scriptName) => _webViewControl?.InvokeScript(scriptName);
+        public string InvokeScript(string scriptName) => InvokeScript(scriptName, null);
 
         /// <inheritdoc />
-        public string InvokeScript(string scriptName, params string[] arguments) => _webViewControl?.InvokeScript(scriptName, arguments);
+        public string InvokeScript(string scriptName, params string[] arguments) => InvokeScript(scriptName, (IEnumerable<string>)arguments);
 
         /// <inheritdoc />
-        public string InvokeScript(string scriptName, IEnumerable<string> arguments) => _webViewControl?.InvokeScript(scriptName, arguments);
+        public string InvokeScript(string scriptName, IEnumerable<string> arguments)
+        {
+            // WebViewControlHost ends up calling InvokeScriptAsync anyway
+            // The problem we have is that InvokeScript could be called from a UI thread and waiting for an async result that could lead to deadlock
+            return InvokeScriptAsync(scriptName, arguments).WaitWithNestedMessageLoop();
+        }
 
         /// <inheritdoc />
         public Task<string> InvokeScriptAsync(string scriptName) => _webViewControl?.InvokeScriptAsync(scriptName);
@@ -419,23 +495,6 @@ namespace Microsoft.Toolkit.Win32.UI.Controls.WinForms
 
         /// <inheritdoc />
         public void MoveFocus(WebViewControlMoveFocusReason reason) => _webViewControl?.MoveFocus(reason);
-
-        /// <inheritdoc />
-        public void Navigate(Uri source) => _webViewControl?.Navigate(source);
-
-        /// <inheritdoc />
-        public void Navigate(string source)
-        {
-            Verify.IsFalse(IsDisposed);
-            Verify.IsNotNull(_webViewControl);
-            _webViewControl?.Navigate(source);
-        }
-
-        /// <inheritdoc />
-        public void NavigateToLocal(string relativePath) => _webViewControl?.NavigateToLocal(relativePath);
-
-        /// <inheritdoc />
-        public void NavigateToString(string text) => _webViewControl?.NavigateToString(text);
 
         /// <summary>
         /// Releases the unmanaged resources used by the <see cref="T:System.Windows.Forms.Control" /> and its child controls and optionally releases the managed resources.

@@ -66,14 +66,16 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 					{
 						var finalSamples = new List<Sample>();
 
-						foreach (var sample in category.Samples)
-						{
-							if (sample.IsSupported)
-							{
-								finalSamples.Add(sample);
-								await sample.PreparePropertyDescriptorAsync();
-							}
-						}
+                    foreach (var sample in category.Samples)
+                    {
+                        sample.CategoryName = category.Name;
+
+                        if (sample.IsSupported)
+                        {
+                            finalSamples.Add(sample);
+                            await sample.PreparePropertyDescriptorAsync();
+                        }
+                    }
 
 						if (finalSamples.Count > 0)
 						{

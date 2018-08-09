@@ -10,17 +10,13 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp.Helpers;
-using Microsoft.Toolkit.Uwp.SampleApp.Common;
 using Microsoft.Toolkit.Uwp.UI.Animations;
 using Newtonsoft.Json;
 using Windows.ApplicationModel;
-using Windows.Foundation.Metadata;
-using Windows.System.Profile;
 using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Hosting;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
@@ -107,16 +103,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
         {
             base.OnNavigatedTo(e);
 
-			Console.WriteLine("-> About: OnNavigatedTo");
-
-            Shell.Current.ShowOnlyHeader("About");
-
-#if NETFX_CORE // UNO TODO
-            var packageVersion = Package.Current.Id.Version;
-            Version.Text = $"Version {packageVersion.Major}.{packageVersion.Minor}.{packageVersion.Build}";
-#else
-			Version.Text = $"Version not implemented";
-#endif
+            Shell.Current.SetTitles("About");
 
             _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
 
@@ -249,19 +236,19 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
         {
             if (LandingPageLinks == null)
             {
-				var manifestName = typeof(Samples).GetTypeInfo().Assembly
-					.GetManifestResourceNames()
-					.FirstOrDefault(n => n.EndsWith("landingPageLinks.json", StringComparison.OrdinalIgnoreCase));
+                using (var jsonStream = await StreamHelper.GetPackagedFileStreamAsync("landingPageLinks.json"))
+                {
+                    var jsonString = await jsonStream.ReadTextAsync();
+                    var links = JsonConvert.DeserializeObject<LandingPageLinks>(jsonString);
+                    var packageVersion = Package.Current.Id.Version;
 
-				if (manifestName == null)
-				{
-					throw new InvalidOperationException($"Failed to find resource");
-				}
+                    var resource = links.Resources.FirstOrDefault(item => item.ID == "app");
+                    if (resource != null)
+                    {
+                        resource.Links[0].Title = $"Version {packageVersion.Major}.{packageVersion.Minor}.{packageVersion.Build}";
+                    }
 
-				using (var jsonStream = typeof(Samples).GetTypeInfo().Assembly.GetManifestResourceStream(manifestName))
-				{
-					var jsonString = await jsonStream.ReadTextAsync();
-                    LandingPageLinks = JsonConvert.DeserializeObject<LandingPageLinks>(jsonString);
+                    LandingPageLinks = links;
                 }
 
                 var samples = new List<Sample>();
@@ -276,37 +263,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
                 }
 
                 NewSamples = samples;
-            }
-
-            foreach (var section in LandingPageLinks.Resources.Reverse())
-            {
-                var stackPanel = new StackPanel()
-                {
-                    MinWidth = 267,
-                    Margin = new Thickness(0, 0, 0, 48)
-                };
-
-                stackPanel.Children.Add(
-                    new TextBlock()
-                    {
-                        FontSize = 20,
-                        FontFamily = new Windows.UI.Xaml.Media.FontFamily("Segoe UI"),
-                        Text = section.Title
-                    });
-
-                stackPanel.Children.Add(
-                    new ItemsControl()
-                    {
-                        Margin = new Thickness(0, 16, 0, 0),
-                        ItemsSource = section.Links,
-#if HAS_UNO
-						ItemTemplate = StaticResources.LinkTemplate
-#else
-						ItemTemplate = Resources["LinkTemplate"] as DataTemplate
-#endif
-					});
-
-                ResourcesSection.Items.Insert(0, stackPanel);
             }
         }
 
@@ -326,29 +282,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var background = new Image()
-            {
-                Source = new BitmapImage(new Uri("ms-appx:///Assets/Photos/HERO.jpg")),
-                Stretch = Windows.UI.Xaml.Media.Stretch.UniformToFill
-            };
-
-            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Controls.ParallaxView"))
-            {
-                var parallaxView = new ParallaxView()
-                {
-                    Source = Scroller,
-                    VerticalShift = 50,
-#if NETFX_CORE
-					Child = background
-#endif
-                };
-
-                BackgroundBorder.Child = parallaxView;
-            }
-            else
-            {
-                BackgroundBorder.Child = background;
-            }
+            Shell.Current.AttachScroll(Scroller);
         }
     }
 }

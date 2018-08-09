@@ -16,9 +16,9 @@ using Windows.UI.Xaml.Hosting;
 namespace Microsoft.Toolkit.Uwp.UI.Controls
 {
     /// <summary>
-    /// The virtual Drawing surface renderer used to render the ink and text.
+    /// The virtual Drawing surface renderer used to render the ink and text. This control is used as part of the <see cref="InfiniteCanvas"/>
     /// </summary>
-    internal partial class InfiniteCanvasVirtualDrawingSurface : Panel
+    public partial class InfiniteCanvasVirtualDrawingSurface : Panel
     {
         private Compositor _compositor;
         private CanvasDevice _win2DDevice;
@@ -27,6 +27,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         private CompositionVirtualDrawingSurface _drawingSurface;
         private CompositionSurfaceBrush _surfaceBrush;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InfiniteCanvasVirtualDrawingSurface"/> class.
+        /// </summary>
         public InfiniteCanvasVirtualDrawingSurface()
         {
             InitializeComposition();
@@ -38,7 +41,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             _myDrawingVisual.Size = new Vector2((float)ActualWidth, (float)ActualHeight);
         }
 
-        public void InitializeComposition()
+        internal void InitializeComposition()
         {
             _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
             _win2DDevice = CanvasDevice.GetSharedDevice();
@@ -47,7 +50,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             ElementCompositionPreview.SetElementChildVisual(this, _myDrawingVisual);
         }
 
-        public void ConfigureSpriteVisual(double width, double height)
+        internal void ConfigureSpriteVisual(double width, double height)
         {
             var size = new SizeInt32
             {

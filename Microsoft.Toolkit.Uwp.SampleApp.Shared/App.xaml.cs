@@ -6,6 +6,7 @@ using System;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Microsoft.Toolkit.Uwp.SampleApp.Common;
 using Microsoft.Toolkit.Uwp.SampleApp.SamplePages;
+using Microsoft.Toolkit.Uwp.SampleApp.Styles;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.System.Profile;
@@ -115,6 +116,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 		private async System.Threading.Tasks.Task RunAppInitialization(string launchParameters)
         {
 #if NETFX_CORE // UNO TODO
+            ThemeInjector.InjectThemeResources(Application.Current.Resources);
+
             // Go fullscreen on Xbox
             if (AnalyticsInfo.VersionInfo.GetDeviceFormFactor() == DeviceFormFactor.Xbox)
             {
@@ -128,8 +131,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             }
 #endif
 
-            // Check if the Cache is Latest, wipe if not.
-            Sample.EnsureCacheLatest();
+			// Check if the Cache is Latest, wipe if not.
+			Sample.EnsureCacheLatest();
 
 			// UNO TODO
 			Frame rootFrame = Windows.UI.Xaml.Window.Current.Content as Frame;

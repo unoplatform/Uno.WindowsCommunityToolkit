@@ -9,7 +9,6 @@
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.Services</PackageId>
 	</PropertyGroup>
 	<ItemGroup>
-
     <PackageReference Include="winsdkfb" Version="0.12.20161020.4" />
 
     <!-- This is here to prevent a conflict in certain circumstances -->

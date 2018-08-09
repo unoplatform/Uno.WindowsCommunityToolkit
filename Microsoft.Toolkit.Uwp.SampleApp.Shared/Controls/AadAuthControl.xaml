@@ -12,8 +12,8 @@
     <win:Grid MaxWidth="800"
           Background="{StaticResource Brush-Grey-05}">
         <Grid Margin="24"
-              Background="{StaticResource Brush-Grey-04}"
-              BorderBrush="#FFCCCCCC"
+              Background="{ThemeResource Brush-Grey-04}"
+              BorderBrush="#33CCCCCC"
               BorderThickness="1"
               CornerRadius="4">
             <Grid.RowDefinitions>
@@ -28,7 +28,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Grid Background="#FFCCCCCC">
+                <Grid Background="#33CCCCCC">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition />
@@ -37,7 +37,7 @@
                                        Margin="12,6"
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
-                                       Foreground="{StaticResource Brush-Grey-01}"
+                                       Foreground="{ThemeResource Brush-Grey-01}"
                                        Text="Azure Active Directory v2.0 Configuration"/>
                 </Grid>
 
@@ -57,7 +57,6 @@
                                              Content="Show me how to get this ID"
                                              NavigateUri="https://docs.microsoft.com/windows/uwpcommunitytoolkit/services/MicrosoftGraph/"/>
                     <graph:AadLogin View="EmailOnly"
-                                    SignInFailed="AadLogin_SignInFailed"
                                     AllowSignInAsDifferentUser="False"
                                     IsEnabled="{Binding ElementName=aadAuthControl, Path=IsEnableSignInButton, Mode=OneWay}" 
                                     Visibility="{Binding ElementName=aadAuthControl, Path=IsShowSignInButton, Mode=OneTime}"/>

@@ -15,7 +15,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MasterDetailsViewPage : Page, IXamlRenderListener
+    public sealed partial class MasterDetailsViewPage : Page, IXamlRenderListener, ISampleNavigation
     {
 		// UNO TODO
 		private double _previousWidth = Windows.UI.Xaml.Window.Current.Bounds.Width;
@@ -55,15 +55,16 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
             };
 
             InitializeComponent();
+            Load();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        public void NavigatingAway()
         {
 			// UNO TODO
 			Windows.UI.Xaml.Window.Current.SizeChanged += Current_SizeChanged;
         }
 
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        private void Load()
         {
 			// UNO TODO
 			Windows.UI.Xaml.Window.Current.SizeChanged -= Current_SizeChanged;
@@ -79,7 +80,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
                 var t = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Low, async () =>
                 {
                     await Task.Delay(500);
-                    await Shell.Current.RefreshXamlRenderAsync();
+                    await SampleController.Current.RefreshXamlRenderAsync();
                 });
             }
             else
