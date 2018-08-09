@@ -1,39 +1,58 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
-  <PropertyGroup>
-    <TargetFramework>uap10.0</TargetFramework>
-    <Title>Windows Community Toolkit Controls DataGrid</Title>
-    <Description>This library provides a XAML DataGrid control. It is part of the Windows Community Toolkit.</Description>
-    <PackageTags>UWP Toolkit Windows Controls XAML DataGrid</PackageTags>
-    <RootNamespace>Microsoft.Toolkit.Uwp.UI.Controls</RootNamespace>
-    <UseUwpMetaPackage>true</UseUwpMetaPackage>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid80;netstandard2.0</TargetFrameworks>
+		<Title>Windows Community Toolkit Controls DataGrid</Title>
+		<Description>This library provides a XAML DataGrid control. It is part of the Windows Community Toolkit.</Description>
+		<PackageTags>UWP Toolkit Windows Controls XAML DataGrid</PackageTags>
+		<RootNamespace>Microsoft.Toolkit.Uwp.UI.Controls.DG</RootNamespace>
+		<UseUwpMetaPackage>true</UseUwpMetaPackage>
 
-  <ItemGroup>
-    <None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
-    <None Include="$(OutDir)\Design\$(MSBuildProjectName).Design.dll" Pack="true" PackagePath="lib\$(TargetFramework)\Design" />
-  </ItemGroup>
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid</PackageId>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+		<None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
+		<None Include="$(OutDir)\Design\$(MSBuildProjectName).Design.dll" Pack="true" PackagePath="lib\$(TargetFramework)\Design" Visible="False" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
+	</PropertyGroup>
+	
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
+		<Reference Include="System.ComponentModel.DataAnnotations" />
+	</ItemGroup>
 
-  <!-- https://weblogs.asp.net/rweigelt/disable-warnings-in-generated-c-files-of-uwp-app -->
-  <Target Name="PragmaWarningDisablePrefixer" AfterTargets="MarkupCompilePass2">
-    <ItemGroup>
-      <GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
-    </ItemGroup>
-    <Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
-    <Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
-  </Target>
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
+		<PackageReference Include="Uno.UI" Version="1.31.0-dev.191" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<!-- https://weblogs.asp.net/rweigelt/disable-warnings-in-generated-c-files-of-uwp-app -->
+	<Target Name="PragmaWarningDisablePrefixer" AfterTargets="MarkupCompilePass2">
+		<ItemGroup>
+			<GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
+		</ItemGroup>
+		<Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
+		<Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
+	</Target>
 </Project>

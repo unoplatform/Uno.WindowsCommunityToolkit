@@ -80,7 +80,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
         /// <param name="value">Value to add</param>
         public void AddValues(int startIndex, int count, T value)
         {
-            Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
+            System.Diagnostics.Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
 
             AddValuesPrivate(startIndex, count, value, null);
         }
@@ -251,7 +251,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
         /// <returns>Number of indexes contained in the table between lowerBound and upperBound (inclusive)</returns>
         public int GetIndexCount(int lowerBound, int upperBound, T value)
         {
-            Debug.Assert(upperBound >= lowerBound, "Expected upperBound greater or equal to lowerBound.");
+            System.Diagnostics.Debug.Assert(upperBound >= lowerBound, "Expected upperBound greater or equal to lowerBound.");
 
             if (_list.Count == 0)
             {
@@ -358,7 +358,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
         /// <returns>an enumerator that enumerates the indexes present in the table</returns>
         public IEnumerable<int> GetIndexes()
         {
-            Debug.Assert(_list != null, "Expected non-null _list.");
+            System.Diagnostics.Debug.Assert(_list != null, "Expected non-null _list.");
 
             foreach (Range<T> range in _list)
             {
@@ -376,7 +376,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
         /// <returns>all the indexes on or after a starting index</returns>
         public IEnumerable<int> GetIndexes(int startIndex)
         {
-            Debug.Assert(_list != null, "Expected non-null _list.");
+            System.Diagnostics.Debug.Assert(_list != null, "Expected non-null _list.");
 
             int rangeIndex = FindRangeIndex(startIndex);
             if (rangeIndex == -1)
@@ -405,7 +405,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
         /// <returns>the index of the Nth element in the table</returns>
         public int GetNthIndex(int n)
         {
-            Debug.Assert(n >= 0 && n < this.IndexCount, "Expected n between 0 and IndexCount-1, inclusive.");
+            System.Diagnostics.Debug.Assert(n >= 0 && n < this.IndexCount, "Expected n between 0 and IndexCount-1, inclusive.");
 
             int cumulatedEntries = 0;
             foreach (Range<T> range in _list)
@@ -504,7 +504,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
         /// <param name="count">total number of indexes to insert</param>
         public void InsertIndexes(int startIndex, int count)
         {
-            Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
+            System.Diagnostics.Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
 
             InsertIndexesPrivate(startIndex, count, this.FindRangeIndex(startIndex));
         }
@@ -517,7 +517,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
         /// <param name="value">Value to insert</param>
         public void InsertIndexesAndValues(int startIndex, int count, T value)
         {
-            Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
+            System.Diagnostics.Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
 
             int lowerRangeIndex = this.FindRangeIndex(startIndex);
             InsertIndexesPrivate(startIndex, count, lowerRangeIndex);
@@ -636,7 +636,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
         /// <param name="count">total number of values to remove</param>
         public void RemoveValues(int startIndex, int count)
         {
-            Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
+            System.Diagnostics.Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
 
             int lowerRangeIndex = this.FindRangeIndex(startIndex);
             if (lowerRangeIndex < 0)
@@ -687,7 +687,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
         // Begin Private Methods
         private void AddValuesPrivate(int startIndex, int count, T value, int? startRangeIndex)
         {
-            Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
+            System.Diagnostics.Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
 
             int endIndex = startIndex + count - 1;
             Range<T> newRange = new Range<T>(startIndex, endIndex, value);
@@ -831,7 +831,7 @@ namespace Microsoft.Toolkit.Uwp.Utilities
 
         private void InsertIndexesPrivate(int startIndex, int count, int lowerRangeIndex)
         {
-            Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
+            System.Diagnostics.Debug.Assert(count > 0, "Expected a strictly positive count parameter.");
 
             // Same as AddRange after we fix the indicies affected by the insertion
             int startRangeIndex = (lowerRangeIndex >= 0) ? lowerRangeIndex : 0;

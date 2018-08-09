@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Visibility="{x:Bind Path=IsEnabled, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
-    <win:Grid MaxWidth="800"
+    <Grid MaxWidth="800"
           Background="{StaticResource Brush-Grey-05}">
         <Grid Margin="24"
               Background="{ThemeResource Brush-Grey-04}"
@@ -63,5 +63,5 @@
                 </StackPanel>
             </Grid>
         </Grid>
-    </win:Grid>
+    </Grid>
 </UserControl>

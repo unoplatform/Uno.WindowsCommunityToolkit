@@ -10,9 +10,6 @@ using Microsoft.Toolkit.Uwp.Helpers;
 using Microsoft.Toolkit.Uwp.SampleApp.Pages;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using Microsoft.Toolkit.Uwp.UI.Extensions;
-using Monaco;
-using Monaco.Editor;
-using Monaco.Helpers;
 using Windows.System;
 using Windows.System.Profile;
 using Windows.System.Threading;
@@ -22,6 +19,13 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Windows.Foundation.Metadata;
+
+#if !HAS_UNO
+using Monaco;
+using Monaco.Editor;
+using Monaco.Helpers;
+#endif
 
 namespace Microsoft.Toolkit.Uwp.SampleApp
 {
@@ -45,7 +49,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 _parallaxView = new ParallaxView()
                 {
                     VerticalShift = 50,
-                    Child = background
+                    Child = new Border { Child = background }
                 };
 
                 BackgroundBorder.Child = _parallaxView;

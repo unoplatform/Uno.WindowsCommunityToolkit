@@ -7,7 +7,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
 {
-    internal class PlannerTaskItemSelector : DataTemplateSelector
+    public class PlannerTaskItemSelector : DataTemplateSelector
     {
         public DataTemplate NormalTemplate { get; set; }
 

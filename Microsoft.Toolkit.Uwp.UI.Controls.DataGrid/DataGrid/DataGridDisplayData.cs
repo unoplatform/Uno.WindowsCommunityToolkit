@@ -80,7 +80,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.DataGridInternals
 
         internal void AddRecylableRow(DataGridRow row)
         {
-            Debug.Assert(!_recyclableRows.Contains(row), "Expected row parameter to be non-recyclable.");
+            System.Diagnostics.Debug.Assert(!_recyclableRows.Contains(row), "Expected row parameter to be non-recyclable.");
 
             row.DetachFromDataGrid(true);
             _recyclableRows.Push(row);
@@ -88,7 +88,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.DataGridInternals
 
         internal void AddRecylableRowGroupHeader(DataGridRowGroupHeader groupHeader)
         {
-            Debug.Assert(!_recyclableGroupHeaders.Contains(groupHeader), "Expected groupHeader parameter to be non-recyclable.");
+            System.Diagnostics.Debug.Assert(!_recyclableGroupHeaders.Contains(groupHeader), "Expected groupHeader parameter to be non-recyclable.");
 
             groupHeader.PropertyName = null;
             groupHeader.PropertyValue = null;
@@ -173,7 +173,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.DataGridInternals
             }
             else if ((_owner.GetPreviousVisibleSlot(slot) <= this.LastScrollingSlot) || (this.LastScrollingSlot == -1))
             {
-                Debug.Assert(element != null, "Expected non-null element.");
+                System.Diagnostics.Debug.Assert(element != null, "Expected non-null element.");
 
                 // The row was inserted in our viewport, add it as a scrolling row
                 LoadScrollingSlot(slot, element, true /*updateSlotInformation*/);
@@ -192,9 +192,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.DataGridInternals
             while (_recyclableRows.Count > 0)
             {
                 DataGridRow row = _recyclableRows.Pop();
-                Debug.Assert(row != null, "Expected non-null row.");
+                System.Diagnostics.Debug.Assert(row != null, "Expected non-null row.");
                 row.Visibility = Visibility.Collapsed;
-                Debug.Assert(!_fullyRecycledRows.Contains(row), "Expected row not in _fullyRecycledRows.");
+                System.Diagnostics.Debug.Assert(!_fullyRecycledRows.Contains(row), "Expected row not in _fullyRecycledRows.");
                 _fullyRecycledRows.Push(row);
             }
 
@@ -202,17 +202,17 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.DataGridInternals
             while (_recyclableGroupHeaders.Count > 0)
             {
                 DataGridRowGroupHeader groupHeader = _recyclableGroupHeaders.Pop();
-                Debug.Assert(groupHeader != null, "Expected non-null groupHeader.");
+                System.Diagnostics.Debug.Assert(groupHeader != null, "Expected non-null groupHeader.");
                 groupHeader.Visibility = Visibility.Collapsed;
-                Debug.Assert(!_fullyRecycledGroupHeaders.Contains(groupHeader), "Expected groupHeader not in _fullyRecycledGroupHeaders.");
+                System.Diagnostics.Debug.Assert(!_fullyRecycledGroupHeaders.Contains(groupHeader), "Expected groupHeader not in _fullyRecycledGroupHeaders.");
                 _fullyRecycledGroupHeaders.Push(groupHeader);
             }
         }
 
         internal UIElement GetDisplayedElement(int slot)
         {
-            Debug.Assert(slot >= this.FirstScrollingSlot, "Expected slot greater than or equal to FirstScrollingSlot.");
-            Debug.Assert(slot <= this.LastScrollingSlot, "Expected slot less than or equal to LastScrollingSlot.");
+            System.Diagnostics.Debug.Assert(slot >= this.FirstScrollingSlot, "Expected slot greater than or equal to FirstScrollingSlot.");
+            System.Diagnostics.Debug.Assert(slot <= this.LastScrollingSlot, "Expected slot less than or equal to LastScrollingSlot.");
 
             return _scrollingElements[GetCircularListIndex(slot, true /*wrap*/)];
         }
@@ -282,8 +282,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.DataGridInternals
             else
             {
                 // The slot should be adjacent to the other slots being displayed
-                Debug.Assert(slot >= _owner.GetPreviousVisibleSlot(this.FirstScrollingSlot), "Expected slot greater than or equal to _owner.GetPreviousVisibleSlot(this.FirstScrollingSlot).");
-                Debug.Assert(slot <= _owner.GetNextVisibleSlot(this.LastScrollingSlot), "Expected slot smaller than or equal to _owner.GetNextVisibleSlot(this.LastScrollingSlot).");
+                System.Diagnostics.Debug.Assert(slot >= _owner.GetPreviousVisibleSlot(this.FirstScrollingSlot), "Expected slot greater than or equal to _owner.GetPreviousVisibleSlot(this.FirstScrollingSlot).");
+                System.Diagnostics.Debug.Assert(slot <= _owner.GetNextVisibleSlot(this.LastScrollingSlot), "Expected slot smaller than or equal to _owner.GetNextVisibleSlot(this.LastScrollingSlot).");
                 if (updateSlotInformation)
                 {
                     if (slot < this.FirstScrollingSlot)
@@ -324,7 +324,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.DataGridInternals
         // Stops tracking the element at the given slot as a scrolling element
         internal void UnloadScrollingElement(int slot, bool updateSlotInformation, bool wasDeleted)
         {
-            Debug.Assert(_owner.IsSlotVisible(slot), "Expected slot is visible.");
+            System.Diagnostics.Debug.Assert(_owner.IsSlotVisible(slot), "Expected slot is visible.");
 
             int elementIndex = GetCircularListIndex(slot, false /*wrap*/);
             if (elementIndex > _scrollingElements.Count)

@@ -74,7 +74,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Styles
             {
                 if (light != null)
                 {
-                    if (light.FallbackColor == null && lightTheme[res] is SolidColorBrush brush)
+                    if (
+#if !HAS_UNO
+						light.FallbackColor == null &&
+#endif
+						lightTheme[res] is SolidColorBrush brush)
                     {
                         light.FallbackColor = brush.Color;
                     }
@@ -84,7 +88,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Styles
 
                 if (dark != null)
                 {
-                    if (dark.FallbackColor == null && darkTheme[res] is SolidColorBrush brush)
+                    if (
+#if !HAS_UNO
+						dark.FallbackColor == null && 
+#endif
+						darkTheme[res] is SolidColorBrush brush)
                     {
                         dark.FallbackColor = brush.Color;
                     }

@@ -58,13 +58,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                             _binding.Converter = new DataGridValueConverter();
                         }
 
-#if !WINDOWS_UWP
+#if !WINDOWS_UWP && !HAS_UNO
                         // Setup the binding for validation
                         _binding.ValidatesOnDataErrors = true;
                         _binding.ValidatesOnExceptions = true;
                         _binding.NotifyOnValidationError = true;
 #endif
-                        _binding.UpdateSourceTrigger = UpdateSourceTrigger.Explicit;
+						_binding.UpdateSourceTrigger = UpdateSourceTrigger.Explicit;
 
                         // Apply the new Binding to existing rows in the DataGrid
                         if (this.OwningGrid != null)

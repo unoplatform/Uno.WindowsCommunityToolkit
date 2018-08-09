@@ -44,7 +44,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             };
 
             // Prevent Pop in on wider screens.
-            if (((FrameworkElement)Window.Current.Content).ActualWidth > 700)
+            if (((FrameworkElement)Windows.UI.Xaml.Window.Current.Content).ActualWidth > 700)
             {
                 SidePaneState = PaneState.Normal;
             }

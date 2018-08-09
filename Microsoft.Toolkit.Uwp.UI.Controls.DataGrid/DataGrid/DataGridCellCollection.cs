@@ -40,8 +40,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         public void Insert(int cellIndex, DataGridCell cell)
         {
-            Debug.Assert(cellIndex >= 0 && cellIndex <= _cells.Count, "Expected cellIndex between 0 and _cells.Count inclusive.");
-            Debug.Assert(cell != null, "Expected non-null cell.");
+            System.Diagnostics.Debug.Assert(cellIndex >= 0 && cellIndex <= _cells.Count, "Expected cellIndex between 0 and _cells.Count inclusive.");
+            System.Diagnostics.Debug.Assert(cell != null, "Expected non-null cell.");
 
             cell.OwningRow = _owningRow;
             _cells.Insert(cellIndex, cell);

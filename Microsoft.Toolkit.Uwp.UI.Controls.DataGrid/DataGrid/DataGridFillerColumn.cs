@@ -66,7 +66,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         protected override object PrepareCellForEdit(FrameworkElement editingElement, RoutedEventArgs editingEventArgs)
         {
-            Debug.Assert(false, "Unexpected call to DataGridFillerColumn.PrepareCellForEdit.");
+            System.Diagnostics.Debug.Assert(false, "Unexpected call to DataGridFillerColumn.PrepareCellForEdit.");
 
             return null;
         }

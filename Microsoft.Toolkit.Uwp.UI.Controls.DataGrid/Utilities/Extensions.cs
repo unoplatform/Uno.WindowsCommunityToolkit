@@ -82,7 +82,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Utilities
         /// <returns>true if MemberInfo is read-only, false otherwise</returns>
         internal static bool GetIsReadOnly(this MemberInfo memberInfo)
         {
-#if !WINDOWS_UWP
+#if !WINDOWS_UWP && !HAS_UNO
             if (memberInfo != null)
             {
                 // Check if ReadOnlyAttribute is defined on the member
@@ -90,7 +90,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Utilities
                 if (attributes != null && attributes.Length > 0)
                 {
                     ReadOnlyAttribute readOnlyAttribute = attributes[0] as ReadOnlyAttribute;
-                    Debug.Assert(readOnlyAttribute != null, "Expected non-null readOnlyAttribute.");
+                    System.Diagnostics.Debug.Assert(readOnlyAttribute != null, "Expected non-null readOnlyAttribute.");
                     return readOnlyAttribute.IsReadOnly;
                 }
             }
@@ -111,17 +111,17 @@ namespace Microsoft.Toolkit.Uwp.UI.Utilities
             if (listType.IsEnumerableType())
             {
                 itemType = listType.GetEnumerableItemType();
-#if !WINDOWS_UWP
+#if !WINDOWS_UWP && !HAS_UNO
                 if (itemType != null)
                 {
                     isICustomTypeProvider = typeof(ICustomTypeProvider).IsAssignableFrom(itemType);
                 }
 #endif
-            }
+			}
 
-            // Bare IEnumerables mean that result type will be object.  In that case, try to get something more interesting.
-            // Or, if the itemType implements ICustomTypeProvider, try to retrieve the custom type from one of the object instances.
-            if (itemType == null || itemType == typeof(object) || isICustomTypeProvider)
+			// Bare IEnumerables mean that result type will be object.  In that case, try to get something more interesting.
+			// Or, if the itemType implements ICustomTypeProvider, try to retrieve the custom type from one of the object instances.
+			if (itemType == null || itemType == typeof(object) || isICustomTypeProvider)
             {
                 // No type was located yet. Does the list have anything in it?
                 Type firstItemType = null;
@@ -217,7 +217,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Utilities
                 }
                 else
                 {
-                    Debug.Assert(suspensions.ContainsKey(dependencyProperty), "Expected existing key for dependencyProperty.");
+                    System.Diagnostics.Debug.Assert(suspensions.ContainsKey(dependencyProperty), "Expected existing key for dependencyProperty.");
                     if (suspensions[dependencyProperty] == 1)
                     {
                         suspensions.Remove(dependencyProperty);
@@ -235,7 +235,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Utilities
             }
             else
             {
-                Debug.Assert(incrementSuspensionCount, "Expected incrementSuspensionCount==true.");
+                System.Diagnostics.Debug.Assert(incrementSuspensionCount, "Expected incrementSuspensionCount==true.");
                 _suspendedHandlers[obj] = new Dictionary<DependencyProperty, int>();
                 _suspendedHandlers[obj][dependencyProperty] = 1;
             }

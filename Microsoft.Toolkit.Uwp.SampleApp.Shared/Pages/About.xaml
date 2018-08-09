@@ -50,12 +50,11 @@
                              Style="{StaticResource AboutHyperlinkButtonStyle}">
                 <Grid>
                     <TextBlock Text="{x:Bind FullName}"></TextBlock>
-                    <TextBlock HorizontalAlignment="Right"
-                               Opacity="0.5"
+					<TextBlock HorizontalAlignment="Right"
+							   Opacity="0.5"
 							   xamarin:Text="{x:Bind Published, Converter={StaticResource FormatStringConverter}, ConverterParameter='MMM d'}"
 							   win:Text="{x:Bind Published.ToString('MMM d', {x:Null})}" />
-							   ></TextBlock>
-                </Grid>
+				</Grid>
             </HyperlinkButton>
         </DataTemplate>
 
@@ -178,14 +177,13 @@
                                 <TextBlock FontSize="20" FontFamily="Segoe UI" FontWeight="Normal">Recent Activity</TextBlock>
 
                                 <Grid Margin="0,16,0,0">
-                                    <TextBlock Text="None"
-                                           Opacity="0.5"
-                                           FontFamily="Segoe UI"
-                                           FontSize="12"
-											   win:Visibility="{x:Bind local:About.VisibleIfCollectionEmpty(RecentSamples), Mode=OneWay}" 
+									<TextBlock Text="None"
+											   Opacity="0.5"
+											   FontFamily="Segoe UI"
+											   FontSize="12"
+											   win:Visibility="{x:Bind local:About.VisibleIfCollectionEmpty(RecentSamples), Mode=OneWay}"
 											   xamarin:Visibility="{x:Bind RecentSamples, Converter={StaticResource EmptyCollectionToVisibility}}" />
-											   ></TextBlock>
-                                    <ItemsControl x:Name="RecentSamplesItemsControl"
+									<ItemsControl x:Name="RecentSamplesItemsControl"
                                                   ItemsPanel="{StaticResource ItemsWrapGridHorizontalTemplate}"
                                                   ItemsSource="{x:Bind RecentSamples, Mode=OneWay}"
                                                   ItemTemplate="{StaticResource RecentSampleTemplate}"

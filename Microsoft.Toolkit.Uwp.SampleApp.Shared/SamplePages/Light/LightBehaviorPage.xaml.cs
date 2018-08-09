@@ -43,7 +43,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
                 var behaviors = Interaction.GetBehaviors(element);
                 _lightBehavior = behaviors.FirstOrDefault(item => item is Light) as Light;
             }
-#endif
         }
     }
 }

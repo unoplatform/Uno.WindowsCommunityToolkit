@@ -561,7 +561,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Data.Utilities
                 BeginAddNew(newItem, index);
             }
 
-            Debug.Assert(_newItemIndex != -2 && object.Equals(newItem, _newItem), "AddNew did not raise expected events");
+            System.Diagnostics.Debug.Assert(_newItemIndex != -2 && object.Equals(newItem, _newItem), "AddNew did not raise expected events");
 
             MoveCurrentTo(newItem);
 
@@ -586,7 +586,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Data.Utilities
         // related to AddNew.  This method is called from ProcessCollectionChanged.
         private void BeginAddNew(object newItem, int index)
         {
-            Debug.Assert(_newItemIndex == -2 && _newItem == NoNewItem, "unexpected call to BeginAddNew");
+            System.Diagnostics.Debug.Assert(_newItemIndex == -2 && _newItem == NoNewItem, "unexpected call to BeginAddNew");
 
             // remember the new item and its position in the underlying list
             SetNewItem(newItem);
@@ -808,7 +808,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Data.Utilities
         {
             if (!object.Equals(item, _newItem))
             {
-                Debug.Assert(item == NoNewItem || this._newItem == NoNewItem, "Old and new _newItem values are unexpectedly different from NoNewItem");
+                System.Diagnostics.Debug.Assert(item == NoNewItem || this._newItem == NoNewItem, "Old and new _newItem values are unexpectedly different from NoNewItem");
                 _newItem = item;
 
                 OnPropertyChanged(CurrentAddItemPropertyName);
@@ -1191,7 +1191,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Data.Utilities
         {
             if (!object.Equals(item, _editItem))
             {
-                Debug.Assert(item == null || _editItem == null, "Old and new _editItem values are unexpectedly non null");
+                System.Diagnostics.Debug.Assert(item == null || _editItem == null, "Old and new _editItem values are unexpectedly non null");
                 _editItem = item;
 
                 OnPropertyChanged(CurrentEditItemPropertyName);
@@ -1541,7 +1541,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Data.Utilities
                     break;
 
                 default:
-                    Debug.Assert(false, "Unexpected Effective Collection Change Action");
+                    System.Diagnostics.Debug.Assert(false, "Unexpected Effective Collection Change Action");
                     break;
             }
 
@@ -1569,7 +1569,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Data.Utilities
                 // so any changes to the current item will only be raised once, and from this method
                 // _currentChangedMonitor is used to guard whether the CurrentChanged and CurrentChanging event can be fired
                 // so by entering it we're preventing the base calls from firing those events.
-                Debug.Assert(!CurrentChangedMonitor.Busy, "Expected _currentChangedMonitor.Busy is false.");
+                System.Diagnostics.Debug.Assert(!CurrentChangedMonitor.Busy, "Expected _currentChangedMonitor.Busy is false.");
 
                 CurrentChangedMonitor.Enter();
                 using (CurrentChangedMonitor)
@@ -1908,23 +1908,23 @@ namespace Microsoft.Toolkit.Uwp.UI.Data.Utilities
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
-                    Debug.Assert(e.NewItems.Count == 1, "Unexpected NotifyCollectionChangedEventArgs.NewItems.Count for Add action");
+                    System.Diagnostics.Debug.Assert(e.NewItems.Count == 1, "Unexpected NotifyCollectionChangedEventArgs.NewItems.Count for Add action");
                     break;
 
                 case NotifyCollectionChangedAction.Remove:
-                    Debug.Assert(e.OldItems.Count == 1, "Unexpected NotifyCollectionChangedEventArgs.OldItems.Count for Remove action");
+                    System.Diagnostics.Debug.Assert(e.OldItems.Count == 1, "Unexpected NotifyCollectionChangedEventArgs.OldItems.Count for Remove action");
                     break;
 
                 case NotifyCollectionChangedAction.Replace:
-                    Debug.Assert(e.OldItems.Count == 1, "Unexpected NotifyCollectionChangedEventArgs.OldItems.Count for Replace action");
-                    Debug.Assert(e.NewItems.Count == 1, "Unexpected NotifyCollectionChangedEventArgs.NewItems.Count for Replace action");
+                    System.Diagnostics.Debug.Assert(e.OldItems.Count == 1, "Unexpected NotifyCollectionChangedEventArgs.OldItems.Count for Replace action");
+                    System.Diagnostics.Debug.Assert(e.NewItems.Count == 1, "Unexpected NotifyCollectionChangedEventArgs.NewItems.Count for Replace action");
                     break;
 
                 case NotifyCollectionChangedAction.Reset:
                     break;
 
                 default:
-                    Debug.Assert(false, "Unexpected NotifyCollectionChangedEventArgs action");
+                    System.Diagnostics.Debug.Assert(false, "Unexpected NotifyCollectionChangedEventArgs action");
                     break;
             }
         }
@@ -2305,7 +2305,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Data.Utilities
 
             if (_sort != null)
             {
-                Debug.Assert(_sort.Count == 0, "must be empty SortDescription collection");
+                System.Diagnostics.Debug.Assert(_sort.Count == 0, "must be empty SortDescription collection");
                 ((INotifyCollectionChanged)_sort).CollectionChanged += new NotifyCollectionChangedEventHandler(SortDescriptionsChanged);
             }
         }

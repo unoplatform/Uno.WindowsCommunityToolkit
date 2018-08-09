@@ -1289,7 +1289,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             DataGrid dataGrid = d as DataGrid;
             if (!dataGrid.IsHandlerSuspended(e.Property))
             {
-                Debug.Assert(dataGrid.DataConnection != null, "Expected non-null DataConnection.");
+                System.Diagnostics.Debug.Assert(dataGrid.DataConnection != null, "Expected non-null DataConnection.");
 
                 if (dataGrid.LoadingOrUnloadingRow)
                 {
@@ -2088,7 +2088,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     return null;
                 }
 
-                Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
+                System.Diagnostics.Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
                 return this.ColumnsItemsInternal[this.CurrentColumnIndex];
             }
 
@@ -2133,7 +2133,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     }
 
                     this.UpdateSelectionAndCurrency(dataGridColumn.Index, this.CurrentSlot, DataGridSelectionAction.None, false /*scrollIntoView*/);
-                    Debug.Assert(_successfullyUpdatedSelection, "Expected _successfullyUpdatedSelection is true.");
+                    System.Diagnostics.Debug.Assert(_successfullyUpdatedSelection, "Expected _successfullyUpdatedSelection is true.");
                     if (beginEdit &&
                         _editingColumnIndex == -1 &&
                         this.CurrentSlot != -1 &&
@@ -2361,7 +2361,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             set
             {
-                Debug.Assert(!value || (this.ColumnHeaders != null && this.AreColumnHeadersVisible), "Expected value==False || (non-null ColumnHeaders and AreColumnHeadersVisible==True)");
+                System.Diagnostics.Debug.Assert(!value || (this.ColumnHeaders != null && this.AreColumnHeadersVisible), "Expected value==False || (non-null ColumnHeaders and AreColumnHeadersVisible==True)");
 
                 if (_columnHeaderHasFocus != value)
                 {
@@ -2584,7 +2584,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             set
             {
-                Debug.Assert(value >= 0, "Expected positive NoCurrentCellChangeCount.");
+                System.Diagnostics.Debug.Assert(value >= 0, "Expected positive NoCurrentCellChangeCount.");
                 _noCurrentCellChangeCount = value;
                 if (value == 0)
                 {
@@ -2904,7 +2904,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             set
             {
-                Debug.Assert(value >= 0, "Expected positive NoSelectionChangeCount.");
+                System.Diagnostics.Debug.Assert(value >= 0, "Expected positive NoSelectionChangeCount.");
                 _noSelectionChangeCount = value;
                 if (value == 0)
                 {
@@ -2934,11 +2934,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return false;
             }
 
-            Debug.Assert(this.CurrentColumnIndex >= 0, "Expected positive CurrentColumnIndex.");
-            Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
-            Debug.Assert(this.CurrentSlot >= -1, "Expected CurrentSlot greater than or equal to -1.");
-            Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
-            Debug.Assert(this.EditingRow == null || this.EditingRow.Slot == this.CurrentSlot, "Expected null EditingRow or EditingRow.Slot equal to CurrentSlot.");
+            System.Diagnostics.Debug.Assert(this.CurrentColumnIndex >= 0, "Expected positive CurrentColumnIndex.");
+            System.Diagnostics.Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
+            System.Diagnostics.Debug.Assert(this.CurrentSlot >= -1, "Expected CurrentSlot greater than or equal to -1.");
+            System.Diagnostics.Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
+            System.Diagnostics.Debug.Assert(this.EditingRow == null || this.EditingRow.Slot == this.CurrentSlot, "Expected null EditingRow or EditingRow.Slot equal to CurrentSlot.");
 
             if (GetColumnEffectiveReadOnlyState(this.CurrentColumn))
             {
@@ -3055,7 +3055,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     rowGroupInfo = RowGroupInfoFromCollectionViewGroup(collectionViewGroup);
                     if (rowGroupInfo == null)
                     {
-                        Debug.Assert(false, "Expected non-null rowGroupInfo.");
+                        System.Diagnostics.Debug.Assert(false, "Expected non-null rowGroupInfo.");
                         return;
                     }
 
@@ -3085,7 +3085,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     else
                     {
                         rowGroupInfo = this.RowGroupHeadersTable.GetValueAt(this.RowGroupHeadersTable.GetPreviousIndex(slot));
-                        Debug.Assert(rowGroupInfo != null, "Expected non-null rowGroupInfo.");
+                        System.Diagnostics.Debug.Assert(rowGroupInfo != null, "Expected non-null rowGroupInfo.");
                         if (rowGroupInfo != null)
                         {
                             ExpandRowGroupParentChain(rowGroupInfo.Level, rowGroupInfo.Slot);
@@ -3322,7 +3322,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 _validationSummary.SelectionChanged += new EventHandler<SelectionChangedEventArgs>(ValidationSummary_SelectionChanged);
                 if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
                 {
-                    Debug.Assert(_validationSummary.Errors != null);
+                    System.Diagnostics.Debug.Assert(_validationSummary.Errors != null);
 
                     // Do not add the default design time errors when in design mode.
                     _validationSummary.Errors.Clear();
@@ -3493,7 +3493,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             EventHandler<DataGridRowEventArgs> handler = this.LoadingRow;
             if (handler != null)
             {
-                Debug.Assert(!_loadedRows.Contains(e.Row), "Expected e.Rows not contained in _loadedRows.");
+                System.Diagnostics.Debug.Assert(!_loadedRows.Contains(e.Row), "Expected e.Rows not contained in _loadedRows.");
                 _loadedRows.Add(e.Row);
                 this.LoadingOrUnloadingRow = true;
                 try
@@ -3503,7 +3503,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 finally
                 {
                     this.LoadingOrUnloadingRow = false;
-                    Debug.Assert(_loadedRows.Contains(e.Row), "Expected e.Rows contained in _loadedRows.");
+                    System.Diagnostics.Debug.Assert(_loadedRows.Contains(e.Row), "Expected e.Rows contained in _loadedRows.");
                     _loadedRows.Remove(e.Row);
                 }
             }
@@ -3717,7 +3717,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal static DataGridCell GetOwningCell(FrameworkElement element)
         {
-            Debug.Assert(element != null, "Expected non-null element.");
+            System.Diagnostics.Debug.Assert(element != null, "Expected non-null element.");
             DataGridCell cell = element as DataGridCell;
             while (element != null && cell == null)
             {
@@ -3945,7 +3945,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             {
                 if (scrollBarValueDifference != 0)
                 {
-                    Debug.Assert(_horizontalOffset + scrollBarValueDifference >= 0, "Expected positive _horizontalOffset + scrollBarValueDifference.");
+                    System.Diagnostics.Debug.Assert(_horizontalOffset + scrollBarValueDifference >= 0, "Expected positive _horizontalOffset + scrollBarValueDifference.");
                     SetHorizontalOffset(_horizontalOffset + scrollBarValueDifference);
                 }
 
@@ -4190,12 +4190,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return;
             }
 
-            Debug.Assert(DoubleUtil.LessThanOrClose(_vScrollBar.Value, _vScrollBar.Maximum), "Expected _vScrollBar.Value smaller than or close to _vScrollBar.Maximum.");
+            System.Diagnostics.Debug.Assert(DoubleUtil.LessThanOrClose(_vScrollBar.Value, _vScrollBar.Maximum), "Expected _vScrollBar.Value smaller than or close to _vScrollBar.Maximum.");
 
             _verticalScrollChangesIgnored++;
             try
             {
-                Debug.Assert(_vScrollBar != null, "Expected non-null _vScrollBar.");
+                System.Diagnostics.Debug.Assert(_vScrollBar != null, "Expected non-null _vScrollBar.");
                 if (scrollEventType == ScrollEventType.SmallIncrement)
                 {
                     this.DisplayData.PendingVerticalScrollHeight = GetVerticalSmallScrollIncrease();
@@ -4326,16 +4326,16 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal bool ScrollSlotIntoView(int columnIndex, int slot, bool forCurrentCellChange, bool forceHorizontalScroll)
         {
-            Debug.Assert(columnIndex >= 0, "Expected positive columnIndex.");
-            Debug.Assert(columnIndex < this.ColumnsItemsInternal.Count, "Expected columnIndex smaller than ColumnsItemsInternal.Count.");
-            Debug.Assert(this.DisplayData.FirstDisplayedScrollingCol >= -1, "Expected DisplayData.FirstDisplayedScrollingCol greater than or equal to -1.");
-            Debug.Assert(this.DisplayData.FirstDisplayedScrollingCol < this.ColumnsItemsInternal.Count, "Expected smaller than ColumnsItemsInternal.Count.");
-            Debug.Assert(this.DisplayData.LastTotallyDisplayedScrollingCol >= -1, "Expected DisplayData.LastTotallyDisplayedScrollingCol greater than or equal to -1.");
-            Debug.Assert(this.DisplayData.LastTotallyDisplayedScrollingCol < this.ColumnsItemsInternal.Count, "Expected DisplayData.LastTotallyDisplayedScrollingCol smaller than ColumnsItemsInternal.Count.");
-            Debug.Assert(!IsSlotOutOfBounds(slot), "Expected IsSlotOutOfBounds(slot) is false.");
-            Debug.Assert(this.DisplayData.FirstScrollingSlot >= -1, "Expected DisplayData.FirstScrollingSlot greater than or equal to -1.");
-            Debug.Assert(this.DisplayData.FirstScrollingSlot < this.SlotCount, "Expected DisplayData.FirstScrollingSlot smaller than SlotCount.");
-            Debug.Assert(this.ColumnsItemsInternal[columnIndex].IsVisible, "Expected ColumnsItemsInternal[columnIndex].IsVisible is true.");
+            System.Diagnostics.Debug.Assert(columnIndex >= 0, "Expected positive columnIndex.");
+            System.Diagnostics.Debug.Assert(columnIndex < this.ColumnsItemsInternal.Count, "Expected columnIndex smaller than ColumnsItemsInternal.Count.");
+            System.Diagnostics.Debug.Assert(this.DisplayData.FirstDisplayedScrollingCol >= -1, "Expected DisplayData.FirstDisplayedScrollingCol greater than or equal to -1.");
+            System.Diagnostics.Debug.Assert(this.DisplayData.FirstDisplayedScrollingCol < this.ColumnsItemsInternal.Count, "Expected smaller than ColumnsItemsInternal.Count.");
+            System.Diagnostics.Debug.Assert(this.DisplayData.LastTotallyDisplayedScrollingCol >= -1, "Expected DisplayData.LastTotallyDisplayedScrollingCol greater than or equal to -1.");
+            System.Diagnostics.Debug.Assert(this.DisplayData.LastTotallyDisplayedScrollingCol < this.ColumnsItemsInternal.Count, "Expected DisplayData.LastTotallyDisplayedScrollingCol smaller than ColumnsItemsInternal.Count.");
+            System.Diagnostics.Debug.Assert(!IsSlotOutOfBounds(slot), "Expected IsSlotOutOfBounds(slot) is false.");
+            System.Diagnostics.Debug.Assert(this.DisplayData.FirstScrollingSlot >= -1, "Expected DisplayData.FirstScrollingSlot greater than or equal to -1.");
+            System.Diagnostics.Debug.Assert(this.DisplayData.FirstScrollingSlot < this.SlotCount, "Expected DisplayData.FirstScrollingSlot smaller than SlotCount.");
+            System.Diagnostics.Debug.Assert(this.ColumnsItemsInternal[columnIndex].IsVisible, "Expected ColumnsItemsInternal[columnIndex].IsVisible is true.");
 
             if (this.CurrentColumnIndex >= 0 &&
                 (this.CurrentColumnIndex != columnIndex || this.CurrentSlot != slot))
@@ -4545,7 +4545,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 FrameworkElement editingElement = editingColumn.GetCellContent(this.EditingRow);
                 if (editingElement != null && editingElement.ContainsChild(_focusedObject))
                 {
-                    Debug.Assert(_lostFocusActions != null, "Expected non-null _lostFocusActions.");
+                    System.Diagnostics.Debug.Assert(_lostFocusActions != null, "Expected non-null _lostFocusActions.");
                     _lostFocusActions.Enqueue(action);
                     editingElement.LostFocus += new RoutedEventHandler(EditingElement_LostFocus);
                     this.IsTabStop = true;
@@ -4560,7 +4560,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         // Applies the given Style to the Row if it's supposed to use DataGrid.RowStyle
         private static void EnsureElementStyle(FrameworkElement element, Style oldDataGridStyle, Style newDataGridStyle)
         {
-            Debug.Assert(element != null, "Expected non-null element.");
+            System.Diagnostics.Debug.Assert(element != null, "Expected non-null element.");
 
             // Apply the DataGrid style if the row was using the old DataGridRowStyle before
             if (element != null && (element.Style == null || element.Style == oldDataGridStyle))
@@ -4654,18 +4654,18 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return false;
             }
 
-            Debug.Assert(this.CurrentColumnIndex >= 0, "Expected positive CurrentColumnIndex.");
-            Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
-            Debug.Assert(this.CurrentSlot >= -1, "Expected CurrentSlot greater than or equal to -1.");
-            Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
-            Debug.Assert(this.EditingRow == null || this.EditingRow.Slot == this.CurrentSlot, "Expected null EditingRow or EditingRow.Slot equal to CurrentSlot.");
-            Debug.Assert(!GetColumnEffectiveReadOnlyState(this.CurrentColumn), "Expected GetColumnEffectiveReadOnlyState(CurrentColumn) is false.");
-            Debug.Assert(this.CurrentColumn.IsVisible, "Expected CurrentColumn.IsVisible is true.");
+            System.Diagnostics.Debug.Assert(this.CurrentColumnIndex >= 0, "Expected positive CurrentColumnIndex.");
+            System.Diagnostics.Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
+            System.Diagnostics.Debug.Assert(this.CurrentSlot >= -1, "Expected CurrentSlot greater than or equal to -1.");
+            System.Diagnostics.Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
+            System.Diagnostics.Debug.Assert(this.EditingRow == null || this.EditingRow.Slot == this.CurrentSlot, "Expected null EditingRow or EditingRow.Slot equal to CurrentSlot.");
+            System.Diagnostics.Debug.Assert(!GetColumnEffectiveReadOnlyState(this.CurrentColumn), "Expected GetColumnEffectiveReadOnlyState(CurrentColumn) is false.");
+            System.Diagnostics.Debug.Assert(this.CurrentColumn.IsVisible, "Expected CurrentColumn.IsVisible is true.");
 
             if (_editingColumnIndex != -1)
             {
                 // Current cell is already in edit mode
-                Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
                 return true;
             }
 
@@ -4679,12 +4679,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             DataGridRow dataGridRow = this.EditingRow;
             if (dataGridRow == null)
             {
-                Debug.Assert(!this.RowGroupHeadersTable.Contains(this.CurrentSlot), "Expected CurrentSlot not contained in RowGroupHeadersTable.");
+                System.Diagnostics.Debug.Assert(!this.RowGroupHeadersTable.Contains(this.CurrentSlot), "Expected CurrentSlot not contained in RowGroupHeadersTable.");
 
                 if (this.IsSlotVisible(this.CurrentSlot))
                 {
                     dataGridRow = this.DisplayData.GetDisplayedElement(this.CurrentSlot) as DataGridRow;
-                    Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
+                    System.Diagnostics.Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
                 }
                 else
                 {
@@ -4700,7 +4700,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 }
             }
 
-            Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
+            System.Diagnostics.Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
 
             // Cache these to see if they change later
             int currentRowIndex = this.CurrentSlot;
@@ -4738,11 +4738,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private bool BeginRowEdit(DataGridRow dataGridRow)
         {
-            Debug.Assert(this.EditingRow == null, "Expected non-null EditingRow.");
-            Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
+            System.Diagnostics.Debug.Assert(this.EditingRow == null, "Expected non-null EditingRow.");
+            System.Diagnostics.Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
 
-            Debug.Assert(this.CurrentSlot >= -1, "Expected CurrentSlot greater than or equal to -1.");
-            Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
+            System.Diagnostics.Debug.Assert(this.CurrentSlot >= -1, "Expected CurrentSlot greater than or equal to -1.");
+            System.Diagnostics.Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
 
             if (this.DataConnection.BeginEdit(dataGridRow.DataContext))
             {
@@ -4770,10 +4770,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return true;
             }
 
-            Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
-            Debug.Assert(this.EditingRow.Index >= -1, "Expected EditingRow greater or equal to -1.");
-            Debug.Assert(this.EditingRow.Slot < this.SlotCount, "Expected EditingRow smaller than SlotCount.");
-            Debug.Assert(this.CurrentColumn != null, "Expected non-null CurrentColumn.");
+            System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+            System.Diagnostics.Debug.Assert(this.EditingRow.Index >= -1, "Expected EditingRow greater or equal to -1.");
+            System.Diagnostics.Debug.Assert(this.EditingRow.Slot < this.SlotCount, "Expected EditingRow smaller than SlotCount.");
+            System.Diagnostics.Debug.Assert(this.CurrentColumn != null, "Expected non-null CurrentColumn.");
 
             object dataItem = this.EditingRow.DataContext;
             if (!this.DataConnection.CancelEdit(dataItem))
@@ -4843,9 +4843,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return true;
             }
 
-            Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
-            Debug.Assert(this.EditingRow.Index >= -1, "Expected EditingRow.Index greater than or equal to -1.");
-            Debug.Assert(this.EditingRow.Slot < this.SlotCount, "Expected EditingRow.Slot smaller than SlotCount.");
+            System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+            System.Diagnostics.Debug.Assert(this.EditingRow.Index >= -1, "Expected EditingRow.Index greater than or equal to -1.");
+            System.Diagnostics.Debug.Assert(this.EditingRow.Slot < this.SlotCount, "Expected EditingRow.Slot smaller than SlotCount.");
 
             if (!ValidateEditingRow(true /*scrollIntoView*/, false /*wireEvents*/))
             {
@@ -4864,7 +4864,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private void CompleteCellsCollection(DataGridRow dataGridRow)
         {
-            Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
+            System.Diagnostics.Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
             int cellsInCollection = dataGridRow.Cells.Count;
             if (this.ColumnsItemsInternal.Count > cellsInCollection)
             {
@@ -4965,7 +4965,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 {
                     double oldDataHeight = cellsHeight;
                     cellsHeight -= horizScrollBarHeight;
-                    Debug.Assert(cellsHeight >= 0, "Expected positive cellsHeight.");
+                    System.Diagnostics.Debug.Assert(cellsHeight >= 0, "Expected positive cellsHeight.");
                     needHorizScrollBarWithoutVertScrollBar = needHorizScrollBar = true;
 
                     if (vertScrollBarWidth > 0 &&
@@ -4999,7 +4999,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     this.DisplayData.NumTotallyDisplayedScrollingElements != this.VisibleSlotCount)
                 {
                     cellsWidth -= vertScrollBarWidth;
-                    Debug.Assert(cellsWidth >= 0, "Expected positive cellsWidth.");
+                    System.Diagnostics.Debug.Assert(cellsWidth >= 0, "Expected positive cellsWidth.");
                     needVertScrollBar = true;
                 }
 
@@ -5017,7 +5017,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 {
                     cellsWidth += vertScrollBarWidth;
                     cellsHeight -= horizScrollBarHeight;
-                    Debug.Assert(cellsHeight >= 0, "Expected positive cellsHeight.");
+                    System.Diagnostics.Debug.Assert(cellsHeight >= 0, "Expected positive cellsHeight.");
                     needVertScrollBar = false;
 
                     UpdateDisplayedRows(firstScrollingSlot, cellsHeight);
@@ -5026,7 +5026,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                         this.DisplayData.NumTotallyDisplayedScrollingElements != this.VisibleSlotCount)
                     {
                         cellsWidth -= vertScrollBarWidth;
-                        Debug.Assert(cellsWidth >= 0, "Expected positive cellsWidth.");
+                        System.Diagnostics.Debug.Assert(cellsWidth >= 0, "Expected positive cellsWidth.");
                         needVertScrollBar = true;
                     }
 
@@ -5049,7 +5049,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                         this.DisplayData.NumTotallyDisplayedScrollingElements != this.VisibleSlotCount)
                     {
                         cellsWidth -= vertScrollBarWidth;
-                        Debug.Assert(cellsWidth >= 0, "Expected positive cellsWidth.");
+                        System.Diagnostics.Debug.Assert(cellsWidth >= 0, "Expected positive cellsWidth.");
                         needVertScrollBar = true;
                     }
 
@@ -5069,7 +5069,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                         DoubleUtil.LessThan(totalVisibleFrozenWidth, cellsWidth))
                     {
                         cellsHeight -= horizScrollBarHeight;
-                        Debug.Assert(cellsHeight >= 0, "Expected positive cellsHeight.");
+                        System.Diagnostics.Debug.Assert(cellsHeight >= 0, "Expected positive cellsHeight.");
                         needHorizScrollBar = true;
                         UpdateDisplayedRows(this.DisplayData.FirstScrollingSlot, cellsHeight);
                     }
@@ -5082,10 +5082,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
             else
             {
-                Debug.Assert(forceHorizScrollBar, "Expected forceHorizScrollBar is true.");
-                Debug.Assert(forceVertScrollBar, "Expected forceVertScrollBar is true.");
-                Debug.Assert(allowHorizScrollBar, "Expected allowHorizScrollBar is true.");
-                Debug.Assert(allowVertScrollBar, "Expected allowVertScrollBar is true.");
+                System.Diagnostics.Debug.Assert(forceHorizScrollBar, "Expected forceHorizScrollBar is true.");
+                System.Diagnostics.Debug.Assert(forceVertScrollBar, "Expected forceVertScrollBar is true.");
+                System.Diagnostics.Debug.Assert(allowHorizScrollBar, "Expected allowHorizScrollBar is true.");
+                System.Diagnostics.Debug.Assert(allowVertScrollBar, "Expected allowVertScrollBar is true.");
                 this.DisplayData.FirstDisplayedScrollingCol = ComputeFirstVisibleScrollingColumn();
                 ComputeDisplayedColumns();
                 needVertScrollBar = this.DisplayData.NumTotallyDisplayedScrollingElements != this.VisibleSlotCount;
@@ -5130,9 +5130,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <returns>ValidationSummaryItem</returns>
         private ValidationSummaryItem CreateValidationSummaryItem(ValidationResult validationResult)
         {
-            Debug.Assert(validationResult != null);
-            Debug.Assert(_validationSummary != null);
-            Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+            System.Diagnostics.Debug.Assert(validationResult != null);
+            System.Diagnostics.Debug.Assert(_validationSummary != null);
+            System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
 
             ValidationSummaryItem validationSummaryItem = new ValidationSummaryItem(validationResult.ErrorMessage);
             validationSummaryItem.Context = validationResult;
@@ -5153,7 +5153,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 }
             }
 
-            Debug.Assert(validationSummaryItem.ItemType == ValidationSummaryItemType.ObjectError);
+            System.Diagnostics.Debug.Assert(validationSummaryItem.ItemType == ValidationSummaryItemType.ObjectError);
             if (_propertyValidationResults.ContainsEqualValidationResult(validationResult))
             {
                 validationSummaryItem.MessageHeader = messageHeader;
@@ -5181,7 +5181,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     this.FocusEditingCell(true);
                 }
 
-                Debug.Assert(_lostFocusActions != null, "Expected non-null _lostFocusActions.");
+                System.Diagnostics.Debug.Assert(_lostFocusActions != null, "Expected non-null _lostFocusActions.");
                 try
                 {
                     _executingLostFocusActions = true;
@@ -5302,7 +5302,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <param name="e">FocusingInvalidControlEventArgs</param>
         private void ValidationSummary_FocusingInvalidControl(object sender, FocusingInvalidControlEventArgs e)
         {
-            Debug.Assert(_validationSummary != null);
+            System.Diagnostics.Debug.Assert(_validationSummary != null);
             if (this.EditingRow == null || this.IsSlotOutOfBounds(this.EditingRow.Slot) || this.EditingRow.Slot == -1 || !ScrollSlotIntoView(this.EditingRow.Slot, false /*scrolledHorizontally*/))
             {
                 return;
@@ -5315,7 +5315,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 DataGridCell cell = e.Target.Control as DataGridCell;
                 if (cell != null && cell.OwningGrid == this && cell.OwningColumn != null && cell.OwningColumn.IsVisible)
                 {
-                    Debug.Assert(cell.ColumnIndex >= 0 && cell.ColumnIndex < this.ColumnsInternal.Count);
+                    System.Diagnostics.Debug.Assert(cell.ColumnIndex >= 0 && cell.ColumnIndex < this.ColumnsInternal.Count);
 
                     // Begin editing the next relevant cell
                     UpdateSelectionAndCurrency(cell.ColumnIndex, this.EditingRow.Slot, DataGridSelectionAction.None, true /*scrollIntoView*/);
@@ -5362,7 +5362,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             while (previousHeaderSlot >= 0)
             {
                 DataGridRowGroupInfo rowGroupInfo = this.RowGroupHeadersTable.GetValueAt(previousHeaderSlot);
-                Debug.Assert(rowGroupInfo != null, "Expected non-null rowGroupInfo.");
+                System.Diagnostics.Debug.Assert(rowGroupInfo != null, "Expected non-null rowGroupInfo.");
                 if (level == rowGroupInfo.Level)
                 {
                     if (_collapsedSlotsTable.Contains(rowGroupInfo.Slot))
@@ -5394,8 +5394,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <returns>ValidationSummaryItem or null if not found</returns>
         private ValidationSummaryItem FindValidationSummaryItem(ValidationResult context)
         {
-            Debug.Assert(context != null);
-            Debug.Assert(_validationSummary != null);
+            System.Diagnostics.Debug.Assert(context != null);
+            System.Diagnostics.Debug.Assert(_validationSummary != null);
             foreach (ValidationSummaryItem ValidationSummaryItem in _validationSummary.Errors)
             {
                 if (context.Equals(ValidationSummaryItem.Context))
@@ -5545,7 +5545,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
                         if (shift && this.LastHandledKeyDown != VirtualKey.Tab)
                         {
-                            Debug.Assert(!this.ColumnHeaderHasFocus, "Expected ColumnHeaderHasFocus is false.");
+                            System.Diagnostics.Debug.Assert(!this.ColumnHeaderHasFocus, "Expected ColumnHeaderHasFocus is false.");
 
                             // Show currency on the current column's header as focus is entering the DataGrid backwards.
                             this.ColumnHeaderHasFocus = true;
@@ -5553,7 +5553,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     }
 
                     bool success = ScrollSlotIntoView(this.CurrentColumnIndex, this.CurrentSlot, false /*forCurrentCellChange*/, true /*forceHorizontalScroll*/);
-                    Debug.Assert(success, "Expected ScrollSlotIntoView returns true.");
+                    System.Diagnostics.Debug.Assert(success, "Expected ScrollSlotIntoView returns true.");
                     if (this.CurrentColumnIndex != -1 && this.SelectedItem == null)
                     {
                         SetRowSelection(this.CurrentSlot, true /*isSelected*/, true /*setAnchorSlot*/);
@@ -5733,11 +5733,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return true;
             }
 
-            Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
-            Debug.Assert(this.EditingRow.Slot == this.CurrentSlot, "Expected EditingRow.Slot equals CurrentSlot.");
-            Debug.Assert(_editingColumnIndex >= 0, "Expected positive _editingColumnIndex.");
-            Debug.Assert(_editingColumnIndex < this.ColumnsItemsInternal.Count, "Expected _editingColumnIndex smaller than this.ColumnsItemsInternal.Count.");
-            Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals this.CurrentColumnIndex.");
+            System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+            System.Diagnostics.Debug.Assert(this.EditingRow.Slot == this.CurrentSlot, "Expected EditingRow.Slot equals CurrentSlot.");
+            System.Diagnostics.Debug.Assert(_editingColumnIndex >= 0, "Expected positive _editingColumnIndex.");
+            System.Diagnostics.Debug.Assert(_editingColumnIndex < this.ColumnsItemsInternal.Count, "Expected _editingColumnIndex smaller than this.ColumnsItemsInternal.Count.");
+            System.Diagnostics.Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals this.CurrentColumnIndex.");
 
             // Cache these to see if they change later
             int currentSlot = this.CurrentSlot;
@@ -5769,10 +5769,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     return true;
                 }
 
-                Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
-                Debug.Assert(this.EditingRow.Slot == currentSlot, "Expected EditingRow.Slot equals currentSlot.");
-                Debug.Assert(_editingColumnIndex != -1, "Expected _editingColumnIndex other than -1.");
-                Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
+                System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+                System.Diagnostics.Debug.Assert(this.EditingRow.Slot == currentSlot, "Expected EditingRow.Slot equals currentSlot.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex != -1, "Expected _editingColumnIndex other than -1.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
             }
 
             _bindingValidationResults.Clear();
@@ -5790,10 +5790,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     return true;
                 }
 
-                Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
-                Debug.Assert(this.EditingRow.Slot == currentSlot, "Expected EditingRow.Slot equals currentSlot.");
-                Debug.Assert(_editingColumnIndex != -1, "Expected _editingColumnIndex other than -1.");
-                Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
+                System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+                System.Diagnostics.Debug.Assert(this.EditingRow.Slot == currentSlot, "Expected EditingRow.Slot equals currentSlot.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex != -1, "Expected _editingColumnIndex other than -1.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
 
                 // Re-validate
                 this.ValidateEditingRow(true /*scrollIntoView*/, false /*wireEvents*/);
@@ -5804,7 +5804,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             {
                 foreach (BindingInfo bindingData in this.CurrentColumn.GetInputBindings(editingElement, this.CurrentItem))
                 {
-                    Debug.Assert(bindingData.BindingExpression.ParentBinding != null, "Expected non-null bindingData.BindingExpression.ParentBinding.");
+                    System.Diagnostics.Debug.Assert(bindingData.BindingExpression.ParentBinding != null, "Expected non-null bindingData.BindingExpression.ParentBinding.");
                     _updateSourcePath = bindingData.BindingExpression.ParentBinding.Path != null ? bindingData.BindingExpression.ParentBinding.Path.Path : null;
 #if FEATURE_VALIDATION
                     bindingData.Element.BindingValidationError += new EventHandler<ValidationErrorEventArgs>(EditingElement_BindingValidationError);
@@ -5994,17 +5994,17 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             if (this.EditingRow == null || this.DataConnection.EndingEdit)
             {
-                Debug.Assert(_editingColumnIndex == -1, "Expected _editingColumnIndex equal to -1.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex == -1, "Expected _editingColumnIndex equal to -1.");
                 return;
             }
 
             if (_editingColumnIndex != -1)
             {
-                Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
-                Debug.Assert(this.EditingRow.Slot == this.CurrentSlot, "Expected EditingRow.Slot equals CurrentSlot.");
-                Debug.Assert(_editingColumnIndex >= 0, "Expected positive _editingColumnIndex.");
-                Debug.Assert(_editingColumnIndex < this.ColumnsItemsInternal.Count, "Expected _editingColumnIndex smaller than this.ColumnsItemsInternal.Count.");
-                Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
+                System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+                System.Diagnostics.Debug.Assert(this.EditingRow.Slot == this.CurrentSlot, "Expected EditingRow.Slot equals CurrentSlot.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex >= 0, "Expected positive _editingColumnIndex.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex < this.ColumnsItemsInternal.Count, "Expected _editingColumnIndex smaller than this.ColumnsItemsInternal.Count.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
 
                 _editingColumnIndex = -1;
                 this.EditingRow.Cells[this.CurrentColumnIndex].ApplyCellState(false /*animate*/);
@@ -6021,7 +6021,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             if (keepFocus)
             {
                 bool success = Focus(FocusState.Programmatic);
-                Debug.Assert(success, "Expected successful Focus call.");
+                System.Diagnostics.Debug.Assert(success, "Expected successful Focus call.");
             }
         }
 
@@ -6055,7 +6055,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             if (_collapsedSlotsTable.Contains(this.CurrentSlot) && this.CurrentSlot != this.SlotFromRowIndex(this.DataConnection.NewItemPlaceholderIndex))
             {
                 DataGridRowGroupInfo rowGroupInfo = this.RowGroupHeadersTable.GetValueAt(this.RowGroupHeadersTable.GetPreviousIndex(this.CurrentSlot));
-                Debug.Assert(rowGroupInfo != null, "Expected non-null rowGroupInfo.");
+                System.Diagnostics.Debug.Assert(rowGroupInfo != null, "Expected non-null rowGroupInfo.");
                 if (rowGroupInfo != null)
                 {
                     this.ExpandRowGroupParentChain(rowGroupInfo.Level, rowGroupInfo.Slot);
@@ -6115,13 +6115,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private bool FocusEditingCell(bool setFocus)
         {
-            Debug.Assert(this.CurrentColumnIndex >= 0, "Expected positive CurrentColumnIndex.");
-            Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
-            Debug.Assert(this.CurrentSlot >= -1, "Expected CurrentSlot greater than or equal to -1.");
-            Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
-            Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
-            Debug.Assert(this.EditingRow.Slot == this.CurrentSlot, "Expected EditingRow.Slot equals CurrentSlot.");
-            Debug.Assert(_editingColumnIndex != -1, "Expected _editingColumnIndex other than -1.");
+            System.Diagnostics.Debug.Assert(this.CurrentColumnIndex >= 0, "Expected positive CurrentColumnIndex.");
+            System.Diagnostics.Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
+            System.Diagnostics.Debug.Assert(this.CurrentSlot >= -1, "Expected CurrentSlot greater than or equal to -1.");
+            System.Diagnostics.Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
+            System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+            System.Diagnostics.Debug.Assert(this.EditingRow.Slot == this.CurrentSlot, "Expected EditingRow.Slot equals CurrentSlot.");
+            System.Diagnostics.Debug.Assert(_editingColumnIndex != -1, "Expected _editingColumnIndex other than -1.");
 
             // TODO: Figure out if we should cache this.IsTabStop in order to restore
             //       it later instead of setting it back to true unconditionally.
@@ -6392,8 +6392,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         {
             if (this.RowGroupHeadersTable.Contains(slot))
             {
-                Debug.Assert(slot >= 0, "Expected positive slot.");
-                Debug.Assert(slot < this.SlotCount, "Expected slot smaller than this.SlotCount.");
+                System.Diagnostics.Debug.Assert(slot >= 0, "Expected positive slot.");
+                System.Diagnostics.Debug.Assert(slot < this.SlotCount, "Expected slot smaller than this.SlotCount.");
                 return false;
             }
             else
@@ -6469,7 +6469,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private void NoIndicatorStateStoryboard_Completed(object sender, object e)
         {
-            Debug.Assert(_hasNoIndicatorStateStoryboardCompletedHandler, "Expected _hasNoIndicatorStateStoryboardCompletedHandler is true.");
+            System.Diagnostics.Debug.Assert(_hasNoIndicatorStateStoryboardCompletedHandler, "Expected _hasNoIndicatorStateStoryboardCompletedHandler is true.");
 
             _showingMouseIndicators = false;
         }
@@ -6480,9 +6480,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             DataGridRow dataGridRow,
             DataGridCell dataGridCell)
         {
-            Debug.Assert(dataGridColumn != null, "Expected non-null dataGridColumn.");
-            Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
-            Debug.Assert(dataGridCell != null, "Expected non-null dataGridCell.");
+            System.Diagnostics.Debug.Assert(dataGridColumn != null, "Expected non-null dataGridColumn.");
+            System.Diagnostics.Debug.Assert(dataGridRow != null, "Expected non-null dataGridRow.");
+            System.Diagnostics.Debug.Assert(dataGridCell != null, "Expected non-null dataGridCell.");
 
             FrameworkElement element = null;
             DataGridBoundColumn dataGridBoundColumn = dataGridColumn as DataGridBoundColumn;
@@ -6547,11 +6547,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return;
             }
 
-            Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
-            Debug.Assert(this.EditingRow.Slot == this.CurrentSlot, "Expected EditingRow.Slot equals CurrentSlot.");
-            Debug.Assert(_editingColumnIndex >= 0, "Expected positive _editingColumnIndex.");
-            Debug.Assert(_editingColumnIndex < this.ColumnsItemsInternal.Count, "Expected _editingColumnIndex smaller than this.ColumnsItemsInternal.Count.");
-            Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
+            System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+            System.Diagnostics.Debug.Assert(this.EditingRow.Slot == this.CurrentSlot, "Expected EditingRow.Slot equals CurrentSlot.");
+            System.Diagnostics.Debug.Assert(_editingColumnIndex >= 0, "Expected positive _editingColumnIndex.");
+            System.Diagnostics.Debug.Assert(_editingColumnIndex < this.ColumnsItemsInternal.Count, "Expected _editingColumnIndex smaller than this.ColumnsItemsInternal.Count.");
+            System.Diagnostics.Debug.Assert(_editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals CurrentColumnIndex.");
 
             FocusEditingCell(this.ContainsFocus || _focusEditingControl /*setFocus*/);
 
@@ -6761,7 +6761,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                         return true;
                     }
 
-                    Debug.Assert(this.CurrentColumnIndex != -1, "Expected CurrentColumnIndex other than -1.");
+                    System.Diagnostics.Debug.Assert(this.CurrentColumnIndex != -1, "Expected CurrentColumnIndex other than -1.");
                     desiredSlot = this.FirstVisibleSlot;
                     columnIndex = this.CurrentColumnIndex;
                     action = DataGridSelectionAction.SelectCurrent;
@@ -7110,7 +7110,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 {
                     desiredSlot = firstVisibleSlot;
                     action = DataGridSelectionAction.SelectCurrent;
-                    Debug.Assert(_selectedItems.Count == 0, "Expected _selectedItems.Count equals 0.");
+                    System.Diagnostics.Debug.Assert(_selectedItems.Count == 0, "Expected _selectedItems.Count equals 0.");
                 }
                 else
                 {
@@ -7183,7 +7183,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
 
             int nextPageSlot = this.CurrentSlot == -1 ? this.DisplayData.FirstScrollingSlot : this.CurrentSlot;
-            Debug.Assert(nextPageSlot != -1, "Expected nextPageSlot other than -1.");
+            System.Diagnostics.Debug.Assert(nextPageSlot != -1, "Expected nextPageSlot other than -1.");
             int slot = GetNextVisibleSlot(nextPageSlot);
 
             int scrollCount = this.DisplayData.NumTotallyDisplayedScrollingElements;
@@ -7237,7 +7237,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
 
             int previousPageSlot = (this.CurrentSlot == -1) ? this.DisplayData.FirstScrollingSlot : this.CurrentSlot;
-            Debug.Assert(previousPageSlot != -1, "Expected previousPageSlot other than -1.");
+            System.Diagnostics.Debug.Assert(previousPageSlot != -1, "Expected previousPageSlot other than -1.");
 
             int scrollCount = this.DisplayData.NumTotallyDisplayedScrollingElements;
             int slot = GetPreviousVisibleSlot(previousPageSlot);
@@ -7248,7 +7248,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 slot = GetPreviousVisibleSlot(slot);
             }
 
-            Debug.Assert(previousPageSlot != -1, "Expected previousPageSlot other than -1.");
+            System.Diagnostics.Debug.Assert(previousPageSlot != -1, "Expected previousPageSlot other than -1.");
 
             _noSelectionChangeCount++;
             try
@@ -7489,8 +7489,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
 
             // Try to locate a writable cell before/after the current cell
-            Debug.Assert(this.CurrentColumnIndex != -1, "Expected CurrentColumnIndex other than -1.");
-            Debug.Assert(this.CurrentSlot != -1, "Expected CurrentSlot other than -1.");
+            System.Diagnostics.Debug.Assert(this.CurrentColumnIndex != -1, "Expected CurrentColumnIndex other than -1.");
+            System.Diagnostics.Debug.Assert(this.CurrentSlot != -1, "Expected CurrentSlot other than -1.");
 
             int neighborVisibleWritableColumnIndex, neighborSlot;
             DataGridColumn dataGridColumn;
@@ -7542,12 +7542,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     targetSlot = neighborSlot;
                     if (shift)
                     {
-                        Debug.Assert(this.ColumnsInternal.LastVisibleWritableColumn != null, "Expected non-null ColumnsInternal.LastVisibleWritableColumn.");
+                        System.Diagnostics.Debug.Assert(this.ColumnsInternal.LastVisibleWritableColumn != null, "Expected non-null ColumnsInternal.LastVisibleWritableColumn.");
                         targetColumnIndex = this.ColumnsInternal.LastVisibleWritableColumn.Index;
                     }
                     else
                     {
-                        Debug.Assert(this.ColumnsInternal.FirstVisibleWritableColumn != null, "Expected non-null ColumnsInternal.FirstVisibleWritableColumn.");
+                        System.Diagnostics.Debug.Assert(this.ColumnsInternal.FirstVisibleWritableColumn != null, "Expected non-null ColumnsInternal.FirstVisibleWritableColumn.");
                         targetColumnIndex = this.ColumnsInternal.FirstVisibleWritableColumn.Index;
                     }
                 }
@@ -7830,17 +7830,17 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         // columnIndex = -1, rowIndex = 2 --> Unexpected
         private bool SetCurrentCellCore(int columnIndex, int slot, bool commitEdit, bool endRowEdit)
         {
-            Debug.Assert(columnIndex < this.ColumnsItemsInternal.Count, "Expected columnIndex smaller than ColumnsItemsInternal.Count.");
-            Debug.Assert(slot < this.SlotCount, "Expected slot smaller than this.SlotCount.");
-            Debug.Assert(columnIndex == -1 || this.ColumnsItemsInternal[columnIndex].IsVisible, "Expected columnIndex equals -1 or ColumnsItemsInternal[columnIndex].IsVisible is true.");
-            Debug.Assert(columnIndex <= -1 || slot != -1, "Expected columnIndex smaller than or equal to -1 or slot other than -1.");
+            System.Diagnostics.Debug.Assert(columnIndex < this.ColumnsItemsInternal.Count, "Expected columnIndex smaller than ColumnsItemsInternal.Count.");
+            System.Diagnostics.Debug.Assert(slot < this.SlotCount, "Expected slot smaller than this.SlotCount.");
+            System.Diagnostics.Debug.Assert(columnIndex == -1 || this.ColumnsItemsInternal[columnIndex].IsVisible, "Expected columnIndex equals -1 or ColumnsItemsInternal[columnIndex].IsVisible is true.");
+            System.Diagnostics.Debug.Assert(columnIndex <= -1 || slot != -1, "Expected columnIndex smaller than or equal to -1 or slot other than -1.");
 
             if (columnIndex == this.CurrentColumnIndex &&
                 slot == this.CurrentSlot)
             {
-                Debug.Assert(this.DataConnection != null, "Expected non-null DataConnection.");
-                Debug.Assert(_editingColumnIndex == -1 || _editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals -1 or _editingColumnIndex equals CurrentColumnIndex.");
-                Debug.Assert(this.EditingRow == null || this.EditingRow.Slot == this.CurrentSlot || this.DataConnection.EndingEdit, "Expected EditingRow is null or EditingRow.Slot equals CurrentSlot or DataConnection.EndingEdit is true.");
+                System.Diagnostics.Debug.Assert(this.DataConnection != null, "Expected non-null DataConnection.");
+                System.Diagnostics.Debug.Assert(_editingColumnIndex == -1 || _editingColumnIndex == this.CurrentColumnIndex, "Expected _editingColumnIndex equals -1 or _editingColumnIndex equals CurrentColumnIndex.");
+                System.Diagnostics.Debug.Assert(this.EditingRow == null || this.EditingRow.Slot == this.CurrentSlot || this.DataConnection.EndingEdit, "Expected EditingRow is null or EditingRow.Slot equals CurrentSlot or DataConnection.EndingEdit is true.");
                 return true;
             }
 
@@ -7859,8 +7859,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             if (this.CurrentColumnIndex > -1)
             {
-                Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
-                Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
+                System.Diagnostics.Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
+                System.Diagnostics.Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
 
                 if (!IsInnerCellOutOfBounds(oldCurrentCell.ColumnIndex, oldCurrentCell.Slot) &&
                     this.IsSlotVisible(oldCurrentCell.Slot))
@@ -7945,9 +7945,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             if (this.CurrentColumnIndex > -1)
             {
-                Debug.Assert(this.CurrentSlot > -1, "Expected CurrentSlot greater than -1.");
-                Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
-                Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
+                System.Diagnostics.Debug.Assert(this.CurrentSlot > -1, "Expected CurrentSlot greater than -1.");
+                System.Diagnostics.Debug.Assert(this.CurrentColumnIndex < this.ColumnsItemsInternal.Count, "Expected CurrentColumnIndex smaller than ColumnsItemsInternal.Count.");
+                System.Diagnostics.Debug.Assert(this.CurrentSlot < this.SlotCount, "Expected CurrentSlot smaller than SlotCount.");
                 if (this.IsSlotVisible(this.CurrentSlot))
                 {
                     UpdateCurrentState(this.DisplayData.GetDisplayedElement(this.CurrentSlot), this.CurrentColumnIndex, true /*applyCellState*/);
@@ -8228,13 +8228,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     {
                         // maximum travel distance -- not the total width
                         _hScrollBar.Maximum = totalVisibleWidth - cellsWidth;
-                        Debug.Assert(totalVisibleFrozenWidth >= 0, "Expected positive totalVisibleFrozenWidth.");
+                        System.Diagnostics.Debug.Assert(totalVisibleFrozenWidth >= 0, "Expected positive totalVisibleFrozenWidth.");
                         if (_frozenColumnScrollBarSpacer != null)
                         {
                             _frozenColumnScrollBarSpacer.Width = totalVisibleFrozenWidth;
                         }
 
-                        Debug.Assert(_hScrollBar.Maximum >= 0, "Expected positive _hScrollBar.Maximum.");
+                        System.Diagnostics.Debug.Assert(_hScrollBar.Maximum >= 0, "Expected positive _hScrollBar.Maximum.");
 
                         // width of the scrollable viewing area
                         double viewPortSize = Math.Max(0, cellsWidth - totalVisibleFrozenWidth);
@@ -8417,7 +8417,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         {
             bool beginEdit;
 
-            Debug.Assert(slot >= 0, "Expected positive slot.");
+            System.Diagnostics.Debug.Assert(slot >= 0, "Expected positive slot.");
 
             // Before changing selection, check if the current cell needs to be committed, and
             // check if the current row needs to be committed. If any of those two operations are required and fail,
@@ -8506,7 +8506,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         private void UpdateValidationResults(List<ValidationResult> newValidationResults, bool scrollIntoView)
         {
             bool validationResultsChanged = false;
-            Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+            System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
 
             // Remove the validation results that have been fixed
             List<ValidationResult> removedValidationResults = new List<ValidationResult>();
@@ -8601,7 +8601,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 {
                     bool isCellValid = true;
 
-                    Debug.Assert(cell.OwningColumn != null, "Expected cell has owning column.");
+                    System.Diagnostics.Debug.Assert(cell.OwningColumn != null, "Expected cell has owning column.");
                     if (!cell.OwningColumn.IsReadOnly)
                     {
                         foreach (ValidationResult validationResult in _validationResults)
@@ -8674,7 +8674,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     {
                         // maximum travel distance -- not the total height
                         _vScrollBar.Maximum = totalVisibleHeight - cellsHeight;
-                        Debug.Assert(_vScrollBar.Maximum >= 0, "Expected positive _vScrollBar.Maximum.");
+                        System.Diagnostics.Debug.Assert(_vScrollBar.Maximum >= 0, "Expected positive _vScrollBar.Maximum.");
 
                         // total height of the display area
                         _vScrollBar.ViewportSize = cellsHeight;
@@ -8747,7 +8747,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             if (this.EditingRow != null)
             {
                 object dataItem = this.EditingRow.DataContext;
-                Debug.Assert(dataItem != null, "Expected non-null dataItem.");
+                System.Diagnostics.Debug.Assert(dataItem != null, "Expected non-null dataItem.");
 
                 if (!_initializingNewItem)
                 {
@@ -8857,7 +8857,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 string errorString = null;
                 if (string.IsNullOrEmpty(bindingProperty))
                 {
-                    Debug.Assert(string.IsNullOrEmpty(bindingPath));
+                    System.Diagnostics.Debug.Assert(string.IsNullOrEmpty(bindingPath));
                     ValidationUtil.CatchNonCriticalExceptions(() => { errorString = idei.Error; });
                     if (!string.IsNullOrEmpty(errorString))
                     {
@@ -8914,7 +8914,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                                     }
                                     else
                                     {
-                                        Debug.Assert(string.IsNullOrEmpty(bindingPath), "Expected bindingPath is null or empty.");
+                                        System.Diagnostics.Debug.Assert(string.IsNullOrEmpty(bindingPath), "Expected bindingPath is null or empty.");
                                         validationResult = new ValidationResult(errorString);
                                     }
 
@@ -8944,7 +8944,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             INotifyDataErrorInfo indei = sender as INotifyDataErrorInfo;
             if (_validationItems.ContainsKey(indei))
             {
-                Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
+                System.Diagnostics.Debug.Assert(this.EditingRow != null, "Expected non-null EditingRow.");
 
                 // Determine the binding path.
                 string bindingPath = _validationItems[indei];

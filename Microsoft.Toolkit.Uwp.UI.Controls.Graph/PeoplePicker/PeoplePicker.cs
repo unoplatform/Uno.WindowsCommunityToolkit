@@ -23,7 +23,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
     [TemplatePart(Name = InternalSearchBoxTextBoxPartName, Type = typeof(TextBox))]
     [TemplatePart(Name = SearchResultListBoxPartName, Type = typeof(ListBox))]
     [TemplatePart(Name = SelectionsListBoxPartName, Type = typeof(ListBox))]
-    [TemplatePart(Name = SearchResultPopupName, Type = typeof(Popup))]
+#if !HAS_UNO
+	[TemplatePart(Name = SearchResultPopupName, Type = typeof(Popup))]
+#endif
     [TemplatePart(Name = FlyoutContainerPartName, Type = typeof(FrameworkElement))]
     public partial class PeoplePicker : Control
     {

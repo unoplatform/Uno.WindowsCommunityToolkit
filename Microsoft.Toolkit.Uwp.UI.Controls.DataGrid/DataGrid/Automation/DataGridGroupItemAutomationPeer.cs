@@ -461,8 +461,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Automation.Peers
                 {
                     // Adjust the row index to be relative to the DataGrid instead of the group
                     row = groupInfo.Slot - this.OwningDataGrid.RowGroupHeadersTable.GetIndexCount(0, groupInfo.Slot) + row + 1;
-                    Debug.Assert(row >= 0, "Expected positive row.");
-                    Debug.Assert(row < this.OwningDataGrid.DataConnection.Count, "Expected row smaller than this.OwningDataGrid.DataConnection.Count.");
+                    System.Diagnostics.Debug.Assert(row >= 0, "Expected positive row.");
+                    System.Diagnostics.Debug.Assert(row < this.OwningDataGrid.DataConnection.Count, "Expected row smaller than this.OwningDataGrid.DataConnection.Count.");
                     int slot = this.OwningDataGrid.SlotFromRowIndex(row);
 
                     if (!this.OwningDataGrid.IsSlotVisible(slot))
@@ -471,12 +471,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Automation.Peers
                         this.OwningDataGrid.ScrollIntoView(item, this.OwningDataGrid.Columns[column]);
                     }
 
-                    Debug.Assert(this.OwningDataGrid.IsSlotVisible(slot), "Expected OwningDataGrid.IsSlotVisible(slot) is true.");
+                    System.Diagnostics.Debug.Assert(this.OwningDataGrid.IsSlotVisible(slot), "Expected OwningDataGrid.IsSlotVisible(slot) is true.");
 
                     DataGridRow dgr = this.OwningDataGrid.DisplayData.GetDisplayedElement(slot) as DataGridRow;
 
                     // the first cell is always the indentation filler cell if grouping is enabled, so skip it
-                    Debug.Assert(column + 1 < dgr.Cells.Count, "Expected column + 1 smaller than dgr.Cells.Count.");
+                    System.Diagnostics.Debug.Assert(column + 1 < dgr.Cells.Count, "Expected column + 1 smaller than dgr.Cells.Count.");
                     DataGridCell cell = dgr.Cells[column + 1];
                     AutomationPeer peer = CreatePeerForElement(cell);
                     if (peer != null)

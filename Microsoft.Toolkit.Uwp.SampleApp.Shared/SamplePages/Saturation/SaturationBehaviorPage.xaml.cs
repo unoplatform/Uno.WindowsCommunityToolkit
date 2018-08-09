@@ -38,7 +38,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
                 var behaviors = Interaction.GetBehaviors(element);
                 _saturationBehavior = behaviors.FirstOrDefault(item => item is Saturation) as Saturation;
             }
-#endif
 		}
 	}
 }

@@ -271,7 +271,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Utilities
         /// </param>
         public static void GoToState(Control control, bool useTransitions, params string[] stateNames)
         {
-            Debug.Assert(control != null, "Expected non-null control.");
+            System.Diagnostics.Debug.Assert(control != null, "Expected non-null control.");
 
             if (stateNames == null)
             {

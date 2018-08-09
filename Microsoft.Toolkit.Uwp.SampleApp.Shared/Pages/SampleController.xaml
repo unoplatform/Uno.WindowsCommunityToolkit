@@ -1,6 +1,8 @@
 ﻿<Page
     x:Class="Microsoft.Toolkit.Uwp.SampleApp.SampleController"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:xamarin="http://uno.ui/xamarin"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
       xmlns:controlsLocal="using:Microsoft.Toolkit.Uwp.SampleApp.Controls"
@@ -11,7 +13,7 @@
       xmlns:common="using:Microsoft.Toolkit.Uwp.SampleApp.Common"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:models="using:Microsoft.Toolkit.Uwp.SampleApp.Models"
-    mc:Ignorable="d">
+	  mc:Ignorable="d xamarin">
 
     <Grid>
 
@@ -48,9 +50,10 @@
                     <AppBarButton x:Name="GithubButton"
                         Click="GitHub_OnClick"
                         ToolTipService.ToolTip="View in GitHub"
+						xamarin:Content="Github"
                         Margin="5,0,0,0"
                         Width="50">
-                        <AppBarButton.Icon>
+                        <win:AppBarButton.Icon>
                             <PathIcon
                                 Data="{StaticResource GithubIcon}"
                                 Width="50"
@@ -60,7 +63,7 @@
                                     <CompositeTransform TranslateY="8" TranslateX="3" />
                                 </PathIcon.RenderTransform>
                             </PathIcon>
-                        </AppBarButton.Icon>
+                        </win:AppBarButton.Icon>
                     </AppBarButton>
 
                     <AppBarSeparator Margin="-10, 3, -10, 0" />

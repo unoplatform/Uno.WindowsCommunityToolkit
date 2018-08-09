@@ -1,4 +1,3 @@
-#if NETFX_CORE
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
@@ -61,7 +60,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
             _graphService.IsAuthenticatedChanged += GraphService_IsAuthenticatedChanged;
         }
 
-        private void AadAuthControl_Loading(FrameworkElement sender, object args)
+        private void AadAuthControl_Loading(object sender, object args)
         {
             IsEnabled = !_graphService.IsAuthenticated;
 
@@ -134,4 +133,3 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
         }
     }
 }
-#endif

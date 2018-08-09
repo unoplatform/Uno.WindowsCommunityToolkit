@@ -12,7 +12,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
     <DefineConstants>DEBUG</DefineConstants>
@@ -131,6 +131,10 @@
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj">
       <Project>{b24a296c-b3eb-4e06-a64e-74ac2d1acc91}</Project>
       <Name>Microsoft.Toolkit.Uwp.UI.Animations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.csproj">
+      <Project>{ae9086c5-6aad-4f37-b93d-1eb491aa8356}</Project>
+      <Name>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid</Name>
     </ProjectReference>
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.Graph\Microsoft.Toolkit.Uwp.UI.Controls.Graph.csproj">
       <Project>{d4d78cba-b238-4794-89a0-4f1a2d8fea97}</Project>

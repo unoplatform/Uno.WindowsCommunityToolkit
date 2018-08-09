@@ -279,8 +279,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Automation.Peers
                     column++;
                 }
 
-                Debug.Assert(column >= 0, "Expected positive column value.");
-                Debug.Assert(column < this.OwningDataGrid.ColumnsItemsInternal.Count, "Expected smaller column value.");
+                System.Diagnostics.Debug.Assert(column >= 0, "Expected positive column value.");
+                System.Diagnostics.Debug.Assert(column < this.OwningDataGrid.ColumnsItemsInternal.Count, "Expected smaller column value.");
                 DataGridCell cell = dgr.Cells[column];
                 AutomationPeer peer = CreatePeerForElement(cell);
                 if (peer != null)
@@ -550,8 +550,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Automation.Peers
                 DataGridRow row = this.OwningDataGrid.DisplayData.GetDisplayedElement(slot) as DataGridRow;
                 if (row != null)
                 {
-                    Debug.Assert(column >= 0, "Expected positive column value.");
-                    Debug.Assert(column < this.OwningDataGrid.ColumnsItemsInternal.Count, "Expected smaller column value.");
+                    System.Diagnostics.Debug.Assert(column >= 0, "Expected positive column value.");
+                    System.Diagnostics.Debug.Assert(column < this.OwningDataGrid.ColumnsItemsInternal.Count, "Expected smaller column value.");
                     DataGridCell cell = row.Cells[column];
                     return CreatePeerForElement(cell);
                 }

@@ -158,7 +158,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         protected override void ClearItems()
         {
-            Debug.Assert(_owningGrid != null, "Expected non-null owning DataGrid.");
+            System.Diagnostics.Debug.Assert(_owningGrid != null, "Expected non-null owning DataGrid.");
             try
             {
                 _owningGrid.NoCurrentCellChangeCount++;
@@ -194,7 +194,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         protected override void InsertItem(int columnIndex, DataGridColumn dataGridColumn)
         {
-            Debug.Assert(_owningGrid != null, "Expected non-null owning DataGrid.");
+            System.Diagnostics.Debug.Assert(_owningGrid != null, "Expected non-null owning DataGrid.");
             try
             {
                 _owningGrid.NoCurrentCellChangeCount++;
@@ -277,13 +277,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
             else if (!rowGrouping && spacerRepresented)
             {
-                Debug.Assert(this.ItemsInternal[0] == this.RowGroupSpacerColumn, "Unexpected RowGroupSpacerColumn value.");
+                System.Diagnostics.Debug.Assert(this.ItemsInternal[0] == this.RowGroupSpacerColumn, "Unexpected RowGroupSpacerColumn value.");
 
                 // We need to set IsRepresented to false before removing the RowGroupSpacerColumn
                 // otherwise, we'll remove the column after it
                 this.RowGroupSpacerColumn.IsRepresented = false;
                 RemoveItemPrivate(0, true /*isSpacer*/);
-                Debug.Assert(this.DisplayIndexMap.Count == this.ItemsInternal.Count, "Unexpected DisplayIndexMap.Count value.");
+                System.Diagnostics.Debug.Assert(this.DisplayIndexMap.Count == this.ItemsInternal.Count, "Unexpected DisplayIndexMap.Count value.");
                 return true;
             }
 
@@ -326,9 +326,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal int GetColumnCount(bool isVisible, bool isFrozen, int fromColumnIndex, int toColumnIndex)
         {
-            Debug.Assert(DisplayInOrder(fromColumnIndex, toColumnIndex), "Unexpected column display order.");
-            Debug.Assert(this.ItemsInternal[toColumnIndex].IsVisible == isVisible, "Unexpected column visibility state.");
-            Debug.Assert(this.ItemsInternal[toColumnIndex].IsFrozen == isFrozen, "Unexpected column frozen state.");
+            System.Diagnostics.Debug.Assert(DisplayInOrder(fromColumnIndex, toColumnIndex), "Unexpected column display order.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal[toColumnIndex].IsVisible == isVisible, "Unexpected column visibility state.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal[toColumnIndex].IsFrozen == isFrozen, "Unexpected column frozen state.");
 
             int columnCount = 0;
             DataGridColumn dataGridColumn = this.ItemsInternal[fromColumnIndex];
@@ -336,7 +336,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             while (dataGridColumn != this.ItemsInternal[toColumnIndex])
             {
                 dataGridColumn = GetNextColumn(dataGridColumn, isVisible, isFrozen, null /*isReadOnly*/);
-                Debug.Assert(dataGridColumn != null, "Expected non-null dataGridColumn.");
+                System.Diagnostics.Debug.Assert(dataGridColumn != null, "Expected non-null dataGridColumn.");
                 columnCount++;
             }
 
@@ -345,7 +345,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal IEnumerable<DataGridColumn> GetDisplayedColumns()
         {
-            Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
             foreach (int columnIndex in this.DisplayIndexMap)
             {
                 yield return this.ItemsInternal[columnIndex];
@@ -359,8 +359,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <returns>Columns that meet the criteria, in ascending DisplayIndex order.</returns>
         internal IEnumerable<DataGridColumn> GetDisplayedColumns(Predicate<DataGridColumn> filter)
         {
-            Debug.Assert(filter != null, "Expected non-null filter.");
-            Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
+            System.Diagnostics.Debug.Assert(filter != null, "Expected non-null filter.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
             foreach (int columnIndex in this.DisplayIndexMap)
             {
                 DataGridColumn column = this.ItemsInternal[columnIndex];
@@ -391,8 +391,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <returns>Columns that meet the criteria, in descending DisplayIndex order.</returns>
         internal IEnumerable<DataGridColumn> GetDisplayedColumnsReverse(Predicate<DataGridColumn> filter)
         {
-            Debug.Assert(filter != null, "Expected non-null filter.");
-            Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
+            System.Diagnostics.Debug.Assert(filter != null, "Expected non-null filter.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
             for (int displayIndex = this.DisplayIndexMap.Count - 1; displayIndex >= 0; displayIndex--)
             {
                 DataGridColumn column = this.ItemsInternal[this.DisplayIndexMap[displayIndex]];
@@ -405,7 +405,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal DataGridColumn GetFirstColumn(bool? isVisible, bool? isFrozen, bool? isReadOnly)
         {
-            Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
             int index = 0;
             while (index < this.DisplayIndexMap.Count)
             {
@@ -425,7 +425,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal DataGridColumn GetLastColumn(bool? isVisible, bool? isFrozen, bool? isReadOnly)
         {
-            Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
             int index = this.DisplayIndexMap.Count - 1;
             while (index >= 0)
             {
@@ -454,9 +454,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             bool? isFrozen,
             bool? isReadOnly)
         {
-            Debug.Assert(dataGridColumnStart != null, "Expected non-null dataGridColumnStart.");
-            Debug.Assert(this.ItemsInternal.Contains(dataGridColumnStart), "Expected dataGridColumnStart in ItemsInternal.");
-            Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
+            System.Diagnostics.Debug.Assert(dataGridColumnStart != null, "Expected non-null dataGridColumnStart.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal.Contains(dataGridColumnStart), "Expected dataGridColumnStart in ItemsInternal.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
 
             int index = dataGridColumnStart.DisplayIndexWithFiller + 1;
             while (index < this.DisplayIndexMap.Count)
@@ -497,9 +497,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             bool? isFrozen,
             bool? isReadOnly)
         {
-            Debug.Assert(dataGridColumnStart != null, "Expected non-null dataGridColumnStart.");
-            Debug.Assert(this.ItemsInternal.Contains(dataGridColumnStart), "Expected dataGridColumnStart in ItemsInternal.");
-            Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
+            System.Diagnostics.Debug.Assert(dataGridColumnStart != null, "Expected non-null dataGridColumnStart.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal.Contains(dataGridColumnStart), "Expected dataGridColumnStart in ItemsInternal.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal.Count == this.DisplayIndexMap.Count, "Unexpected DisplayIndexMap.Count value.");
 
             int index = dataGridColumnStart.DisplayIndexWithFiller - 1;
             while (index >= 0)
@@ -536,8 +536,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal int GetVisibleColumnCount(int fromColumnIndex, int toColumnIndex)
         {
-            Debug.Assert(DisplayInOrder(fromColumnIndex, toColumnIndex), "Unexpected column display order.");
-            Debug.Assert(this.ItemsInternal[toColumnIndex].IsVisible, "Unexpected column visibility state.");
+            System.Diagnostics.Debug.Assert(DisplayInOrder(fromColumnIndex, toColumnIndex), "Unexpected column display order.");
+            System.Diagnostics.Debug.Assert(this.ItemsInternal[toColumnIndex].IsVisible, "Unexpected column visibility state.");
 
             int columnCount = 0;
             DataGridColumn dataGridColumn = this.ItemsInternal[fromColumnIndex];
@@ -545,7 +545,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             while (dataGridColumn != this.ItemsInternal[toColumnIndex])
             {
                 dataGridColumn = GetNextVisibleColumn(dataGridColumn);
-                Debug.Assert(dataGridColumn != null, "Expected non-null dataGridColumn.");
+                System.Diagnostics.Debug.Assert(dataGridColumn != null, "Expected non-null dataGridColumn.");
                 columnCount++;
             }
 
@@ -586,7 +586,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private void RemoveItemPrivate(int columnIndex, bool isSpacer)
         {
-            Debug.Assert(_owningGrid != null, "Expected non-null owning DataGrid.");
+            System.Diagnostics.Debug.Assert(_owningGrid != null, "Expected non-null owning DataGrid.");
             try
             {
                 _owningGrid.NoCurrentCellChangeCount++;
@@ -603,7 +603,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                     columnIndexWithFiller++;
                 }
 
-                Debug.Assert(columnIndexWithFiller >= 0 && columnIndexWithFiller < this.ItemsInternal.Count, "Unexpected columnIndexWithFiller value.");
+                System.Diagnostics.Debug.Assert(columnIndexWithFiller >= 0 && columnIndexWithFiller < this.ItemsInternal.Count, "Unexpected columnIndexWithFiller value.");
 
                 DataGridColumn dataGridColumn = this.ItemsInternal[columnIndexWithFiller];
                 DataGridCellCoordinates newCurrentCellCoordinates = _owningGrid.OnRemovingColumn(dataGridColumn);

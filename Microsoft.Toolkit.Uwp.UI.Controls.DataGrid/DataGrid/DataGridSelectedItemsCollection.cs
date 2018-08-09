@@ -38,7 +38,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 }
 
                 int slot = _selectedSlotsTable.GetNthIndex(index);
-                Debug.Assert(slot >= 0, "Expected positive slot.");
+                System.Diagnostics.Debug.Assert(slot >= 0, "Expected positive slot.");
                 return this.OwningGrid.DataConnection.GetDataItem(this.OwningGrid.RowIndexFromSlot(slot));
             }
 
@@ -77,7 +77,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 throw DataGridError.DataGrid.ItemIsNotContainedInTheItemsSource("dataItem");
             }
 
-            Debug.Assert(itemIndex >= 0, "Expected positive itemIndex.");
+            System.Diagnostics.Debug.Assert(itemIndex >= 0, "Expected positive itemIndex.");
 
             int slot = this.OwningGrid.SlotFromRowIndex(itemIndex);
             if (_selectedSlotsTable.RangeCount == 0)
@@ -120,7 +120,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return false;
             }
 
-            Debug.Assert(itemIndex >= 0, "Expected positive itemIndex.");
+            System.Diagnostics.Debug.Assert(itemIndex >= 0, "Expected positive itemIndex.");
 
             return ContainsSlot(this.OwningGrid.SlotFromRowIndex(itemIndex));
         }
@@ -133,7 +133,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return -1;
             }
 
-            Debug.Assert(itemIndex >= 0, "Expected positive itemIndex.");
+            System.Diagnostics.Debug.Assert(itemIndex >= 0, "Expected positive itemIndex.");
 
             int slot = this.OwningGrid.SlotFromRowIndex(itemIndex);
             return _selectedSlotsTable.IndexOf(slot);
@@ -157,7 +157,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return;
             }
 
-            Debug.Assert(itemIndex >= 0, "Expected positive itemIndex.");
+            System.Diagnostics.Debug.Assert(itemIndex >= 0, "Expected positive itemIndex.");
 
             if (itemIndex == this.OwningGrid.CurrentSlot &&
                 !this.OwningGrid.CommitEdit(DataGridEditingUnit.Row, true /*exitEditing*/))
@@ -182,7 +182,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
 
             int rowIndex = _selectedSlotsTable.GetNthIndex(index);
-            Debug.Assert(rowIndex > -1, "Expected positive itemIndex.");
+            System.Diagnostics.Debug.Assert(rowIndex > -1, "Expected positive itemIndex.");
 
             if (rowIndex == this.OwningGrid.CurrentSlot &&
                 !this.OwningGrid.CommitEdit(DataGridEditingUnit.Row, true /*exitEditing*/))
@@ -226,14 +226,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         public IEnumerator GetEnumerator()
         {
-            Debug.Assert(this.OwningGrid != null, "Expected non-null owning DataGrid.");
-            Debug.Assert(this.OwningGrid.DataConnection != null, "Expected non-null owning DataGrid.DataConnection.");
-            Debug.Assert(_selectedSlotsTable != null, "Expected non-null _selectedSlotsTable.");
+            System.Diagnostics.Debug.Assert(this.OwningGrid != null, "Expected non-null owning DataGrid.");
+            System.Diagnostics.Debug.Assert(this.OwningGrid.DataConnection != null, "Expected non-null owning DataGrid.DataConnection.");
+            System.Diagnostics.Debug.Assert(_selectedSlotsTable != null, "Expected non-null _selectedSlotsTable.");
 
             foreach (int slot in _selectedSlotsTable.GetIndexes())
             {
                 int rowIndex = this.OwningGrid.RowIndexFromSlot(slot);
-                Debug.Assert(rowIndex > -1, "Expected positive rowIndex.");
+                System.Diagnostics.Debug.Assert(rowIndex > -1, "Expected positive rowIndex.");
                 yield return this.OwningGrid.DataConnection.GetDataItem(rowIndex);
             }
         }

@@ -11,7 +11,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     {
         internal DataGridCellEventArgs(DataGridCell dataGridCell)
         {
-            Debug.Assert(dataGridCell != null, "Expected non-null dataGridCell parameter.");
+            System.Diagnostics.Debug.Assert(dataGridCell != null, "Expected non-null dataGridCell parameter.");
 
             this.Cell = dataGridCell;
         }
