@@ -24,4 +24,6 @@
 		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
 	</PropertyGroup>
 
+	<Import Project="..\uno.ui.include.props" />
+
 </Project>

@@ -162,4 +162,7 @@
   <Import Project="Exclusions.props" />
   <!-- fake target to allow the nuget pack to work solution wide -->
   <Target Name="Pack" />
+	
+	<Import Project="..\uno.ui.include.props" />
+
 </Project>
