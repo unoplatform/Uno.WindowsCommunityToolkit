@@ -193,20 +193,20 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             {
                 if (!string.IsNullOrWhiteSpace(CurrentSample.Type))
                 {
-                    try
-                    {
-                        var pageInstance = Activator.CreateInstance(CurrentSample.PageType);
-                        SampleContent.Content = pageInstance;
-                    }
-                    catch
-                    {
-                        ExceptionNotification.Show("Sample Page failed to load.");
-                    }
-
-                    if (SamplePage != null)
-                    {
-                        SamplePage.Loaded += SamplePage_Loaded;
-                    }
+					try
+					{
+						var pageInstance = Activator.CreateInstance(CurrentSample.PageType);
+						if (pageInstance is Page page)
+						{
+							page.Loaded += SamplePage_Loaded;
+						}
+						SampleContent.Content = pageInstance;
+					}
+					catch(Exception ex)
+					{
+						Console.WriteLine("Sample failed to load " + ex);
+						ExceptionNotification.Show("Sample Page failed to load.");
+					}
                 }
                 else
                 {
@@ -233,7 +233,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
                 if (CurrentSample.HasXAMLCode)
                 {
-                    if (AnalyticsInfo.VersionInfo.GetDeviceFormFactor() != DeviceFormFactor.Desktop || CurrentSample.DisableXamlEditorRendering)
+                    if (
+#if !HAS_UNO
+						AnalyticsInfo.VersionInfo.GetDeviceFormFactor() != DeviceFormFactor.Desktop || 
+#endif
+						CurrentSample.DisableXamlEditorRendering
+					)
                     {
                         // Only makes sense (and works) for now to show Live Xaml on Desktop, so fallback to old system here otherwise.
                         XamlReadOnlyCodeRenderer.SetCode(CurrentSample.UpdatedXamlCode, "xaml");

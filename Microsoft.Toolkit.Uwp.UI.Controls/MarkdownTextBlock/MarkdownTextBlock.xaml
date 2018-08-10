@@ -1,8 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls">
+                    xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:xamarin="http://uno.ui/xamarin"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+					xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+					mc:Ignorable="d xamarin">
 
-    <ResourceDictionary.ThemeDictionaries>
+    <xamarin:SolidColorBrush x:Key="MarkdownBorderBrush" Color="#FFBEBEBE" />
+    <xamarin:SolidColorBrush x:Key="MarkdownBackgroundBrush" Color="#FFF6F8FA" />
+    <xamarin:SolidColorBrush x:Key="MarkdownInlineCodeBackgroundBrush" Color="#FFDDDFE1" />
+    <xamarin:SolidColorBrush x:Key="MarkdownQuoteForeground" Color="#FF6E747C" />
+	
+    <win:ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default" />
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush x:Key="MarkdownBorderBrush" Color="#FFBEBEBE" />
@@ -16,7 +26,7 @@
             <SolidColorBrush x:Key="MarkdownInlineCodeBackgroundBrush" Color="#FF363636" />
             <SolidColorBrush x:Key="MarkdownQuoteForeground" Color="#FFBEC1C5" />
         </ResourceDictionary>
-    </ResourceDictionary.ThemeDictionaries>
+    </win:ResourceDictionary.ThemeDictionaries>
 
     <Style TargetType="controls:MarkdownTextBlock">
         <Setter Property="IsTabStop" Value="False" />

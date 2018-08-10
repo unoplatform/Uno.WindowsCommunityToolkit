@@ -243,7 +243,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             bool isDesignMode = Windows.ApplicationModel.DesignMode.DesignModeEnabled;
 
-            if (this.Binding != null || !isDesignMode)
+            if (this.Binding != null) // UNO TODO || !isDesignMode)
             {
                 textBlockElement.SetBinding(TextBlock.TextProperty, this.Binding);
             }

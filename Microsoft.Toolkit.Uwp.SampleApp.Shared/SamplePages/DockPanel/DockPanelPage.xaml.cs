@@ -25,9 +25,15 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         {
             InitializeComponent();
             Load();
+			Loaded += DockPanelPage_Loaded;
         }
 
-        public void OnXamlRendered(FrameworkElement control)
+		private void DockPanelPage_Loaded(object sender, RoutedEventArgs e)
+		{
+			Console.WriteLine("DockPanelPage_Loaded");
+		}
+
+		public void OnXamlRendered(FrameworkElement control)
         {
             _sampleDockPanel = control.FindChildByName("SampleDockPanel") as DockPanel;
         }

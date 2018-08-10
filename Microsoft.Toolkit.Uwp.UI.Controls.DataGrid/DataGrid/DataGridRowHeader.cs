@@ -166,9 +166,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Primitives
         {
             this.IsTapEnabled = true;
 
+#if !HAS_UNO
             this.AddHandler(UIElement.TappedEvent, new TappedEventHandler(DataGridRowHeader_Tapped), true /*handledEventsToo*/);
+#else
+			Tapped += DataGridRowHeader_Tapped;
+#endif
 
-            DefaultStyleKey = typeof(DataGridRowHeader);
+			DefaultStyleKey = typeof(DataGridRowHeader);
         }
 
         /// <summary>

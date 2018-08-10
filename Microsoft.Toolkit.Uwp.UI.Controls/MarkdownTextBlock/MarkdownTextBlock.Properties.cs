@@ -23,7 +23,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     {
         // SvgImageSource was introduced in Creators Update (15063)
         private static readonly bool _isSvgImageSupported = ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 4);
-
+		 
         // Used to attach the URL to hyperlinks.
         private static readonly DependencyProperty HyperlinkUrlProperty =
             DependencyProperty.RegisterAttached("HyperlinkUrl", typeof(string), typeof(MarkdownTextBlock), new PropertyMetadata(null));

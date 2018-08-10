@@ -447,6 +447,8 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\MultnomahFalls.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\NorthernCascadesReflection.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\NovemberHikeWaterfall.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\pixel.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Samples\RangeSelector.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\DataGrid\DataGrid.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PlannerTaskList\PlannerTaskList.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PowerBIEmbedded\PowerBIEmbedded.png" />
@@ -1224,5 +1226,8 @@
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\DataGrid\DataGridCode.bind" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\PlannerTaskList\PlannerTaskListXaml.bind" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\mtns.csv" />
   </ItemGroup>
 </Project>

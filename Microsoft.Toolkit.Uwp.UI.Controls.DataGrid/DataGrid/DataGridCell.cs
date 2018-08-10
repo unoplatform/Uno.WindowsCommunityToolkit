@@ -44,9 +44,14 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         public DataGridCell()
         {
             this.IsTapEnabled = true;
-            this.AddHandler(UIElement.TappedEvent, new TappedEventHandler(DataGridCell_PointerTapped), true /*handledEventsToo*/);
 
-            this.PointerCanceled += new PointerEventHandler(DataGridCell_PointerCanceled);
+#if !HAS_UNO
+			this.AddHandler(UIElement.TappedEvent, new TappedEventHandler(DataGridCell_PointerTapped), true /*handledEventsToo*/);
+#else
+			Tapped += DataGridCell_PointerTapped;
+#endif
+
+			this.PointerCanceled += new PointerEventHandler(DataGridCell_PointerCanceled);
             this.PointerCaptureLost += new PointerEventHandler(DataGridCell_PointerCaptureLost);
             this.PointerPressed += new PointerEventHandler(DataGridCell_PointerPressed);
             this.PointerReleased += new PointerEventHandler(DataGridCell_PointerReleased);

@@ -174,9 +174,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             this.Cells.CellAdded += new EventHandler<DataGridCellEventArgs>(DataGridCellCollection_CellAdded);
             this.Cells.CellRemoved += new EventHandler<DataGridCellEventArgs>(DataGridCellCollection_CellRemoved);
 
-            this.AddHandler(UIElement.TappedEvent, new TappedEventHandler(DataGridRow_Tapped), true /*handledEventsToo*/);
+#if !HAS_UNO
+			this.AddHandler(UIElement.TappedEvent, new TappedEventHandler(DataGridRow_Tapped), true /*handledEventsToo*/);
+#else
+			Tapped += DataGridRow_Tapped;
+#endif
 
-            this.PointerCanceled += new PointerEventHandler(DataGridRow_PointerCanceled);
+			this.PointerCanceled += new PointerEventHandler(DataGridRow_PointerCanceled);
             this.PointerCaptureLost += new PointerEventHandler(DataGridRow_PointerCaptureLost);
             this.PointerPressed += new PointerEventHandler(DataGridRow_PointerPressed);
             this.PointerReleased += new PointerEventHandler(DataGridRow_PointerReleased);

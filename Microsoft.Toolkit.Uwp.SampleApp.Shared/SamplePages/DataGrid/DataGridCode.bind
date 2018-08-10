@@ -40,7 +40,7 @@
     <StackPanel Orientation="Horizontal" Margin="12">
       <TextBlock Text="DataGrid Sample : Mountains" VerticalAlignment="Center" Margin="5,0" Style="{ThemeResource SubtitleTextBlockStyle}"></TextBlock>
       <AppBarButton Icon="Filter" Label="Filter by">
-        <AppBarButton.Flyout>
+        <!--<AppBarButton.Flyout>
           <MenuFlyout>
             <MenuFlyoutItem x:Name="rankLow" Text="Rank &lt; 50" />
             <MenuFlyoutItem x:Name="rankHigh" Text="Rank &gt; 50" />
@@ -48,7 +48,7 @@
             <MenuFlyoutItem x:Name="heightLow" Text="Height &lt; 8000ft" />
             <MenuFlyoutItem x:Name="heightHigh" Text="Height &gt; 8000ft" />
           </MenuFlyout>
-        </AppBarButton.Flyout>
+        </AppBarButton.Flyout>-->
       </AppBarButton>
       <AppBarButton x:Name="groupButton" Icon="List" Label="Group by" />
     </StackPanel>

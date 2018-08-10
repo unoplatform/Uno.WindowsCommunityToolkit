@@ -236,7 +236,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
         {
             if (LandingPageLinks == null)
             {
-                using (var jsonStream = await StreamHelper.GetPackagedFileStreamAsync("landingPageLinks.json"))
+                using (var jsonStream = await StreamHelper.GetEmbeddedFileStreamAsync(GetType(), "landingPageLinks.json"))
                 {
                     var jsonString = await jsonStream.ReadTextAsync();
                     var links = JsonConvert.DeserializeObject<LandingPageLinks>(jsonString);
