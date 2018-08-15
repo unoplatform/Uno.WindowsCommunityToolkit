@@ -191,28 +191,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
             if (CurrentSample != null)
             {
-                if (!string.IsNullOrWhiteSpace(CurrentSample.Type))
-                {
-					try
-					{
-						var pageInstance = Activator.CreateInstance(CurrentSample.PageType);
-						if (pageInstance is Page page)
-						{
-							page.Loaded += SamplePage_Loaded;
-						}
-						SampleContent.Content = pageInstance;
-					}
-					catch(Exception ex)
-					{
-						Console.WriteLine("Sample failed to load " + ex);
-						ExceptionNotification.Show("Sample Page failed to load.");
-					}
-                }
-                else
-                {
-                    _onlyDocumentation = true;
-                }
-
                 DataContext = CurrentSample;
 
                 await Samples.PushRecentSample(CurrentSample);
@@ -229,9 +207,31 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 if (propertyDesc != null && propertyDesc.Options.Count > 0)
                 {
                     InfoAreaPivot.Items.Add(PropertiesPivotItem);
-                }
+				}
 
-                if (CurrentSample.HasXAMLCode)
+				if (!string.IsNullOrWhiteSpace(CurrentSample.Type))
+				{
+					try
+					{
+						var pageInstance = Activator.CreateInstance(CurrentSample.PageType);
+						if (pageInstance is Page page)
+						{
+							page.Loaded += SamplePage_Loaded;
+						}
+						SampleContent.Content = pageInstance;
+					}
+					catch(Exception ex)
+					{
+						Console.WriteLine("Sample failed to load " + ex);
+						ExceptionNotification.Show("Sample Page failed to load.");
+					}
+				}
+				else
+				{
+					_onlyDocumentation = true;
+				}
+
+				if (CurrentSample.HasXAMLCode)
                 {
                     if (
 #if !HAS_UNO
