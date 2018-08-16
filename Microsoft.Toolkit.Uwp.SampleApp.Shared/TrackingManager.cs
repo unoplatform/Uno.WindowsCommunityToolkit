@@ -3,6 +3,8 @@
 // See the LICENSE file in the project root for more information.
 
 using System;
+using Uno.Extensions;
+using Uno.Logging;
 
 #if NETFX_CORE
 using Microsoft.Services.Store.Engagement;
@@ -12,7 +14,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 {
     public static class TrackingManager
     {
- #if NETFX_CORE
+#if NETFX_CORE
        private static StoreServicesCustomEventLogger logger;
 
         static TrackingManager()
@@ -28,8 +30,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         }
 #endif
 
-        public static void TrackException(Exception ex)
-        {
+		public static void TrackException(Exception ex) =>
 #if NETFX_CORE
         try
             {
@@ -39,10 +40,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             {
                 // Ignore error
             }
+#elif HAS_UNO
+			typeof(TrackingManager).Log().Error("Unhandled exception", ex);
 #endif
-        }
 
-        public static void TrackEvent(string category, string action, string label = "", long value = 0)
+
+		public static void TrackEvent(string category, string action, string label = "", long value = 0)
         {
 #if NETFX_CORE
            try
