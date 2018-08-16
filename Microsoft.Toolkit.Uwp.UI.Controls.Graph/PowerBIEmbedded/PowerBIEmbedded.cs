@@ -7,15 +7,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Microsoft.PowerBI.Api.V2;
-using Microsoft.PowerBI.Api.V2.Models;
-using Microsoft.Rest;
 using Microsoft.Toolkit.Services.MicrosoftGraph;
 using Newtonsoft.Json;
 using Windows.Foundation;
 using Windows.Graphics.Display;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+
+#if !NETSTANDARD2_0
+using Microsoft.Rest;
+using Microsoft.PowerBI.Api.V2;
+using Microsoft.PowerBI.Api.V2.Models;
+#endif
 
 namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
 {
@@ -123,6 +126,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
 
         private async Task LoadReportAsync()
         {
+#if !NETSTANDARD2_0
             if (Uri.TryCreate(EmbedUrl, UriKind.Absolute, out Uri embedUri))
             {
                 string token = await GetUserTokenAsync();
@@ -162,11 +166,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             {
                 throw new ArgumentException(nameof(EmbedUrl));
             }
+#endif
         }
 
         private async Task LoadGroupAsync()
         {
-            string token = await GetUserTokenAsync();
+#if !NETSTANDARD2_0
+           string token = await GetUserTokenAsync();
 
             if (!string.IsNullOrEmpty(token))
             {
@@ -201,6 +207,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             {
                 ClearReport();
             }
+#endif
         }
 
         private void ClearReport()
