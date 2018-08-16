@@ -3182,16 +3182,23 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
             else
             {
-                if (_rowsPresenter != null)
-                {
-                    _rowsPresenter.InvalidateMeasure();
-                }
+#if !HAS_UNO
+				// This section is commented out in Uno until the measure
+				// loop in uno is adressed
 
-                InvalidateColumnHeadersMeasure();
+				if (_rowsPresenter != null)
+				{
+					_rowsPresenter.InvalidateMeasure();
+				}
 
-                desiredSize = base.MeasureOverride(availableSize);
+				 InvalidateColumnHeadersMeasure();
+#endif
 
-                ComputeScrollBarsLayout();
+				desiredSize = base.MeasureOverride(availableSize);
+
+#if !HAS_UNO
+               ComputeScrollBarsLayout();
+#endif
             }
 
             return desiredSize;

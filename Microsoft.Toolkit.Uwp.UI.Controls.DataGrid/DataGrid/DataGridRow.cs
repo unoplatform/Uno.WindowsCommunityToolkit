@@ -782,23 +782,28 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return base.MeasureOverride(availableSize);
             }
 
-            // Allow the DataGrid specific componets to adjust themselves based on new values
-            if (_headerElement != null)
-            {
-                _headerElement.InvalidateMeasure();
-            }
+#if !HAS_UNO
+			// This section is commented out for uno until the measure
+			// infinite loop is fixed.
 
-            if (_cellsElement != null)
-            {
-                _cellsElement.InvalidateMeasure();
-            }
+			// Allow the DataGrid specific componets to adjust themselves based on new values
+			if (_headerElement != null)
+			{
+				_headerElement.InvalidateMeasure();
+			}
 
-            if (_detailsElement != null)
-            {
-                _detailsElement.InvalidateMeasure();
-            }
+			if (_cellsElement != null)
+			{
+				_cellsElement.InvalidateMeasure();
+			}
 
-            bool currentAddItemIsDataContext = false;
+			if (_detailsElement != null)
+			{
+				_detailsElement.InvalidateMeasure();
+			}
+#endif
+
+			bool currentAddItemIsDataContext = false;
 #if FEATURE_IEDITABLECOLLECTIONVIEW
             currentAddItemIsDataContext = this.OwningGrid.DataConnection.EditableCollectionView.CurrentAddItem == this.DataContext;
 #endif
