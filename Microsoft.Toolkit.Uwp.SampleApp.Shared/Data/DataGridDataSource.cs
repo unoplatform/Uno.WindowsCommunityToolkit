@@ -28,7 +28,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Data
 		{
 			using (var stream = await StreamHelper.GetEmbeddedFileStreamAsync(GetType(), "mtns.csv"))
 			{
-				_items = new ObservableCollection<DataGridDataItem>();
+				var list = new List<DataGridDataItem>();
 
 				using (var sr = new StreamReader(stream))
 				{
@@ -37,7 +37,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Data
 						string line = sr.ReadLine();
 						string[] values = line.Split(',');
 
-						_items.Add(
+						list.Add(
 							new DataGridDataItem()
 							{
 								Rank = uint.Parse(values[0]),
@@ -53,6 +53,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Data
 					}
 				}
 
+				_items = new ObservableCollection<DataGridDataItem>(
+					list
+#if __WASM__
+					.Take(5)
+#endif
+				);
 				return _items;
 			}
         }
