@@ -19,70 +19,73 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     [StyleTypedProperty(Property = "EditingElementStyle", StyleTargetType = typeof(FrameworkElement))]
     public abstract class DataGridBoundColumn : DataGridColumn
     {
-        private Style _elementStyle;
+		private Binding _binding;
+		private Style _elementStyle;
         private Style _editingElementStyle;
 
-
-		public Binding Binding
+		/// <summary>
+		/// Gets or sets the binding that associates the column with a property in the data source.
+		/// </summary>
+		public virtual Binding Binding
 		{
-			get { return (Binding)GetValue(BindingProperty); }
-			set { SetValue(BindingProperty, value); }
-		}
-
-		// Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
-		public static readonly DependencyProperty BindingProperty =
-			DependencyProperty.Register("MyProperty", typeof(Binding), typeof(DataGridBoundColumn), new PropertyMetadata(null, (s, e) => ((DataGridBoundColumn)s)?.OnMyPropertyChanged(e)));
-
-
-		private void OnMyPropertyChanged(DependencyPropertyChangedEventArgs e)
-		{
-			var newBinding = e.NewValue as Binding;
-
-			if (this.OwningGrid != null && !this.OwningGrid.CommitEdit(DataGridEditingUnit.Row, true /*exitEditing*/))
+			get
 			{
-				// Edited value couldn't be committed, so we force a CancelEdit
-				this.OwningGrid.CancelEdit(DataGridEditingUnit.Row, false /*raiseEvents*/);
+				return _binding;
 			}
 
-			if (newBinding != null)
+			set
 			{
-				// Force the TwoWay binding mode if there is a Path present.  TwoWay binding requires a Path.
-				if (newBinding.Path != null && !string.IsNullOrEmpty(newBinding.Path.Path))
+				if (_binding != value)
 				{
-					newBinding.Mode = BindingMode.TwoWay;
-				}
+					if (this.OwningGrid != null && !this.OwningGrid.CommitEdit(DataGridEditingUnit.Row, true /*exitEditing*/))
+					{
+						// Edited value couldn't be committed, so we force a CancelEdit
+						this.OwningGrid.CancelEdit(DataGridEditingUnit.Row, false /*raiseEvents*/);
+					}
 
-				if (newBinding.Converter == null)
-				{
-					newBinding.Converter = new DataGridValueConverter();
-				}
+					_binding = value;
+
+					if (_binding != null)
+					{
+						// Force the TwoWay binding mode if there is a Path present.  TwoWay binding requires a Path.
+						if (_binding.Path != null && !string.IsNullOrEmpty(_binding.Path.Path))
+						{
+							_binding.Mode = BindingMode.TwoWay;
+						}
+
+						if (_binding.Converter == null)
+						{
+							_binding.Converter = new DataGridValueConverter();
+						}
 
 #if !WINDOWS_UWP && !HAS_UNO
-                // Setup the binding for validation
-                newBinding.ValidatesOnDataErrors = true;
-                newBinding.ValidatesOnExceptions = true;
-                newBindingnewBinding.NotifyOnValidationError = true;
+                        // Setup the binding for validation
+                        _binding.ValidatesOnDataErrors = true;
+                        _binding.ValidatesOnExceptions = true;
+                        _binding.NotifyOnValidationError = true;
 #endif
-				newBinding.UpdateSourceTrigger = UpdateSourceTrigger.Explicit;
+						_binding.UpdateSourceTrigger = UpdateSourceTrigger.Explicit;
 
-				// Apply the new Binding to existing rows in the DataGrid
-				if (this.OwningGrid != null)
-				{
-					// TODO: We want to clear the Bindings if Binding is set to null
-					// but there's no way to do that right now.  Revisit this if UWP
-					// implements the equivalent of BindingOperations.ClearBinding.
-					this.OwningGrid.OnColumnBindingChanged(this);
+						// Apply the new Binding to existing rows in the DataGrid
+						if (this.OwningGrid != null)
+						{
+							// TODO: We want to clear the Bindings if Binding is set to null
+							// but there's no way to do that right now.  Revisit this if UWP
+							// implements the equivalent of BindingOperations.ClearBinding.
+							this.OwningGrid.OnColumnBindingChanged(this);
+						}
+					}
+
+					this.RemoveEditingElement();
 				}
 			}
-
-			this.RemoveEditingElement();
 		}
 
-        /// <summary>
-        /// Gets or sets the binding that will be used to get or set cell content for the clipboard.
-        /// If the base ClipboardContentBinding is not explicitly set, this will return the value of Binding.
-        /// </summary>
-        public override Binding ClipboardContentBinding
+		/// <summary>
+		/// Gets or sets the binding that will be used to get or set cell content for the clipboard.
+		/// If the base ClipboardContentBinding is not explicitly set, this will return the value of Binding.
+		/// </summary>
+		public override Binding ClipboardContentBinding
         {
             get
             {
