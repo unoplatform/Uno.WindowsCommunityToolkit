@@ -6146,6 +6146,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 else
                 {
                     success = dataGridCell.Focus(FocusState.Programmatic);
+					(dataGridCell.Content as Control).Focus(FocusState.Programmatic);
                 }
 
                 _focusEditingControl = !success;

@@ -7,6 +7,7 @@
 		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
 		<WasmHead>true</WasmHead>
 		<WasmPWAManifestFile>manifest.json</WasmPWAManifestFile>
+		<NoWarn>$(NoWarm);Uno0001</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,6 +17,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
 		<PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
 		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
+		<Reference Include="System.Net.Http" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 	<PropertyGroup>
-		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid80;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
 		<Title>Windows Community Toolkit Controls DataGrid</Title>
 		<Description>This library provides a XAML DataGrid control. It is part of the Windows Community Toolkit.</Description>
 		<PackageTags>UWP Toolkit Windows Controls XAML DataGrid</PackageTags>
@@ -45,6 +45,15 @@
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="DataGrid\DataGrid.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Update="Themes\Generic.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 
 	<!-- https://weblogs.asp.net/rweigelt/disable-warnings-in-generated-c-files-of-uwp-app -->

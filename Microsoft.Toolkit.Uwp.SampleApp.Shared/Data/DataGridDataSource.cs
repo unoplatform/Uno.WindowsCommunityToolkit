@@ -55,8 +55,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Data
 
 				_items = new ObservableCollection<DataGridDataItem>(
 					list
-#if __WASM__
-					.Take(5)
+#if true //__WASM__
+					.Take(2)
 #endif
 				);
 				return _items;

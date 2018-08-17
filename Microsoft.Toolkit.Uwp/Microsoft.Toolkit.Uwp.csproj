@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
 	<PropertyGroup>
-		<TargetFrameworks>xamarinios10;uap10.0;MonoAndroid71;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
 		<Title>Windows Community Toolkit</Title>
 		<Description>This package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc.</Description>
 		<PackageTags>UWP Toolkit Windows</PackageTags>

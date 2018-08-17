@@ -1,8 +1,8 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.4;MonoAndroid71;xamarinios10;uap10.0;netstandard2.0</TargetFrameworks>
-    <Description>This .NET standard library contains various Parsers. It is part of the Windows Community Toolkit.</Description>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+		<Description>This .NET standard library contains various Parsers. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Parsers Parsing Markdown RSS</PackageTags>
     <Title>Windows Community Toolkit .NET Standard Parsers</Title>
 		<PackageId>Uno.Microsoft.Toolkit.Parsers</PackageId>
