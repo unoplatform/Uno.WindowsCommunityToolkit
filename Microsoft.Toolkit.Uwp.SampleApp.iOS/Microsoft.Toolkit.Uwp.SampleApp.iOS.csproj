@@ -114,7 +114,7 @@
 		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.Uwp.Managed">
       <Version>2.0.1-uno.28</Version>
     </PackageReference>
-    <PackageReference Include="Uno.UI" Version="1.31.0-dev.191" />
+    <PackageReference Include="Uno.UI" Version="1.41.0-dev.481" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj">
@@ -163,7 +163,5 @@
   <Import Project="Exclusions.props" />
   <!-- fake target to allow the nuget pack to work solution wide -->
   <Target Name="Pack" />
-	
-	<Import Project="..\uno.ui.include.props" />
 
 </Project>

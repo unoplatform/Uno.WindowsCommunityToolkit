@@ -25,7 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
-		<PackageReference Include="Uno.UI" Version="1.31.0-dev.191" />
+		<PackageReference Include="Uno.UI" Version="1.41.0-dev.481" />
 	</ItemGroup>
 
 	<Import Project="..\uno.ui.include.props" />

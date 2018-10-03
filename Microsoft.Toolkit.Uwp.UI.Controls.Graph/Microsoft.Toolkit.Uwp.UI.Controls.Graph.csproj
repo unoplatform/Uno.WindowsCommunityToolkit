@@ -29,7 +29,7 @@
   </ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'  or '$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="Uno.UI" Version="1.31.0-dev.191" />
+		<PackageReference Include="Uno.UI" Version="1.41.0-dev.481" />
 		<PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="3.13.7" />
 	</ItemGroup>
 

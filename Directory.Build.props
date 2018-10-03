@@ -12,8 +12,8 @@
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Toolkit.ruleset</CodeAnalysisRuleSet>
     
     <DefaultLanguage>en-US</DefaultLanguage>
-		<TargetFrameworksOverride>xamarinios10</TargetFrameworksOverride>
-		<!--<TargetFrameworksOverride>uap10.0;MonoAndroid71;xamarinios10;netstandard2.0</TargetFrameworksOverride>-->
+		<!--<TargetFrameworksOverride>xamarinios10</TargetFrameworksOverride>-->
+		<TargetFrameworksOverride>uap10.0;MonoAndroid71;xamarinios10;netstandard2.0</TargetFrameworksOverride>
 
     <IsDesignProject>$(MSBuildProjectName.Contains('.Design'))</IsDesignProject>
     <IsTestProject>$(MSBuildProjectName.Contains('Test'))</IsTestProject>
