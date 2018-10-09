@@ -433,6 +433,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\People\petri.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\People\shen.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\People\vlad.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\Backgrounds\HERO.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\BigFourSummerHeat.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\BisonBadlandsChillin.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\ColumbiaRiverGorge.jpg" />
@@ -711,7 +712,7 @@
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\RotatorTile\RotatorTile.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\RotatorTile\RotatorTileCode.bind" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\samples.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\Saturation\SaturationBehavior.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\Saturation\SaturationBehaviorCode.bind" />

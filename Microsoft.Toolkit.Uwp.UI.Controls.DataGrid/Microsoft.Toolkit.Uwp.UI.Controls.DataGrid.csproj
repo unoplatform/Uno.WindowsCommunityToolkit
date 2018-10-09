@@ -9,7 +9,7 @@
 
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid</PackageId>
 		<NoWarn>$(NoWarn);Uno0001</NoWarn>
-	</PropertyGroup>
+	</PropertyGroup> 
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
 		<None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />

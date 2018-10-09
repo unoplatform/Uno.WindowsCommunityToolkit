@@ -31,7 +31,7 @@ namespace Microsoft.Toolkit.Uwp.Samples.Wpf
 			var configuration = "Release";
 #endif
 
-			UnoHostView.Init(() => Microsoft.Toolkit.Uwp.SampleApp.Wasm.Program.Main(new string[0]), $@"..\..\..\..\MyApp.Wasm\bin\{configuration}\netstandard2.0\dist");
+			UnoHostView.Init(() => Microsoft.Toolkit.Uwp.SampleApp.Wasm.Program.Main(new string[0]), $@"..\..\..\..\Microsoft.Toolkit.Uwp.SampleApp.Wasm\bin\{configuration}\netstandard2.0\dist");
 		}
 	}
 }
