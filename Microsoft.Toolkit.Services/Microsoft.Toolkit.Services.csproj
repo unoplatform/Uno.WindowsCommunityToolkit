@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
@@ -33,7 +33,7 @@
   </ItemGroup>
 	
 	<ItemGroup Condition="'$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="Uno.UI" Version="1.41.0-dev.481" />
+		<PackageReference Include="Uno.UI" Version="1.41.1-dev.132" />
 		<Reference Include="System.Runtime.Serialization" />
 		<Reference Include="System.Xml" />
 		<Reference Include="System.Xml.Linq" />
