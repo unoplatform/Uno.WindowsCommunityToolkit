@@ -1,15 +1,15 @@
 <Project Sdk="MSBuild.Sdk.Extras">
-	<PropertyGroup>
-		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
-		<Title>Windows Community Toolkit Controls DataGrid</Title>
-		<Description>This library provides a XAML DataGrid control. It is part of the Windows Community Toolkit.</Description>
-		<PackageTags>UWP Toolkit Windows Controls XAML DataGrid</PackageTags>
-		<RootNamespace>Microsoft.Toolkit.Uwp.UI.Controls.DG</RootNamespace>
-		<UseUwpMetaPackage>true</UseUwpMetaPackage>
+  <PropertyGroup>
+    <TargetFramework>$(TargetFrameworksOverride)</TargetFramework>
+    <Title>Windows Community Toolkit Controls DataGrid</Title>
+    <Description>This library provides a XAML DataGrid control. It is part of the Windows Community Toolkit.</Description>
+    <PackageTags>UWP Toolkit Windows Controls XAML DataGrid</PackageTags>
+    <RootNamespace>Microsoft.Toolkit.Uwp.UI.Controls</RootNamespace>
+    <UseUwpMetaPackage>true</UseUwpMetaPackage>
 
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid</PackageId>
 		<NoWarn>$(NoWarn);Uno0001</NoWarn>
-	</PropertyGroup> 
+  </PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
 		<None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />

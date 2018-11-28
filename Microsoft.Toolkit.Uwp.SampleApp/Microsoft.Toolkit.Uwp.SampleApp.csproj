@@ -11,8 +11,8 @@
     <AssemblyName>Microsoft.Toolkit.Uwp.SampleApp</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.17134.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.17763.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -122,8 +122,11 @@
     <PackageReference Include="Microsoft.Services.Store.Engagement">
       <Version>10.1711.28001</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.UI.Xaml">
+      <Version>2.0.181011001</Version>
+    </PackageReference>
     <PackageReference Include="Monaco.Editor">
-      <Version>0.6.0-alpha</Version>
+      <Version>0.7.0-alpha</Version>
     </PackageReference>
     <PackageReference Include="StyleCop.Analyzers">
       <Version>1.0.2</Version>
@@ -146,6 +149,246 @@
   </ItemGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\NotificationAssets\Cloudy-Square.png" />
+    <Content Include="Assets\NotificationAssets\Cloudy.png" />
+    <Content Include="Assets\NotificationAssets\Drizzle-Square.png" />
+    <Content Include="Assets\NotificationAssets\Drizzle.png" />
+    <Content Include="Assets\NotificationAssets\Haze-Square.png" />
+    <Content Include="Assets\NotificationAssets\Haze.png" />
+    <Content Include="Assets\NotificationAssets\Mostly Cloudy-Background.jpg" />
+    <Content Include="Assets\NotificationAssets\Mostly Cloudy-Square.png" />
+    <Content Include="Assets\NotificationAssets\Mostly Cloudy.png" />
+    <Content Include="Assets\NotificationAssets\Slight Drizzle-Square.png" />
+    <Content Include="Assets\NotificationAssets\Slight Drizzle.png" />
+    <Content Include="Assets\NotificationAssets\Snow-Square.png" />
+    <Content Include="Assets\NotificationAssets\Snow.png" />
+    <Content Include="Assets\NotificationAssets\Sunny-Square.png" />
+    <Content Include="Assets\NotificationAssets\Sunny.png" />
+    <Content Include="Assets\NotificationAssets\Thunderstorms-Square.png" />
+    <Content Include="Assets\NotificationAssets\Thunderstorms.png" />
+    <Content Include="Assets\People\dave.png" />
+    <Content Include="Assets\People\david.png" />
+    <Content Include="Assets\People\giorgio.png" />
+    <Content Include="Assets\People\jeff.png" />
+    <Content Include="Assets\People\nikola.png" />
+    <Content Include="Assets\People\pete.png" />
+    <Content Include="Assets\People\petri.png" />
+    <Content Include="Assets\People\shen.png" />
+    <Content Include="Assets\People\vlad.png" />
+    <Content Include="Assets\Photos\Backgrounds\HERO.jpg" />
+    <Content Include="Assets\Photos\BigFourSummerHeat.jpg" />
+    <Content Include="Assets\Photos\BisonBadlandsChillin.jpg" />
+    <Content Include="Assets\Photos\ColumbiaRiverGorge.jpg" />
+    <Content Include="Assets\Photos\GiantSlabInOregon.jpg" />
+    <Content Include="Assets\Photos\GrandTetons.jpg" />
+    <Content Include="Assets\Photos\ImageExPlaceholder.jpg" />
+    <Content Include="Assets\Photos\LakeAnnMushroom.jpg" />
+    <Content Include="Assets\Photos\LunchBreak.jpg" />
+    <Content Include="Assets\Photos\MilkyWayStHelensHikePurple.jpg" />
+    <Content Include="Assets\Photos\MitchellButtes.jpg" />
+    <Content Include="Assets\Photos\MultnomahFalls.jpg" />
+    <Content Include="Assets\Photos\NorthernCascadesReflection.jpg" />
+    <Content Include="Assets\Photos\NovemberHikeWaterfall.jpg" />
+    <Content Include="Assets\Photos\OregonWineryNamaste.jpg" />
+    <Content Include="Assets\Photos\Owl.jpg" />
+    <Content Include="Assets\Photos\PaintedHillsPathway.jpg" />
+    <Content Include="Assets\Photos\RunningDogPacificCity.jpg" />
+    <Content Include="Assets\Photos\ShootingOnAutoOnTheDrone.jpg" />
+    <Content Include="Assets\Photos\SmithnRockDownTheRiverView.jpg" />
+    <Content Include="Assets\Photos\SnowyInterbayt.jpg" />
+    <Content Include="Assets\Photos\SpeedTripleAtristsPoint.jpg" />
+    <Content Include="Assets\Photos\Van.jpg" />
+    <Content Include="Assets\Photos\WestSeattleView.jpg" />
+    <Content Include="Assets\ToolkitLogoTransparent.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.scale-100.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.scale-125.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.scale-150.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.scale-200.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.scale-400.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-16.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-16_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-20.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-20_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-24.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-256.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-256_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-30.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-30_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-32.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-32_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-36.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-36_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-40.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-40_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-48.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-48_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-60.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-60_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-64.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-64_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-72.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-72_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-80.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-80_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-96.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppAppList.targetsize-96_altform-unplated.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppBadgeLogo.scale-100.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppBadgeLogo.scale-125.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppBadgeLogo.scale-150.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppBadgeLogo.scale-200.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppBadgeLogo.scale-400.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppLargeTile.scale-100.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppLargeTile.scale-125.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppLargeTile.scale-150.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppLargeTile.scale-200.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppLargeTile.scale-400.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppMedTile.scale-100.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppMedTile.scale-125.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppMedTile.scale-150.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppMedTile.scale-200.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppMedTile.scale-400.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSmallTile.scale-100.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSmallTile.scale-125.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSmallTile.scale-150.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSmallTile.scale-200.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSmallTile.scale-400.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSplashScreen.scale-100.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSplashScreen.scale-125.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSplashScreen.scale-150.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSplashScreen.scale-200.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppSplashScreen.scale-400.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppStoreLogo.scale-100.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppStoreLogo.scale-125.png" />
+    <Content Include="Assets\ToolkitLogo.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppStoreLogo.scale-150.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppStoreLogo.scale-200.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppStoreLogo.scale-400.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppWideTile.scale-100.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppWideTile.scale-125.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppWideTile.scale-150.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppWideTile.scale-200.png" />
+    <Content Include="Assets\UWPCommunityToolkitSampleAppWideTile.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Icons\Animations.png" />
+    <Content Include="Icons\About.png" />
+    <Content Include="Icons\DeveloperTools.png" />
+    <Content Include="Icons\Error.png" />
+    <Content Include="Icons\Extensions.png" />
+    <Content Include="Icons\Brushes.png" />
+    <Content Include="Icons\Helpers.png" />
+    <Content Include="Icons\Foundation.png" />
+    <Content Include="Icons\Layouts.png" />
+    <Content Include="Icons\More.png" />
+    <Content Include="Icons\Notifications.png" />
+    <Content Include="Icons\Services.png" />
+    <Content Include="SamplePages\PeoplePicker\PeoplePicker.png" />
+    <Content Include="SamplePages\PowerBIEmbedded\PowerBIEmbedded.png" />
+    <Content Include="SamplePages\ProfileCard\ProfileCard.png" />
+    <Content Include="SamplePages\PlannerTaskList\PlannerTaskList.png" />
+    <Content Include="SamplePages\UniformGrid\UniformGrid.png" />
+    <Content Include="SamplePages\AdaptiveGridView\AdaptiveGridView.png" />
+    <Content Include="SamplePages\AdvancedCollectionView\AdvancedCollectionView.png" />
+    <Content Include="SamplePages\BackdropGammaTransferBrush\BackdropGammaTransferBrush.png" />
+    <Content Include="SamplePages\BackdropInvertBrush\BackdropInvertBrush.png" />
+    <Content Include="SamplePages\BackdropSaturationBrush\BackdropSaturationBrush.png" />
+    <Content Include="SamplePages\BackdropSepiaBrush\BackdropSepiaBrush.png" />
+    <Content Include="SamplePages\BackgroundTaskHelper\BackgroundTaskHelper.png" />
+    <Content Include="SamplePages\Bing Service\icon.png" />
+    <Content Include="SamplePages\BluetoothLEHelper\BluetoothLEHelper.png" />
+    <Content Include="SamplePages\BackdropBlurBrush\BackdropBlurBrush.png" />
+    <Content Include="SamplePages\Blur\BlurBehavior.png" />
+    <Content Include="SamplePages\CameraPreview\CameraPreview.png" />
+    <Content Include="SamplePages\CameraHelper\CameraHelper.png" />
+    <Content Include="SamplePages\Connected Animations\ConnectedAnimations.png" />
+    <Content Include="SamplePages\DataGrid\DataGrid.png" />
+    <Content Include="SamplePages\DispatcherHelper\DispatchHelper.png" />
+    <Content Include="SamplePages\DockPanel\DockPanel.png" />
+    <Content Include="SamplePages\Facebook Service\FacebookLogo.png" />
+    <Content Include="SamplePages\AadLogin\AadLogin.png" />
+    <Content Include="SamplePages\FadeHeader\FadeHeaderBehavior.png" />
+    <Content Include="SamplePages\Fade\FadeBehavior.png" />
+    <Content Include="SamplePages\FocusTracker\FocusTracker.png" />
+    <Content Include="SamplePages\Bing Service\BingCode.bind" />
+    <Content Include="SamplePages\BladeView\BladeView.png" />
+    <Content Include="SamplePages\Carousel\Carousel.png" />
+    <Content Include="SamplePages\DropShadowPanel\DropShadowPanel.png" />
+    <Content Include="SamplePages\Expander\Expander.png" />
+    <Content Include="SamplePages\DropShadowPanel\Trex.png" />
+    <Content Include="SamplePages\DropShadowPanel\Unicorn.png" />
+    <Content Include="SamplePages\GazeInteraction\GazeInteraction.png" />
+    <Content Include="SamplePages\GazeTracing\GazeTracing.png" />
+    <Content Include="SamplePages\GridSplitter\GridSplitter.png" />
+    <Content Include="SamplePages\HamburgerMenu\HamburgerMenu.png" />
+    <Content Include="SamplePages\AlignmentGrid\AlignmentGrid.png" />
+    <Content Include="SamplePages\HeaderedContentControl\HeaderedContentControl.png" />
+    <Content Include="SamplePages\HeaderedItemsControl\HeaderedItemsControl.png" />
+    <Content Include="SamplePages\HeaderedTextBlock\HeaderedTextBlock.png" />
+    <Content Include="SamplePages\ImageBlendBrush\ImageBlendBrush.png" />
+    <Content Include="SamplePages\ImageCache\ImageCache.png" />
+    <Content Include="SamplePages\ImageEx\ImageEx.png" />
+    <Content Include="SamplePages\Implicit Animations\ImplicitAnimations.png" />
+    <Content Include="SamplePages\InAppNotification\InAppNotification.png" />
+    <Content Include="SamplePages\Incremental Loading Collection\icon.png" />
+    <Content Include="SamplePages\LayoutTransformControl\LayoutTransformControl.png" />
+    <Content Include="SamplePages\InfiniteCanvas\InfiniteCanvas.png" />
+    <Content Include="SamplePages\Light\LightBehavior.png" />
+    <Content Include="SamplePages\LinkedIn Service\LinkedInLogo.png" />
+    <Content Include="Assets\Helpers.png" />
+    <Content Include="SamplePages\LiveTile\LiveTile.png" />
+    <Content Include="SamplePages\MarkdownTextBlock\MarkdownTextBlock.png" />
+    <Content Include="SamplePages\Loading\Loading.png" />
+    <Content Include="SamplePages\MasterDetailsView\MasterDetailsView.png" />
+    <Content Include="SamplePages\MasterDetailsView\OneDriveLogo.png" />
+    <Content Include="SamplePages\Menu\Menu.png" />
+    <Content Include="SamplePages\Microsoft Graph Service\mslogo.png" />
+    <Content Include="SamplePages\Microsoft Graph Service\user.png" />
+    <Content Include="SamplePages\Microsoft Translator Service\TranslatorService.png" />
+    <Content Include="SamplePages\NavigationViewStyles\NavigationViewStyles.png" />
+    <Content Include="SamplePages\NetworkHelper\NetworkHelper.png" />
+    <Content Include="SamplePages\Offset\OffsetBehavior.png" />
+    <Content Include="SamplePages\Mouse\MouseCursor.png" />
+    <Content Include="SamplePages\OneDrive Service\OneDriveLogo.png" />
+    <Content Include="SamplePages\ParallaxService\Parallax.png" />
+    <Content Include="SamplePages\RadialGauge\RadialGauge.png" />
+    <Content Include="SamplePages\RadialGradientBrush\RadialGradientBrush.png" />
+    <Content Include="SamplePages\RadialProgressBar\RadialProgressBar.png" />
+    <Content Include="SamplePages\ReorderGridAnimation\ReorderGrid.png" />
+    <Content Include="SamplePages\Rotate\RotateBehavior.png" />
+    <Content Include="SamplePages\Saturation\SaturationBehavior.png" />
+    <Content Include="SamplePages\OrbitView\OrbitView.png" />
+    <Content Include="SamplePages\Scale\ScaleBehavior.png" />
+    <Content Include="SamplePages\ScrollViewerExtensions\ScrollViewerExtensionsCode.bind" />
+    <Content Include="SamplePages\SharePointFileList\SharePointFileList.png" />
+    <Content Include="SamplePages\StaggeredPanel\StaggeredPanel.png" />
+    <Content Include="SamplePages\SystemInformation\SystemInformation.png" />
+    <Content Include="SamplePages\TextBoxMask\TextBoxMask.png" />
+    <Content Include="SamplePages\TextToolbar\TextToolbar.png" />
+    <Content Include="SamplePages\TileControl\Animations.png" />
+    <Content Include="SamplePages\TileControl\TileControl.png" />
+    <Content Include="SamplePages\PrintHelper\PrintHelper.png" />
+    <Content Include="SamplePages\PullToRefreshListView\PullToRefreshListView.png" />
+    <Content Include="SamplePages\ScrollHeader\ScrollHeader.png" />
+    <Content Include="SamplePages\RangeSelector\RangeSelector.png" />
+    <Content Include="SamplePages\RotatorTile\RotatorTile.png" />
+    <Content Include="SamplePages\SlidableListItem\SlidableListItem.png" />
+    <Content Include="SamplePages\Object Storage\ObjectStorage.png" />
+    <Content Include="SamplePages\SurfaceDialTextbox\SurfaceDialTextbox.png" />
+    <Content Include="SamplePages\TextBoxRegex\TextBoxRegex.png" />
+    <Content Include="SamplePages\Toast\Toast.png" />
+    <Content Include="SamplePages\Twitter Service\TwitterLogo.png" />
+    <Content Include="SamplePages\Twitter Service\TwitterCode.bind" />
+    <Content Include="SamplePages\Twitter Service\icon.png" />
+    <Content Include="SamplePages\Facebook Service\FacebookCode.bind" />
+    <Content Include="SamplePages\HamburgerMenu\HamburgerMenuCode.bind" />
+    <Content Include="SamplePages\HeaderedTextBlock\HeaderedTextBlockCode.bind" />
+    <Content Include="SamplePages\ViewExtensions\ViewExtensions.png" />
+    <Content Include="SamplePages\Visual Extensions\VisualExtensions.png" />
+    <Content Include="SamplePages\WrapPanel\WrapPanel.png" />
+    <Content Include="landingPageLinks.json" />
+    <Content Include="Assets\mtns.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Microsoft.Toolkit.Uwp.SampleApp.ruleset" />
     <None Include="readme.md" />
   </ItemGroup>
@@ -190,6 +433,10 @@
       <Project>{7189a42d-6f1a-4fa3-8e00-e2c14fdf167a}</Project>
       <Name>Microsoft.Toolkit.Uwp.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.csproj">
+      <Project>{daeb9cec-c817-33b2-74b2-bc379380db72}</Project>
+      <Name>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.Graph\Microsoft.Toolkit.Uwp.UI.Controls.Graph.csproj">
       <Project>{d4d78cba-b238-4794-89a0-4f1a2d8fea97}</Project>
       <Name>Microsoft.Toolkit.Uwp.UI.Controls.Graph</Name>
@@ -197,10 +444,6 @@
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.csproj">
       <Project>{e9faabfb-d726-42c1-83c1-cb46a29fea81}</Project>
       <Name>Microsoft.Toolkit.Uwp.UI.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.csproj">
-      <Project>{daeb9cec-c817-33b2-74b2-bc379380db72}</Project>
-      <Name>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid</Name>
     </ProjectReference>
     <ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj">
       <Project>{6fe128a8-cefa-4a61-a987-ec92de6b538e}</Project>
@@ -246,7 +489,7 @@
   </PropertyGroup>
   <Target Name="ModifyAppXPackageDebug" Condition="'$(BuildingProject)' == 'true'">
     <ItemGroup>
-      <toolkit_docs Include="$(SolutionDir)docs\**\*" />
+      <toolkit_docs Include="$(SolutionDir)..\WindowsCommunityToolkitDocs\docs\**\*" />
     </ItemGroup>
     <ItemGroup>
       <AppxPackagePayload Include="@(toolkit_docs)">
@@ -256,7 +499,7 @@
   </Target>
   <Target Name="ModifyAppXPackageRelease" Condition="'$(BuildingProject)' == 'true'">
     <ItemGroup>
-      <toolkit_docs Include="$(SolutionDir)docs\**\*.md" />
+      <toolkit_docs Include="$(SolutionDir)..\WindowsCommunityToolkitDocs\docs\**\*.md" />
     </ItemGroup>
     <ItemGroup>
       <AppxPackagePayload Include="@(toolkit_docs)">

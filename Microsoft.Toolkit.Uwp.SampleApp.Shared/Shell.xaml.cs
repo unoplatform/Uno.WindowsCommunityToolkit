@@ -2,22 +2,12 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-using System;
-using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Microsoft.Toolkit.Uwp.SampleApp.Pages;
-using Microsoft.Toolkit.Uwp.UI.Controls;
 using Microsoft.Toolkit.Uwp.UI.Extensions;
-using Windows.System;
-using Windows.System.Profile;
-using Windows.System.Threading;
-using Windows.UI;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Windows.Foundation.Metadata;
 
@@ -37,27 +27,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         {
             InitializeComponent();
             Current = this;
-
-            var background = new Image()
-            {
-                Source = new BitmapImage(new Uri("ms-appx:///Assets/Photos/Backgrounds/HERO.jpg")),
-                Stretch = Windows.UI.Xaml.Media.Stretch.UniformToFill
-            };
-
-            if (ApiInformation.IsTypePresent("Windows.UI.Xaml.Controls.ParallaxView"))
-            {
-                _parallaxView = new ParallaxView()
-                {
-                    VerticalShift = 50,
-                    Child = new Border { Child = background }
-                };
-
-                BackgroundBorder.Child = _parallaxView;
-            }
-            else
-            {
-                BackgroundBorder.Child = background;
-            }
         }
 
         /// <summary>
@@ -75,139 +44,87 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             }
         }
 
+        /// <summary>
+        /// Navigates to a Sample
+        /// </summary>
+        /// <param name="sample">Sample to navigate to</param>
         public void NavigateToSample(Sample sample)
         {
-            NavigationFrame.Navigate(typeof(SampleController), sample);
+            if (sample == null)
+            {
+                NavigationFrame.Navigate(typeof(About), null, new SuppressNavigationTransitionInfo());
+            }
+            else
+            {
+                NavigationFrame.Navigate(typeof(SampleController), sample);
+                TrackingManager.TrackEvent("sample", "navigation", sample.Name);
+            }
         }
 
-        public Task StartSearch(string startingText = "")
+        /// <summary>
+        /// Set app title
+        /// </summary>
+        /// <param name="title">Title to set</param>
+        public void SetAppTitle(string title)
         {
-            return HamburgerMenu.StartSearch(startingText);
-        }
-
-        public void SetTitles(string title)
-        {
-            HamburgerMenu.Title = title;
             ApplicationViewExtensions.SetTitle(this, title);
         }
 
+        /// <summary>
+        /// Attach a ScrollViewer to Parallax hosting the backround image
+        /// </summary>
+        /// <param name="viewer">The ScrollViewer</param>
         public void AttachScroll(ScrollViewer viewer)
         {
-            if (_parallaxView is ParallaxView parallax)
-            {
-                parallax.Source = viewer;
-            }
+            Parallax.Source = viewer;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
+            NavigationFrame.Navigated += NavigationFrameOnNavigated;
+            NavView.BackRequested += NavView_BackRequested;
 
-			try
-			{
-				NavigationFrame.Navigating += NavigationFrame_Navigating;
-				NavigationFrame.Navigated += NavigationFrameOnNavigated;
-				SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+            // Get list of samples
+            var sampleCategories = await Samples.GetCategoriesAsync();
+            NavView.MenuItemsSource = sampleCategories;
 
-				// Get list of samples
-				var sampleCategories = (await Samples.GetCategoriesAsync()).ToList();
+            SetAppTitle(string.Empty);
+            NavigateToSample(null);
 
-				HamburgerMenu.ItemsSource = sampleCategories;
-
-				// Options
-				HamburgerMenu.OptionsItemsSource = new[]
-				{
-				new Option { Glyph = "\xE10F", Name = "About", PageType = typeof(About) }
-			};
-
-            ClearTitle();
-            NavigationFrame.Navigate(typeof(About));
-
-				if (!string.IsNullOrWhiteSpace(e?.Parameter?.ToString()))
-				{
-					var parser = DeepLinkParser.Create(e.Parameter.ToString());
-					var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
-					if (targetSample != null)
-					{
-						NavigateToSample(targetSample);
-					}
-				}
-			}
-			catch(Exception ex)
-			{
-				Console.WriteLine("OnNavigatedTo Failed" + ex);
-			}
-        }
-
-        private void NavigationFrame_Navigating(object sender, NavigatingCancelEventArgs navigationEventArgs)
-        {
-            var name = navigationEventArgs.SourcePageType.Name;
-            TrackingManager.TrackPage(name);
-        }
-
-        private void ClearTitle()
-        {
-            SetTitles(string.Empty);
-        }
-
-        /// <summary>
-        /// Called when [back requested] event is fired.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="backRequestedEventArgs">The <see cref="BackRequestedEventArgs"/> instance containing the event data.</param>
-        private void OnBackRequested(object sender, BackRequestedEventArgs backRequestedEventArgs)
-        {
-            if (backRequestedEventArgs.Handled)
+            if (!string.IsNullOrWhiteSpace(e?.Parameter?.ToString()))
             {
-                return;
+                var parser = DeepLinkParser.Create(e.Parameter.ToString());
+                var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
+                if (targetSample != null)
+                {
+                    NavigateToSample(targetSample);
+                }
             }
 
+            // NavView goes into a weird size on load unless the window size changes
+            // Needs a gentle push to update layout
+            NavView.Loaded += (s, args) => NavView.InvalidateMeasure();
+        }
+
+        private void NavView_BackRequested(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs args)
+        {
             if (NavigationFrame.CanGoBack)
             {
                 NavigationFrame.GoBack();
-                backRequestedEventArgs.Handled = true;
             }
         }
 
-        /// <summary>
-        /// When the frame has navigated this method is called.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="navigationEventArgs">The <see cref="NavigationEventArgs"/> instance containing the event data.</param>
         private void NavigationFrameOnNavigated(object sender, NavigationEventArgs navigationEventArgs)
         {
-            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = NavigationFrame.CanGoBack
-                ? AppViewBackButtonVisibility.Visible
-                : AppViewBackButtonVisibility.Collapsed;
+            NavView.IsBackEnabled = NavigationFrame.CanGoBack;
+
+            CurrentSample = navigationEventArgs.Parameter as Sample;
         }
 
-        private void HamburgerMenu_OnOptionsItemClick(object sender, ItemClickEventArgs e)
+        private void SamplePickerGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-			var option = e.ClickedItem as Option;
-			if (option == null)
-			{
-				return;
-			}
-
-			if (NavigationFrame.CurrentSourcePageType != option.PageType)
-			{
-				NavigationFrame.Navigate(option.PageType);
-			}
-
-			HamburgerMenu.IsPaneOpen = false;
-
-			var expanders = HamburgerMenu.FindDescendants<Expander>();
-			foreach (var expander in expanders)
-			{
-				expander.IsExpanded = false;
-			}
-        }
-
-        private void HamburgerMenu_SamplePickerItemClick(object sender, ItemClickEventArgs e)
-        {
+            HideSamplePicker();
             NavigateToSample(e.ClickedItem as Sample);
         }
-
-        private UIElement _parallaxView;
     }
 }

@@ -46,14 +46,6 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             {
                 CurrentUserId = (await GraphService.User.GetProfileAsync(new MicrosoftGraphUserFields[1] { MicrosoftGraphUserFields.Id })).Id;
             }
-
-            GraphService.SignInFailed -= GraphService_SignInFailed;
-            GraphService.SignInFailed += GraphService_SignInFailed;
-        }
-
-        private void GraphService_SignInFailed(object sender, Services.MicrosoftGraph.SignInFailedEventArgs e)
-        {
-            SignInFailed?.Invoke(sender, new SignInFailedEventArgs(e.Exception));
         }
 
         private async void AadLogin_Clicked(object sender, RoutedEventArgs e)
@@ -104,16 +96,6 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// This method is used to sign out the currently signed on user
-        /// </summary>
-        [Obsolete("Please use SignOutAsync instead")]
-        public void SignOut()
-        {
-            var result = GraphService.Logout().Result;
-            SignOutCompleted?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -177,7 +159,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             };
             AutomationProperties.SetName(signoutItem, SignOutDefaultText);
 #if !HAS_UNO
-			signoutItem.Click += async (object sender, RoutedEventArgs e) => await GraphService.Logout();
+			signoutItem.Click += async (object sender, RoutedEventArgs e) => await SignOutAsync();
 #endif
 			menuFlyout.Items.Add(signoutItem);
 

@@ -1,19 +1,14 @@
 <Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
-		<Title>Windows Community Toolkit Animations</Title>
-    <Description>This library provides helpers and services on top of Windows Composition and XAML storyboards. It is part of the Windows Community Toolkit.</Description>
-    <PackageTags>UWP Toolkit Windows Animations Composition</PackageTags>
-		
-		<NoWarn>$(NoWarn);Uno0001</NoWarn>
-		
-		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Animations</PackageId>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
-	</PropertyGroup>
+    <TargetFramework>uap10.0.16299</TargetFramework>
+    <Title>Windows Community Toolkit Animations</Title>
+    <Description>This library provides helpers and extensions on top of Windows Composition and XAML storyboards. It is part of the Windows Community Toolkit.</Description>
+    <PackageTags>UWP Toolkit Windows Animations Composition Connected Implicit XAML</PackageTags>
+ 		
+	<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Animations</PackageId>
+ </PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="System.ValueTuple" Version="4.4.0" />

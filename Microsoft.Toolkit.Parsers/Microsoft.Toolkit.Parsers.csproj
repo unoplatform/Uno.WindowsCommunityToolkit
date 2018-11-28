@@ -1,8 +1,9 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   
   <PropertyGroup>
-		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
-		<Description>This .NET standard library contains various Parsers. It is part of the Windows Community Toolkit.</Description>
+    <TargetFramework>$(TargetFrameworksOverride)</TargetFramework>
+    <Title>Windows Community Toolkit .NET Standard Parsers</Title>
+    <Description>This .NET standard library contains various parsers including Markdown and RSS. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Parsers Parsing Markdown RSS</PackageTags>
     <Title>Windows Community Toolkit .NET Standard Parsers</Title>
 		<PackageId>Uno.Microsoft.Toolkit.Parsers</PackageId>

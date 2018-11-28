@@ -1,40 +1,25 @@
 <Project Sdk="MSBuild.Sdk.Extras">
 
-	<PropertyGroup>
-		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
-		<Title>Windows Community Toolkit Controls</Title>
-		<Description>This library provides XAML user controls. It is part of the Windows Community Toolkit.</Description>
-		<PackageTags>UWP Toolkit Windows Controls XAML Hamburger Range WrapPanel Adaptive Markdown</PackageTags>
+  <PropertyGroup>
+    <TargetFramework>uap10.0.16299</TargetFramework>
+    <Title>Windows Community Toolkit Controls</Title>
+    <Description>This library provides XAML templated controls. It is part of the Windows Community Toolkit.</Description>
+    <PackageTags>UWP Toolkit Windows Controls XAML Range WrapPanel Adaptive Markdown BladeView Blade CameraPreview Camera Carousel DockPanel DropShadow Expander GridSplitter HeaderedContent ImageEx InAppNotification InfiniteCanvas Master Details MasterDetails Menu Orbit Radial Gauge RadiaGauge RadialProgressBar Scroll ScrollHeader StaggeredPanel Staggered Tile UniformGrid Uniform Grid</PackageTags>
+  </PropertyGroup>
 
-		<NoWarn>$(NoWarn);Uno0001</NoWarn>
-		
-		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls</PackageId>
-	</PropertyGroup>
+  <ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="System.ValueTuple" Version="4.4.0" />
-		<PackageReference Include="Uno.ColorCode.UWP" Version="2.0.5-gd0f1a63314" />
-		
-		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj" />
-		<ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj" />
-	</ItemGroup>
-
-	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
-	</PropertyGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
-		<PackageReference Include="Robmikh.CompositionSurfaceFactory" Version="0.7.3" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
-		<PackageReference Include="Uno.UI" Version="1.41.1-dev.132" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
-		<!--<None Include="$(OutDir)\Design\$(MSBuildProjectName).Design.dll" Pack="true" PackagePath="lib\$(TargetFramework)\Design" />-->
-	</ItemGroup>
+    <PackageReference Include="ColorCode.UWP" Version="2.0.6" />
+    <PackageReference Include="Robmikh.CompositionSurfaceFactory" Version="0.7.3" />
+    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj" />
+    <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
+    <None Include="$(OutDir)\Design\$(MSBuildProjectName).Design.dll" Pack="true" PackagePath="lib\$(TargetFramework)\Design" />
+  </ItemGroup>
 
 	<!-- https://weblogs.asp.net/rweigelt/disable-warnings-in-generated-c-files-of-uwp-app -->
 	<Target Name="PragmaWarningDisablePrefixer" AfterTargets="MarkupCompilePass2" Condition="'$(TargetFramework)' == 'uap10.0'">

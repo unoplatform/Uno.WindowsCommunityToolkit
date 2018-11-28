@@ -46,16 +46,16 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
             // Highlight Error Line
             XamlCodeRenderer.Decorations.Add(new IModelDeltaDecoration(
                 range,
-                new IModelDecorationOptions() { IsWholeLine = true, ClassName = _errorStyle, HoverMessage = new string[] { error.Message } }));
+                new IModelDecorationOptions() { IsWholeLine = true, ClassName = _errorStyle, HoverMessage = new string[] { error.Message }.ToMarkdownString() }));
 
             // Show Glyph Icon
             XamlCodeRenderer.Decorations.Add(new IModelDeltaDecoration(
                 range,
-                new IModelDecorationOptions() { IsWholeLine = true, GlyphMarginClassName = _errorIconStyle, GlyphMarginHoverMessage = new string[] { error.Message } }));
+                new IModelDecorationOptions() { IsWholeLine = true, GlyphMarginClassName = _errorIconStyle, GlyphMarginHoverMessage = new string[] { error.Message }.ToMarkdownString() }));
 #endif
-        }
+		}
 
-        public void ClearErrors()
+		public void ClearErrors()
         {
 #if !HAS_UNO
            XamlCodeRenderer.Decorations.Clear();

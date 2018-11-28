@@ -1,21 +1,18 @@
 <Project Sdk="MSBuild.Sdk.Extras">
 
-	<PropertyGroup>
-		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
-		<Title>Windows Community Toolkit Developer Tools</Title>
-		<Description>This library provides XAML user controls and services to help developer building their app. It is part of the Windows Community Toolkit.</Description>
-		<PackageTags>UWP Toolkit Windows Controls XAML Developer Tools Accessibility</PackageTags>
-		<UseUwpMetaPackage>true</UseUwpMetaPackage>
-		<PackageId>Uno.Microsoft.Toolkit.Uwp.DeveloperTools</PackageId>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>uap10.0.16299</TargetFramework>
+    <Title>Windows Community Toolkit Developer Tools</Title>
+    <Description>This library provides XAML user controls and services to help developer building their app. It is part of the Windows Community Toolkit.</Description>
+    <PackageTags>UWP Toolkit Windows Controls XAML Developer Tools Accessibility AlignmentGrid</PackageTags>
+    <UseUwpMetaPackage>true</UseUwpMetaPackage>
 
-	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
-	</ItemGroup>
+	<PackageId>Uno.Microsoft.Toolkit.Uwp.DeveloperTools</PackageId>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
+  </ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
 		<PackageReference Include="Uno.UI" Version="1.41.1-dev.132" />

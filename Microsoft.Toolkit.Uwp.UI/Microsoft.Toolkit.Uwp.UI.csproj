@@ -1,7 +1,7 @@
 <Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+    <TargetFramework>$(TargetFrameworksOverride)</TargetFramework>
     <Title>Windows Community Toolkit UI</Title>
     <Description>This library provides UI components, such as XAML extensions, helpers, brushes, converters and more. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows UI Converters XAML extensions helpers brushes blur</PackageTags>
