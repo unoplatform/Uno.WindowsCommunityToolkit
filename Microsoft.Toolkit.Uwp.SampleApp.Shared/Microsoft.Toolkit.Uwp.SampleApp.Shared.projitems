@@ -386,8 +386,10 @@
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)TrackingManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnoPlatformShell.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\GithubLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Helpers.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\NotificationAssets\Cloudy-Square.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\NotificationAssets\Cloudy.png" />
@@ -429,6 +431,11 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\MultnomahFalls.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\NorthernCascadesReflection.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\NovemberHikeWaterfall.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\pixel.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\TwitterLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\UnoLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\UnoLogo_small.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Photos\OnlinePhotos.json" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\OregonWineryNamaste.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\Owl.jpg" />
@@ -1161,5 +1168,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UnoPlatformShell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)UnoControl\" />
   </ItemGroup>
 </Project>

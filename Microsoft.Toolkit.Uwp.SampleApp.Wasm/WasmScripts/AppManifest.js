@@ -1,7 +1,7 @@
 ﻿var UnoAppManifest = {
 
-    splashScreenImage: "Assets/UWPCommunityToolkitSampleAppSplashScreen.scale-200.png",
-    splashScreenColor: "#3750D1",
+	splashScreenImage: "Assets/SplashScreen.png",
+	splashScreenColor: "#242424",
     displayName: "Windows Community Toolkit Sample App"
 
 }
