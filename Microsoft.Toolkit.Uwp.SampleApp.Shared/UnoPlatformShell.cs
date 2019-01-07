@@ -69,7 +69,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 		// openTwitterLink
 		private async void openTwitterLink(object sender, RoutedEventArgs e)
 		{
-			await Windows.System.Launcher.LaunchUriAsync(new Uri("https://platform.uno"));
+			await Windows.System.Launcher.LaunchUriAsync(new Uri("https://twitter.com/UnoPlatform"));
 		}
 
 		// showAbout
