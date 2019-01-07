@@ -69,7 +69,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 		// openTwitterLink
 		private async void openTwitterLink(object sender, RoutedEventArgs e)
 		{
-			await Windows.System.Launcher.LaunchUriAsync(new Uri(LinkToTwitter));
+			await Windows.System.Launcher.LaunchUriAsync(new Uri("https://platform.uno"));
 		}
 
 		// showAbout
@@ -139,16 +139,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
 		public static readonly DependencyProperty LinkToUnoPlatformAppProperty =
 			DependencyProperty.Register("LinkToUnoPlatformApp", typeof(string), typeof(UnoPlatformShell), new PropertyMetadata(null));
-
-		// Link to Twitter
-		public string LinkToTwitter
-		{
-			get { return (string)GetValue(LinkToTwitterProperty); }
-			set { SetValue(LinkToTwitterProperty, value); }
-		}
-
-		public static readonly DependencyProperty LinkToTwitterProperty =
-			DependencyProperty.Register("LinkToTwitter", typeof(string), typeof(UnoPlatformShell), new PropertyMetadata(null));
 
 		// VersionNumber
 		public string VersionNumber

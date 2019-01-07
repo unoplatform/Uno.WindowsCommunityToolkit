@@ -63,7 +63,6 @@
 							LinkToOriginalApp="https://github.com/windows-toolkit/WindowsCommunityToolkit"
 							LinkToAppAuthor="https://github.com/windows-toolkit"
 							LinkToUnoPlatformApp="https://github.com/nventive/Uno.WindowsCommunityToolkit"
-							LinkToTwitter="https://twitter.com/?status=@UWPEverywhere:%20WindowsCommunityToolkit%20App%20on%20WASM%20https://github.com/nventive/Uno.WindowsCommunityToolkit"
 							VersionNumber="Version 2.2.0">
 
 		<!-- About Content -->
