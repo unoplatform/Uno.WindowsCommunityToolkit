@@ -79,11 +79,11 @@
         <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" />
     </contract5NotPresent:Style>
 
-    <contract5Present:Style x:Key="MenuFlyoutStyle"
+    <!--<contract5Present:Style x:Key="MenuFlyoutStyle"
                             BasedOn="{StaticResource BaseMenuFlyoutStyle}"
                             TargetType="MenuFlyoutPresenter">
         <Setter Property="Background" Value="{ThemeResource MenuFlyoutAcrylicBackgroundBrush}" />
-    </contract5Present:Style>
+    </contract5Present:Style>-->
 
     <Style TargetType="local:Menu">
         <Setter Property="MenuFlyoutStyle" Value="{StaticResource MenuFlyoutStyle}" />

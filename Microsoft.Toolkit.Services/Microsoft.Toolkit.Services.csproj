@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
     <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
@@ -7,8 +7,8 @@
 
 		<!-- This is a temporary workaround for https://github.com/dotnet/sdk/issues/955 -->
     <DebugType>Full</DebugType>
-    <NoWarn>CS8002</NoWarn>
-  </PropertyGroup>
+		<NoWarn>$(NoWarn);CS8002;Uno0001</NoWarn>
+	</PropertyGroup>
   
   <PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0' ">
     <DefineConstants Condition="'$(DisableImplicitFrameworkDefines)' != 'true'">$(DefineConstants);WINRT</DefineConstants>
@@ -31,7 +31,7 @@
   </ItemGroup>
 	
 	<ItemGroup Condition="'$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="Uno.UI" Version="1.41.1-dev.132" />
+		<PackageReference Include="Uno.UI" Version="1.43.0-dev.897" />
 		<Reference Include="System.Runtime.Serialization" />
 		<Reference Include="System.Xml" />
 		<Reference Include="System.Xml.Linq" />

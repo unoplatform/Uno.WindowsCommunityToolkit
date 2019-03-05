@@ -36,7 +36,7 @@
         <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" />
     </contract5NotPresent:Style>
 
-    <contract5Present:Style TargetType="local:InAppNotification" BasedOn="{StaticResource BaseInAppNotificationsStyle}">
+    <!--<contract5Present:Style TargetType="local:InAppNotification" BasedOn="{StaticResource BaseInAppNotificationsStyle}">
         <Setter Property="Background" Value="{ThemeResource SystemControlChromeMediumLowAcrylicElementMediumBrush}" />
-    </contract5Present:Style>
+    </contract5Present:Style>-->
 </ResourceDictionary>

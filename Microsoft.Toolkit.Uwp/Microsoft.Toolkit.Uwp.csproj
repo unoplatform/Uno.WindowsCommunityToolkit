@@ -1,14 +1,15 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>uap10.0.16299</TargetFramework>
-    <Title>Windows Community Toolkit</Title>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+		<Title>Windows Community Toolkit</Title>
     <Description>This package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc.</Description>
     <PackageTags>UWP Toolkit Windows</PackageTags>
     <UseUwpMetaPackage>true</UseUwpMetaPackage>
 
-	<PackageId>Uno.Microsoft.Toolkit.Uwp</PackageId>
-  </PropertyGroup>
+		<PackageId>Uno.Microsoft.Toolkit.Uwp</PackageId>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
@@ -17,12 +18,8 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
-		<PackageReference Include="Uno.UI" Version="1.41.1-dev.132" />
+		<PackageReference Include="Uno.UI" Version="1.43.0-dev.897" />
 	</ItemGroup>
-	
-	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
-	</PropertyGroup>
 
 	<Import Project="..\uno.ui.include.props" />
 

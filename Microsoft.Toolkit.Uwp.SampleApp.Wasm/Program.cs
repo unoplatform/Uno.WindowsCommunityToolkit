@@ -27,6 +27,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 						{ "Uno", LogLevel.Warning },
 						{ "Windows", LogLevel.Warning },
 						{ "SampleControl.Presentation", LogLevel.Debug },
+						//{ "Windows.UI.Xaml.Controls.VirtualizingPanelLayout", LogLevel.Debug },
 
 					// Generic Xaml events
 					// { "Windows.UI.Xaml", LogLevel.Debug },
@@ -42,7 +43,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 					// Binding related messages
 					 // { "Windows.UI.Xaml.Data", LogLevel.Debug },
 					//{ "Windows.UI.Xaml.DependencyObjectStore", LogLevel.Debug },
-					 { "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
+					 //{ "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
 
 					//  Binder memory references tracking
 					// { "ReferenceHolder", LogLevel.Debug },

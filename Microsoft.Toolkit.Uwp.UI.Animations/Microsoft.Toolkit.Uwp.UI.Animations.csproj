@@ -1,8 +1,8 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>uap10.0.16299</TargetFramework>
-    <Title>Windows Community Toolkit Animations</Title>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+		<Title>Windows Community Toolkit Animations</Title>
     <Description>This library provides helpers and extensions on top of Windows Composition and XAML storyboards. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Animations Composition Connected Implicit XAML</PackageTags>
  		
@@ -21,7 +21,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
-		<PackageReference Include="Uno.UI" Version="1.41.1-dev.132" />
+		<PackageReference Include="Uno.UI" Version="1.43.0-dev.897" />
 	</ItemGroup>
 
 	<Import Project="..\uno.ui.include.props" />

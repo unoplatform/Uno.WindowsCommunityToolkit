@@ -11,6 +11,7 @@
     <Copyright>(c) .NET Foundation and Contributors.  All rights reserved.</Copyright>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Toolkit.ruleset</CodeAnalysisRuleSet>
     <DefaultLanguage>en-US</DefaultLanguage>
+		
 		<!--<TargetFrameworksOverride>xamarinios10</TargetFrameworksOverride>-->
 		<TargetFrameworksOverride>uap10.0;MonoAndroid80;xamarinios10;netstandard2.0</TargetFrameworksOverride>
 
@@ -31,7 +32,11 @@
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)toolkit.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
-  <Choose>
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
+	</PropertyGroup>
+
+	<Choose>
     <When Condition="'$(IsWin32Project)' == 'true' or '$(IsWpfProject)' == 'true' or '$(IsFormsProject)' == 'true'">
       <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>

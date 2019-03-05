@@ -1,22 +1,30 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>uap10.0.16299</TargetFramework>
-    <Title>Windows Community Toolkit Controls</Title>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+		<Title>Windows Community Toolkit Controls</Title>
     <Description>This library provides XAML templated controls. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Controls XAML Range WrapPanel Adaptive Markdown BladeView Blade CameraPreview Camera Carousel DockPanel DropShadow Expander GridSplitter HeaderedContent ImageEx InAppNotification InfiniteCanvas Master Details MasterDetails Menu Orbit Radial Gauge RadiaGauge RadialProgressBar Scroll ScrollHeader StaggeredPanel Staggered Tile UniformGrid Uniform Grid</PackageTags>
-  </PropertyGroup>
+		
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	</PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Uno.ColorCode.UWP" Version="2.0.5-gd0f1a63314" />
+		<PackageReference Include="System.ValueTuple" Version="4.4.0" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj" />
+		<ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj" />
+	</ItemGroup>
 
-    <PackageReference Include="ColorCode.UWP" Version="2.0.6" />
-    <PackageReference Include="Robmikh.CompositionSurfaceFactory" Version="0.7.3" />
-    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj" />
-  </ItemGroup>
- 
-  <ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+		<PackageReference Include="Robmikh.CompositionSurfaceFactory" Version="0.7.3" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
+		<PackageReference Include="Uno.UI" Version="1.43.0-dev.897" />
+	</ItemGroup>
+
+	<ItemGroup>
     <None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
     <None Include="$(OutDir)\Design\$(MSBuildProjectName).Design.dll" Pack="true" PackagePath="lib\$(TargetFramework)\Design" />
   </ItemGroup>
@@ -26,8 +34,8 @@
 		<ItemGroup>
 			<GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
 		</ItemGroup>
-		<Message Text="CSFiles: @(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')" />
-		<Exec Command="for %%f in (@(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
+		<Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
+		<Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
 	</Target>
 	
 	<Import Project="..\uno.ui.include.props" />

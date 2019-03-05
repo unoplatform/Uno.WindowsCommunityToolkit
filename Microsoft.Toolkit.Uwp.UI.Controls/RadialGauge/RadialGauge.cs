@@ -210,7 +210,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private void RadialGauge_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            var step = 1;
+            var step = 1.0;
+			
 			// UNO TODO
 			var ctrl = Windows.UI.Xaml.Window.Current.CoreWindow.GetKeyState(VirtualKey.Control);
             if (ctrl.HasFlag(CoreVirtualKeyStates.Down))

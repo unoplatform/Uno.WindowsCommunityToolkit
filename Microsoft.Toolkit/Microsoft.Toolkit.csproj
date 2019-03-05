@@ -1,13 +1,14 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>$(TargetFrameworksOverride)</TargetFramework>
+    <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
     <Title>Windows Community Toolkit .NET Standard</Title>
     <Description>This package includes .NET Standard code only helpers, such as IncrementalLoadingCollection, string extensions and array extensions. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows IncrementalLoadingCollection String Array extensions</PackageTags>
 
     <!-- This is a temporary workaround for https://github.com/dotnet/sdk/issues/955 -->
     <DebugType>Full</DebugType>
-  </PropertyGroup>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	</PropertyGroup>
 	
 </Project>

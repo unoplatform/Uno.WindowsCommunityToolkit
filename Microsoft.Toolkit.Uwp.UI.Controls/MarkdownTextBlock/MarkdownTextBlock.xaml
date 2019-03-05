@@ -10,8 +10,11 @@
     <xamarin:SolidColorBrush x:Key="MarkdownBorderBrush" Color="#FFBEBEBE" />
     <xamarin:SolidColorBrush x:Key="MarkdownBackgroundBrush" Color="#FFF6F8FA" />
     <xamarin:SolidColorBrush x:Key="MarkdownInlineCodeBackgroundBrush" Color="#FFDDDFE1" />
+    <xamarin:SolidColorBrush x:Key="MarkdownInlineCodeForegroundBrush" Color="#FF6E6F70" />
     <xamarin:SolidColorBrush x:Key="MarkdownQuoteForeground" Color="#FF6E747C" />
-	
+    <xamarin:SolidColorBrush x:Key="MarkdownRichTextBlockBackground" Color="#FFF6F8FA" />
+    <xamarin:SolidColorBrush x:Key="SystemColorHotlightColor" Color="#FFFFFF" />
+
     <win:ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default" />
         <ResourceDictionary x:Key="Light">

@@ -23,6 +23,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 
         public DockPanelPage()
         {
+            Console.WriteLine($"{GetHashCode():X8} new DockPanelPage()");
+
             InitializeComponent();
             Load();
 			Loaded += DockPanelPage_Loaded;
@@ -36,6 +38,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 		public void OnXamlRendered(FrameworkElement control)
         {
             _sampleDockPanel = control.FindChildByName("SampleDockPanel") as DockPanel;
+            Console.WriteLine($"{GetHashCode():X8} _sampleDockPanel: {_sampleDockPanel} in {control}");
         }
 
         private void Load()
@@ -82,6 +85,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 
         private void AddChild(Dock dock, bool setWidth = false, bool setHeight = false)
         {
+            Console.WriteLine($"{GetHashCode():X8} AddChild _sampleDockPanel: {_sampleDockPanel}");
+
             if (_sampleDockPanel.LastChildFill)
             {
                 return;

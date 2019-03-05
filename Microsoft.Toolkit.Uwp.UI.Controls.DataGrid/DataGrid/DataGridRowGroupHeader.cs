@@ -659,7 +659,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
                 if (!string.IsNullOrEmpty(propertyName) && hasPropertyValue)
                 {
-                    propertyName = string.Format(CultureInfo.CurrentCulture, Properties.Resources.DataGridRowGroupHeader_PropertyName, propertyName);
+                    propertyName = string.Format(CultureInfo.CurrentCulture, DG.Properties.Resources.DataGridRowGroupHeader_PropertyName, propertyName);
                 }
 
                 if (!string.IsNullOrEmpty(propertyName))
@@ -677,7 +677,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             {
                 _itemCountElement.Text = string.Format(
                     CultureInfo.CurrentCulture,
-                    this.RowGroupInfo.CollectionViewGroup.GroupItems.Count == 1 ? Properties.Resources.DataGridRowGroupHeader_ItemCountSingular : Properties.Resources.DataGridRowGroupHeader_ItemCountPlural,
+                    this.RowGroupInfo.CollectionViewGroup.GroupItems.Count == 1 ? DG.Properties.Resources.DataGridRowGroupHeader_ItemCountSingular : DG.Properties.Resources.DataGridRowGroupHeader_ItemCountPlural,
                     this.RowGroupInfo.CollectionViewGroup.GroupItems.Count);
             }
         }

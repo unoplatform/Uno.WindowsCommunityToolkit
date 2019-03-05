@@ -56,7 +56,7 @@
                 </winui:ParallaxView>
                 <Frame x:Name="NavigationFrame" />
                 <Grid>
-                    <Border x:Name="ContentShadow"
+                    <win:Border x:Name="ContentShadow"
                             Tapped="ContentShadow_Tapped"
                             Background="{ThemeResource BackingTint}"
                             Visibility="{Binding Visibility, ElementName=SamplePickerGrid}">
@@ -72,7 +72,7 @@
                         <animations:Implicit.HideAnimations>
                             <animations:OpacityAnimation From="1" To="0" Duration="0:0:0.2"></animations:OpacityAnimation>
                         </animations:Implicit.HideAnimations>
-                    </Border>
+                    </win:Border>
 
                     <Grid x:Name="SamplePickerGrid"
                           x:DeferLoadStrategy="Lazy"
@@ -94,12 +94,12 @@
                                   animations:ReorderGridAnimation.Duration="200"
                                   IsItemClickEnabled="True"
                                   ItemContainerStyle="{StaticResource SamplePickerItemStyle}"
-                                  ItemContainerTransitions="{x:Null}"
+                                  win:ItemContainerTransitions="{x:Null}"
                                   ItemTemplate="{StaticResource SampleTemplate}"
                                   SelectionMode="Single"
                                   ItemClick="SamplePickerGridView_ItemClick"
                                   ChoosingItemContainer="SamplePickerGridView_ChoosingItemContainer"
-                                  Transitions="{x:Null}">
+                                  win:Transitions="{x:Null}">
                             <animations:Implicit.ShowAnimations>
                                 <animations:OpacityAnimation From="0" To="1" Duration="0:0:0.3" Delay="0:0:0.2" SetInitialValueBeforeDelay="True"></animations:OpacityAnimation>
                             </animations:Implicit.ShowAnimations>
@@ -135,7 +135,7 @@
                                               Color="Black"
                                               OffsetY="6"
                                               BlurRadius="60">
-                        <Border Background="{ThemeResource Menu-DropDown-Background}"
+                        <win:Border Background="{ThemeResource Menu-DropDown-Background}"
                                 Opacity="0.96">
                             <interactivity:Interaction.Behaviors>
                                 <behaviors:Blur AutomaticallyStart="True"
@@ -143,7 +143,7 @@
                                                 Value="3"
                                                 Duration="0" />
                             </interactivity:Interaction.Behaviors>
-                        </Border>
+                        </win:Border>
                     </controls:DropShadowPanel>
 
                     <Grid Padding="10">

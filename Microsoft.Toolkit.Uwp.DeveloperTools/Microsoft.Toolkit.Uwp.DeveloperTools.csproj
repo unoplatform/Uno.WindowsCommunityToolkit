@@ -1,21 +1,31 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFramework>uap10.0.16299</TargetFramework>
-    <Title>Windows Community Toolkit Developer Tools</Title>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+		<Title>Windows Community Toolkit Developer Tools</Title>
     <Description>This library provides XAML user controls and services to help developer building their app. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Controls XAML Developer Tools Accessibility AlignmentGrid</PackageTags>
     <UseUwpMetaPackage>true</UseUwpMetaPackage>
 
-	<PackageId>Uno.Microsoft.Toolkit.Uwp.DeveloperTools</PackageId>
-  </PropertyGroup>
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.DeveloperTools</PackageId>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	</PropertyGroup>
   
   <ItemGroup>
     <None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
   </ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
-		<PackageReference Include="Uno.UI" Version="1.41.1-dev.132" />
+		<PackageReference Include="Uno.UI" Version="1.43.0-dev.897" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="FocusTracker\FocusTracker.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	  <Page Update="Themes\Generic.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 
 	<!-- https://weblogs.asp.net/rweigelt/disable-warnings-in-generated-c-files-of-uwp-app -->
@@ -23,8 +33,8 @@
 		<ItemGroup>
 			<GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
 		</ItemGroup>
-		<Message Text="CSFiles: @(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')" />
-		<Exec Command="for %%f in (@(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
+		<Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
+		<Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
 	</Target>
 	
 	<Import Project="..\uno.ui.include.props" />

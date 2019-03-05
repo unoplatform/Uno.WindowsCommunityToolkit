@@ -2,6 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:xamarin="http://uno.ui/xamarin"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -10,13 +11,18 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    mc:Ignorable="d">
+    mc:Ignorable="d xamarin">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///Controls/CodeRenderer.xaml" />
         <ResourceDictionary Source="ms-appx:///Styles/Custom/PivotHeaderItemUnderlineStyle.xaml" />
         <ResourceDictionary Source="ms-appx:///Styles/GithubIcon.xaml" />
     </ResourceDictionary.MergedDictionaries>
+
+    <xamarin:SolidColorBrush x:Key="SystemControlPageBackgroundTransparentBrush" Color="{ThemeResource SystemColorWindowColor}" />
+
+    <x:Double x:Key="NavigationViewTopPaneHeight">40</x:Double>
+    <Thickness x:Key="NavigationViewAutoSuggestBoxMargin">10,0,16,0</Thickness>
 
             <!-- Converters -->
             <converters:BoolNegationConverter x:Key="BoolNegationConverter" />
@@ -1016,7 +1022,7 @@
 
                             <VisualStateGroup x:Name="PaneStateListSizeGroup">
                                 <VisualState x:Name="ListSizeFull" />
-                                <VisualState x:Name="ListSizeCompact">
+                                <win:VisualState x:Name="ListSizeCompact">
                                     <VisualState.Setters>
                                         <Setter Target="MenuItemsHost.HorizontalAlignment" Value="Left" />
                                         <!-- This is essentially a TemplateBinding: -->
@@ -1030,7 +1036,23 @@
                                         <Setter Target="FooterContentBorder.HorizontalAlignment" Value="Left" />
                                         <Setter Target="FooterContentBorder.Width" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CompactPaneLength}" />
                                     </VisualState.Setters>
-                                </VisualState>
+                                </win:VisualState>
+                                <xamarin:VisualState x:Name="ListSizeCompact">
+									<!-- UNO TODO Bindings in settings are not supported -->
+                                    <VisualState.Setters>
+                                        <Setter Target="MenuItemsHost.HorizontalAlignment" Value="Left" />
+                                        <!-- This is essentially a TemplateBinding: -->
+                                        <Setter Target="MenuItemsHost.Width" Value="48" />
+                                        <Setter Target="SettingsNavPaneItem.HorizontalAlignment" Value="Left" />
+                                        <Setter Target="SettingsNavPaneItem.Width" Value="48" />
+                                        <Setter Target="PaneTitleTextBlock.Visibility" Value="Collapsed" />
+                                        <Setter Target="PaneHeaderContentBorder.Visibility" Value="Collapsed" />
+                                        <Setter Target="PaneCustomContentBorder.HorizontalAlignment" Value="Left" />
+                                        <Setter Target="PaneCustomContentBorder.Width" Value="48" />
+                                        <Setter Target="FooterContentBorder.HorizontalAlignment" Value="Left" />
+                                        <Setter Target="FooterContentBorder.Width" Value="48" />
+                                    </VisualState.Setters>
+                                </xamarin:VisualState>
 
                             </VisualStateGroup>
 
@@ -1038,14 +1060,14 @@
                                 <VisualState x:Name="TitleBarVisible" />
                                 <VisualState x:Name="TitleBarCollapsed">
                                     <VisualState.Setters>
-                                        <Setter Target="PaneButtonGrid.Margin" Value="0,32,0,0" />
+                                        <win:Setter Target="PaneButtonGrid.Margin" Value="0,32,0,0" />
                                         <Setter Target="PaneContentGrid.Margin" Value="0,32,0,0" />
                                     </VisualState.Setters>
                                 </VisualState>
 
                             </VisualStateGroup>
 
-                            <VisualStateGroup x:Name="OverflowLabelGroup">
+                            <win:VisualStateGroup x:Name="OverflowLabelGroup">
                                 <VisualState x:Name="OverflowButtonWithLabel" />
                                 <VisualState x:Name="OverflowButtonNoLabel">
                                     <VisualState.Setters>
@@ -1053,7 +1075,7 @@
                                     </VisualState.Setters>
                                 </VisualState>
 
-                            </VisualStateGroup>
+                            </win:VisualStateGroup>
 
                             <VisualStateGroup x:Name="BackButtonGroup">
                                 <VisualState x:Name="BackButtonVisible" />
@@ -1144,7 +1166,20 @@
                                         Grid.Column="2"/>
 
                                     <!-- Top nav list -->
-                                    <winui:NavigationViewList AutomationProperties.LandmarkType="Navigation" x:Name="TopNavMenuItemsHost" Grid.Column="3" SelectionMode="Single" IsItemClickEnabled="True" ItemTemplate="{TemplateBinding MenuItemTemplate}" ItemTemplateSelector="{TemplateBinding MenuItemTemplateSelector}" ItemContainerStyle="{TemplateBinding MenuItemContainerStyle}" ItemContainerStyleSelector="{TemplateBinding MenuItemContainerStyleSelector}" ScrollViewer.HorizontalScrollMode="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollMode="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" SingleSelectionFollowsFocus="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.SingleSelectionFollowsFocus}">
+                                    <winui:NavigationViewList 
+										AutomationProperties.LandmarkType="Navigation"
+										x:Name="TopNavMenuItemsHost" Grid.Column="3"
+										SelectionMode="Single" 
+										IsItemClickEnabled="True"
+										ItemTemplate="{TemplateBinding MenuItemTemplate}"
+										ItemTemplateSelector="{TemplateBinding MenuItemTemplateSelector}"
+										ItemContainerStyle="{TemplateBinding MenuItemContainerStyle}"
+										ItemContainerStyleSelector="{TemplateBinding MenuItemContainerStyleSelector}" 
+										ScrollViewer.HorizontalScrollMode="Disabled"
+										ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+										ScrollViewer.VerticalScrollMode="Disabled" 
+										ScrollViewer.VerticalScrollBarVisibility="Hidden"
+										SingleSelectionFollowsFocus="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.SingleSelectionFollowsFocus}">
                                         <ListView.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <ItemsStackPanel Orientation="Horizontal" />
@@ -1163,9 +1198,11 @@
                                         FontSize="15px"
                                         FontWeight="Normal"
                                         VerticalAlignment="Center"
-                                        Style="{StaticResource NavigationViewOverflowButtonStyleWhenPaneOnTop}"
+                                        win:Style="{StaticResource NavigationViewOverflowButtonStyleWhenPaneOnTop}"
                                         Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.OverflowButtonVisibility}">
 
+										<!-- UNO TODO win:Style="{StaticResource NavigationViewOverflowButtonStyleWhenPaneOnTop}" -->
+										
                                         <Button.Flyout>
                                             <Flyout Placement="Bottom">
                                                 <Flyout.FlyoutPresenterStyle>

@@ -57,6 +57,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations
 
         private static void OnDurationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
+#if !HAS_UNO
             if (IsSupported == false)
             {
                 return;
@@ -73,11 +74,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations
                 view.ChoosingItemContainer -= OnChoosingItemContainer;
                 view.ChoosingItemContainer += OnChoosingItemContainer;
             }
-        }
+#endif
+		}
 
-        private static void AssignReorderAnimation(GridView view)
+		private static void AssignReorderAnimation(GridView view)
         {
-            var compositor = ElementCompositionPreview.GetElementVisual(view).Compositor;
+#if !HAS_UNO
+			var compositor = ElementCompositionPreview.GetElementVisual(view).Compositor;
             var elementImplicitAnimation = view.GetValue(ReorderAnimationProperty) as ImplicitAnimationCollection;
             if (elementImplicitAnimation == null)
             {
@@ -86,35 +89,40 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations
             }
 
             double duration = (double)view.GetValue(DurationProperty);
-            elementImplicitAnimation[nameof(Visual.Offset)] = CreateOffsetAnimation(compositor, duration);
-        }
+			elementImplicitAnimation[nameof(Visual.Offset)] = CreateOffsetAnimation(compositor, duration);
+#endif
+		}
 
         private static void OnContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
         {
-            var elementVisual = ElementCompositionPreview.GetElementVisual(args.ItemContainer);
-            if (args.InRecycleQueue)
-            {
-                PokeUIElementZIndex(args.ItemContainer);
-            }
-            else
-            {
-                var elementImplicitAnimation = sender.GetValue(ReorderAnimationProperty) as ImplicitAnimationCollection;
-                elementVisual.ImplicitAnimations = elementImplicitAnimation;
-            }
-        }
+#if !HAS_UNO
+			var elementVisual = ElementCompositionPreview.GetElementVisual(args.ItemContainer);
+			if (args.InRecycleQueue)
+			{
+				PokeUIElementZIndex(args.ItemContainer);
+			}
+			else
+			{
+				var elementImplicitAnimation = sender.GetValue(ReorderAnimationProperty) as ImplicitAnimationCollection;
+				elementVisual.ImplicitAnimations = elementImplicitAnimation;
+			}
+#endif
+		}
 
-        private static void OnChoosingItemContainer(ListViewBase sender, ChoosingItemContainerEventArgs args)
+		private static void OnChoosingItemContainer(ListViewBase sender, ChoosingItemContainerEventArgs args)
         {
-            if (args.ItemContainer != null)
+#if !IS_UNO
+			if (args.ItemContainer != null)
             {
                 PokeUIElementZIndex(args.ItemContainer);
             }
-        }
+#endif
+		}
 
         private static CompositionAnimationGroup CreateOffsetAnimation(Compositor compositor, double duration)
         {
             Vector3KeyFrameAnimation offsetAnimation = compositor.CreateVector3KeyFrameAnimation();
-#if NETFX_CORE // UNO TODO
+#if !HAS_UNO // UNO TODO
             offsetAnimation.InsertExpressionKeyFrame(1.0f, "this.FinalValue");
             offsetAnimation.Duration = TimeSpan.FromMilliseconds(duration);
             offsetAnimation.Target = nameof(Visual.Offset);

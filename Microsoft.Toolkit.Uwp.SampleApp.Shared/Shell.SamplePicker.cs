@@ -105,7 +105,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             SamplePickerGrid.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
-        private void NavView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+        private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
         {
             if (args.InvokedItem is SampleCategory category)
             {
@@ -274,7 +274,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         {
             if (MoreInfoImage != null && MoreInfoContent.DataContext != null)
             {
-                ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("sample_icon", MoreInfoImage);
+#if NETFX_CORE
+				ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("sample_icon", MoreInfoImage);
+#endif
             }
 
             MoreInfoCanvas.Visibility = Visibility.Collapsed;

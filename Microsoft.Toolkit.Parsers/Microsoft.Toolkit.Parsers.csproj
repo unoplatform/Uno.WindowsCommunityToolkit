@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
   
   <PropertyGroup>
-    <TargetFramework>$(TargetFrameworksOverride)</TargetFramework>
+    <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
     <Title>Windows Community Toolkit .NET Standard Parsers</Title>
     <Description>This .NET standard library contains various parsers including Markdown and RSS. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Parsers Parsing Markdown RSS</PackageTags>
@@ -10,7 +10,8 @@
 
 		<!-- This is a temporary workaround for https://github.com/dotnet/sdk/issues/955 -->
     <DebugType>Full</DebugType>
-  </PropertyGroup>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	</PropertyGroup>
   
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />

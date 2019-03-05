@@ -142,6 +142,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         {
             if (ex != null)
             {
+                Console.WriteLine("Failed to run command: " + ex);
                 ExceptionNotification.Show(ex.Message);
             }
         }
@@ -196,6 +197,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 {
                     try
                     {
+                        Console.WriteLine($"Creating {CurrentSample.PageType}");
+
                         var pageInstance = Activator.CreateInstance(CurrentSample.PageType);
                         SampleContent.Content = pageInstance;
 
@@ -218,6 +221,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     if (SamplePage != null)
                     {
                         SamplePage.Loaded += SamplePage_Loaded;
+
+                        if (SamplePage.IsLoaded)
+                        {
+                            SamplePage_Loaded(SamplePage, new RoutedEventArgs());
+                        }
                     }
                 }
                 else
@@ -239,28 +247,6 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 if (propertyDesc != null && propertyDesc.Options.Count > 0)
                 {
                     InfoAreaPivot.Items.Add(PropertiesPivotItem);
-				}
-
-				if (!string.IsNullOrWhiteSpace(CurrentSample.Type))
-				{
-					try
-					{
-						var pageInstance = Activator.CreateInstance(CurrentSample.PageType);
-						if (pageInstance is Page page)
-						{
-							page.Loaded += SamplePage_Loaded;
-						}
-						SampleContent.Content = pageInstance;
-					}
-					catch(Exception ex)
-					{
-						Console.WriteLine("Sample failed to load " + ex);
-						ExceptionNotification.Show("Sample Page failed to load.");
-					}
-				}
-				else
-				{
-					_onlyDocumentation = true;
 				}
 
 				if (CurrentSample.HasXAMLCode)
@@ -559,10 +545,19 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     SamplePage.Content = element;
                 }
 
+                Console.WriteLine("UpdateXamlRenderAsync done adding content");
+
                 // Tell the page we've finished with an update to the XAML contents, after the control has rendered.
                 if (element is FrameworkElement fe)
                 {
                     fe.Loaded += XamlFrameworkElement_Loaded;
+
+                    Console.WriteLine($"UpdateXamlRenderAsync attach loaded fe.IsLoaded:{fe.IsLoaded}");
+
+                    if (fe.IsLoaded)
+                    {
+                        XamlFrameworkElement_Loaded(fe, new RoutedEventArgs());
+                    }
                 }
             }
             else if (_xamlRenderer.Errors.Count > 0)
@@ -575,12 +570,15 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         private async void XamlFrameworkElement_Loaded(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("XamlFrameworkElement_Loaded");
+
             if (sender is FrameworkElement fe)
             {
                 fe.Loaded -= XamlFrameworkElement_Loaded;
 
                 await Dispatcher.RunAsync(CoreDispatcherPriority.Low, () =>
                 {
+                    Console.WriteLine("calling OnXamlRendered");
                     (SamplePage as IXamlRenderListener)?.OnXamlRendered(fe);
                 });
             }

@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
@@ -6,8 +6,9 @@
     <Description>This library enables access to Facebook. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows OAuth Facebook</PackageTags>
 
-	<PackageId>Uno.Microsoft.Toolkit.Uwp.Services</PackageId>
-  </PropertyGroup>
+		<PackageId>Uno.Microsoft.Toolkit.Uwp.Services</PackageId>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="winsdkfb" Version="0.12.20161020.4" />
@@ -21,7 +22,7 @@
     
   </ItemGroup>
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
-		<PackageReference Include="Uno.UI" Version="1.41.1-dev.132" />
+		<PackageReference Include="Uno.UI" Version="1.43.0-dev.897" />
 	</ItemGroup>
 
 	<Import Project="..\uno.ui.include.props" />

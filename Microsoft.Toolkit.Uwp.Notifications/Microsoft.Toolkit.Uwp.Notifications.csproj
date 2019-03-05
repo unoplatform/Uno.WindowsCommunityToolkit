@@ -1,8 +1,8 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.4;uap10.0;native</TargetFrameworks>
-    <DefineConstants>$(DefineConstants);NETFX_CORE</DefineConstants>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+		<DefineConstants>$(DefineConstants);NETFX_CORE</DefineConstants>
     <Title>Windows Community Toolkit Notifications</Title>
     <Description>Generate tile, toast, and badge notifications for Windows 10 via code, with the help of IntelliSense, instead of directly using XML.
 Supports adaptive tiles and adaptive/interactive toasts for Windows 10. It is part of the Windows Community Toolkit. Supports C# and C++ UWP project types (see Microsoft.Toolkit.Uwp.Notifications.JavaScript for the JS version). Also works with C# portable class libraries and non-UWP C# projects like server projects.</Description>
@@ -10,6 +10,7 @@ Supports adaptive tiles and adaptive/interactive toasts for Windows 10. It is pa
     <ExtrasImplicitPlatformPackageIsPrivate Condition=" '$(TargetFramework)' == 'native' ">true</ExtrasImplicitPlatformPackageIsPrivate>
 		
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.Notifications</PackageId>
+		<NoWarn>$(NoWarn);Uno0001</NoWarn>
 	</PropertyGroup>
   
   <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'native' ">

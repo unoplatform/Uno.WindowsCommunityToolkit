@@ -402,7 +402,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             _loadedRows = new List<DataGridRow>();
             _lostFocusActions = new Queue<Action>();
             _selectedItems = new DataGridSelectedItemsCollection(this);
-            _rowGroupHeaderPropertyNameAlternative = Properties.Resources.DefaultRowGroupHeaderPropertyNameAlternative;
+            _rowGroupHeaderPropertyNameAlternative = DG.Properties.Resources.DefaultRowGroupHeaderPropertyNameAlternative;
             _rowGroupHeaderStyles = new ObservableCollection<Style>();
             _rowGroupHeaderStyles.CollectionChanged += RowGroupHeaderStyles_CollectionChanged;
             _rowGroupHeaderStylesOld = new List<Style>();

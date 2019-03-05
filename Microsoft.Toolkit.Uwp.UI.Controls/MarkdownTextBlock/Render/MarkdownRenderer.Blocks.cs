@@ -373,7 +373,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Markdown.Render
             var textBlock = new RichTextBlock
             {
                 FontFamily = CodeFontFamily ?? FontFamily,
-                Foreground = brush,
+#if NETFX_CORE // UNO TODO
+				Foreground = brush,
+#endif
                 LineHeight = FontSize * 1.4
             };
 
@@ -446,7 +448,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Markdown.Render
                     cellContent.Margin = TableCellPadding;
                     Grid.SetRow(cellContent, rowIndex);
                     Grid.SetColumn(cellContent, cellIndex);
-                    switch (element.ColumnDefinitions[cellIndex].Alignment)
+
+#if NETFX_CORE // UNO TODO
+					switch (element.ColumnDefinitions[cellIndex].Alignment)
                     {
                         case ColumnAlignment.Center:
                             cellContent.TextAlignment = TextAlignment.Center;
@@ -456,6 +460,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Markdown.Render
                             cellContent.TextAlignment = TextAlignment.Right;
                             break;
                     }
+#endif
 
                     if (rowIndex == 0)
                     {

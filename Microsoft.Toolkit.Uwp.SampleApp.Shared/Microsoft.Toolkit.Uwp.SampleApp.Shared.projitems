@@ -26,20 +26,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\DelegateCommand{T}.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\DoubleTopThicknessConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\EnumConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Common\ISampleNavigation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\IXamlRenderListener.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Common\ListViewHoverScroll.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SampleCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SolidColorBrushConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ThicknessConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\TimeSpanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Tools.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Common\XAMLHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\AadAuthControl.xaml.cs">
       <DependentUpon>AadAuthControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Controls\CodeRenderer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\ExtendedHamburgerMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyControl.xaml.cs">
       <DependentUpon>PropertyControl.xaml</DependentUpon>
     </Compile>
@@ -110,9 +106,6 @@
       <DependentUpon>BackgroundTaskHelperPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\BackgroundTaskHelper\TestBackgroundTask.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\Bing Service\BingPage.xaml.cs">
-      <DependentUpon>BingPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\BladeView\BladePage.xaml.cs">
       <DependentUpon>BladePage.xaml</DependentUpon>
     </Compile>
@@ -182,9 +175,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\GridSplitter\GridSplitterPage.xaml.cs">
       <DependentUpon>GridSplitterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\HamburgerMenu\HamburgerMenuPage.xaml.cs">
-      <DependentUpon>HamburgerMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedContentControl\HeaderedContentControlPage.xaml.cs">
       <DependentUpon>HeaderedContentControlPage.xaml</DependentUpon>
@@ -263,9 +253,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\Mouse\MouseCursorPage.xaml.cs">
       <DependentUpon>MouseCursorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\NavigationViewStyles\NavigationViewStylesPage.xaml.cs">
-      <DependentUpon>NavigationViewStylesPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\NetworkHelper\NetworkHelperPage.xaml.cs">
       <DependentUpon>NetworkHelperPage.xaml</DependentUpon>
     </Compile>
@@ -286,9 +273,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\OrbitView\OrbitViewPage.xaml.cs">
       <DependentUpon>OrbitViewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\ParallaxService\ParallaxPage.xaml.cs">
-      <DependentUpon>ParallaxPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\PeoplePicker\PeoplePickerPage.xaml.cs">
       <DependentUpon>PeoplePickerPage.xaml</DependentUpon>
     </Compile>
@@ -303,9 +287,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\ProfileCard\ProfileCardPage.xaml.cs">
       <DependentUpon>ProfileCardPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\PullToRefreshListView\PullToRefreshListViewPage.xaml.cs">
-      <DependentUpon>PullToRefreshListViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\RadialGauge\RadialGaugePage.xaml.cs">
       <DependentUpon>RadialGaugePage.xaml</DependentUpon>
@@ -346,9 +327,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\SharePointFileList\SharePointFileListPage.xaml.cs">
       <DependentUpon>SharePointFileListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\SlidableListItem\SlidableListItemPage.xaml.cs">
-      <DependentUpon>SlidableListItemPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\StaggeredPanel\StaggeredPanelPage.xaml.cs">
       <DependentUpon>StaggeredPanelPage.xaml</DependentUpon>
     </Compile>
@@ -361,6 +339,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\SystemInformation\SystemInformationPage.xaml.cs">
       <DependentUpon>SystemInformationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\TabView\TabViewPage.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\TextBoxMask\TextBoxMaskPage.xaml.cs">
       <DependentUpon>TextBoxMaskPage.xaml</DependentUpon>
     </Compile>
@@ -396,9 +375,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\WeatherLiveTileAndToast\WeatherLiveTileAndToastPage.xaml.cs">
       <DependentUpon>WeatherLiveTileAndToastPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\Weibo Service\WeiboPage.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\WrapPanel\WrapPanelPage.xaml.cs">
       <DependentUpon>WrapPanelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Shell.SamplePicker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shell.Search.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shell.xaml.cs">
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
@@ -453,6 +435,8 @@
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\DataGrid\DataGrid.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PlannerTaskList\PlannerTaskList.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PowerBIEmbedded\PowerBIEmbedded.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SamplePages\TabView\TabView.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SamplePages\Weibo Service\WeiboLogo.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Photos\OnlinePhotos.json" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\OregonWineryNamaste.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\Owl.jpg" />
@@ -570,8 +554,6 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\BackdropSepiaBrush\BackdropSepiaBrushXaml.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\BackgroundTaskHelper\BackgroundTaskHelper.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\BackgroundTaskHelper\BackgroundTaskHelperCode.bind" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\Bing Service\BingCode.bind" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\Bing Service\icon.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\BladeView\BladeCode.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\BladeView\BladeView.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\BluetoothLEHelper\BluetoothLEHelper.png" />
@@ -617,8 +599,6 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\GazeTracing\GazeTracingXaml.bind" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\GridSplitter\GridSplitter.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\GridSplitter\GridSplitter.png" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\HamburgerMenu\HamburgerMenu.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\HamburgerMenu\HamburgerMenuCode.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedContentControl\HeaderedContentControl.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedContentControl\HeaderedContentControlXaml.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedItemsControl\HeaderedItemsControl.png" />
@@ -671,8 +651,6 @@
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\Microsoft Translator Service\TranslatorService.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\Mouse\MouseCursor.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\Mouse\MouseCursorPage.bind" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\NavigationViewStyles\NavigationViewStyles.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\NavigationViewStyles\NavigationViewStylesXaml.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\NetworkHelper\NetworkHelper.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\NetworkHelper\NetworkHelperCode.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\Object Storage\ObjectStorage.png" />
@@ -684,8 +662,6 @@
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\OneDrive Service\OneDriveLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\OrbitView\OrbitView.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\OrbitView\OrbitViewXaml.bind" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\ParallaxService\Parallax.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\ParallaxService\ParallaxPage.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PeoplePicker\PeoplePicker.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\PeoplePicker\PeoplePickerXaml.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PrintHelper\PrintHelper.png" />
@@ -693,9 +669,6 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\PrintHelper\PrintHelperXaml.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\ProfileCard\ProfileCard.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\ProfileCard\ProfileCardXaml.bind" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\PullToRefreshListView\PullToRefreshListView.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\PullToRefreshListView\PullToRefreshListViewCode.bind" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\PullToRefreshListView\PullToRefreshListViewXaml.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\RadialGauge\RadialGauge.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\RadialGauge\RadialGaugeCode.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\RadialGradientBrush\RadialGradientBrush.png" />
@@ -726,8 +699,6 @@
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\SharePointFileList\SharePointFileList.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\SharePointFileList\SharePointFileListCode.bind" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\SharePointFileList\SharePointFileListXaml.bind" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\SlidableListItem\SlidableListItem.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\SlidableListItem\SlidableListItemCode.bind" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\StaggeredPanel\StaggeredPanel.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\StaggeredPanel\StaggeredPanel.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\SurfaceDialTextbox\SurfaceDialTextbox.png" />
@@ -768,10 +739,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Controls\CodeRenderer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Controls\ExtendedHamburgerMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -828,10 +795,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\BackgroundTaskHelper\BackgroundTaskHelperPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\Bing Service\BingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -924,10 +887,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\GridSplitter\GridSplitterPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\HamburgerMenu\HamburgerMenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1027,10 +986,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\NavigationViewStyles\NavigationViewStylesPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\NetworkHelper\NetworkHelperPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1055,10 +1010,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\ParallaxService\ParallaxPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\PeoplePicker\PeoplePickerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1076,10 +1027,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\ProfileCard\ProfileCardPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\PullToRefreshListView\PullToRefreshListViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1135,10 +1082,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\SlidableListItem\SlidableListItemPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\StaggeredPanel\StaggeredPanelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1152,6 +1095,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\SystemInformation\SystemInformationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)SamplePages\TabView\TabViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1199,6 +1146,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)SamplePages\Weibo Service\WeiboPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\WrapPanel\WrapPanelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1227,8 +1178,18 @@
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\DataGrid\DataGridCode.bind" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\PlannerTaskList\PlannerTaskListXaml.bind" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\TabView\TabViewXaml.bind" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\Weibo Service\WeiboCode.bind" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\mtns.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\TabView\TabViewPage.xaml.cs">
+      <DependentUpon>TabViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Weibo Service\WeiboPage.xaml.cs">
+      <DependentUpon>WeiboPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

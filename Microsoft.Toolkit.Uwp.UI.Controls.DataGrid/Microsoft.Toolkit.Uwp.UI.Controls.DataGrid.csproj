@@ -1,10 +1,10 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
-    <TargetFramework>$(TargetFrameworksOverride)</TargetFramework>
+    <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
     <Title>Windows Community Toolkit Controls DataGrid</Title>
     <Description>This library provides a XAML DataGrid control. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Controls XAML DataGrid</PackageTags>
-    <RootNamespace>Microsoft.Toolkit.Uwp.UI.Controls</RootNamespace>
+    <RootNamespace>Microsoft.Toolkit.Uwp.UI.Controls.DG</RootNamespace>
     <UseUwpMetaPackage>true</UseUwpMetaPackage>
 
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid</PackageId>
@@ -29,7 +29,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
-		<PackageReference Include="Uno.UI" Version="1.41.1-dev.132" />
+		<PackageReference Include="Uno.UI" Version="1.43.0-PullRequest0609.893" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -61,8 +61,8 @@
 		<ItemGroup>
 			<GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
 		</ItemGroup>
-		<Message Text="CSFiles: @(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')" />
-		<Exec Command="for %%f in (@(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
+		<Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
+		<Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
 	</Target>
 
 	<Import Project="..\uno.ui.include.props" />

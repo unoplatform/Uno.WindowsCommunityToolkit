@@ -83,8 +83,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Markdown.Render
                 FontStretch = FontStretch,
                 FontStyle = FontStyle,
                 FontWeight = FontWeight,
-                Foreground = localContext.Foreground,
-                IsTextSelectionEnabled = IsTextSelectionEnabled,
+#if NETFX_CORE  // UNO TODO
+				Foreground = localContext.Foreground,
+#endif
+				IsTextSelectionEnabled = IsTextSelectionEnabled,
                 TextWrapping = TextWrapping
             };
             localContext.BlockUIElementCollection?.Add(result);
