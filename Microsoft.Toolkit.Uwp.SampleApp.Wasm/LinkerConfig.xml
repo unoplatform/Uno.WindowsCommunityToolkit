@@ -1,5 +1,6 @@
 ﻿<linker>
 	<assembly fullname="Uno.UI"/>
+	<assembly fullname="Uno.Foundation"/>
 	<assembly fullname="Uno.Xaml"/>
   <assembly fullname="Microsoft.Toolkit.Uwp.SampleApp.Wasm"/>
 	<assembly fullname="ColorCode.UWP"/>

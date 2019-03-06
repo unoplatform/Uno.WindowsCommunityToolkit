@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.System.RemoteSystems;
@@ -25,7 +26,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     [TemplatePart(Name = "StatusType", Type = typeof(ComboBox))]
     [TemplatePart(Name = "AuthorizationType", Type = typeof(ComboBox))]
     [TemplatePart(Name = "AdvancedFiltersGrid", Type = typeof(Grid))]
-    public sealed class RemoteDevicePicker : ContentDialog
+    public sealed partial class RemoteDevicePicker : ContentDialog
     {
         private ListView _listDevices;
         private ComboBox _listDeviceTypes;

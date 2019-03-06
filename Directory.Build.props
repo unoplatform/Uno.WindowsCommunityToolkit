@@ -13,7 +13,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
 		
 		<!--<TargetFrameworksOverride>xamarinios10</TargetFrameworksOverride>-->
-		<TargetFrameworksOverride>uap10.0;MonoAndroid80;xamarinios10;netstandard2.0</TargetFrameworksOverride>
+		<TargetFrameworksOverride>uap10.0.16299;MonoAndroid80;xamarinios10;netstandard2.0</TargetFrameworksOverride>
 
     <IsDesignProject>$(MSBuildProjectName.Contains('.Design'))</IsDesignProject>
     <IsTestProject>$(MSBuildProjectName.Contains('Test'))</IsTestProject>

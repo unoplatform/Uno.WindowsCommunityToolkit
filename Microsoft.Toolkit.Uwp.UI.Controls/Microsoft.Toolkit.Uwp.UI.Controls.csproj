@@ -16,7 +16,7 @@
 		<ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.16299'">
 		<PackageReference Include="Robmikh.CompositionSurfaceFactory" Version="0.7.3" />
 	</ItemGroup>
 	

@@ -12,7 +12,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// <summary>
     /// The <see cref="ImageCropperThumb"/> control is used for <see cref="ImageCropper"/>.
     /// </summary>
-    public class ImageCropperThumb : Control
+    public partial class ImageCropperThumb : Control
     {
         private readonly TranslateTransform _layoutTransform = new TranslateTransform();
 

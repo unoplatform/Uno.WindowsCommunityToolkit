@@ -300,6 +300,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\RangeSelector\RangeSelectorPage.xaml.cs">
       <DependentUpon>RangeSelectorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDeviceHelper\RemoteDeviceHelperPage.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDevicePicker\RemoteDevicePickerControlPage.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\ReorderGridAnimation\ReorderGridPage.xaml.cs">
       <DependentUpon>ReorderGridPage.xaml</DependentUpon>
     </Compile>
@@ -435,6 +437,8 @@
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\DataGrid\DataGrid.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PlannerTaskList\PlannerTaskList.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PowerBIEmbedded\PowerBIEmbedded.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDeviceHelper\RemoteDeviceHelper.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDevicePicker\RemoteDevicePicker.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\TabView\TabView.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\Weibo Service\WeiboLogo.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\Photos\OnlinePhotos.json" />
@@ -1046,6 +1050,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDeviceHelper\RemoteDeviceHelperPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDevicePicker\RemoteDevicePickerControlPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\ReorderGridAnimation\ReorderGridPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1185,11 +1197,21 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Assets\mtns.csv" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\RemoteDeviceHelper\RemoteDeviceHelperPage.xaml.cs">
+      <DependentUpon>RemoteDeviceHelperPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\RemoteDevicePicker\RemoteDevicePickerControlPage.xaml.cs">
+      <DependentUpon>RemoteDevicePickerControlPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\TabView\TabViewPage.xaml.cs">
       <DependentUpon>TabViewPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Weibo Service\WeiboPage.xaml.cs">
       <DependentUpon>WeiboPage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDeviceHelper\RemoteDeviceHelperCode.bind" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDevicePicker\RemoteDevicePickerCode.bind" />
   </ItemGroup>
 </Project>

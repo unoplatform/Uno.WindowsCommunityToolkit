@@ -51,6 +51,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         private void OpenAnimationTimer_Tick(object sender, object e)
         {
+#if !HAS_UNO
             _animationTimer.Stop();
             Opened?.Invoke(this, EventArgs.Empty);
             SetValue(AutomationProperties.NameProperty, StringExtensions.GetLocalized("WindowsCommunityToolkit_InAppNotification_NameProperty", "/Microsoft.Toolkit.Uwp.UI.Controls/Resources"));
@@ -61,6 +62,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
 
             _animationTimer.Tick -= OpenAnimationTimer_Tick;
+#endif
         }
 
         private void AutomateTextNotification(string message)

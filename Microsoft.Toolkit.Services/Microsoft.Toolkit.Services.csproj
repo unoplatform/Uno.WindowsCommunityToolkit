@@ -10,7 +10,7 @@
 		<NoWarn>$(NoWarn);CS8002;Uno0001</NoWarn>
 	</PropertyGroup>
   
-  <PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0' ">
+  <PropertyGroup Condition="'$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.16299' ">
     <DefineConstants Condition="'$(DisableImplicitFrameworkDefines)' != 'true'">$(DefineConstants);WINRT</DefineConstants>
   </PropertyGroup>
 
@@ -37,7 +37,7 @@
 		<Reference Include="System.Xml.Linq" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)'=='uap10.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFramework)' == 'netstandard2.0'">
+	<ItemGroup Condition="'$(TargetFramework)'=='uap10.0' or '$(TargetFramework)' == 'uap10.0.16299' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="3.13.7" />
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />
   </ItemGroup>
@@ -74,7 +74,7 @@
     </Compile>
   </ItemGroup>
 
-  <ItemGroup Condition="!('$(TargetFramework)'=='uap10.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFramework)' == 'netstandard2.0')">
+  <ItemGroup Condition="!('$(TargetFramework)'=='uap10.0' or '$(TargetFramework)' == 'uap10.0.16299' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFramework)' == 'netstandard2.0')">
 		<Compile Remove="Services\MicrosoftGraph\Platform\Uwp\**\*" />
 		<Compile Remove="Services\OneDrive\Platform\Uwp\**\*" />
 		<Compile Remove="PlatformSpecific\Uwp\**\*" />

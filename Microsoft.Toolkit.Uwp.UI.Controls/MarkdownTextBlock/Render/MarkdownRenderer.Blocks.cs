@@ -373,8 +373,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Markdown.Render
             var textBlock = new RichTextBlock
             {
                 FontFamily = CodeFontFamily ?? FontFamily,
-                LineHeight = FontSize * 1.4,
-                FlowDirection = FlowDirection
+                FlowDirection = FlowDirection,
 #if NETFX_CORE // UNO TODO
 				Foreground = brush,
 #endif

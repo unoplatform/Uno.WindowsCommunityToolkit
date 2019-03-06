@@ -18,7 +18,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 
 			Application.Start(e => new App());
 		}
-
+         
 		static void ConfigureFilters(ILoggerFactory factory)
 		{
 			factory

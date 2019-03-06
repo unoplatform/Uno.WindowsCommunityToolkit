@@ -16,7 +16,7 @@
 		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj" />
 	</ItemGroup>
 	
-	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.16299'">
 		<PackageReference Include="Win2D.uwp" Version="1.21.0" />
 	</ItemGroup>
 
