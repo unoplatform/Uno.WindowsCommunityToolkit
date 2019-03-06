@@ -28,16 +28,36 @@
     <None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
     <None Include="$(OutDir)\Design\$(MSBuildProjectName).Design.dll" Pack="true" PackagePath="lib\$(TargetFramework)\Design" />
   </ItemGroup>
+ 
+  <ItemGroup>
+    <Page Update="ImageCropper\ImageCropper.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="ImageCropper\ImageCropperThumb.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+   
+  <ItemGroup>
+     <Page Update="RemoteDevicePicker\RemoteDevicePicker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  
 
-	<!-- https://weblogs.asp.net/rweigelt/disable-warnings-in-generated-c-files-of-uwp-app -->
-	<Target Name="PragmaWarningDisablePrefixer" AfterTargets="MarkupCompilePass2" Condition="'$(TargetFramework)' == 'uap10.0'">
-		<ItemGroup>
-			<GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
-		</ItemGroup>
-		<Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
-		<Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
-	</Target>
-	
-	<Import Project="..\uno.ui.include.props" />
+  <ItemGroup>
+    <PRIResource Include="Strings\en-us\Resources.resw" />
+  </ItemGroup>
 
+  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+
+
+  <!-- https://weblogs.asp.net/rweigelt/disable-warnings-in-generated-c-files-of-uwp-app -->
+  <Target Name="PragmaWarningDisablePrefixer" AfterTargets="MarkupCompilePass2">
+    <ItemGroup>
+      <GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
+    </ItemGroup>
+    <Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
+    <Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
+  </Target>
 </Project>

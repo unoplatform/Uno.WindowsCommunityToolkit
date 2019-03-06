@@ -8,6 +8,7 @@ using Microsoft.Graphics.Canvas;
 using Microsoft.Graphics.Canvas.UI.Composition;
 using Windows.Graphics;
 using Windows.Graphics.DirectX;
+using Windows.Graphics.Display;
 using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,6 +27,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         private SpriteVisual _myDrawingVisual;
         private CompositionVirtualDrawingSurface _drawingSurface;
         private CompositionSurfaceBrush _surfaceBrush;
+        private double _screenScale;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InfiniteCanvasVirtualDrawingSurface"/> class.
@@ -50,7 +52,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             ElementCompositionPreview.SetElementChildVisual(this, _myDrawingVisual);
         }
 
-        internal void ConfigureSpriteVisual(double width, double height)
+        internal void ConfigureSpriteVisual(double width, double height, float zoomFactor)
         {
             var size = new SizeInt32
             {
@@ -69,8 +71,18 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             _surfaceBrush.VerticalAlignmentRatio = 0;
             _surfaceBrush.TransformMatrix = Matrix3x2.CreateTranslation(0, 0);
 
+            SetScale(zoomFactor);
+
             _myDrawingVisual.Brush = _surfaceBrush;
             _surfaceBrush.Offset = new Vector2(0, 0);
+        }
+
+        internal void SetScale(float zoomFactor)
+        {
+            _screenScale = DisplayInformation.GetForCurrentView().RawPixelsPerViewPixel;
+            var scale = _screenScale * zoomFactor;
+            _surfaceBrush.Scale = new Vector2((float)(1 / scale));
+            _surfaceBrush.BitmapInterpolationMode = CompositionBitmapInterpolationMode.NearestNeighbor;
         }
     }
 }

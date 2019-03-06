@@ -4,8 +4,10 @@
 // See the LICENSE file in the project root for more information.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Windows.Foundation;
+using Windows.UI.Input.Inking;
 
 namespace Microsoft.Toolkit.Uwp.UI.Controls
 {
@@ -14,6 +16,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// </summary>
     public partial class InfiniteCanvasVirtualDrawingSurface
     {
+        internal List<InkStroke> ExportInkStrokes()
+        {
+            return _drawableList.OfType<InkDrawable>().SelectMany(id => id.Strokes).ToList();
+        }
+
         internal void Erase(Point point, Rect viewPort, float zoomFactor)
         {
             const int tolerance = 5;
@@ -38,7 +45,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                                 {
                                     var toRemove = _visibleList.ElementAt(i);
                                     ExecuteEraseInk(toRemove);
-                                    ReDraw(viewPort);
+                                    ReDraw(viewPort, zoomFactor);
 
                                     return;
                                 }

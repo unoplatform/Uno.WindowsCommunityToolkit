@@ -21,7 +21,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
         internal event EventHandler CommandExecuted;
 
-        internal void Undo(Rect viewPort)
+        internal void Undo(Rect viewPort, float zoomFactor)
         {
             if (_undoCommands.Count != 0)
             {
@@ -29,11 +29,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 command.Undo();
                 _redoCommands.Push(command);
 
-                ReDraw(viewPort);
+                ReDraw(viewPort, zoomFactor);
             }
         }
 
-        internal void Redo(Rect viewPort)
+        internal void Redo(Rect viewPort, float zoomFactor)
         {
             if (_redoCommands.Count != 0)
             {
@@ -41,7 +41,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 command.Execute();
                 _undoCommands.Push(command);
 
-                ReDraw(viewPort);
+                ReDraw(viewPort, zoomFactor);
             }
         }
 
