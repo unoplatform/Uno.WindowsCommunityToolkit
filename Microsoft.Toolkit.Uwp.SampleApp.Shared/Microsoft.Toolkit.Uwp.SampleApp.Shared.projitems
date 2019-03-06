@@ -388,8 +388,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Styles\ThemeInjector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TrackingManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnoPlatformShell.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\GithubLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Helpers.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\NotificationAssets\Cloudy-Square.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\NotificationAssets\Cloudy.png" />
