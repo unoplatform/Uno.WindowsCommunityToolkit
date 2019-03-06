@@ -10,7 +10,7 @@ Supports adaptive tiles and adaptive/interactive toasts for Windows 10. It is pa
     <ExtrasImplicitPlatformPackageIsPrivate Condition=" '$(TargetFramework)' == 'native' ">true</ExtrasImplicitPlatformPackageIsPrivate>
 		
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.Notifications</PackageId>
-		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 	</PropertyGroup>
   
   <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'native' ">

@@ -8,7 +8,7 @@
 
     <!-- This is a temporary workaround for https://github.com/dotnet/sdk/issues/955 -->
     <DebugType>Full</DebugType>
-		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 	</PropertyGroup>
 	
 </Project>

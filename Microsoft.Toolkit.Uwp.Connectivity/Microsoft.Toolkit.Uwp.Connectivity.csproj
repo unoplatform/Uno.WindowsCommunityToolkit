@@ -7,7 +7,7 @@
     <PackageTags>UWP Toolkit Windows Devices Bluetooth BTLE Networking</PackageTags>
 		
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.Connectivity</PackageId>
-		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>

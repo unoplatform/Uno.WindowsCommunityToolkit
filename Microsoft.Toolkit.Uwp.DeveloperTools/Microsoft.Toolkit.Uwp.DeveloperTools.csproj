@@ -8,7 +8,7 @@
     <UseUwpMetaPackage>true</UseUwpMetaPackage>
 
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.DeveloperTools</PackageId>
-		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 	</PropertyGroup>
   
   <ItemGroup>

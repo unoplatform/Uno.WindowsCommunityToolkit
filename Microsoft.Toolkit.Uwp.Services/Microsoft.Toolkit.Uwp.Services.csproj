@@ -7,7 +7,7 @@
     <PackageTags>UWP Toolkit Windows OAuth Facebook</PackageTags>
 
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.Services</PackageId>
-		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 	</PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='uap10.0' or '$(TargetFramework)' == 'uap10.0.16299'">

@@ -6,7 +6,7 @@
     <Description>This library provides helpers and extensions on top of Windows Composition and XAML storyboards. It is part of the Windows Community Toolkit.</Description>
     <PackageTags>UWP Toolkit Windows Animations Composition Connected Implicit XAML</PackageTags>
  		
-	<NoWarn>$(NoWarn);Uno0001</NoWarn>
+	<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 	<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Animations</PackageId>
  </PropertyGroup>
 

@@ -8,7 +8,7 @@
 
 		<UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
 		<UseWindowsMobileSdk>true</UseWindowsMobileSdk>
-		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI</PackageId>
 	</PropertyGroup>
 	
