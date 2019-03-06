@@ -193,6 +193,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
             if (CurrentSample != null)
             {
+                // UNO TODO
+                // The controls may be loaded when set directly to their parent
+                // so the datacontext of the renderer needs to be set early.
+                setSampleDataContext();
+
                 if (!string.IsNullOrWhiteSpace(CurrentSample.Type))
                 {
                     try
@@ -233,15 +238,18 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     _onlyDocumentation = true;
                 }
 
-                DataContext = CurrentSample;
-
-                var propertyDesc = CurrentSample.PropertyDescriptor;
-
-                InfoAreaPivot.Items.Clear();
-
-                if (propertyDesc != null)
+                void setSampleDataContext()
                 {
-                    _xamlRenderer.DataContext = propertyDesc.Expando;
+                    DataContext = CurrentSample;
+
+                    var propertyDesc = CurrentSample.PropertyDescriptor;
+
+                    InfoAreaPivot.Items.Clear();
+
+                    if (propertyDesc != null)
+                    {
+                        _xamlRenderer.DataContext = propertyDesc.Expando;
+                    }
                 }
 
                 if (propertyDesc != null && propertyDesc.Options.Count > 0)
