@@ -718,7 +718,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         private Page SamplePage => SampleContent.Content as Page;
 
-        private bool CanChangePaneState => !_onlyDocumentation;
+        private bool CanChangePaneState =>
+#if HAS_UNO
+            !_onlyDocumentation;
+#else
+            false;
+#endif
 
         private XamlRenderService _xamlRenderer = new XamlRenderService();
         private bool _lastRenderedProperties = true;

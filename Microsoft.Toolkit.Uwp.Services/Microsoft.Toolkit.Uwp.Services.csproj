@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
@@ -24,7 +24,7 @@
     
   </ItemGroup>
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
-		<PackageReference Include="Uno.UI" Version="1.43.0-dev.897" />
+		<PackageReference Include="Uno.UI" Version="1.44.0-dev.987" />
 	</ItemGroup>
 
 	<Import Project="..\uno.ui.include.props" />

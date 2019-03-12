@@ -76,7 +76,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Uno.UI.WpfHost" Version="1.41.0-dev.94" />
+    <PackageReference Include="Uno.UI.WpfHost" Version="1.44.0-dev.987" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

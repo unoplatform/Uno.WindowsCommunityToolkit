@@ -429,16 +429,16 @@
         "Icon": "/SamplePages/AlignmentGrid/AlignmentGrid.png",
         "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/developer-tools/AlignmentGrid.md"
       },
-      {
-        "Name": "FocusTracker",
-        "Type": "FocusTrackerPage",
-        "Subcategory": "Developer",
-        "About": "FocusTracker can be used to display information about the current focused XAML element.",
-        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.DeveloperTools/FocusTracker",
-        "XamlCodeFile": "FocusTrackerXaml.bind",
-        "Icon": "/SamplePages/FocusTracker/FocusTracker.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/developer-tools/FocusTracker.md"
-      }
+      //{
+      //  "Name": "FocusTracker",
+      //  "Type": "FocusTrackerPage",
+      //  "Subcategory": "Developer",
+      //  "About": "FocusTracker can be used to display information about the current focused XAML element.",
+      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.DeveloperTools/FocusTracker",
+      //  "XamlCodeFile": "FocusTrackerXaml.bind",
+      //  "Icon": "/SamplePages/FocusTracker/FocusTracker.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/developer-tools/FocusTracker.md"
+      //}
     ]
   },
   //{
@@ -704,11 +704,11 @@
   //    }
   //  ]
   //},
-  //{
-  //  "Name": "Helpers",
-  //  "Icon": "Icons/Helpers.png",
-  //  "Samples": [
-  //    {
+  {
+    "Name": "Helpers",
+    "Icon": "Icons/Helpers.png",
+    "Samples": [
+      //{
   //      "Name": "ImageCache",
   //      "Type": "ImageCachePage",
   //      "Subcategory": "Data",
@@ -840,22 +840,22 @@
   //      "Icon": "/SamplePages/RemoteDeviceHelper/RemoteDeviceHelper.png",
   //      "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/helpers/RemoteDeviceHelper.md"
   //    },
-  //    {
-  //      "Name": "Markdown Parser",
-  //      "Type": "MarkdownParserPage",
-  //      "Subcategory": "Parser",
-  //      "About": "The Markdown Parser allows you to parse a Markdown String into a Markdown Document, and then Render it with a Markdown Renderer.",
-  //      "Icon": "/Assets/Helpers.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/parsers/MarkdownParser.md"
-  //    },
-  //    {
-  //      "Name": "RSS Parser",
-  //      "Type": "RssParserPage",
-  //      "Subcategory": "Parser",
-  //      "About": "The RSS Parser allows you to parse an RSS content String into RSS Schema.",
-  //      "Icon": "/Assets/Helpers.png",
-  //      "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/parsers/RssParser.md"
-  //    },
+      {
+        "Name": "Markdown Parser",
+        "Type": "MarkdownParserPage",
+        "Subcategory": "Parser",
+        "About": "The Markdown Parser allows you to parse a Markdown String into a Markdown Document, and then Render it with a Markdown Renderer.",
+        "Icon": "/Assets/Helpers.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/parsers/MarkdownParser.md"
+      },
+      {
+        "Name": "RSS Parser",
+        "Type": "RssParserPage",
+        "Subcategory": "Parser",
+        "About": "The RSS Parser allows you to parse an RSS content String into RSS Schema.",
+        "Icon": "/Assets/Helpers.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/parsers/RssParser.md"
+      },
   //    {
   //      "Name": "LiveTile",
   //      "Type": "LiveTilePage",
@@ -897,8 +897,8 @@
   //      "Icon": "/Assets/Helpers.png",
   //      "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/platform-specific/PlatformSpecificAnalyzer.md"
   //    }
-  //  ]
-  //},
+    ]
+  },
   //{
   //  "Name": "Brushes",
   //  "Icon": "Icons/Brushes.png",
