@@ -9,9 +9,10 @@
 
     <Grid>
         <Grid x:Name="XamlRoot"/>
+        <!--Uno TODO AnimationDuration conflicts with iOS method -->
+        <!--AnimationDuration="00:00:00.1000000"-->
         <controls:InAppNotification x:Name="TabViewNotification"
                                     ShowDismissButton="True"
-                                    AnimationDuration="00:00:00.1000000"
                                     VerticalOffset="100"
                                     HorizontalOffset="0"
                                     StackMode="Replace" />

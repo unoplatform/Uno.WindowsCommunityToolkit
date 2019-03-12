@@ -121,7 +121,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             SamplePickerGrid.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
+#if NETFX_CORE
+        private void NavView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+#else
         private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+#endif
         {
             if (args.InvokedItem is SampleCategory category)
             {

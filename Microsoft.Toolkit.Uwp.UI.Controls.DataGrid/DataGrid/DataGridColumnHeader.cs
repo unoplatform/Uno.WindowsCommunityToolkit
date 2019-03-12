@@ -164,7 +164,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Primitives
             set;
         }
 
+#pragma warning disable CS0114 // Xamarin.iOS provides this property
         private bool HasFocus
+#pragma warning restore CS0114 
         {
             get
             {

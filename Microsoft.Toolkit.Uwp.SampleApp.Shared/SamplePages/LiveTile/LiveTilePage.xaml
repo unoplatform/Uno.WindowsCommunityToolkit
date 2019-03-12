@@ -79,8 +79,8 @@
                     <visualizer:PreviewTile x:Name="LargePreviewTile"
                                         IsAnimationEnabled="False"
                                         TileSize="Large" />
-
-            </StackPanel>
+                </StackPanel>
+            </controls:WrapPanel>
         </StackPanel>
     </ScrollViewer>
 </Page>

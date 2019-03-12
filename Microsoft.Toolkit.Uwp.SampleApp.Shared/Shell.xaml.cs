@@ -107,7 +107,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             NavView.Loaded += (s, args) => NavView.InvalidateMeasure();
         }
 
+#if NETFX_CORE
+        private void NavView_BackRequested(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs args)
+#else
         private void NavView_BackRequested(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs args)
+#endif
         {
             if (NavigationFrame.CanGoBack)
             {

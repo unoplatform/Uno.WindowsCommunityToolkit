@@ -167,9 +167,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\FrameworkElementExtensions\FrameworkElementExtensionsPage.xaml.cs">
       <DependentUpon>FrameworkElementExtensionsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\GazeInteraction\GazeInteractionPage.xaml.cs">
-      <DependentUpon>GazeInteractionPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\GazeTracing\GazeTracingPage.xaml.cs">
       <DependentUpon>GazeTracingPage.xaml</DependentUpon>
     </Compile>
@@ -436,6 +433,11 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\NovemberHikeWaterfall.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\pixel.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Samples\RangeSelector.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\TwitterLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\UnoLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\UnoLogo_small.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkit_Uno_SplashScreen.scale-200.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\DataGrid\DataGrid.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PlannerTaskList\PlannerTaskList.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PowerBIEmbedded\PowerBIEmbedded.png" />
@@ -597,9 +599,6 @@
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\FocusTracker\FocusTracker.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\FocusTracker\FocusTrackerXaml.bind" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\FrameworkElementExtensions\FrameworkElementExtensionsCode.bind" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\GazeInteraction\GazeInteraction.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\GazeInteraction\GazeInteractionCode.bind" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\GazeInteraction\GazeInteractionXaml.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\GazeTracing\GazeTracing.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\GazeTracing\GazeTracingCode.bind" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\GazeTracing\GazeTracingXaml.bind" />
@@ -881,10 +880,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\FrameworkElementExtensions\FrameworkElementExtensionsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\GazeInteraction\GazeInteractionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
