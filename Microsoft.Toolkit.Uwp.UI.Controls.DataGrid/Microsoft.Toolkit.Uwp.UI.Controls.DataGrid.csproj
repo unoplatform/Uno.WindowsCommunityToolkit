@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
   <PropertyGroup>
     <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
     <Title>Windows Community Toolkit Controls DataGrid</Title>
@@ -24,11 +24,11 @@
 		<PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
 	</ItemGroup>
 	
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid80' or '$(TargetFramework)' == 'xamarinios10'">
 		<Reference Include="System.ComponentModel.DataAnnotations" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid80' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
 		<PackageReference Include="Uno.UI" Version="1.44.0-dev.1014" />
 	</ItemGroup>
 

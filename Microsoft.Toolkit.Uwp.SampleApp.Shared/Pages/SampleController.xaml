@@ -52,7 +52,7 @@
 						xamarin:Content="Github"
                         Margin="5,0,0,0"
                         Width="50">
-                        <AppBarButton.Icon>
+                        <win:AppBarButton.Icon>
                             <PathIcon
                                 Data="{StaticResource GithubIcon}"
                                 Width="50"
@@ -62,7 +62,7 @@
                                     <CompositeTransform TranslateY="8" TranslateX="3" />
                                 </PathIcon.RenderTransform>
                             </PathIcon>
-                        </AppBarButton.Icon>
+                        </win:AppBarButton.Icon>
                     </AppBarButton>
 
                     <AppBarSeparator Margin="-10, 3, -10, 0"
