@@ -208,6 +208,8 @@ namespace Microsoft.Toolkit.Uwp.Helpers
 		/// <returns>File stream</returns>
 		public static async Task<Stream> GetEmbeddedFileStreamAsync(Type assemblyType, string fileName)
 		{
+            await Task.Yield();
+
 			var manifestName = assemblyType.GetTypeInfo().Assembly
 				.GetManifestResourceNames()
 				.FirstOrDefault(n => n.EndsWith(fileName.Replace(" ", "_"), StringComparison.OrdinalIgnoreCase));

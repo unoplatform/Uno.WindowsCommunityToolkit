@@ -200,6 +200,7 @@ namespace Microsoft.Toolkit.Uwp.Helpers
                     : DateTime.MinValue;
             }
 
+#if !HAS_UNO
             void App_VisibilityChanged(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.VisibilityChangedEventArgs e)
             {
                 if (e.Visible)
@@ -216,9 +217,10 @@ namespace Microsoft.Toolkit.Uwp.Helpers
                 }
             }
 
-#if !HAS_UNO
 			Windows.UI.Core.CoreWindow.GetForCurrentThread().VisibilityChanged -= App_VisibilityChanged;
             Windows.UI.Core.CoreWindow.GetForCurrentThread().VisibilityChanged += App_VisibilityChanged;
+#else
+                    _sessionStart = DateTime.UtcNow;
 #endif
         }
 

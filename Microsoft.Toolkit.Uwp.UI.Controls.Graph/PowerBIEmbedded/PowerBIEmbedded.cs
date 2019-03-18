@@ -166,6 +166,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             {
                 throw new ArgumentException(nameof(EmbedUrl));
             }
+#else
+            await Task.Yield();
 #endif
         }
 

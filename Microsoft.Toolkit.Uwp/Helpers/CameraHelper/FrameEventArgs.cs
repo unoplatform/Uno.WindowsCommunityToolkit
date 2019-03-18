@@ -46,6 +46,8 @@ namespace Microsoft.Toolkit.Uwp.Helpers
                 }
 
                 _semaphore.Release();
+#else
+                _videoFrameCopy = null;
 #endif
                 return _videoFrameCopy ?? _videoFrame;
             }
