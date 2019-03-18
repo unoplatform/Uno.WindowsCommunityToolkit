@@ -13,14 +13,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Uno.UI" Version="1.44.0-dev.987" />
-    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.217" />
+    <PackageReference Include="Uno.UI" Version="1.44.0-dev.1014" />
+    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.220" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
     <PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
     <Reference Include="System.Net.Http" />
-    <DotNetCliToolReference Include="Uno.Wasm.Bootstrap.Cli" Version="1.0.0-dev.217" />
+    <DotNetCliToolReference Include="Uno.Wasm.Bootstrap.Cli" Version="1.0.0-dev.220" />
   </ItemGroup>
 
   <ItemGroup>

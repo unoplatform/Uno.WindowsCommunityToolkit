@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28705.295
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{9AD30620-667D-433C-9961-8D885EE7B762}"
 EndProject
@@ -201,6 +201,7 @@ Global
 		{719C43C6-8753-4395-ADAA-2FCC70F76BF3}.Native|x64.ActiveCfg = Release|x64
 		{719C43C6-8753-4395-ADAA-2FCC70F76BF3}.Native|x86.ActiveCfg = Release|x86
 		{719C43C6-8753-4395-ADAA-2FCC70F76BF3}.Release|Any CPU.ActiveCfg = Release|x86
+		{719C43C6-8753-4395-ADAA-2FCC70F76BF3}.Release|Any CPU.Build.0 = Release|x86
 		{719C43C6-8753-4395-ADAA-2FCC70F76BF3}.Release|ARM.ActiveCfg = Release|ARM
 		{719C43C6-8753-4395-ADAA-2FCC70F76BF3}.Release|ARM.Build.0 = Release|ARM
 		{719C43C6-8753-4395-ADAA-2FCC70F76BF3}.Release|ARM.Deploy.0 = Release|ARM
