@@ -209,6 +209,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             {
                 ClearReport();
             }
+#else
+            await Task.Yield();
 #endif
         }
 

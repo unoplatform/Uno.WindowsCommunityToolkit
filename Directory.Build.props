@@ -78,8 +78,12 @@
     </When>
   </Choose>
 
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
     <DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
+    <NoWarn>$(NoWarn);CS0649;CS0067</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(IsUwpProject)' == 'true'">
@@ -89,7 +93,7 @@
     <NoWarn>$(NoWarn);8002</NoWarn>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="!$([MSBuild]::IsOsUnixLike())">
     <PackageReference Include="Nerdbank.GitVersioning" Version=" 2.1.65" PrivateAssets="all" />
   </ItemGroup>
 
