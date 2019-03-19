@@ -10,8 +10,27 @@
     <NoWarn>$(NoWarm);Uno0001</NoWarn>
     <WasmShellGenerateCompressedFiles>false</WasmShellGenerateCompressedFiles>
     <!--<MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>-->
+  
+    <WasmShellMonoRuntimeExecutionMode Condition="$([MSBuild]::IsOsUnixLike())">InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>
   </PropertyGroup>
-
+  
+  <ItemGroup>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.SampleApp.Wasm" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Parsers"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.DeveloperTools"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Animations"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Controls.Graph"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Services"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.Services"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Identity.Client"/>
+  </ItemGroup>
+      
   <ItemGroup>
     <PackageReference Include="Uno.UI" Version="1.44.0-dev.1014" />
     <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.220" />
