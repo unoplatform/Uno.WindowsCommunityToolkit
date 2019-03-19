@@ -202,7 +202,7 @@ Task("InheritDoc")
 
 Task("Package")
 	.Description("Pack the NuPkg")
-	.IsDependentOn("InheritDoc")
+	// .IsDependentOn("InheritDoc")
 	.Does(() =>
 {
 	// Invoke the pack target in the end
