@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <IsPackable>false</IsPackable>
@@ -9,6 +9,11 @@
     <WasmPWAManifestFile>manifest.json</WasmPWAManifestFile>
     <NoWarn>$(NoWarm);Uno0001</NoWarn>
     <WasmShellGenerateCompressedFiles>false</WasmShellGenerateCompressedFiles>
+
+    <!--<WasmShellMonoRuntimeExecutionMode Condition="$([MSBuild]::IsOsUnixLike())">InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>-->
+    <!--<MonoWasmSDKUri>https://jenkins.mono-project.com/job/test-mono-mainline-wasm/label=ubuntu-1804-amd64/2317/Azure/processDownloadRequest/2317/ubuntu-1804-amd64/sdks/wasm/mono-wasm-8fed6666b08.zip</MonoWasmSDKUri>
+    <MonoWasmAOTSDKUri>https://jenkins.mono-project.com/job/test-mono-mainline-wasm/label=ubuntu-1804-amd64/2317/Azure/processDownloadRequest/2317/ubuntu-1804-amd64/wasm-release-Linux-8fed6666b080d3d5634fd9068cd42f273f819eeb.zip</MonoWasmAOTSDKUri>-->
+
     <!--<MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>-->
   </PropertyGroup>
 
@@ -21,6 +26,23 @@
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
     <Reference Include="System.Net.Http" />
     <DotNetCliToolReference Include="Uno.Wasm.Bootstrap.Cli" Version="1.0.0-dev.220" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.SampleApp.Wasm" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Parsers"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.DeveloperTools"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Animations"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Controls.Graph"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Services"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.Services"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Identity.Client"/>
   </ItemGroup>
 
   <ItemGroup>

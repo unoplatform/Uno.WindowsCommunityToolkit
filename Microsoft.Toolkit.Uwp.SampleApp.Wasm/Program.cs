@@ -12,15 +12,15 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 
 		static void Main(string[] args)
 		{
-#if DEBUG
 			ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
-#endif
 
 			Application.Start(e => new App());
 		}
          
 		static void ConfigureFilters(ILoggerFactory factory)
 		{
+            global::System.Console.WriteLine("ConfigureFilters");
+
 			factory
 				.WithFilter(new FilterLoggerSettings
 					{

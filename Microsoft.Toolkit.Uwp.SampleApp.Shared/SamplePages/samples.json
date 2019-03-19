@@ -84,18 +84,18 @@
       //  "Icon": "/SamplePages/ImageEx/ImageEx.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/ImageEx.md"
       //},
-      {
-        "Name": "HeaderedTextBlock",
-        "Type": "HeaderedTextBlockPage",
-        "Subcategory": "Layout",
-        "About": "The HeaderedTextBlock control is designed to provide a header for read only text. This control is useful for displaying read only forms.",
-        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedTextBlock",
-        "XamlCodeFile": "HeaderedTextBlockCode.bind",
-        "Icon": "/SamplePages/HeaderedTextBlock/HeaderedTextBlock.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/HeaderedTextBlock.md",
-        "BadgeUpdateVersionRequired": "DEPRECATED",
-        "DeprecatedWarning": "The HeaderedTextBlock has been replaced with the HeaderedContentControl and will be removed in a future major release."
-      },
+      //{
+      //  "Name": "HeaderedTextBlock",
+      //  "Type": "HeaderedTextBlockPage",
+      //  "Subcategory": "Layout",
+      //  "About": "The HeaderedTextBlock control is designed to provide a header for read only text. This control is useful for displaying read only forms.",
+      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedTextBlock",
+      //  "XamlCodeFile": "HeaderedTextBlockCode.bind",
+      //  "Icon": "/SamplePages/HeaderedTextBlock/HeaderedTextBlock.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/HeaderedTextBlock.md",
+      //  "BadgeUpdateVersionRequired": "DEPRECATED",
+      //  "DeprecatedWarning": "The HeaderedTextBlock has been replaced with the HeaderedContentControl and will be removed in a future major release."
+      //},
       //{
       //  "Name": "MasterDetailsView",
       //  "Type": "MasterDetailsViewPage",
@@ -272,26 +272,26 @@
         "Icon": "/SamplePages/DockPanel/DockPanel.png",
         "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/DockPanel.md"
       },
-      {
-        "Name": "HeaderedContentControl",
-        "Type": "HeaderedContentControlPage",
-        "Subcategory": "Layout",
-        "About": "Allows content to be displayed with a specified header.",
-        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedContentControl",
-        "XamlCodeFile": "HeaderedContentControlXaml.bind",
-        "Icon": "/SamplePages/HeaderedContentControl/HeaderedContentControl.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/HeaderedContentControl.md"
-      },
-      {
-        "Name": "HeaderedItemsControl",
-        "Type": "HeaderedItemsControlPage",
-        "Subcategory": "Layout",
-        "About": "Allows items to be displayed with a specified header.",
-        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedItemsControl",
-        "XamlCodeFile": "HeaderedItemsControlXaml.bind",
-        "Icon": "/SamplePages/HeaderedItemsControl/HeaderedItemsControl.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/HeaderedItemsControl.md"
-      },
+      //{
+      //  "Name": "HeaderedContentControl",
+      //  "Type": "HeaderedContentControlPage",
+      //  "Subcategory": "Layout",
+      //  "About": "Allows content to be displayed with a specified header.",
+      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedContentControl",
+      //  "XamlCodeFile": "HeaderedContentControlXaml.bind",
+      //  "Icon": "/SamplePages/HeaderedContentControl/HeaderedContentControl.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/HeaderedContentControl.md"
+      //},
+      //{
+      //  "Name": "HeaderedItemsControl",
+      //  "Type": "HeaderedItemsControlPage",
+      //  "Subcategory": "Layout",
+      //  "About": "Allows items to be displayed with a specified header.",
+      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedItemsControl",
+      //  "XamlCodeFile": "HeaderedItemsControlXaml.bind",
+      //  "Icon": "/SamplePages/HeaderedItemsControl/HeaderedItemsControl.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/HeaderedItemsControl.md"
+      //},
       {
         "Name": "StaggeredPanel",
         "Type": "StaggeredPanelPage",

@@ -173,15 +173,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\GridSplitter\GridSplitterPage.xaml.cs">
       <DependentUpon>GridSplitterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedContentControl\HeaderedContentControlPage.xaml.cs">
-      <DependentUpon>HeaderedContentControlPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedItemsControl\HeaderedItemsControlPage.xaml.cs">
-      <DependentUpon>HeaderedItemsControlPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedTextBlock\HeaderedTextBlockPage.xaml.cs">
-      <DependentUpon>HeaderedTextBlockPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SamplePages\ImageBlendBrush\ImageBlendBrushPage.xaml.cs">
       <DependentUpon>ImageBlendBrushPage.xaml</DependentUpon>
     </Compile>
@@ -604,12 +595,6 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\GazeTracing\GazeTracingXaml.bind" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\GridSplitter\GridSplitter.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\GridSplitter\GridSplitter.png" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedContentControl\HeaderedContentControl.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedContentControl\HeaderedContentControlXaml.bind" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedItemsControl\HeaderedItemsControl.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedItemsControl\HeaderedItemsControlXaml.bind" />
-    <Content Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedTextBlock\HeaderedTextBlock.png" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedTextBlock\HeaderedTextBlockCode.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\ImageBlendBrush\ImageBlendBrush.png" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\ImageBlendBrush\ImageBlendBrushXaml.bind" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\ImageCache\ImageCache.png" />
@@ -888,18 +873,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)SamplePages\GridSplitter\GridSplitterPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedContentControl\HeaderedContentControlPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedItemsControl\HeaderedItemsControlPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)SamplePages\HeaderedTextBlock\HeaderedTextBlockPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
