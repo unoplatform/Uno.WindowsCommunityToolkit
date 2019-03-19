@@ -1184,7 +1184,6 @@ Global
 		{7AEFC959-ED7C-4D96-9E92-72609B40FBE0}.Release|x64.ActiveCfg = Release|x86
 		{7AEFC959-ED7C-4D96-9E92-72609B40FBE0}.Release|x64.Build.0 = Release|x86
 		{7AEFC959-ED7C-4D96-9E92-72609B40FBE0}.Release|x86.ActiveCfg = Release|x86
-		{7AEFC959-ED7C-4D96-9E92-72609B40FBE0}.Release|x86.Build.0 = Release|x86
 		{42CA4935-54BE-42EA-AC19-992378C08DE6}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{42CA4935-54BE-42EA-AC19-992378C08DE6}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{42CA4935-54BE-42EA-AC19-992378C08DE6}.Ad-Hoc|ARM.ActiveCfg = Release|Any CPU
@@ -1727,7 +1726,6 @@ Global
 		{6BD0BA4A-DE6D-3E87-8F83-63518C31ECD1}.Release|iPhoneSimulator.ActiveCfg = Release|x86
 		{6BD0BA4A-DE6D-3E87-8F83-63518C31ECD1}.Release|x64.ActiveCfg = Release|x86
 		{6BD0BA4A-DE6D-3E87-8F83-63518C31ECD1}.Release|x86.ActiveCfg = Release|x86
-		{6BD0BA4A-DE6D-3E87-8F83-63518C31ECD1}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
