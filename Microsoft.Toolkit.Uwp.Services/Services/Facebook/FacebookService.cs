@@ -1,3 +1,4 @@
+#if NETFX_CORE
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Foundation.Metadata;
 using Windows.Security.Authentication.Web;
 using Windows.Storage.Streams;
 using winsdkfb;
@@ -50,7 +52,7 @@ namespace Microsoft.Toolkit.Uwp.Services.Facebook
         /// <param name="oAuthTokens">Token instance.</param>
         /// <param name="requiredPermissions">List of required required permissions. public_profile and user_posts permissions will be used by default.</param>
         /// <returns>Success or failure.</returns>
-        public bool Initialize(FacebookOAuthTokens oAuthTokens, FacebookPermissions requiredPermissions = FacebookPermissions.PublicProfile | FacebookPermissions.UserPosts | FacebookPermissions.PublishActions)
+        public bool Initialize(FacebookOAuthTokens oAuthTokens, FacebookPermissions requiredPermissions = FacebookPermissions.PublicProfile | FacebookPermissions.UserPosts)
         {
             if (oAuthTokens == null)
             {
@@ -67,7 +69,7 @@ namespace Microsoft.Toolkit.Uwp.Services.Facebook
         /// <param name="requiredPermissions">List of required required permissions. public_profile and user_posts permissions will be used by default.</param>
         /// <param name="windowsStoreId">Windows Store SID</param>
         /// <returns>Success or failure.</returns>
-        public bool Initialize(string appId, FacebookPermissions requiredPermissions = FacebookPermissions.PublicProfile | FacebookPermissions.UserPosts | FacebookPermissions.PublishActions, string windowsStoreId = null)
+        public bool Initialize(string appId, FacebookPermissions requiredPermissions = FacebookPermissions.PublicProfile | FacebookPermissions.UserPosts, string windowsStoreId = null)
         {
             if (string.IsNullOrEmpty(appId))
             {
@@ -395,6 +397,7 @@ namespace Microsoft.Toolkit.Uwp.Services.Facebook
         /// </summary>
         /// <param name="link">Link contained as part of the post. Cannot be null.</param>
         /// <returns>Task to support await of async call.</returns>
+        [Deprecated("The underlying publish_action permission is no longer supported by Facebook. Please see https://developers.facebook.com/blog/post/2018/04/24/new-facebook-platform-product-changes-policy-updates/ for details.", DeprecationType.Deprecate, 4)]
         public async Task<bool> PostToFeedAsync(string link)
         {
             if (Provider.LoggedIn)
@@ -466,6 +469,7 @@ namespace Microsoft.Toolkit.Uwp.Services.Facebook
         /// <param name="pictureName">Picture name.</param>
         /// <param name="pictureStream">Picture stream to upload.</param>
         /// <returns>Return ID of the picture</returns>
+        [Deprecated("The underlying publish_action permission is no longer supported by Facebook. Please see https://developers.facebook.com/blog/post/2018/04/24/new-facebook-platform-product-changes-policy-updates/ for details.", DeprecationType.Deprecate, 4)]
         public async Task<string> PostPictureToFeedAsync(string title, string pictureName, IRandomAccessStreamWithContentType pictureStream)
         {
             if (pictureStream == null)
@@ -509,3 +513,4 @@ namespace Microsoft.Toolkit.Uwp.Services.Facebook
         }
     }
 }
+#endif

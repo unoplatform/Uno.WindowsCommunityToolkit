@@ -17,8 +17,4 @@
     <Compile Include="..\UnitTests.Notifications.Shared\**\*.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Microsoft.Toolkit.Uwp.Notifications\Microsoft.Toolkit.Uwp.Notifications.csproj" />
-  </ItemGroup>
-
 </Project>

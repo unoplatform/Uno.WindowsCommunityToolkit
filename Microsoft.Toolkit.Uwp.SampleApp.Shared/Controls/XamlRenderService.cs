@@ -13,13 +13,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
     /// <summary>
     /// Class to assist in parsing a Xaml string and returning an UIElement.
     ///
-    /// Wrapper around XamlReader.Load* with extra pre/post processing to support more features like loading images from an external source.
+    /// Wrapper around XamlReader.Load* with extra pre/post processing to support more features like loading images from an external source. <para/>
     ///
-    /// References:
-    ///     https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.markup.xamlreader
-    ///     https://docs.microsoft.com/en-us/windows/uwp/xaml-platform/xaml-namespaces-and-namespace-mapping
-    ///     https://docs.microsoft.com/en-us/windows/uwp/data-binding/data-binding-in-depth
-    ///     https://blogs.msdn.microsoft.com/mcsuksoldev/2010/08/27/designdata-mvvm-support-in-blend-vs2010-and-wpfsilverlight/
+    /// References:<para/>
+    ///     https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.markup.xamlreader <para/>
+    ///     https://docs.microsoft.com/en-us/windows/uwp/xaml-platform/xaml-namespaces-and-namespace-mapping<para/>
+    ///     https://docs.microsoft.com/en-us/windows/uwp/data-binding/data-binding-in-depth<para/>
+    ///     https://blogs.msdn.microsoft.com/mcsuksoldev/2010/08/27/designdata-mvvm-support-in-blend-vs2010-and-wpfsilverlight/<para/>
     /// </summary>
     public class XamlRenderService
     {
@@ -94,6 +94,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Controls
                 {
                     column = uint.Parse(msg.Substring(pl + 9, msg.IndexOf("]", pl) - pl - 9));
                 }
+
+				Console.WriteLine($"Failed to parse xaml {e}");
 
                 // TODO: Should I just throw this nicely parsed message?
                 Errors.Add(new XamlExceptionRange(msg, e, line, column, line, column + 8)); // TODO: Inspect Content at this position and go until space / EOL

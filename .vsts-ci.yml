@@ -12,25 +12,27 @@ steps:
     arguments: -no_logo
     modifyEnvironment: true
   displayName: Setup Environment Variables
-
+  
 - task: NuGetToolInstaller@0
-  displayName: Use NuGet 4.6.2
+  displayName: Use NuGet 4.7.0
   inputs:
-    versionSpec: 4.6.2
+    versionSpec: 4.7.0
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2  
   inputs:
-    command: build
-    projects: build/setversion.csproj
-    arguments: -c $(BuildConfiguration)   
+    command: custom
+    custom: tool
+    arguments: install --tool-path . nbgv
+  displayName: Install NBGV tool
+
+- script: nbgv cloud
   displayName: Set Version
+
+- powershell: .\build\Install-WindowsSdkISO.ps1 17763
+  displayName: Insider SDK
 
 - powershell: .\build\build.ps1 -target=Package
   displayName: Build 
-#  env:
-#    SignClientSecret: $(SignClientSecret)
-#    SignClientUser: $(SignClientUser)
-    
 
 - task: PublishBuildArtifacts@1
   displayName: Publish Package Artifacts

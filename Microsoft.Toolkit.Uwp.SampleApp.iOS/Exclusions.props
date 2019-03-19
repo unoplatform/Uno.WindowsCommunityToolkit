@@ -3,7 +3,28 @@
 	<ItemGroup>
 		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropBlurBrush\**" />
 		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropBlurBrush\**" />
-		
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Blur\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Blur\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Fade\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Fade\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Light\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Light\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Offset\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Offset\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\rotate\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\rotate\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Scale\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Scale\**" />
+
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Saturation\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Saturation\**" />
+
 		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\AadLogin\**" />
 		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\AadLogin\**" />
 
@@ -30,6 +51,9 @@
 
 		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Translator Service\**" />
 		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Translator Service\**" />
+		
+		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PowerBIEmbedded\**" />
+		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PowerBIEmbedded\**" />
 
 		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\NetworkHelper\**" />
 		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\NetworkHelper\**" />

@@ -23,24 +23,32 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 
         public DockPanelPage()
         {
+            Console.WriteLine($"{GetHashCode():X8} new DockPanelPage()");
+
             InitializeComponent();
+            Load();
+			Loaded += DockPanelPage_Loaded;
         }
 
-        public void OnXamlRendered(FrameworkElement control)
+		private void DockPanelPage_Loaded(object sender, RoutedEventArgs e)
+		{
+			Console.WriteLine("DockPanelPage_Loaded");
+		}
+
+		public void OnXamlRendered(FrameworkElement control)
         {
             _sampleDockPanel = control.FindChildByName("SampleDockPanel") as DockPanel;
+            Console.WriteLine($"{GetHashCode():X8} _sampleDockPanel: {_sampleDockPanel} in {control}");
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void Load()
         {
-            base.OnNavigatedTo(e);
-
-            Shell.Current.RegisterNewCommand("Add Top Child", AddTopDock);
-            Shell.Current.RegisterNewCommand("Add Left Child", AddLeftDock);
-            Shell.Current.RegisterNewCommand("Add Bottom Child", AddBottomDock);
-            Shell.Current.RegisterNewCommand("Add Right Child", AddRightDock);
-            Shell.Current.RegisterNewCommand("Add Stretch Child", AddStretchDock);
-            Shell.Current.RegisterNewCommand("Clear All", ClearAllDock);
+            SampleController.Current.RegisterNewCommand("Add Top Child", AddTopDock);
+            SampleController.Current.RegisterNewCommand("Add Left Child", AddLeftDock);
+            SampleController.Current.RegisterNewCommand("Add Bottom Child", AddBottomDock);
+            SampleController.Current.RegisterNewCommand("Add Right Child", AddRightDock);
+            SampleController.Current.RegisterNewCommand("Add Stretch Child", AddStretchDock);
+            SampleController.Current.RegisterNewCommand("Clear All", ClearAllDock);
         }
 
         private void ClearAllDock(object sender, RoutedEventArgs e)
@@ -77,6 +85,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 
         private void AddChild(Dock dock, bool setWidth = false, bool setHeight = false)
         {
+            Console.WriteLine($"{GetHashCode():X8} AddChild _sampleDockPanel: {_sampleDockPanel}");
+
             if (_sampleDockPanel.LastChildFill)
             {
                 return;

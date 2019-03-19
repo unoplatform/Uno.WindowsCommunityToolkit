@@ -34,8 +34,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 {
     public class Sample
     {
-        private const string _repoOnlineRoot = "https://raw.githubusercontent.com/Microsoft/WindowsCommunityToolkit/";
-        private const string _docsOnlineRoot = "https://raw.githubusercontent.com/MicrosoftDocs/UWPCommunityToolkitDocs/";
+        private const string _docsOnlineRoot = "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/";
         private const string _cacheSHAKey = "docs-cache-sha";
 
         private static HttpClient client = new HttpClient();
@@ -89,9 +88,21 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         public string Type { get; set; }
 
+        public string Subcategory { get; set; }
+
         public string About { get; set; }
 
         private string _codeUrl;
+
+        /// <summary>
+        /// Gets the Page Type.
+        /// </summary>
+        public Type PageType => System.Type.GetType("Microsoft.Toolkit.Uwp.SampleApp.SamplePages." + Type);
+
+        /// <summary>
+        /// Gets or sets the Category Name.
+        /// </summary>
+        public string CategoryName { get; set; }
 
         public string CodeUrl
         {
@@ -204,7 +215,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             var filename = string.Empty;
             var localPath = string.Empty;
 
-            var docRegex = new Regex("^" + _repoOnlineRoot + "(?<branch>.+?)/docs/(?<file>.+)");
+            var docRegex = new Regex("^" + _docsOnlineRoot + "(?<branch>.+?)/docs/(?<file>.+)");
             var docMatch = docRegex.Match(DocumentationUrl);
             if (docMatch.Success)
             {
@@ -262,7 +273,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 {
                     using (var localDocsStream = await StreamHelper.GetEmbeddedFileStreamAsync(GetType(), $"docs.{filepath}"))
                     {
-                        var result = await localDocsStream.ReadTextAsync();
+                        var result = await localDocsStream.ReadTextAsync(Encoding.UTF8);
                         _cachedDocumentation = ProcessDocs(result);
                         _cachedPath = localPath;
                     }
@@ -726,6 +737,18 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 }
             }
 #endif
+
+            // Search in Microsoft.Toolkit.Uwp.UI.Controls.DataGrid
+            var dataGridProxyType = DataGridGridLinesVisibility.None;
+            assembly = dataGridProxyType.GetType().GetTypeInfo().Assembly;
+
+            foreach (var typeInfo in assembly.ExportedTypes)
+            {
+                if (typeInfo.Name == typeName)
+                {
+                    return typeInfo;
+                }
+            }
 
             return null;
         }

@@ -5,6 +5,7 @@
 
 #include "Interaction.h"
 
+using namespace Windows::Foundation::Collections;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
 
@@ -72,6 +73,11 @@ public:
     static property DependencyProperty^ MaxDwellRepeatCountProperty { DependencyProperty^ get(); }
 
     /// <summary>
+    /// Identifyes the IsSwitchEnabled dependency property
+    /// </summary>
+    static property DependencyProperty^ IsSwitchEnabledProperty { DependencyProperty^ get(); }
+
+    /// <summary>
     /// Gets or sets the brush to use when displaying the default indication that gaze entered a control
     /// </summary>
     static property Brush^ DwellFeedbackEnterBrush { Brush^ get(); void set(Brush^ value); }
@@ -85,6 +91,11 @@ public:
     /// Gets or sets the brush to use when displaying the default animation for dwell complete
     /// </summary>
     static property Brush^ DwellFeedbackCompleteBrush { Brush^ get(); void set(Brush^ value); }
+
+    /// <summary>
+    /// Gets or sets the thickness of the lines animated for dwell.
+    /// </summary>
+    static property double DwellStrokeThickness { double get(); void set(double value); }
 
     /// <summary>
     /// Gets or sets the interaction default
@@ -142,6 +153,11 @@ public:
     static int GetMaxDwellRepeatCount(UIElement^ element);
 
     /// <summary>
+    /// Gets the Boolean indicating whether gaze plus switch is enabled.
+    /// </summary>
+    static bool GetIsSwitchEnabled(UIElement^ element);
+
+    /// <summary>
     /// Sets the status of gaze interaction over that particular XAML element.
     /// </summary>
     static void SetInteraction(UIElement^ element, GazeInteraction::Interaction value);
@@ -192,6 +208,11 @@ public:
     static void SetMaxDwellRepeatCount(UIElement^ element, int value);
 
     /// <summary>
+    /// Sets the Boolean indicating whether gaze plus switch is enabled.
+    /// </summary>
+    static void SetIsSwitchEnabled(UIElement^ element, bool value);
+
+    /// <summary>
     /// Gets the GazePointer object.
     /// </summary>
     static GazePointer^ GetGazePointer(Page^ page);
@@ -214,6 +235,13 @@ public:
         EventRegistrationToken add(EventHandler<Object^>^ handler);
         void remove(EventRegistrationToken token);
     }
+
+    /// <summary>
+    /// Loads a settings collection into GazeInput.
+    /// Note: This must be loaded from a UI thread to be valid, since the GazeInput
+    /// instance is tied to the UI thread.
+    /// </summary>
+    static void LoadSettings(ValueSet^ settings);
 
 internal:
 

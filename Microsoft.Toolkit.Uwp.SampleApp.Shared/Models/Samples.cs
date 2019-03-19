@@ -38,10 +38,15 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             return (await GetCategoriesAsync()).SelectMany(c => c.Samples).FirstOrDefault(s => s.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
 
-        public static async Task<Sample[]> FindSamplesByName(string name)
+        public static async Task<Sample[]> FindSample(string name)
         {
             var query = name.ToLower();
-            return (await GetCategoriesAsync()).SelectMany(c => c.Samples).Where(s => s.Name.ToLower().Contains(query)).ToArray();
+            return (await GetCategoriesAsync())
+                .SelectMany(c => c.Samples)
+                .Where(s => s.Name.ToLower().Contains(query) ||
+                            s.Subcategory?.ToLower()?.Contains(query) == true ||
+                            s.About.ToLower().Contains(query))
+                .ToArray();
         }
 
         public static async Task<List<SampleCategory>> GetCategoriesAsync()
@@ -66,14 +71,16 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 					{
 						var finalSamples = new List<Sample>();
 
-						foreach (var sample in category.Samples)
-						{
-							if (sample.IsSupported)
-							{
-								finalSamples.Add(sample);
-								await sample.PreparePropertyDescriptorAsync();
-							}
-						}
+                    foreach (var sample in category.Samples)
+                    {
+                        sample.CategoryName = category.Name;
+
+                        if (sample.IsSupported)
+                        {
+                            finalSamples.Add(sample);
+                            await sample.PreparePropertyDescriptorAsync();
+                        }
+                    }
 
 						if (finalSamples.Count > 0)
 						{

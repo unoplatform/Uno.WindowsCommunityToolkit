@@ -82,7 +82,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
     /// A ContentControl that show an image repeated many times.
     /// The control can be synchronized with a Scrollviewer and animated easily.
     /// </summary>
-    public sealed partial class TileControl : ContentControl
+    public partial class TileControl : ContentControl
     {
         /// <summary>
         /// Identifies the <see cref="ScrollViewerContainer"/> property.

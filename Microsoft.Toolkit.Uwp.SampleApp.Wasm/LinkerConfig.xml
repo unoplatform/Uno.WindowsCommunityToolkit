@@ -1,60 +1,25 @@
 ﻿<linker>
-	<assembly fullname="Uno.UI">
-		<type fullname="*" />
-	</assembly>
-	<assembly fullname="Uno.Xaml">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="Microsoft.Toolkit.Uwp.SampleApp.Wasm">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="ColorCode.UWP">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="ColorCode.Core">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="Microsoft.Toolkit">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="Microsoft.Toolkit.Parsers">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="Microsoft.Toolkit.Uwp.DeveloperTools">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="Microsoft.Toolkit.Uwp">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="Microsoft.Toolkit.Uwp.UI.Animations">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="Microsoft.Toolkit.Uwp.UI.Controls">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="Microsoft.Toolkit.Uwp.UI">
-		<type fullname="*" />
-	</assembly>
-
-	<assembly fullname="Microsoft.Toolkit.Uwp">
-		<type fullname="*" />
-	</assembly>
+	<assembly fullname="Uno.UI"/>
+	<assembly fullname="Uno.Foundation"/>
+	<assembly fullname="Uno.Xaml"/>
+  <assembly fullname="Microsoft.Toolkit.Uwp.SampleApp.Wasm"/>
+	<assembly fullname="ColorCode.UWP"/>
+	<assembly fullname="ColorCode.Core"/>
+	<assembly fullname="Microsoft.Toolkit"/>
+	<assembly fullname="Microsoft.Toolkit.Parsers"/>
+	<assembly fullname="Microsoft.Toolkit.Uwp.DeveloperTools"/>
+	<assembly fullname="Microsoft.Toolkit.Uwp"/>
+	<assembly fullname="Microsoft.Toolkit.Uwp" />
+	<assembly fullname="Microsoft.Toolkit.Uwp.UI.Animations"/>
+	<assembly fullname="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid"/>
+	<assembly fullname="Microsoft.Toolkit.Uwp.UI.Controls.Graph"/>
+	<assembly fullname="Microsoft.Toolkit.Uwp.UI"/>
+	<assembly fullname="Microsoft.Toolkit.Uwp"/>
+	<assembly fullname="Microsoft.Toolkit.Uwp"/>
+	<assembly fullname="Newtonsoft.Json" />
 
 	<assembly fullname="System.Core">
 		<!-- This is required by JSon.NET and any expression.Compile caller -->
 		<type fullname="System.Linq.Expressions*" />
-	</assembly>
-	<assembly fullname="Newtonsoft.Json">
-		<type fullname="*" />
 	</assembly>
 </linker>

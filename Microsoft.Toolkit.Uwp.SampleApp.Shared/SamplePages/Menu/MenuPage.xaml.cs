@@ -2,11 +2,12 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using Microsoft.Toolkit.Uwp.UI.Extensions;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
 
 namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
 {
@@ -17,6 +18,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         public MenuPage()
         {
             InitializeComponent();
+            Load();
         }
 
         public void OnXamlRendered(FrameworkElement control)
@@ -24,11 +26,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
             fileMenu = control.FindChildByName("FileMenu") as MenuItem;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void Load()
         {
-            base.OnNavigatedTo(e);
-
-            Shell.Current.RegisterNewCommand("Append Item to file menu", (sender, args) =>
+            SampleController.Current.RegisterNewCommand("Append Item to file menu", (sender, args) =>
             {
                 if (fileMenu != null)
                 {
@@ -46,7 +46,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
                 }
             });
 
-            Shell.Current.RegisterNewCommand("Prepend Item to file menu", (sender, args) =>
+            SampleController.Current.RegisterNewCommand("Prepend Item to file menu", (sender, args) =>
             {
                 if (fileMenu != null)
                 {

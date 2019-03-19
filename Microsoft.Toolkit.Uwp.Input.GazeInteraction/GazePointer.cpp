@@ -11,6 +11,8 @@
 #include "StateChangedEventArgs.h"
 
 using namespace Platform;
+using namespace Windows::Foundation;
+using namespace Windows::UI::Xaml::Automation::Peers;
 
 BEGIN_NAMESPACE_GAZE_INPUT
 
@@ -42,9 +44,9 @@ GazePointer^ GazePointer::Instance::get()
     return value;
 }
 
-void GazePointer::AddRoot(FrameworkElement^ element)
+void GazePointer::AddRoot(int proxyId)
 {
-    _roots->InsertAt(0, element);
+    _roots->InsertAt(0, proxyId);
 
     if (_roots->Size == 1)
     {
@@ -53,10 +55,10 @@ void GazePointer::AddRoot(FrameworkElement^ element)
     }
 }
 
-void GazePointer::RemoveRoot(FrameworkElement^ element)
+void GazePointer::RemoveRoot(int proxyId)
 {
     unsigned int index = 0;
-    if (_roots->IndexOf(element, &index))
+    if (_roots->IndexOf(proxyId, &index))
     {
         _roots->RemoveAt(index);
     }
@@ -91,17 +93,35 @@ GazePointer::GazePointer()
 
     InitializeHistogram();
 
+    _devices = ref new Vector<GazeDevicePreview^>();
     _watcher = GazeInputSourcePreview::CreateWatcher();
     _watcher->Added += ref new TypedEventHandler<GazeDeviceWatcherPreview^, GazeDeviceWatcherAddedPreviewEventArgs^>(this, &GazePointer::OnDeviceAdded);
     _watcher->Removed += ref new TypedEventHandler<GazeDeviceWatcherPreview^, GazeDeviceWatcherRemovedPreviewEventArgs^>(this, &GazePointer::OnDeviceRemoved);
     _watcher->Start();
 }
 
+EventRegistrationToken GazePointer::GazeEvent::add(EventHandler<GazeEventArgs^>^ handler)
+{
+    _gazeEventCount++;
+    return _gazeEvent += handler;
+}
+
+void GazePointer::GazeEvent::remove(EventRegistrationToken token)
+{
+    _gazeEventCount--;
+    _gazeEvent -= token;
+}
+
+void GazePointer::GazeEvent::raise(Object^ sender, GazeEventArgs^ e)
+{
+    _gazeEvent(sender, e);
+}
+
 void GazePointer::OnDeviceAdded(GazeDeviceWatcherPreview^ sender, GazeDeviceWatcherAddedPreviewEventArgs^ args)
 {
-    _deviceCount++;
+    _devices->Append(args->Device);
 
-    if (_deviceCount == 1)
+    if (_devices->Size == 1)
     {
         IsDeviceAvailableChanged(nullptr, nullptr);
 
@@ -111,9 +131,22 @@ void GazePointer::OnDeviceAdded(GazeDeviceWatcherPreview^ sender, GazeDeviceWatc
 
 void GazePointer::OnDeviceRemoved(GazeDeviceWatcherPreview^ sender, GazeDeviceWatcherRemovedPreviewEventArgs^ args)
 {
-    _deviceCount--;
+    auto index = 0u;
+    while (index < _devices->Size && _devices->GetAt(index)->Id != args->Device->Id)
+    {
+        index++;
+    }
 
-    if (_deviceCount == 0)
+    if (index < _devices->Size)
+    {
+        _devices->RemoveAt(index);
+    }
+    else
+    {
+        _devices->RemoveAt(0);
+    }
+
+    if (_devices->Size == 0)
     {
         IsDeviceAvailableChanged(nullptr, nullptr);
     }
@@ -149,14 +182,14 @@ void GazePointer::LoadSettings(ValueSet^ settings)
         _defaultDwell = TimeSpanFromMicroseconds((int)(settings->Lookup("GazePointer.DwellDelay")));
     }
 
-    if (settings->HasKey("GazePointer.DwellDelay"))
+    if (settings->HasKey("GazePointer.DwellRepeatDelay"))
     {
         _defaultDwellRepeatDelay = TimeSpanFromMicroseconds((int)(settings->Lookup("GazePointer.DwellRepeatDelay")));
     }
 
     if (settings->HasKey("GazePointer.RepeatDelay"))
     {
-        _defaultRepeat = TimeSpanFromMicroseconds((int)(settings->Lookup("GazePointer.RepeatDelay")));
+        _defaultRepeatDelay = TimeSpanFromMicroseconds((int)(settings->Lookup("GazePointer.RepeatDelay")));
     }
 
     if (settings->HasKey("GazePointer.ThresholdDelay"))
@@ -178,6 +211,11 @@ void GazePointer::LoadSettings(ValueSet^ settings)
     {
         EyesOffDelay = TimeSpanFromMicroseconds((int)(settings->Lookup("GazePointer.GazeIdleTime")));
     }
+
+    if (settings->HasKey("GazePointer.IsSwitchEnabled"))
+    {
+        IsSwitchEnabled = (bool)(settings->Lookup("GazePointer.IsSwitchEnabled"));
+    }
 }
 
 void GazePointer::InitializeHistogram()
@@ -194,30 +232,39 @@ void GazePointer::InitializeHistogram()
 
 void GazePointer::InitializeGazeInputSource()
 {
-    if (_gazeInputSource == nullptr && _roots->Size != 0 && _deviceCount != 0)
+    if (!_initialized)
     {
-        _gazeInputSource = GazeInputSourcePreview::GetForCurrentView();
-        if (_gazeInputSource != nullptr)
+        if (_roots->Size != 0 && _devices->Size != 0)
         {
-            _gazeEnteredToken = _gazeInputSource->GazeEntered += ref new TypedEventHandler<
-                GazeInputSourcePreview^, GazeEnteredPreviewEventArgs^>(this, &GazePointer::OnGazeEntered);
-            _gazeMovedToken = _gazeInputSource->GazeMoved += ref new TypedEventHandler<
-                GazeInputSourcePreview^, GazeMovedPreviewEventArgs^>(this, &GazePointer::OnGazeMoved);
-            _gazeExitedToken = _gazeInputSource->GazeExited += ref new TypedEventHandler<
-                GazeInputSourcePreview^, GazeExitedPreviewEventArgs^>(this, &GazePointer::OnGazeExited);
+            if (_gazeInputSource == nullptr)
+            {
+                _gazeInputSource = GazeInputSourcePreview::GetForCurrentView();
+            }
+
+            if (_gazeInputSource != nullptr)
+            {
+                _gazeEnteredToken = _gazeInputSource->GazeEntered += ref new TypedEventHandler<
+                    GazeInputSourcePreview^, GazeEnteredPreviewEventArgs^>(this, &GazePointer::OnGazeEntered);
+                _gazeMovedToken = _gazeInputSource->GazeMoved += ref new TypedEventHandler<
+                    GazeInputSourcePreview^, GazeMovedPreviewEventArgs^>(this, &GazePointer::OnGazeMoved);
+                _gazeExitedToken = _gazeInputSource->GazeExited += ref new TypedEventHandler<
+                    GazeInputSourcePreview^, GazeExitedPreviewEventArgs^>(this, &GazePointer::OnGazeExited);
+
+                _initialized = true;
+            }
         }
     }
 }
 
 void GazePointer::DeinitializeGazeInputSource()
 {
-    if (_gazeInputSource != nullptr)
+    if (_initialized)
     {
+        _initialized = false;
+
         _gazeInputSource->GazeEntered -= _gazeEnteredToken;
         _gazeInputSource->GazeMoved -= _gazeMovedToken;
         _gazeInputSource->GazeExited -= _gazeExitedToken;
-
-        _gazeInputSource = nullptr;
     }
 }
 
@@ -240,7 +287,7 @@ TimeSpan GazePointer::GetDefaultPropertyValue(PointerState state)
     {
     case PointerState::Fixation: return _defaultFixation;
     case PointerState::Dwell: return _defaultDwell;
-    case PointerState::DwellRepeat: return _defaultRepeat;
+    case PointerState::DwellRepeat: return _defaultRepeatDelay;
     case PointerState::Enter: return _defaultThreshold;
     case PointerState::Exit: return _defaultThreshold;
     default: throw ref new NotImplementedException();
@@ -258,14 +305,46 @@ void GazePointer::SetElementStateDelay(UIElement ^element, PointerState relevant
     _maxHistoryTime = 2 * max(dwellTime, repeatTime);
 }
 
+/// <summary>
+/// Find the parent to inherit properties from.
+/// </summary>
+static UIElement^ GetInheritenceParent(UIElement^ child)
+{
+    // The result value.
+    Object^ parent = nullptr;
+
+    // Get the automation peer...
+    auto peer = FrameworkElementAutomationPeer::FromElement(child);
+    if (peer != nullptr)
+    {
+        // ...if it exists, get the peer's parent...
+        auto peerParent = dynamic_cast<FrameworkElementAutomationPeer^>(peer->Navigate(AutomationNavigationDirection::Parent));
+        if (peerParent != nullptr)
+        {
+            // ...and if it has a parent, get the corresponding object.
+            parent = peerParent->Owner;
+        }
+    }
+
+    // If the above failed to find a parent...
+    if (parent == nullptr)
+    {
+        // ...use the visual parent.
+        parent = VisualTreeHelper::GetParent(child);
+    }
+
+    // Safely pun the value we found to a UIElement reference.
+    return dynamic_cast<UIElement^>(parent);
+}
+
 TimeSpan GazePointer::GetElementStateDelay(UIElement ^element, DependencyProperty^ property, TimeSpan defaultValue)
 {
-    DependencyObject^ walker = element;
+    UIElement^ walker = element;
     Object^ valueAtWalker = walker->GetValue(property);
 
     while (GazeInput::UnsetTimeSpan.Equals(valueAtWalker) && walker != nullptr)
     {
-        walker = VisualTreeHelper::GetParent(walker);
+        walker = GetInheritenceParent(walker);
 
         if (walker != nullptr)
         {
@@ -310,8 +389,11 @@ GazeTargetItem^ GazePointer::GetHitTarget(Point gazePoint)
     switch (Window::Current->CoreWindow->ActivationMode)
     {
     default:
-        invokable = _nonInvokeGazeTargetItem;
-        break;
+        if (!_isAlwaysActivated)
+        {
+            invokable = _nonInvokeGazeTargetItem;
+            break;
+        }
 
     case CoreWindowActivationMode::ActivatedInForeground:
     case CoreWindowActivationMode::ActivatedNotForeground:
@@ -346,7 +428,10 @@ GazeTargetItem^ GazePointer::GetHitTarget(Point gazePoint)
             do
             {
                 interaction = GazeInput::GetInteraction(element);
-                element = dynamic_cast<UIElement^>(VisualTreeHelper::GetParent(element));
+                if (interaction == Interaction::Inherited)
+                {
+                    element = GetInheritenceParent(element);
+                }
             } while (interaction == Interaction::Inherited && element != nullptr);
 
             if (interaction == Interaction::Inherited)
@@ -444,33 +529,6 @@ GazeTargetItem^ GazePointer::ResolveHitTarget(Point gazePoint, TimeSpan timestam
     return target;
 }
 
-void GazePointer::GotoState(UIElement^ control, PointerState state)
-{
-    Platform::String^ stateName;
-
-    switch (state)
-    {
-    case PointerState::Enter:
-        return;
-    case PointerState::Exit:
-        stateName = "Normal";
-        break;
-    case PointerState::Fixation:
-        stateName = "Fixation";
-        break;
-    case PointerState::DwellRepeat:
-    case PointerState::Dwell:
-        stateName = "Dwell";
-        break;
-    default:
-        //assert(0);
-        return;
-    }
-
-    // TODO: Implement proper support for visual states
-    // VisualStateManager::GoToState(dynamic_cast<Control^>(control), stateName, true);
-}
-
 void GazePointer::OnEyesOff(Object ^sender, Object ^ea)
 {
     _eyesOffTimer->Stop();
@@ -491,7 +549,10 @@ void GazePointer::CheckIfExiting(TimeSpan curTimestamp)
         if (targetItem->ElementState != PointerState::PreEnter && idleDuration > exitDelay)
         {
             targetItem->ElementState = PointerState::PreEnter;
-            GotoState(targetElement, PointerState::Exit);
+
+            // Transitioning to exit - clear the cached fixated element
+            _currentlyFixatedElement = nullptr;
+
             RaiseGazePointerEvent(targetItem, PointerState::Exit, targetItem->ElapsedTime);
             targetItem->GiveFeedback();
 
@@ -608,6 +669,16 @@ void GazePointer::ProcessGazePoint(TimeSpan timestamp, Point position)
     auto fa = Filter->Update(ea);
     _gazeCursor->Position = fa->Location;
 
+    if (_gazeEventCount != 0)
+    {
+        _gazeEventArgs->Set(fa->Location, timestamp);
+        GazeEvent(this, _gazeEventArgs);
+        if (_gazeEventArgs->Handled)
+        {
+            return;
+        }
+    }
+
     auto targetItem = ResolveHitTarget(fa->Location, fa->Timestamp);
     assert(targetItem != nullptr);
 
@@ -653,7 +724,20 @@ void GazePointer::ProcessGazePoint(TimeSpan timestamp, Point position)
             }
         }
 
-        GotoState(targetItem->TargetElement, targetItem->ElementState);
+        if (targetItem->ElementState == PointerState::Fixation)
+        {
+            // Cache the fixated item
+            _currentlyFixatedElement = targetItem;
+
+            // We are about to transition into the Dwell state
+            // If switch input is enabled, make sure dwell never completes
+            // via eye gaze
+            if (_isSwitchEnabled)
+            {
+                // Don't allow the next state (Dwell) to progress
+                targetItem->NextStateTime = TimeSpan{ MAXINT64 };
+            }
+        }
 
         RaiseGazePointerEvent(targetItem, targetItem->ElementState, targetItem->ElapsedTime);
     }
@@ -663,5 +747,28 @@ void GazePointer::ProcessGazePoint(TimeSpan timestamp, Point position)
     _eyesOffTimer->Start();
     _lastTimestamp = fa->Timestamp;
 }
+
+/// <summary>
+/// When in switch mode, will issue a click on the currently fixated element
+/// </summary>
+void GazePointer::Click()
+{
+    if (_isSwitchEnabled &&
+        _currentlyFixatedElement != nullptr)
+    {
+        _currentlyFixatedElement->Invoke();
+    }
+}
+
+/// <summary>
+/// Run device calibration.
+/// </summary>
+IAsyncOperation<bool>^ GazePointer::RequestCalibrationAsync()
+{
+    return _devices->Size == 1 ?
+        _devices->GetAt(0)->RequestCalibrationAsync() :
+        concurrency::create_async([] { return false; });
+}
+
 
 END_NAMESPACE_GAZE_INPUT

@@ -1,14 +1,14 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>uap10.0;MonoAndroid71;xamarinios10;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
     <Title>Windows Community Toolkit UI</Title>
-    <Description>This library provides UI services. It is part of the Windows Community Toolkit.</Description>
-    <PackageTags>UWP Toolkit Windows UI Converters</PackageTags>
+    <Description>This library provides UI components, such as XAML extensions, helpers, brushes, converters and more. It is part of the Windows Community Toolkit.</Description>
+    <PackageTags>UWP Toolkit Windows UI Converters XAML extensions helpers brushes blur</PackageTags>
 
 		<UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
 		<UseWindowsMobileSdk>true</UseWindowsMobileSdk>
-		<NoWarn>$(NoWarn);Uno0001</NoWarn>
+		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI</PackageId>
 	</PropertyGroup>
 	
@@ -16,7 +16,7 @@
 		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.16299'">
 		<PackageReference Include="Win2D.uwp" Version="1.21.0" />
   </ItemGroup>
 
@@ -25,7 +25,8 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
-		<PackageReference Include="Uno.UI" Version="1.31.0-dev.191" />
+		<PackageReference Include="Uno.UI" Version="1.44.0-dev.1014" />
 	</ItemGroup>
-	
+
+	<Import Project="..\uno.ui.include.props" />
 </Project>

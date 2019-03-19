@@ -118,7 +118,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations
 
         private static void ShowAnimationsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (!ApiInformationHelper.IsCreatorsUpdateOrAbove)
+#if !HAS_UNO
+			if (!ApiInformationHelper.IsCreatorsUpdateOrAbove)
             {
                 return;
             }
@@ -135,11 +136,13 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations
                 animationCollection.AnimationCollectionChanged += ShowCollectionChanged;
                 ElementCompositionPreview.SetImplicitShowAnimation(element, GetCompositionAnimationGroup(animationCollection, element));
             }
-        }
+#endif
+		}
 
         private static void HideAnimationsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (!ApiInformationHelper.IsCreatorsUpdateOrAbove)
+ #if !HAS_UNO
+           if (!ApiInformationHelper.IsCreatorsUpdateOrAbove)
             {
                 return;
             }
@@ -156,7 +159,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Animations
                 animationCollection.AnimationCollectionChanged += HideCollectionChanged;
                 ElementCompositionPreview.SetImplicitHideAnimation(element, GetCompositionAnimationGroup(animationCollection, element));
             }
-        }
+#endif
+		}
 
         private static void AnimationsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
