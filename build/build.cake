@@ -240,11 +240,11 @@ Task("Package")
         Version = Version
 	};
 
-    var nuspecs = GetFiles("./*.nuspec");
-    foreach (var nuspec in nuspecs)
-    {
-        NuGetPack(nuspec, nuGetPackSettings);
-    }
+    //var nuspecs = GetFiles("./*.nuspec");
+    //foreach (var nuspec in nuspecs)
+   // {
+   //     NuGetPack(nuspec, nuGetPackSettings);
+   // }
 });
 
 
