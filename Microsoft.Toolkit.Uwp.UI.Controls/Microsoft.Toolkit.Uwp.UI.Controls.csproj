@@ -46,7 +46,7 @@
   
 
   <ItemGroup>
-    <PRIResource Include="Strings\en-us\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
 
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
