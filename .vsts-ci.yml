@@ -86,6 +86,7 @@ jobs:
   - bash: |
       export PATH=$PATH:$(build.sourcesdirectory)/ninja-linux
       source $(build.sourcesdirectory)/emsdk/emsdk_env.sh
+      cd $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm
       msbuild /r /p:Configuration=Release $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm/Microsoft.Toolkit.Uwp.SampleApp.Wasm.csproj /p:TargetFrameworksOverride=netstandard2.0 /bl:$(build.artifactstagingdirectory)\build.binlog
 
   - task: CopyFiles@2
