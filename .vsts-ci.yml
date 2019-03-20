@@ -70,15 +70,13 @@ jobs:
   steps:
   - checkout: self
     clean: true
-  
 
   - bash: |
       sudo chmod -R 777 /emsdk
       cd /emsdk
-      sudo ./emsdk install sdk-1.38.28-64bit
       sudo ./emsdk activate sdk-1.38.28-64bit
 
-    displayName: 'Setup container'
+    displayName: 'Setup Emscripten'
 
   - bash: |
       source /emsdk/emsdk_env.sh
@@ -94,7 +92,6 @@ jobs:
       CleanTargetFolder: false
       OverWrite: false
       flattenFolders: false
-
 
   - task: PublishBuildArtifacts@1
     # https://developercommunity.visualstudio.com/content/problem/284991/public-vsts-previouw-cant-set-build-number-of-pr-b.html
