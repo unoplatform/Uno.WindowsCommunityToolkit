@@ -10,7 +10,7 @@
     <NoWarn>$(NoWarm);Uno0001</NoWarn>
     <WasmShellGenerateCompressedFiles>false</WasmShellGenerateCompressedFiles>
 
-    <!--<WasmShellMonoRuntimeExecutionMode Condition="$([MSBuild]::IsOsUnixLike())">InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>-->
+    <WasmShellMonoRuntimeExecutionMode Condition="$([MSBuild]::IsOsUnixLike())">InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>
     <!--<MonoWasmSDKUri>https://jenkins.mono-project.com/job/test-mono-mainline-wasm/label=ubuntu-1804-amd64/2317/Azure/processDownloadRequest/2317/ubuntu-1804-amd64/sdks/wasm/mono-wasm-8fed6666b08.zip</MonoWasmSDKUri>
     <MonoWasmAOTSDKUri>https://jenkins.mono-project.com/job/test-mono-mainline-wasm/label=ubuntu-1804-amd64/2317/Azure/processDownloadRequest/2317/ubuntu-1804-amd64/wasm-release-Linux-8fed6666b080d3d5634fd9068cd42f273f819eeb.zip</MonoWasmAOTSDKUri>-->
 
@@ -43,6 +43,10 @@
     <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Services"/>
     <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.Services"/>
     <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Identity.Client"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <WasmShellMonoEnvironment Include="MONO_GC_PARAMS" Value="soft-heap-limit=512m,nursery-size=64m,evacuation-threshold=66,major=marksweep" />
   </ItemGroup>
 
   <ItemGroup>
