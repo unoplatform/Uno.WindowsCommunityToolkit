@@ -2,6 +2,11 @@ trigger:
 - master
 - rel/*
 
+resources:
+  containers:
+  - container: nv-bionic-wasm
+    image: nventive/wasm-build:1.0-bionic
+
 variables: 
   BuildConfiguration: Release
   
@@ -48,3 +53,49 @@ steps:
     artifactType: container
     artifactName: WCT-Packages
   condition: always()
+
+
+jobs:
+- job: linux
+
+  container: nv-bionic-wasm
+
+  pool:
+    vmImage: 'ubuntu-16.04'
+
+  variables:
+    NUGET_PACKAGES: $(build.sourcesdirectory)/.nuget
+
+  steps:
+  - checkout: self
+    clean: true
+  
+  - bash: |
+      cd /emsdk
+      sudo ./emsdk install sdk-1.38.28-64bit
+      sudo ./emsdk activate sdk-1.38.28-64bit
+
+    displayName: 'Install Emscripten'
+
+  - bash: |
+      sudo source /emsdk/emsdk_env.sh
+      sudo msbuild /r /p:Configuration=Release $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm/Microsoft.Toolkit.Uwp.SampleApp.Wasm.csproj /p:TargetFrameworksOverride=netstandard2.0 /bl:$(build.artifactstagingdirectory)\build.binlog
+
+  - task: CopyFiles@2
+    displayName: 'Publish Wasm Binaries'
+    inputs:
+      SourceFolder: $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm/bin/Release/netstandard2.0/dist
+      Contents: '**/*.*'
+      TargetFolder: $(build.artifactstagingdirectory)/wct-wasm/$(RuntimeMode)
+      CleanTargetFolder: false
+      OverWrite: false
+      flattenFolders: false
+
+
+  - task: PublishBuildArtifacts@1
+    # https://developercommunity.visualstudio.com/content/problem/284991/public-vsts-previouw-cant-set-build-number-of-pr-b.html
+    condition: eq(variables['System.PullRequest.IsFork'], 'False')
+    inputs:
+      PathtoPublish: $(build.artifactstagingdirectory)
+      ArtifactName: wct-aot-drop
+      ArtifactType: Container
