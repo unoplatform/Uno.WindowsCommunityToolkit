@@ -2,6 +2,11 @@ trigger:
 - master
 - rel/*
 
+resources:
+  containers:
+  - container: nv-bionic-wasm
+    image: nventive/wasm-build:1.0-bionic
+
 jobs:
 - job: Windows
 
@@ -53,10 +58,11 @@ jobs:
     condition: always()
 
 - job: linux
+
+  container: nv-bionic-wasm
+
   pool:
-    name: Default
-    demands:
-    - agent.os -equals Linux 
+    vmImage: 'ubuntu-16.04'
 
   variables:
     NUGET_PACKAGES: $(build.sourcesdirectory)/.nuget
@@ -65,27 +71,17 @@ jobs:
   - checkout: self
     clean: true
   
-  - bash: |
-      sudo apt-get update
-      sudo apt-get install libc6
-      cd $(build.sourcesdirectory)
-      wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
-      unzip -o ninja-linux.zip -d ninja-linux
-
-    displayName: 'Install Ninja'
 
   - bash: |
-      cd $(build.sourcesdirectory)
-      git clone https://github.com/juj/emsdk.git
-      cd emsdk
-      ./emsdk install sdk-1.38.28-64bit
-      ./emsdk activate sdk-1.38.28-64bit
+      sudo chmod -R 777 /emsdk
+      cd /emsdk
+      sudo ./emsdk install sdk-1.38.28-64bit
+      sudo ./emsdk activate sdk-1.38.28-64bit
 
-    displayName: 'Install Emscripten'
+    displayName: 'Setup container'
 
   - bash: |
-      export PATH=$PATH:$(build.sourcesdirectory)/ninja-linux
-      source $(build.sourcesdirectory)/emsdk/emsdk_env.sh
+      source /emsdk/emsdk_env.sh
       cd $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm
       msbuild /r /p:Configuration=Release $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm/Microsoft.Toolkit.Uwp.SampleApp.Wasm.csproj /p:TargetFrameworksOverride=netstandard2.0 /bl:$(build.artifactstagingdirectory)\build.binlog
 
