@@ -16,6 +16,8 @@
   
   <ItemGroup>
     <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.SampleApp.Wasm" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="System.Xml"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Newtonsoft.Json"/>
     <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit"/>
     <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Parsers"/>
     <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.DeveloperTools"/>
