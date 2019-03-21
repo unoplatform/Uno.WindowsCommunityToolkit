@@ -91,7 +91,7 @@ jobs:
     inputs:
       SourceFolder: $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm/bin/Release/netstandard2.0/dist
       Contents: '**/*.*'
-      TargetFolder: $(build.artifactstagingdirectory)/wct-wasm/$(RuntimeMode)
+      TargetFolder: $(build.artifactstagingdirectory)
       CleanTargetFolder: false
       OverWrite: false
       flattenFolders: false
