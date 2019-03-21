@@ -1,116 +1,50 @@
 <Project>
 
-	<ItemGroup>
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropBlurBrush\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropBlurBrush\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Blur\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Blur\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Fade\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Fade\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Light\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Light\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Offset\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Offset\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\rotate\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\rotate\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Scale\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Scale\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Saturation\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Saturation\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\AadLogin\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\AadLogin\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BluetoothLEHelper\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BluetoothLEHelper\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Facebook Service\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Facebook Service\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeInteraction\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeInteraction\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeTracing\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeTracing\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LinkedIn Service\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LinkedIn Service\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LiveTile\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LiveTile\**" />
-
-		<!--<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Graph Service\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Graph Service\**" />-->
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Translator Service\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Translator Service\**" />
-		
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PowerBIEmbedded\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PowerBIEmbedded\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\NetworkHelper\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\NetworkHelper\**" />
-
-		<!--<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\OneDrive Service\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\OneDrive Service\**" />-->
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PeoplePicker\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PeoplePicker\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ProfileCard\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ProfileCard\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\SharePointFileList\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\SharePointFileList\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Toast\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Toast\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Twitter Service\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Twitter Service\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\WeatherLiveTileAndToast\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\WeatherLiveTileAndToast\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\InfiniteCanvas\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\InfiniteCanvas\**" />
-		
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropGammaTransferBrush\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropGammaTransferBrush\**" />
-		
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSaturationBrush\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSaturationBrush\**" />
-		
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSepiaBrush\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSepiaBrush\**" />
-		
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropInvertBrush\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropInvertBrush\**" />
-		
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackgroundTaskHelper\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackgroundTaskHelper\**" />
-		
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Connected Animations\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Connected Animations\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Bing Service\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Bing Service\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Implicit Animations\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Implicit Animations\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\RadialGradientBrush\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\RadialGradientBrush\**" />
-
-		<Page Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ImageBlendBrush\**" />
-		<Compile Remove="..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ImageBlendBrush\**" />
-	</ItemGroup>
-
+  <Target Name="RemoveUnsupported" BeforeTargets="ResolveReferences">
+    <ItemGroup>
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropBlurBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Blur\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Fade\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Light\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Offset\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Rotate\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Scale\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Saturation\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\AadLogin\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BluetoothLEHelper\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Facebook Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeInteraction\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\GazeTracing\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LinkedIn Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\LiveTile\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Graph Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Microsoft Translator Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PowerBIEmbedded\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\NetworkHelper\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\OneDrive Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\PeoplePicker\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ProfileCard\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\SharePointFileList\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Toast\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Twitter Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\WeatherLiveTileAndToast\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\InfiniteCanvas\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropGammaTransferBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSaturationBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropSepiaBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackdropInvertBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\BackgroundTaskHelper\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Connected Animations\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Bing Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Implicit Animations\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\RadialGradientBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\ImageBlendBrush\**" />
+      
+      <!-- This is required under linux where evaluated paths are not compared the same way as windows -->
+      <_AbsoluteUnsupportedSamples Include="@(_UnsupportedSamples->'$([System.IO.Path]::GetFullPath('%(_UnsupportedSamples.Identity)'))')"/>
+      
+      <Page Remove="@(_AbsoluteUnsupportedSamples)" />
+      <Compile Remove="@(_AbsoluteUnsupportedSamples)" />
+    </ItemGroup>
+  </Target>
 </Project>
