@@ -24,16 +24,16 @@
       //  "Icon": "/SamplePages/TabView/TabView.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/TabView.md"
       //},
-      //{
-      //  "Name": "DataGrid",
-      //  "Type": "DataGridPage",
-      //  "Subcategory": "Layout",
-      //  "About": "Control that presents data in a customizable table of rows and columns.",
-      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/DataGrid",
-      //  "XamlCodeFile": "DataGridCode.bind",
-      //  "Icon": "/SamplePages/DataGrid/DataGrid.png",
-      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/DataGrid.md"
-      //},
+      {
+        "Name": "DataGrid",
+        "Type": "DataGridPage",
+        "Subcategory": "Layout",
+        "About": "Control that presents data in a customizable table of rows and columns.",
+        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/DataGrid",
+        "XamlCodeFile": "DataGridCode.bind",
+        "Icon": "/SamplePages/DataGrid/DataGrid.png",
+        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/DataGrid.md"
+      },
       //{
       //  "Name": "Carousel",
       //  "Type": "CarouselPage",
@@ -84,18 +84,18 @@
       //  "Icon": "/SamplePages/ImageEx/ImageEx.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/ImageEx.md"
       //},
-      {
-        "Name": "HeaderedTextBlock",
-        "Type": "HeaderedTextBlockPage",
-        "Subcategory": "Layout",
-        "About": "The HeaderedTextBlock control is designed to provide a header for read only text. This control is useful for displaying read only forms.",
-        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedTextBlock",
-        "XamlCodeFile": "HeaderedTextBlockCode.bind",
-        "Icon": "/SamplePages/HeaderedTextBlock/HeaderedTextBlock.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/HeaderedTextBlock.md",
-        "BadgeUpdateVersionRequired": "DEPRECATED",
-        "DeprecatedWarning": "The HeaderedTextBlock has been replaced with the HeaderedContentControl and will be removed in a future major release."
-      },
+      //{
+      //  "Name": "HeaderedTextBlock",
+      //  "Type": "HeaderedTextBlockPage",
+      //  "Subcategory": "Layout",
+      //  "About": "The HeaderedTextBlock control is designed to provide a header for read only text. This control is useful for displaying read only forms.",
+      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/HeaderedTextBlock",
+      //  "XamlCodeFile": "HeaderedTextBlockCode.bind",
+      //  "Icon": "/SamplePages/HeaderedTextBlock/HeaderedTextBlock.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/HeaderedTextBlock.md",
+      //  "BadgeUpdateVersionRequired": "DEPRECATED",
+      //  "DeprecatedWarning": "The HeaderedTextBlock has been replaced with the HeaderedContentControl and will be removed in a future major release."
+      //},
       //{
       //  "Name": "MasterDetailsView",
       //  "Type": "MasterDetailsViewPage",
@@ -128,16 +128,16 @@
       //  "Icon": "/SamplePages/RadialGauge/RadialGauge.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/RadialGauge.md"
       //},
-      {
-        "Name": "RadialProgressBar",
-        "Type": "RadialProgressBarPage",
-        "Subcategory": "Status and Info",
-        "About": "The radial progress bar displays progress as a circle getting filled.",
-        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RadialProgressBar",
-        "XamlCodeFile": "RadialProgressBarCode.bind",
-        "Icon": "/SamplePages/RadialProgressBar/RadialProgressBar.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/RadialProgressBar.md"
-      },
+      //{
+      //  "Name": "RadialProgressBar",
+      //  "Type": "RadialProgressBarPage",
+      //  "Subcategory": "Status and Info",
+      //  "About": "The radial progress bar displays progress as a circle getting filled.",
+      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/RadialProgressBar",
+      //  "XamlCodeFile": "RadialProgressBarCode.bind",
+      //  "Icon": "/SamplePages/RadialProgressBar/RadialProgressBar.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/RadialProgressBar.md"
+      //},
       //{
       //  "Name": "RotatorTile",
       //  "Type": "RotatorTilePage",
@@ -189,16 +189,16 @@
       //  "BadgeUpdateVersionRequired": "Anniversary Update required",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/DropShadowPanel.md"
       //},
-      {
-        "Name": "Loading",
-        "Type": "LoadingPage",
-        "Subcategory": "Status and Info",
-        "About": "LoadingControl helps to show content with animation to the user while the app is doing some calculation.",
-        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Loading",
-        "XamlCodeFile": "LoadingCode.bind",
-        "Icon": "/SamplePages/Loading/Loading.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/Loading.md"
-      },
+      //{
+      //  "Name": "Loading",
+      //  "Type": "LoadingPage",
+      //  "Subcategory": "Status and Info",
+      //  "About": "LoadingControl helps to show content with animation to the user while the app is doing some calculation.",
+      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/Loading",
+      //  "XamlCodeFile": "LoadingCode.bind",
+      //  "Icon": "/SamplePages/Loading/Loading.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/Loading.md"
+      //},
       //{
       //  "Name": "Expander",
       //  "Type": "ExpanderPage",
