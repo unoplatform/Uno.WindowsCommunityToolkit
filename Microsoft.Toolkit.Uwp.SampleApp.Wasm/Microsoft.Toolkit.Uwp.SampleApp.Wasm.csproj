@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <IsPackable>false</IsPackable>
@@ -35,13 +35,13 @@
       
   <ItemGroup>
     <PackageReference Include="Uno.UI" Version="1.44.0-dev.1014" />
-    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.220" />
+    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.236" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
     <PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
     <Reference Include="System.Net.Http" />
-    <DotNetCliToolReference Include="Uno.Wasm.Bootstrap.Cli" Version="1.0.0-dev.220" />
+    <DotNetCliToolReference Include="Uno.Wasm.Bootstrap.Cli" Version="1.0.0-dev.236" />
   </ItemGroup>
 
   <ItemGroup>
@@ -105,11 +105,11 @@
     <None Include="wwwroot\pwa-images\ios\ios-appicon-180-180.png" />
     <None Include="wwwroot\pwa-images\ios\ios-appicon-76-76.png" />
     <None Include="wwwroot\pwa-images\ios\ios-launchimage-1024-768.png" />
-    <None Include="wwwroot\pwa-images\ios\ios-launchimage-1242-2208.png" />
+    <None Include="wwwroot\pwa-images\ios\ios-launchimage-1242-2368.png" />
     <None Include="wwwroot\pwa-images\ios\ios-launchimage-1334-750.png" />
     <None Include="wwwroot\pwa-images\ios\ios-launchimage-1536-2048.png" />
     <None Include="wwwroot\pwa-images\ios\ios-launchimage-2048-1536.png" />
-    <None Include="wwwroot\pwa-images\ios\ios-launchimage-2208-1242.png" />
+    <None Include="wwwroot\pwa-images\ios\ios-launchimage-2368-1242.png" />
     <None Include="wwwroot\pwa-images\ios\ios-launchimage-640-1136.png" />
     <None Include="wwwroot\pwa-images\ios\ios-launchimage-640-960.png" />
     <None Include="wwwroot\pwa-images\ios\ios-launchimage-750-1334.png" />
