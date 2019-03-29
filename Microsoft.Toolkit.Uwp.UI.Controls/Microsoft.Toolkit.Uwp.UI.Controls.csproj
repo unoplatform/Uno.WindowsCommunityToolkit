@@ -7,7 +7,7 @@
     <PackageTags>UWP Toolkit Windows Controls XAML Range WrapPanel Adaptive Markdown BladeView Blade CameraPreview Camera Carousel DockPanel DropShadow Expander GridSplitter HeaderedContent ImageEx InAppNotification InfiniteCanvas Master Details MasterDetails Menu Orbit Radial Gauge RadiaGauge RadialProgressBar Scroll ScrollHeader StaggeredPanel Staggered Tile UniformGrid Uniform Grid</PackageTags>
 
     <NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
-    <PackageId>Microsoft.Toolkit.Uwp.UI.Controls</PackageId>
+    <PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls</PackageId>
 
   </PropertyGroup>
 
