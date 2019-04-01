@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <IsPackable>false</IsPackable>
@@ -9,39 +9,39 @@
     <WasmPWAManifestFile>manifest.json</WasmPWAManifestFile>
     <NoWarn>$(NoWarm);Uno0001</NoWarn>
     <WasmShellGenerateCompressedFiles>false</WasmShellGenerateCompressedFiles>
-    <!--<MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>-->
-  
+    <MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>
+    <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
     <WasmShellMonoRuntimeExecutionMode Condition="$([MSBuild]::IsOsUnixLike())">InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>
   </PropertyGroup>
   
   <ItemGroup>
     <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.SampleApp.Wasm" />
-    <MonoRuntimeMixedModeExcludedAssembly Include="System.Xml"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Newtonsoft.Json"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Parsers"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.DeveloperTools"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="System.Xml" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Newtonsoft.Json" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Parsers" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.DeveloperTools" />
     <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp" />
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Animations"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Controls.Graph"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Services"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.Services"/>
-    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Identity.Client"/>
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Animations" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI.Controls.Graph" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.UI" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Services" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Toolkit.Uwp.Services" />
+    <MonoRuntimeMixedModeExcludedAssembly Include="Microsoft.Identity.Client" />
   </ItemGroup>
       
   <ItemGroup>
-    <PackageReference Include="Uno.UI" Version="1.44.0-dev.1014" />
-    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.236" />
+    <PackageReference Include="Uno.UI" Version="1.45.0-dev.1116" />
+    <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.244" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
     <PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
     <Reference Include="System.Net.Http" />
-    <DotNetCliToolReference Include="Uno.Wasm.Bootstrap.Cli" Version="1.0.0-dev.236" />
+    <DotNetCliToolReference Include="Uno.Wasm.Bootstrap.Cli" Version="1.0.0-dev.244" />
   </ItemGroup>
 
   <ItemGroup>

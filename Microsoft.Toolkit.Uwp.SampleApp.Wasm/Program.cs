@@ -22,7 +22,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 		static void ConfigureFilters(ILoggerFactory factory)
 		{
 			factory
-				.WithFilter(new FilterLoggerSettings
+				.WithFilter(new FilterLoggerSettings 
 					{
 						{ "Uno", LogLevel.Warning },
 						{ "Windows", LogLevel.Warning },
