@@ -49,10 +49,10 @@
                     <AppBarButton x:Name="GithubButton"
                         Click="GitHub_OnClick"
                         ToolTipService.ToolTip="View in GitHub"
-						xamarin:Content="Github"
+                        xamarin:Content="Github"
                         Margin="5,0,0,0"
                         Width="50">
-                        <win:AppBarButton.Icon>
+                        <AppBarButton.Icon>
                             <PathIcon
                                 Data="{StaticResource GithubIcon}"
                                 Width="50"
@@ -62,17 +62,17 @@
                                     <CompositeTransform TranslateY="8" TranslateX="3" />
                                 </PathIcon.RenderTransform>
                             </PathIcon>
-                        </win:AppBarButton.Icon>
+                        </AppBarButton.Icon>
                     </AppBarButton>
 
                     <AppBarSeparator Margin="-10, 3, -10, 0"
-                                     Visibility="{x:Bind CanChangePaneState}" />
+                                     win:Visibility="{x:Bind CanChangePaneState}" xamarin:Visibility="Collapsed" />
 
                     <!-- Sample Display properties -->
                     <StackPanel Margin="10,0,0,0"
                                 Orientation="Horizontal"
                                 VerticalAlignment="Center"
-                                Visibility="{x:Bind CanChangePaneState}">
+                                win:Visibility="{x:Bind CanChangePaneState}" xamarin:Visibility="Collapsed">
                         <!-- Disabled for Possible Future PR -->
                         <ToggleSwitch x:Name="BGSwitch"
                                       Visibility="Collapsed"
