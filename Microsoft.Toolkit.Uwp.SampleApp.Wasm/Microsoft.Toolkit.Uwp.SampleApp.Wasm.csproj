@@ -10,7 +10,6 @@
     <NoWarn>$(NoWarm);Uno0001</NoWarn>
     <WasmShellGenerateCompressedFiles>false</WasmShellGenerateCompressedFiles>
     <MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>
-    <WasmShellILLinkerEnabled>false</WasmShellILLinkerEnabled>
     <WasmShellMonoRuntimeExecutionMode Condition="$([MSBuild]::IsOsUnixLike())">InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>
   </PropertyGroup>
   

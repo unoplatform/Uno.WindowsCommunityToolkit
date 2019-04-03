@@ -12,14 +12,14 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 
 		static void Main(string[] args)
 		{
-#if DEBUG
-			ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
+#if DEBUG 
+            ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
 #endif
 
 			Application.Start(e => new App());
 		}
          
-		static void ConfigureFilters(ILoggerFactory factory)
+		static void ConfigureFilters(ILoggerFactory factory) 
 		{
 			factory
 				.WithFilter(new FilterLoggerSettings 
@@ -37,13 +37,13 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
 
 					// Layouter specific messages
 					// { "Windows.UI.Xaml.Controls", LogLevel.Debug },
-					//{ "Windows.UI.Xaml.Controls.Layouter", LogLevel.Debug },
-					//{ "Windows.UI.Xaml.Controls.Panel", LogLevel.Debug },
+					// { "Windows.UI.Xaml.Controls.Layouter", LogLevel.Debug },
+					// { "Windows.UI.Xaml.Controls.Panel", LogLevel.Debug },
 
 					// Binding related messages
-					 // { "Windows.UI.Xaml.Data", LogLevel.Debug },
-					//{ "Windows.UI.Xaml.DependencyObjectStore", LogLevel.Debug },
-					 //{ "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
+					// { "Windows.UI.Xaml.Data", LogLevel.Debug },
+					// { "Windows.UI.Xaml.DependencyObjectStore", LogLevel.Debug },
+					// { "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
 
 					//  Binder memory references tracking
 					// { "ReferenceHolder", LogLevel.Debug },
