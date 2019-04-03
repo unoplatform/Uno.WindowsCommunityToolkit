@@ -19,7 +19,11 @@
 										   Loading="XamlCodeRenderer_Loading"
 										   InternalException="XamlCodeRenderer_InternalException" />
 	</win:Grid>
-	<xamarin:Grid>
-		<TextBlock x:Name="XamlCodeRenderer" />
+	<xamarin:Grid Background="White">
+    <ScrollViewer HorizontalScrollBarVisibility="Visible">
+		  <TextBlock x:Name="XamlCodeRenderer"
+                 FontFamily="Courier New"
+										     Text="{x:Bind Text, Mode=TwoWay}" /> 
+    </ScrollViewer>
 	</xamarin:Grid>
 </UserControl>
