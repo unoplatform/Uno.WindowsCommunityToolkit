@@ -30,11 +30,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Data
             {
                 try
                 {
-#if __WASM__
-					using (var client = new HttpClient(new Uno.UI.Wasm.WasmHttpHandler()))
-#else
 					using (var client = new HttpClient())
-#endif
 					{
 						const string userAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko";
 

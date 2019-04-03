@@ -23,12 +23,7 @@ namespace Microsoft.Toolkit.Uwp.Helpers
     {
 
 		public static Stream AsStream(this Stream s) => s;
-
-#if __WASM__
-		private static HttpClient client = new HttpClient(new Uno.UI.Wasm.WasmHttpHandler());
-#else
 		private static HttpClient client = new HttpClient();
-#endif
 
         /// <summary>
         /// Gets the response stream returned by a HTTP get request.
