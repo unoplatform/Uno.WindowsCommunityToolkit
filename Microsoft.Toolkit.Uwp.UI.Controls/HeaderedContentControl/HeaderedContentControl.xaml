@@ -29,6 +29,9 @@
                         <ContentPresenter x:Name="ContentPresenter" 
                                           Grid.ColumnSpan="2"
                                           Grid.Row="1" 
+                                          xamarin:Content="{TemplateBinding Content}"
+                                          xamarin:ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          xamarin:ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         <VisualStateManager.VisualStateGroups>
