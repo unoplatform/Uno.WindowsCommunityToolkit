@@ -31,7 +31,7 @@
   </ItemGroup>
 	
 	<ItemGroup Condition="'$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="Uno.UI" Version="1.45.0-dev.1327" />
+		<PackageReference Include="Uno.UI" Version="1.45.0-dev.1397" />
 		<Reference Include="System.Runtime.Serialization" />
 		<Reference Include="System.Xml" />
 		<Reference Include="System.Xml.Linq" />
