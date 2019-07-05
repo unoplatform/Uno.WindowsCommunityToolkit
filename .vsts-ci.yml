@@ -5,7 +5,7 @@ trigger:
 resources:
   containers:
   - container: nv-bionic-wasm
-    image: nventive/wasm-build:1.0-bionic
+    image: nventive/wasm-build:1.4.1
 
 jobs:
 - job: Windows
@@ -77,7 +77,7 @@ jobs:
   - bash: |
       sudo chmod -R 777 /emsdk
       cd /emsdk
-      sudo ./emsdk activate sdk-1.38.28-64bit
+      sudo ./emsdk activate sdk-1.38.31-64bit
 
     displayName: 'Setup Emscripten'
 
