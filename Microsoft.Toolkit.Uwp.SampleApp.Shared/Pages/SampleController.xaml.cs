@@ -331,7 +331,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                     SidePaneState = _onlyDocumentation ? PaneState.Full : PaneState.Normal;
                 }
 
-                Shell.Current.SetAppTitle($"{CurrentSample.CategoryName} > {CurrentSample.Name}");
+                //Shell.Current.SetAppTitle($"{CurrentSample.CategoryName} > {CurrentSample.Name}");
             }
             else
             {
