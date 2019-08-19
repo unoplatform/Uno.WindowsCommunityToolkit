@@ -3,6 +3,7 @@
              xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:converters="using:Microsoft.Toolkit.Uwp.UI.Converters"
+             xmlns:mgt="using:Microsoft.Toolkit.Uwp.UI.Controls.Graph"
              RequiresPointerMode="Auto">
 
     <Application.Resources>
@@ -12,6 +13,8 @@
                 <ResourceDictionary Source="ms-appx:///Styles/Themes.xaml" />
                 <ResourceDictionary Source="ms-appx:///Styles/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <mgt:InteractiveProvider x:Key="MyProvider" ClientId="6f668011-f616-4857-81a3-39d929681b1b"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

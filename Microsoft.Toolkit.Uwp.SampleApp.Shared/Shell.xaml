@@ -13,6 +13,7 @@
       xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
       xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
       xmlns:banner="using:Uno.UI.Sample.Banner"
+      xmlns:mgt="using:Microsoft.Toolkit.Uwp.UI.Controls.Graph"
       extensions:StatusBarExtensions.IsVisible="False"
       extensions:TitleBarExtensions.BackgroundColor="{StaticResource Brand-Color}"
       extensions:TitleBarExtensions.ButtonBackgroundColor="{StaticResource Brand-Color}"
@@ -32,7 +33,7 @@
         </DataTemplate>
     </Page.Resources>
     <Grid>
-        <controls:WrapPanel Width="100" Background="Pink">
+        <!--<controls:WrapPanel Width="100" Background="Pink">
             <TextBlock Text="Item 1" Margin="5"/>
             <TextBlock Text="Item 2" Margin="5"/>
             <TextBlock Text="Item 3" Margin="5"/>
@@ -40,6 +41,13 @@
             <TextBlock Text="Item 5" Margin="5"/>
             <TextBlock Text="Item 6" Margin="5"/>
             <TextBlock Text="Item 7" Margin="5"/>
-        </controls:WrapPanel>
+        </controls:WrapPanel>-->
+        <StackPanel>
+            <mgt:PersonView UserId="b5b54cb1-6d28-47e7-8f42-6d1825196116"/>
+            <mgt:PersonView PersonQuery="me"/>
+            <mgt:PersonView UserId="c1e0c517-73a0-4deb-8781-ae9344f01f90" ShowEmail="True" ShowName="True"/>
+            <mgt:PersonView UserId="86e92e2d-b40b-4ad4-a2c2-1c785d8f8c4f" ShowName="True"/>
+            <mgt:PersonView PersonQuery="me" ShowEmail="True" ShowName="False"/>
+        </StackPanel>
     </Grid>
 </Page>

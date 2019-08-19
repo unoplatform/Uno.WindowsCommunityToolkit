@@ -15,9 +15,6 @@
     <Content Include="Assets\genericfile.png" />
     <Content Include="Assets\person.png" />
     <Content Include="Assets\photo.png" />
-    <Content Include="PowerBIEmbedded\Embed\EmbedReportFrame.html" />
-    <Content Include="PowerBIEmbedded\Embed\powerbi.min.js" />
-    <Content Include="PowerBIEmbedded\Embed\ReportContainer.html" />
   </ItemGroup> 
 	
 	<PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -25,7 +22,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-    <ProjectReference Include="..\Microsoft.Toolkit.Services\Microsoft.Toolkit.Services.csproj" />
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj" />
   </ItemGroup>
 
@@ -43,8 +39,15 @@
   </ItemGroup>
  
   <ItemGroup>
-    <Page Update="PlannerTaskList\PlannerTaskList.xaml">
-      <SubType>Designer</SubType>
+    <PackageReference Include="Microsoft.Graph" Version="1.16.0" />
+    <PackageReference Include="Microsoft.Graph.Auth" Version="1.0.0-preview.0" />
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <Page Update="Controls\PeoplePicker\PeoplePicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Controls\PersonView\PersonView.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
@@ -54,8 +57,8 @@
     <ItemGroup>
       <GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
     </ItemGroup>
-    <Message Text="CSFiles: @(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')" />
-    <Exec Command="for %%f in (@(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
+    <Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
+    <Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
   </Target>
 	
 	<Import Project="..\uno.ui.include.props" />

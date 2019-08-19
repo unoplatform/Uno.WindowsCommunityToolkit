@@ -692,16 +692,16 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
 #if NETFX_CORE
 			// Search in Microsoft.Toolkit.Uwp.UI.Controls.Graph
-			var graphControlsProxyType = ViewType.EmailOnly;
-            assembly = graphControlsProxyType.GetType().GetTypeInfo().Assembly;
+			//var graphControlsProxyType = ViewType.EmailOnly;
+   //         assembly = graphControlsProxyType.GetType().GetTypeInfo().Assembly;
 
-            foreach (var typeInfo in assembly.ExportedTypes)
-            {
-                if (typeInfo.Name == typeName)
-                {
-                    return typeInfo;
-                }
-            }
+   //         foreach (var typeInfo in assembly.ExportedTypes)
+   //         {
+   //             if (typeInfo.Name == typeName)
+   //             {
+   //                 return typeInfo;
+   //             }
+   //         }
 #endif
 
             // Search in Microsoft.Toolkit.Uwp.UI.Animations
