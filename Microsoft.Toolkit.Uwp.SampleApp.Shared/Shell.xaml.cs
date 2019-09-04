@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using Windows.Foundation.Metadata;
+using Microsoft.Toolkit.Uwp.UI.Controls.Graph;
 
 #if !HAS_UNO
 using Monaco;
@@ -25,6 +26,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         public Shell()
         {
+            var MyProvider = new InteractiveProvider();
+            MyProvider.ClientId = "a7d8cef0-4145-49b2-a91d-95c54051fa3f";
+
             InitializeComponent();
             Current = this;
         }

@@ -14,11 +14,6 @@
       xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
       xmlns:banner="using:Uno.UI.Sample.Banner"
       xmlns:mgt="using:Microsoft.Toolkit.Uwp.UI.Controls.Graph"
-      extensions:StatusBarExtensions.IsVisible="False"
-      extensions:TitleBarExtensions.BackgroundColor="{StaticResource Brand-Color}"
-      extensions:TitleBarExtensions.ButtonBackgroundColor="{StaticResource Brand-Color}"
-      extensions:TitleBarExtensions.ButtonForegroundColor="{StaticResource Titlebar-Foreground}"
-      extensions:TitleBarExtensions.ForegroundColor="{StaticResource Titlebar-Foreground}"
       mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="CategoryTemplate"

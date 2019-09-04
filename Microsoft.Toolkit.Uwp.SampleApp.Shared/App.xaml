@@ -7,14 +7,14 @@
              RequiresPointerMode="Auto">
 
     <Application.Resources>
-        <ResourceDictionary>
-            <!-- Color Resources -->
+        <!--<ResourceDictionary>
+            --><!-- Color Resources --><!--
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="ms-appx:///Styles/Themes.xaml" />
                 <ResourceDictionary Source="ms-appx:///Styles/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-            <mgt:InteractiveProvider x:Key="MyProvider" ClientId="6f668011-f616-4857-81a3-39d929681b1b"/>
-        </ResourceDictionary>
+        </ResourceDictionary>-->
+        
+        <!--<mgt:InteractiveProvider x:Key="MyProvider" ClientId="6f668011-f616-4857-81a3-39d929681b1b"/>-->
     </Application.Resources>
 </Application>
