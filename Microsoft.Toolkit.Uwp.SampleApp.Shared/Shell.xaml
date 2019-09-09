@@ -38,11 +38,11 @@
             <TextBlock Text="Item 7" Margin="5"/>
         </controls:WrapPanel>-->
         <StackPanel>
-            <mgt:PersonView UserId="b5b54cb1-6d28-47e7-8f42-6d1825196116"/>
-            <mgt:PersonView PersonQuery="me"/>
+            <!--<mgt:PersonView UserId="b5b54cb1-6d28-47e7-8f42-6d1825196116"/>-->
+            <!--<mgt:PersonView PersonQuery="me"/>
             <mgt:PersonView UserId="c1e0c517-73a0-4deb-8781-ae9344f01f90" ShowEmail="True" ShowName="True"/>
-            <mgt:PersonView UserId="86e92e2d-b40b-4ad4-a2c2-1c785d8f8c4f" ShowName="True"/>
-            <mgt:PersonView PersonQuery="me" ShowEmail="True" ShowName="False"/>
+            <mgt:PersonView UserId="86e92e2d-b40b-4ad4-a2c2-1c785d8f8c4f" ShowName="True"/>-->
+            <mgt:PersonView PersonQuery="me" ShowEmail="True" ShowName="True"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -22,12 +22,20 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 {
     public sealed partial class Shell
     {
+        // Also need to update msal redirect in AndroidManifest.xml
+        private readonly string ClientID = "a7d8cef0-4145-49b2-a91d-95c54051fa3f";
+
         public static Shell Current { get; private set; }
 
         public Shell()
         {
-            var MyProvider = new InteractiveProvider();
-            MyProvider.ClientId = "a7d8cef0-4145-49b2-a91d-95c54051fa3f";
+            var MyProvider = new InteractiveProvider()
+            {
+#if __ANDROID__
+                RedirectUri = $"msal{ClientID}://auth"
+#endif
+            };
+            MyProvider.ClientId = ClientID;
 
             InitializeComponent();
             Current = this;

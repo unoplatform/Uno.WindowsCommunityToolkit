@@ -31,6 +31,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
                 .WithRedirectUri(RedirectUri)
                 .WithClientName(GlobalProvider.ClientName)
                 .WithClientVersion(Assembly.GetExecutingAssembly().GetName().Version.ToString())
+#if __ANDROID__
+                .WithParentActivityOrWindow(() => Uno.UI.ContextHelper.Current as Android.App.Activity)
+#endif
                 .Build();
 
             GlobalProvider.Instance.Provider = new InteractiveAuthenticationProvider(GlobalProvider.Instance.Client, Scopes);
