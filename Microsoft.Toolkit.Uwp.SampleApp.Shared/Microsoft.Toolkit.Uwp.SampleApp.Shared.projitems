@@ -464,6 +464,10 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.scale-150.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.scale-200.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.scale-400.png" />
+  </ItemGroup>
+
+  <!--  Workaround for https://github.com/unoplatform/uno/issues/1370  -->
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' != 'MonoAndroid'">
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.targetsize-16.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.targetsize-16_altform-unplated.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.targetsize-20.png" />
@@ -492,6 +496,8 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.targetsize-80_altform-unplated.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.targetsize-96.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.targetsize-96_altform-unplated.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppBadgeLogo.scale-100.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppBadgeLogo.scale-125.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppBadgeLogo.scale-150.png" />
