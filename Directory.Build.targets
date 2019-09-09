@@ -27,4 +27,11 @@
       </AssemblyAttribute>
     </ItemGroup>
   </Target>
+
+  <Target Name="AndroidResourceGenWorkaround_16_2"
+          AfterTargets="_UpdateAndroidResgen"
+          Condition="'$(AndroidUseIntermediateDesignerFile)'=='True' and !Exists($(_AndroidResourceDesignerFile))">
+    <WriteLinesToFile File="$(_AndroidResourceDesignerFile)" Lines="// Empty Content from uno.ui Directory.Build.targets." />
+  </Target>
+
 </Project>
