@@ -11,23 +11,25 @@ jobs:
 - job: Windows
 
   pool:
-    vmImage: 'vs2017-win2016'
+    vmImage: 'windows-2019'
 
   variables: 
     BuildConfiguration: Release
-    
+    ANDROID_NDK_HOME: C:\Microsoft\AndroidNDK64\android-ndk-r16b
+    ANDROID_NDK_PATH: C:\Microsoft\AndroidNDK64\android-ndk-r16b
+    AndroidNdkDirectory: C:\Microsoft\AndroidNDK64\android-ndk-r16b   
   steps:
   - task: BatchScript@1
     inputs:
-      filename: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"
+      filename: "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"
       arguments: -no_logo
       modifyEnvironment: true
     displayName: Setup Environment Variables
     
   - task: NuGetToolInstaller@0
-    displayName: Use NuGet 4.7.0
+    displayName: Use NuGet 5.0.0
     inputs:
-      versionSpec: 4.7.0
+      versionSpec: 5.0.0
   
   - task: DotNetCoreCLI@2  
     inputs:
@@ -38,10 +40,7 @@ jobs:
   
   - script: nbgv cloud
     displayName: Set Version
-  
-  - powershell: .\build\Install-WindowsSdkISO.ps1 17763
-    displayName: Insider SDK
-  
+    
   - powershell: .\build\build.ps1 -target=Package
     displayName: Build 
   
