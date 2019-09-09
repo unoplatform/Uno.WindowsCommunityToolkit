@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Media;
 namespace Microsoft.Toolkit.Uwp.SampleApp.Droid
 {
     [global::Android.App.ApplicationAttribute(
-        Label = "@string/ApplicationName",
+        Label = "@string/app_name",
         LargeHeap = true,
         HardwareAccelerated = true
         ,
