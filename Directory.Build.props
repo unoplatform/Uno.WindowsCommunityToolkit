@@ -4,10 +4,10 @@
     <Authors>nventive</Authors>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <NoPackageAnalysis>true</NoPackageAnalysis>
-    <PackageIconUrl>https://raw.githubusercontent.com/https://github.com/nventive/Uno.WindowsCommunityToolkit/master/build/nuget.png</PackageIconUrl>
-    <PackageProjectUrl>https://github.com/https://github.com/nventive/Uno.WindowsCommunityToolkit</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/https://github.com/nventive/Uno.WindowsCommunityToolkit/blob/master/license.md</PackageLicenseUrl>
-    <PackageReleaseNotes>v5.1.0 release https://github.com/https://github.com/nventive/Uno.WindowsCommunityToolkit/releases</PackageReleaseNotes>
+    <PackageIconUrl>https://raw.githubusercontent.com/unoplatform/Uno.WindowsCommunityToolkit/uno/build/nuget.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/unoplatform/Uno.WindowsCommunityToolkit</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/unoplatform/Uno.WindowsCommunityToolkit/blob/uno/license.md</PackageLicenseUrl>
+    <PackageReleaseNotes>v5.1.0 release https://github.com/unoplatform/Uno.WindowsCommunityToolkit/releases</PackageReleaseNotes>
     <Copyright>(c) .NET Foundation and Contributors.  All rights reserved.</Copyright>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)Toolkit.ruleset</CodeAnalysisRuleSet>
     <DefaultLanguage>en-US</DefaultLanguage>
