@@ -257,18 +257,16 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
         {
             if (photoStream != null)
             {
-#if __ANDROID__
-                var bitmap = new BitmapImage();
-                await bitmap.SetSourceAsync(photoStream);
-                UserPhoto = bitmap;
+#if HAS_UNO
+                var ras = photoStream;
 #else
                 using (var ras = photoStream.AsRandomAccessStream())
+#endif
                 {
                     var bitmap = new BitmapImage();
                     await bitmap.SetSourceAsync(ras);
                     UserPhoto = bitmap;
                 }
-#endif
             }
         }
     }
