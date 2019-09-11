@@ -43,6 +43,7 @@
             <mgt:PersonView UserId="c1e0c517-73a0-4deb-8781-ae9344f01f90" ShowEmail="True" ShowName="True"/>
             <mgt:PersonView UserId="86e92e2d-b40b-4ad4-a2c2-1c785d8f8c4f" ShowName="True"/>-->
             <mgt:PersonView PersonQuery="me" ShowEmail="True" ShowName="True"/>
+            <mgt:PeoplePicker Margin="0,16,0,0"/>
         </StackPanel>
     </Grid>
 </Page>

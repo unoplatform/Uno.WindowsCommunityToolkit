@@ -23,6 +23,8 @@
 
 	<ItemGroup>
     <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj" />
+    <ProjectReference Include="..\Microsoft.Toolkit.Graph\Microsoft.Toolkit.Graph.csproj" />
+    <ProjectReference Include="..\TokenListBoxSample\TokenListBoxLibrary.csproj" />
   </ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS'  or '$(TargetFramework)' == 'netstandard2.0'">

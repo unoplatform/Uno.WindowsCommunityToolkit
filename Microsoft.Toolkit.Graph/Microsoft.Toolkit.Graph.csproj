@@ -1,0 +1,18 @@
+<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+    <Title>Windows Community Toolkit .NET Graph Helpers</Title>
+		<PackageId>Uno.Microsoft.Toolkit.Graph</PackageId>
+
+		<!-- This is a temporary workaround for https://github.com/dotnet/sdk/issues/955 -->
+    <DebugType>Full</DebugType>
+		<NoWarn>$(NoWarn);CS8002;Uno0001;NU1701</NoWarn>
+	</PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Graph" Version="1.16.0" />
+    <PackageReference Include="Microsoft.Graph.Auth" Version="1.1.0-preview.0" />
+  </ItemGroup>
+
+</Project>

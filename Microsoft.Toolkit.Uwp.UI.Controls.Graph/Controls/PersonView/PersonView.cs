@@ -1,4 +1,6 @@
 ﻿using Microsoft.Graph;
+using Microsoft.Toolkit.Graph;
+using Microsoft.Toolkit.Graph.Helpers;
 using Microsoft.Toolkit.Uwp.UI.Controls.Graph.Helpers;
 using System;
 using System.Collections.Generic;
@@ -241,7 +243,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
 
                 if (!string.IsNullOrWhiteSpace(person.UserPrincipalName))
                 {
-                    DecodeStreamAsync(await graph.GetUserPhoto(person.UserPrincipalName));
+                    await DecodeStreamAsync(await graph.GetUserPhoto(person.UserPrincipalName));
                     _photoId = person.Id; // TODO: Only set on success for photo?
                 }
                 else if (!string.IsNullOrWhiteSpace(person.ScoredEmailAddresses.First().Address))

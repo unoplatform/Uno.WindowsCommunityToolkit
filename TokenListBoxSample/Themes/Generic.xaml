@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///TokenListBoxLibrary/Controls/TokenListBox/TokenListBox.xaml" />
+        <ResourceDictionary Source="ms-appx:///TokenListBoxLibrary/Controls/TokenListItem/TokenListItem.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
