@@ -98,9 +98,13 @@ namespace TokenListBoxSample.Controls
 
         private void UpdateVisualState(bool useTransitions = true)
         {
+#if HAS_UNO
+            var stateName = IsSelected ? "Selected" : "Normal";
+#else
             var stateName = IsPointerOver
                 ? IsSelected ? "PointerOverSelected" : "PointerOver"
                 : IsSelected ? "Selected" : "Normal";
+#endif
 
             VisualStateManager.GoToState(this, stateName, useTransitions);
         }

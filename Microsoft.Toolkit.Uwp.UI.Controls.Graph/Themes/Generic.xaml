@@ -2,5 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///Microsoft.Toolkit.Uwp.UI.Controls.Graph/Controls/PersonView/PersonView.xaml" />
+        <ResourceDictionary Source="ms-appx:///Microsoft.Toolkit.Uwp.UI.Controls.Graph/Controls/PeoplePicker/PeoplePicker.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
