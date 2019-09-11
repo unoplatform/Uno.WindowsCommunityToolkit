@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
@@ -175,7 +176,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             {
                 if (PersonDetails != null && UserPhoto == null)
                 {
-                    LoadImageAsync(PersonDetails);
+                    await LoadImageAsync(PersonDetails);
                 }
                 else if (!string.IsNullOrWhiteSpace(UserId) || PersonQuery?.ToLowerInvariant() == PersonQueryMe)
                 {
@@ -190,7 +191,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
                         try
                         {
                             // TODO: Move to LoadImage based on previous call?
-                            DecodeStreamAsync(await graph.Users[UserId].Photo.Content.Request().GetAsync());
+                            await DecodeStreamAsync(await graph.Users[UserId].Photo.Content.Request().GetAsync());
                             _photoId = UserId;
                         }
                         catch { }
@@ -204,7 +205,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
                         catch { }
                         try
                         {
-                            DecodeStreamAsync(await graph.Me.Photo.Content.Request().GetAsync());
+                            await DecodeStreamAsync(await graph.Me.Photo.Content.Request().GetAsync());
                             _photoId = user.Id;
                         }
                         catch { }
@@ -214,11 +215,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
                     {
                         PersonDetails = new Person()
                         {
+                            Id = user.Id,
                             DisplayName = user.DisplayName,
                             ScoredEmailAddresses = new ScoredEmailAddress[] { new ScoredEmailAddress()
-                        {
-                            Address = user.Mail ?? user.UserPrincipalName
-                        }},
+                            {
+                                Address = user.Mail ?? user.UserPrincipalName
+                            }},
                             GivenName = user.GivenName,
                             Surname = user.Surname
                         };
@@ -231,7 +233,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             }
         }
 
-        private async void LoadImageAsync(Person person)
+        private async Task LoadImageAsync(Person person)
         {
             try
             {
@@ -253,7 +255,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
             }
         }
 
-        private async void DecodeStreamAsync(Stream photoStream)
+        private async Task DecodeStreamAsync(Stream photoStream)
         {
             if (photoStream != null)
             {

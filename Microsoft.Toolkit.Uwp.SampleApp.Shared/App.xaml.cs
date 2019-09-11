@@ -115,7 +115,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
 		private async System.Threading.Tasks.Task RunAppInitialization(string launchParameters)
         {
-#if NETFX_CORE // UNO TODO
+#if false // UNO TODO
             ThemeInjector.InjectThemeResources(Application.Current.Resources);
 
             // Go fullscreen on Xbox
