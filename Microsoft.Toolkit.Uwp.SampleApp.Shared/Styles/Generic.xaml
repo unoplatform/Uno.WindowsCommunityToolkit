@@ -1146,7 +1146,7 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" MinWidth="48" />
+                                        <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
