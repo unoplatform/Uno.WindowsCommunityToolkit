@@ -28,11 +28,15 @@ The following packages are available:
 The Windows Community Toolkit is a collection of helper functions, custom controls, and app services. It simplifies and demonstrates common developer patterns when building experiences for Windows 10.
 
 ## Build Status
+| Target | Branch | Status |
+| ------ | ------ | ------ |
+| Pre-release beta testing | uno | [![Build Status](https://uno-platform.visualstudio.com/Uno%20Platform/_apis/build/status/Uno%20Platform/Uno.WindowsCommunityToolkit%20-%20CI?branchName=uno)](https://uno-platform.visualstudio.com/Uno%20Platform/_build/latest?definitionId=14&branchName=uno) |
+<!--
 | Target | Branch | Status | Recommended NuGet packages version |
 | ------ | ------ | ------ | ------ |
-| Pre-release beta testing | master | [![Build Status](https://dev.azure.com/dotnet/WindowsCommunityToolkit/_apis/build/status/Toolkit-CI?branchName=master)](https://dev.azure.com/dotnet/WindowsCommunityToolkit/_build/latest?definitionId=10) | [![MyGet](https://img.shields.io/dotnet.myget/uwpcommunitytoolkit/vpre/Microsoft.Toolkit.Uwp.svg)](https://dotnet.myget.org/gallery/uwpcommunitytoolkit) |
-
-<!-- | Production | rel/3.0.0 | [![Build status](https://ci.appveyor.com/api/projects/status/o60lv2tt1nbtklw8/branch/rel/3.0.0?svg=true)](https://ci.appveyor.com/project/dotnetfoundation/uwpcommunitytoolkit/branch/rel/3.0.0) | [![NuGet](https://img.shields.io/nuget/v/Microsoft.Toolkit.Uwp.svg)](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp/) | -->
+| Pre-release beta testing | master | [![Build Status](https://uno-platform.visualstudio.com/Uno%20Platform/_apis/build/status/Uno%20Platform/Uno.WindowsCommunityToolkit%20-%20CI?branchName=uno)](https://uno-platform.visualstudio.com/Uno%20Platform/_build/latest?definitionId=14&branchName=uno) | [![MyGet](https://img.shields.io/dotnet.myget/uwpcommunitytoolkit/vpre/Microsoft.Toolkit.Uwp.svg)](https://dotnet.myget.org/gallery/uwpcommunitytoolkit) |
+| Production | rel/3.0.0 | [![Build status](https://ci.appveyor.com/api/projects/status/o60lv2tt1nbtklw8/branch/rel/3.0.0?svg=true)](https://ci.appveyor.com/project/dotnetfoundation/uwpcommunitytoolkit/branch/rel/3.0.0) | [![NuGet](https://img.shields.io/nuget/v/Microsoft.Toolkit.Uwp.svg)](https://www.nuget.org/packages/Microsoft.Toolkit.Uwp/) |
+-->
 
 ## Getting Started
 Please read the [getting Started with the Windows Community Toolkit](https://docs.microsoft.com/windows/communitytoolkit/getting-started) page for more detailed information about using the toolkit.
@@ -40,8 +44,10 @@ Please read the [getting Started with the Windows Community Toolkit](https://doc
 ## Documentation
 All documentation for the toolkit is hosted on [Microsoft Docs](https://docs.microsoft.com/windows/communitytoolkit/). All API documentation can be found at the [.NET API Browser](https://docs.microsoft.com/en-us/dotnet/api/?term=microsoft.toolkit).
 
+<!--
 ## Windows Community Toolkit Sample App
 Want to see the toolkit in action before jumping into the code? Download and play with the [Windows Community Toolkit Sample App](https://www.microsoft.com/store/apps/9nblggh4tlcq) from the Store.
+-->
 
 ## NuGet Packages
 NuGet is a standard package manager for .NET applications which is built into Visual Studio. To open the UI, from your open solution, choose the *Tools* menu > *NuGet Package Manager* > *Manage NuGet packages for solution...* . Enter one of the package names below to search for it online.
@@ -52,19 +58,19 @@ Once you do a search, you should see a list similar to the one below (versions m
 
 | NuGet Package Name | Description |
 | --- | --- |
-| Microsoft.Toolkit | .NET Standard NuGet package containing common code |
-| Microsoft.Toolkit.Parsers | .NET Standard NuGet package containing cross-platform parsers, such as Markdown and RSS |
-| Microsoft.Toolkit.Services | .NET Standard NuGet package containing cross-platform services |
-| Microsoft.Toolkit.Uwp | Main NuGet package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc. |
-| Microsoft.Toolkit.Uwp.Notifications | Notifications Package - Generate tile, toast, and badge notifications for Windows 10 via code.  Includes intellisense support to avoid having to use the XML syntax. |
-| Microsoft.Toolkit.Uwp.Notifications.Javascript | Notification Packages for JavaScript |
-| Microsoft.Toolkit.Uwp.Services | Services Package - This NuGet package includes the service helpers for Facebook, LinkedIn, Microsoft Graph, Twitter and more |
-| Microsoft.Toolkit.Uwp.UI | UI Packages - Brushes, XAML converters, Visual tree extensions, and other extensions and helpers for your XAML UI. |
-| Microsoft.Toolkit.Uwp.UI.Animations | Animations and Composition behaviors such as Blur, Fade, Rotate, etc. |
-| Microsoft.Toolkit.Uwp.UI.Controls | XAML Controls such as RadialGauge, RangeSelector, etc. |
-| Microsoft.Toolkit.Uwp.UI.Controls.DataGrid | XAML DataGrid control |
-| Microsoft.Toolkit.Uwp.Connectivity | API helpers such as BluetoothLEHelper and Networking |
-| Microsoft.Toolkit.Uwp.DeveloperTools | XAML user controls and services to help developer building their app |
+| Uno.Microsoft.Toolkit | .NET Standard NuGet package containing common code |
+| Uno.Microsoft.Toolkit.Parsers | .NET Standard NuGet package containing cross-platform parsers, such as Markdown and RSS |
+| Uno.Microsoft.Toolkit.Services | .NET Standard NuGet package containing cross-platform services |
+| Uno.Microsoft.Toolkit.Uwp | Main NuGet package includes code only helpers such as Colors conversion tool, Storage file handling, a Stream helper class, etc. |
+| Uno.Microsoft.Toolkit.Uwp.Notifications | Notifications Package - Generate tile, toast, and badge notifications for Windows 10 via code.  Includes intellisense support to avoid having to use the XML syntax. |
+| Uno.Microsoft.Toolkit.Uwp.Notifications.Javascript | Notification Packages for JavaScript |
+| Uno.Microsoft.Toolkit.Uwp.Services | Services Package - This NuGet package includes the service helpers for Facebook, LinkedIn, Microsoft Graph, Twitter and more |
+| Uno.Microsoft.Toolkit.Uwp.UI | UI Packages - Brushes, XAML converters, Visual tree extensions, and other extensions and helpers for your XAML UI. |
+| Uno.Microsoft.Toolkit.Uwp.UI.Animations | Animations and Composition behaviors such as Blur, Fade, Rotate, etc. |
+| Uno.Microsoft.Toolkit.Uwp.UI.Controls | XAML Controls such as RadialGauge, RangeSelector, etc. |
+| Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid | XAML DataGrid control |
+| Uno.Microsoft.Toolkit.Uwp.Connectivity | API helpers such as BluetoothLEHelper and Networking |
+| Uno.Microsoft.Toolkit.Uwp.DeveloperTools | XAML user controls and services to help developer building their app |
 
 ## <a name="supported"></a> Supported SDKs
 * Fall Creators Update (16299)
@@ -186,12 +192,11 @@ Once you do a search, you should see a list similar to the one below (versions m
 * [Toasts](https://blogs.msdn.microsoft.com/tiles_and_toasts/2015/07/02/adaptive-and-interactive-toast-notifications-for-windows-10/)
 
 ## Feedback and Requests
-Please use [GitHub Issues](https://github.com/windows-toolkit/WindowsCommunityToolkit/issues) for bug reports and feature requests.
-For feature requests, please also create an entry in our [UserVoice](https://wpdev.uservoice.com/forums/110705-universal-windows-platform/category/193402-uwp-community-toolkit).
-For general questions and support, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-community-toolkit) where questions should be tagged with the tag `windows-community-toolkit`.
+Please use [GitHub Issues](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/issues) for bug reports and feature requests.
+For general questions and support, please use [Stack Overflow](https://stackoverflow.com/questions/tagged/uno-platform+windows-community-toolkit) where questions should be tagged with the tag `uno-platform` and `windows-community-toolkit`.
 
 ## Contributing
-Do you want to contribute? Here are our [contribution guidelines](https://github.com/windows-toolkit/WindowsCommunityToolkit/blob/master/contributing.md).
+Do you want to contribute? Here are our [contribution guidelines](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/blob/uno/contributing.md).
 
 ## Principles
 * Principle **#1**: The toolkit will be kept simple.
@@ -202,10 +207,5 @@ This project has adopted the code of conduct defined by the [Contributor Covenan
 to clarify expected behavior in our community.
 For more information see the [.NET Foundation Code of Conduct](http://dotnetfoundation.org/code-of-conduct).
 
-## Roadmap
-Read what we [plan for next iterations](https://github.com/windows-toolkit/WindowsCommunityToolkit/milestones), and feel free to ask questions.
-
-By adding this ([NuGet repo](https://dotnet.myget.org/F/uwpcommunitytoolkit/api/v3/index.json) | [Gallery](https://dotnet.myget.org/gallery/uwpcommunitytoolkit)) to your NuGet sources in Visual Studio, you can also get pre-release packages of upcoming versions.
-
-## .NET Foundation
-This project is supported by the [.NET Foundation](http://dotnetfoundation.org).
+## Uno Platform
+This project is supported by the [Uno Platform](https://platform.uno).

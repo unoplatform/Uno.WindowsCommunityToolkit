@@ -15,11 +15,10 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-#if HAS_UNO
 using Uno.Extensions;
 using Uno.Logging;
-#endif
 
 namespace Microsoft.Toolkit.Uwp.SampleApp
 {
@@ -35,6 +34,10 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         /// </summary>
         public App()
         {
+#if DEBUG
+            ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
+#endif
+
             InitializeComponent();
             Suspending += OnSuspending;
 		}
@@ -187,6 +190,41 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
             // TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        static void ConfigureFilters(ILoggerFactory factory)
+        {
+            factory
+                .WithFilter(new FilterLoggerSettings
+                    {
+                        { "Uno", LogLevel.Warning },
+                        { "Windows", LogLevel.Warning },
+                        //{ "SampleControl.Presentation", LogLevel.Debug },
+
+					// Generic Xaml events
+					// { "Windows.UI.Xaml", LogLevel.Debug },
+
+					// { "Uno.UI.Controls.AsyncValuePresenter", LogLevel.Debug },
+					// { "Uno.UI.Controls.IfDataContext", LogLevel.Debug },
+					 //{ "Windows.UI.Xaml.FrameworkElement", LogLevel.Debug },
+      //               { "Windows.UI.Xaml.UIElement", LogLevel.Debug },
+      //               { "Windows.UI.Xaml.Controls.SinglelineTextBoxView", LogLevel.Debug },
+
+					// Layouter specific messages
+					// { "Windows.UI.Xaml.Controls", LogLevel.Debug },
+					//{ "Windows.UI.Xaml.Controls.Layouter", LogLevel.Debug },
+					//{ "Windows.UI.Xaml.Controls.Panel", LogLevel.Debug },
+
+					// Binding related messages
+					 // { "Windows.UI.Xaml.Data", LogLevel.Debug },
+					//{ "Windows.UI.Xaml.DependencyObjectStore", LogLevel.Debug },
+					 //{ "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
+
+					//  Binder memory references tracking
+					// { "ReferenceHolder", LogLevel.Debug },
+				}
+                )
+                .AddConsole(LogLevel.Debug);
         }
     }
 }
