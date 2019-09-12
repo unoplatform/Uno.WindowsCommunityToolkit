@@ -57,10 +57,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Graph
 
         private void _tokenBox_QueryTextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
+#if !HAS_UNO
             if (!args.CheckCurrent())
             {
                 return;
             }
+#endif
 
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
             {
