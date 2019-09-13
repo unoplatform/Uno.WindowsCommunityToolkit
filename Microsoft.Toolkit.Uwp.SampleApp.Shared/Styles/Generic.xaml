@@ -11,7 +11,9 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    mc:Ignorable="d xamarin">
+    xmlns:wasm="http:/uno.ui/wasm"
+    xmlns:not_wasm="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    mc:Ignorable="d wasm xamarin">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///Controls/CodeRenderer.xaml" />
@@ -872,7 +874,8 @@
                             <Grid.Resources>
                             </Grid.Resources>
                             <ScrollViewer x:Name="ScrollViewer" BringIntoViewOnFocusChange="False" HorizontalScrollBarVisibility="Hidden" HorizontalSnapPointsAlignment="Center" HorizontalSnapPointsType="MandatorySingle" Margin="{TemplateBinding Padding}" Template="{StaticResource ScrollViewerScrollBarlessTemplate}" VerticalContentAlignment="Stretch" VerticalSnapPointsType="None" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Disabled" ZoomMode="Disabled">
-                                <PivotPanel x:Name="Panel" VerticalAlignment="Stretch">
+                                <!-- workaround for https://github.com/unoplatform/Uno.WindowsCommunityToolkit/issues/51 -->
+                                <not_wasm:PivotPanel x:Name="Panel" VerticalAlignment="Stretch">
                                     <Grid x:Name="PivotLayoutElement">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
@@ -919,7 +922,53 @@
                                             </ItemsPresenter.RenderTransform>
                                         </ItemsPresenter>
                                     </Grid>
-                                </PivotPanel>
+                                </not_wasm:PivotPanel>
+                                <wasm:Grid x:Name="PivotLayoutElement">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.RenderTransform>
+                                        <CompositeTransform x:Name="PivotLayoutElementTranslateTransform" />
+                                    </Grid.RenderTransform>
+                                    <ContentPresenter x:Name="LeftHeaderPresenter" ContentTemplate="{TemplateBinding LeftHeaderTemplate}" Content="{TemplateBinding LeftHeader}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <ContentControl x:Name="HeaderClipper" Grid.Column="1" HorizontalContentAlignment="Stretch" UseSystemFocusVisuals="True">
+                                        <ContentControl.Clip>
+                                            <RectangleGeometry x:Name="HeaderClipperGeometry" />
+                                        </ContentControl.Clip>
+                                        <Grid Background="{ThemeResource PivotHeaderBackground}">
+                                            <Grid.RenderTransform>
+                                                <CompositeTransform x:Name="HeaderOffsetTranslateTransform" />
+                                            </Grid.RenderTransform>
+                                            <PivotHeaderPanel x:Name="StaticHeader" Visibility="Collapsed">
+                                                <PivotHeaderPanel.RenderTransform>
+                                                    <CompositeTransform x:Name="StaticHeaderTranslateTransform" />
+                                                </PivotHeaderPanel.RenderTransform>
+                                            </PivotHeaderPanel>
+                                            <PivotHeaderPanel x:Name="Header">
+                                                <PivotHeaderPanel.RenderTransform>
+                                                    <CompositeTransform x:Name="HeaderTranslateTransform" />
+                                                </PivotHeaderPanel.RenderTransform>
+                                            </PivotHeaderPanel>
+                                        </Grid>
+                                    </ContentControl>
+                                    <Button x:Name="PreviousButton" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" Height="36" IsEnabled="False" IsTabStop="False" Margin="{ThemeResource PivotNavButtonMargin}" Opacity="0" Template="{StaticResource PreviousTemplate}" UseSystemFocusVisuals="False" VerticalAlignment="Top" Width="20" />
+                                    <Button x:Name="NextButton" Background="Transparent" Grid.Column="1" HorizontalAlignment="Right" Height="36" IsEnabled="False" IsTabStop="False" Margin="{ThemeResource PivotNavButtonMargin}" Opacity="0" Template="{StaticResource NextTemplate}" UseSystemFocusVisuals="False" VerticalAlignment="Top" Width="20" />
+                                    <ContentPresenter x:Name="RightHeaderPresenter" ContentTemplate="{TemplateBinding RightHeaderTemplate}" Content="{TemplateBinding RightHeader}" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    <ItemsPresenter x:Name="PivotItemPresenter" Grid.ColumnSpan="3" Grid.Row="1">
+                                        <ItemsPresenter.RenderTransform>
+                                            <TransformGroup>
+                                                <TranslateTransform x:Name="ItemsPresenterTranslateTransform" />
+                                                <CompositeTransform x:Name="ItemsPresenterCompositeTransform" />
+                                            </TransformGroup>
+                                        </ItemsPresenter.RenderTransform>
+                                    </ItemsPresenter>
+                                </wasm:Grid>
                             </ScrollViewer>
                         </Grid>
                     </Grid>
