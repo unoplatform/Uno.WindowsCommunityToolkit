@@ -21,8 +21,8 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                        <!-- removed DeferLoadStrategy="Lazy" to work around: https://github.com/unoplatform/Uno.WindowsCommunityToolkit/issues/50 -->
                         <ContentPresenter x:Name="HeaderPresenter" 
-                                          x:DeferLoadStrategy="Lazy"
                                           Content="{TemplateBinding Header}" 
                                           ContentTemplate="{TemplateBinding HeaderTemplate}" 
                                           Grid.ColumnSpan="2"/>

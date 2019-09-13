@@ -30,9 +30,9 @@
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
+                                <!-- removed DeferLoadStrategy="Lazy" to work around: https://github.com/unoplatform/Uno.WindowsCommunityToolkit/issues/50 -->
                                 <ContentPresenter x:Name="HeaderContentPresenter"
                                                   Margin="12,0"
-                                                  x:DeferLoadStrategy="Lazy"
                                                   Content="{TemplateBinding MasterHeader}"
                                                   ContentTemplate="{TemplateBinding MasterHeaderTemplate}"
                                                   Visibility="Collapsed" />

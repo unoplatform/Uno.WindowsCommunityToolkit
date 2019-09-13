@@ -100,7 +100,8 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <ContentPresenter x:Name="ContentGrid" x:DeferLoadStrategy="Lazy" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                        <!-- removed DeferLoadStrategy="Lazy" to work around: https://github.com/unoplatform/Uno.WindowsCommunityToolkit/issues/50 -->
+                        <ContentPresenter x:Name="ContentGrid" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                             <ContentPresenter.RenderTransform>
                                 <CompositeTransform></CompositeTransform>
                             </ContentPresenter.RenderTransform>

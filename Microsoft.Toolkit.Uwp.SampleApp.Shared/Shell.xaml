@@ -80,8 +80,8 @@
               </animations:Implicit.HideAnimations>
             </win:Border>
 
+            <!-- removed DeferLoadStrategy="Lazy" to work around: https://github.com/unoplatform/Uno.WindowsCommunityToolkit/issues/50 -->
             <Grid x:Name="SamplePickerGrid"
-                  x:DeferLoadStrategy="Lazy"
                   Visibility="Collapsed"
                   VerticalAlignment="Top">
               <controls:DropShadowPanel VerticalContentAlignment="Stretch"

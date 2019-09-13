@@ -26,9 +26,9 @@
                 <ControlTemplate TargetType="controls:HeaderedTextBlock">
                     <StackPanel x:Name="Panel"
                                 Orientation="{TemplateBinding Orientation}">
+                        <!-- removed DeferLoadStrategy="Lazy" to work around: https://github.com/unoplatform/Uno.WindowsCommunityToolkit/issues/50 -->
                         <ContentPresenter x:Name="HeaderContentPresenter"
                                           Grid.ColumnSpan="4"
-                                          x:DeferLoadStrategy="Lazy"
                                           AutomationProperties.AccessibilityView="Raw"
                                           AutomationProperties.Name="Header content"
                                           Content="{TemplateBinding Header}"
