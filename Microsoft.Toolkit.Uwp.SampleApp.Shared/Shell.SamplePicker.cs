@@ -127,6 +127,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
 #endif
         {
+            FindName("SamplePickerGrid");
+
             if (args.InvokedItem is SampleCategory category)
             {
                 if (SamplePickerGrid.Visibility != Visibility.Collapsed && _selectedCategory == category)
