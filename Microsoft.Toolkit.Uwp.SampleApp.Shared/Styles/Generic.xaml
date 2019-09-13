@@ -1146,7 +1146,8 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
+                                        <!-- removed MinWidth to work around https://github.com/unoplatform/uno/issues/1535 -->
+                                        <ColumnDefinition Width="*" /> <!-- MinWidth="48" -->
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
