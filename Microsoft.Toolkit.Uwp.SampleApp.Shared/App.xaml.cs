@@ -51,12 +51,12 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 try
                 {
                     // Launching via protocol link
-                    var parser = DeepLinkParser.Create(args);
-                    var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
-                    if (targetSample != null)
-                    {
-                        Shell.Current?.NavigateToSample(targetSample);
-                    }
+                    //var parser = DeepLinkParser.Create(args);
+                    //var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
+                    //if (targetSample != null)
+                    //{
+                    //    Shell.Current?.NavigateToSample(targetSample);
+                    //}
                 }
                 catch (Exception ex)
                 {

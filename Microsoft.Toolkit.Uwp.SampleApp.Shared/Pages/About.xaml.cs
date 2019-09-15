@@ -103,7 +103,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
         {
             base.OnNavigatedTo(e);
 
-            Shell.Current.SetAppTitle("About");
+            //Shell.Current.SetAppTitle("About");
 
             _compositor = ElementCompositionPreview.GetElementVisual(this).Compositor;
 
@@ -125,7 +125,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
             var keyChar = (char)args.VirtualKey;
             if (char.IsLetterOrDigit(keyChar))
             {
-                Shell.Current.StartSearch(keyChar.ToString());
+                //Shell.Current.StartSearch(keyChar.ToString());
             }
         }
 
@@ -193,7 +193,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
 #if NETFX_CORE // UNO TODO
                TrackingManager.TrackEvent("LandingPageRecentClick", sample.Name);
 #endif
-				Shell.Current.NavigateToSample(sample);
+				//Shell.Current.NavigateToSample(sample);
             }
         }
 
@@ -206,7 +206,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
                 TrackingManager.TrackEvent("LandingPageNewClick", sample.Name);
 #endif
 
-				Shell.Current.NavigateToSample(sample);
+				//Shell.Current.NavigateToSample(sample);
             }
         }
 
@@ -282,7 +282,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Shell.Current.AttachScroll(Scroller);
+            //Shell.Current.AttachScroll(Scroller);
         }
     }
 }
