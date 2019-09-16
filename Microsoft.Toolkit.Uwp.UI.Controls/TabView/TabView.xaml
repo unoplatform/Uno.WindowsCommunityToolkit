@@ -120,15 +120,16 @@
         <Setter Property="IsTabStop" Value="False" />
         <Setter Property="TabNavigation" Value="Local" />
         <Setter Property="IsSwipeEnabled" Value="False" />
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
-        <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Enabled" />
-        <Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="False" />
-        <Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled" />
-        <Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="False" />
-        <Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
-        <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
-        <Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True" />
+        <!-- Uno TODO ScrollViewer attached properties aren't available -->
+        <win:Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
+        <win:Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled" />
+        <win:Setter Property="ScrollViewer.HorizontalScrollMode" Value="Enabled" />
+        <win:Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="False" />
+        <win:Setter Property="ScrollViewer.VerticalScrollMode" Value="Disabled" />
+        <win:Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="False" />
+        <win:Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
+        <win:Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False" />
+        <win:Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True" />
         <!--  Need UseLayoutRounding as Width being dynamically changed in same cases to fill up an entire space, otherwise gap.  -->
         <Setter Property="UseLayoutRounding" Value="False" />
         <Setter Property="ItemContainerTransitions">
@@ -457,7 +458,8 @@
 
                     <VisualState x:Name="BottomReorderHint">
                         <Storyboard>
-                            <DragOverThemeAnimation Direction="Bottom"
+                            <!-- Uno TODO ListViewItemReorder* resources are not available -->
+                            <win:DragOverThemeAnimation Direction="Bottom"
                                                     ToOffset="{ThemeResource ListViewItemReorderHintThemeOffset}"
                                                     TargetName="LayoutRoot" />
                         </Storyboard>
@@ -465,7 +467,7 @@
 
                     <VisualState x:Name="TopReorderHint">
                         <Storyboard>
-                            <DragOverThemeAnimation Direction="Top"
+                            <win:DragOverThemeAnimation Direction="Top"
                                                     ToOffset="{ThemeResource ListViewItemReorderHintThemeOffset}"
                                                     TargetName="LayoutRoot" />
                         </Storyboard>
@@ -473,7 +475,7 @@
 
                     <VisualState x:Name="RightReorderHint">
                         <Storyboard>
-                            <DragOverThemeAnimation Direction="Right"
+                            <win:DragOverThemeAnimation Direction="Right"
                                                     ToOffset="{ThemeResource ListViewItemReorderHintThemeOffset}"
                                                     TargetName="LayoutRoot" />
                         </Storyboard>
@@ -481,7 +483,7 @@
 
                     <VisualState x:Name="LeftReorderHint">
                         <Storyboard>
-                            <DragOverThemeAnimation Direction="Left"
+                            <win:DragOverThemeAnimation Direction="Left"
                                                     ToOffset="{ThemeResource ListViewItemReorderHintThemeOffset}"
                                                     TargetName="LayoutRoot" />
                         </Storyboard>
@@ -498,7 +500,7 @@
 
                     <VisualState x:Name="Dragging">
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="LayoutRoot"
+                            <win:DoubleAnimation Storyboard.TargetName="LayoutRoot"
                                              Storyboard.TargetProperty="Opacity"
                                              To="{ThemeResource ListViewItemDragThemeOpacity}"
                                              Duration="0" />
@@ -516,7 +518,7 @@
 
                     <VisualState x:Name="Reordering">
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="LayoutRoot"
+                            <win:DoubleAnimation Storyboard.TargetName="LayoutRoot"
                                              Storyboard.TargetProperty="Opacity"
                                              To="{ThemeResource ListViewItemReorderThemeOpacity}"
                                              Duration="0:0:0.240" />
@@ -525,15 +527,15 @@
 
                     <VisualState x:Name="ReorderingTarget">
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetName="LayoutRoot"
+                            <win:DoubleAnimation Storyboard.TargetName="LayoutRoot"
                                              Storyboard.TargetProperty="Opacity"
                                              To="{ThemeResource ListViewItemReorderTargetThemeOpacity}"
                                              Duration="0:0:0.240" />
-                            <DoubleAnimation Storyboard.TargetName="LayoutRootScale"
+                            <win:DoubleAnimation Storyboard.TargetName="LayoutRootScale"
                                              Storyboard.TargetProperty="ScaleX"
                                              To="{ThemeResource ListViewItemReorderTargetThemeScale}"
                                              Duration="0:0:0.240" />
-                            <DoubleAnimation Storyboard.TargetName="LayoutRootScale"
+                            <win:DoubleAnimation Storyboard.TargetName="LayoutRootScale"
                                              Storyboard.TargetProperty="ScaleY"
                                              To="{ThemeResource ListViewItemReorderTargetThemeScale}"
                                              Duration="0:0:0.240" />
@@ -708,6 +710,7 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
+                            <!-- Uno TODO RepeatButtonRevealStyle isn't available -->
                             <RepeatButton x:Name="ScrollBackButton"
                                           VerticalAlignment="Stretch"
                                           Background="Transparent"
@@ -715,7 +718,7 @@
                                           Delay="50"
                                           FontFamily="Segoe MDL2 Assets"
                                           Interval="100"
-                                          Style="{StaticResource RepeatButtonRevealStyle}"
+                                          win:Style="{StaticResource RepeatButtonRevealStyle}"
                                           Visibility="{Binding ScrollableWidth, Converter={StaticResource GreaterThanToleranceVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
                                 &#xE76B;
                             </RepeatButton>
@@ -725,6 +728,7 @@
                                                     TabFocusNavigation="Once"
                                                     Margin="{TemplateBinding Padding}" />
 
+                            <!-- Uno TODO RepeatButtonRevealStyle isn't available -->
                             <RepeatButton x:Name="ScrollForwardButton"
                                           Grid.Column="2"
                                           VerticalAlignment="Stretch"
@@ -733,7 +737,7 @@
                                           Delay="50"
                                           FontFamily="Segoe MDL2 Assets"
                                           Interval="100"
-                                          Style="{StaticResource RepeatButtonRevealStyle}"
+                                          win:Style="{StaticResource RepeatButtonRevealStyle}"
                                           Visibility="{Binding ScrollableWidth, Converter={StaticResource GreaterThanToleranceVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=Collapsed, TargetNullValue=Collapsed}">
                                 &#xE76C;
                             </RepeatButton>

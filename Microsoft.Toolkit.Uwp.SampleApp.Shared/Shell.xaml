@@ -32,14 +32,13 @@
         </DataTemplate>
     </Page.Resources>
     <Grid>
-        <controls:WrapPanel Width="100" Background="Pink">
-            <TextBlock Text="Item 1" Margin="5"/>
-            <TextBlock Text="Item 2" Margin="5"/>
-            <TextBlock Text="Item 3" Margin="5"/>
-            <TextBlock Text="Item 4" Margin="5"/>
-            <TextBlock Text="Item 5" Margin="5"/>
-            <TextBlock Text="Item 6" Margin="5"/>
-            <TextBlock Text="Item 7" Margin="5"/>
-        </controls:WrapPanel>
+        <controls:TabView BorderThickness="0,1"
+                          BorderBrush="Gray"
+                          Margin="0,0,0,10"
+                          TabWidthBehavior="Equal">
+            <controls:TabViewItem Header="VIEW ALL"/>
+            <controls:TabViewItem Header="VIEW ACTIVE"/>
+            <controls:TabViewItem Header="VIEW INACTIVE"/>
+        </controls:TabView>
     </Grid>
 </Page>

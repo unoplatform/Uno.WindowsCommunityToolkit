@@ -52,7 +52,9 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 
             // Container Generation Hooks
             RegisterPropertyChangedCallback(ItemsSourceProperty, ItemsSource_PropertyChanged);
+#if !HAS_UNO
             ItemContainerGenerator.ItemsChanged += ItemContainerGenerator_ItemsChanged;
+#endif
 
             // Drag and Layout Hooks
             DragItemsStarting += TabView_DragItemsStarting;

@@ -20,11 +20,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <inheritdoc/>
         protected override void OnItemsChanged(object e)
         {
-            IVectorChangedEventArgs args = (IVectorChangedEventArgs)e;
-
             base.OnItemsChanged(e);
 
-            if (args.CollectionChange == CollectionChange.ItemRemoved && SelectedIndex == -1)
+            if (e is IVectorChangedEventArgs args &&
+                args.CollectionChange == CollectionChange.ItemRemoved && 
+                SelectedIndex == -1)
             {
                 // If we remove the selected item we should select the previous item
                 int startIndex = (int)args.Index + 1;
