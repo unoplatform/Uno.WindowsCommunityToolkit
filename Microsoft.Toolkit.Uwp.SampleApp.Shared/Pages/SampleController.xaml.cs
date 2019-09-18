@@ -108,6 +108,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             return theme;
         }
 
+        private async void NarrowInfoButton_OnClick(object sender, RoutedEventArgs e) => OpenClosePane();
+
         public void OpenClosePane()
         {
             if (CanChangePaneState)
@@ -122,6 +124,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 }
             }
         }
+
+        private async void ExpandPane_OnClick(object sender, RoutedEventArgs e) => ExpandCollapsePane();
 
         public void ExpandCollapsePane()
         {
@@ -328,7 +332,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 }
                 else
                 {
-                    SidePaneState = _onlyDocumentation ? PaneState.Full : PaneState.Normal;
+                    SidePaneState = _onlyDocumentation
+                        ? PaneState.Full
+                        : ((FrameworkElement)Windows.UI.Xaml.Window.Current.Content).ActualWidth > 700
+                            ? PaneState.Normal
+                            : PaneState.Closed;
                 }
 
                 Shell.Current.SetAppTitle($"{CurrentSample.CategoryName} > {CurrentSample.Name}");

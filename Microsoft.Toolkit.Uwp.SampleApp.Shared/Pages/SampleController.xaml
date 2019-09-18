@@ -13,7 +13,8 @@
       xmlns:common="using:Microsoft.Toolkit.Uwp.SampleApp.Common"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:models="using:Microsoft.Toolkit.Uwp.SampleApp.Models"
-	  mc:Ignorable="d xamarin">
+      xmlns:triggers="clr-namespace:Microsoft.Toolkit.Uwp.SampleApp.Shared.Triggers"
+      mc:Ignorable="d xamarin">
 
     <Grid>
 
@@ -93,7 +94,7 @@
                               Grid.Column="1"
                               Width="50"
                               Visibility="Collapsed"
-                              Click="{x:Bind OpenClosePane}">
+                              Click="NarrowInfoButton_OnClick">
                     <AppBarButton.Icon>
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;" />
                     </AppBarButton.Icon>
@@ -169,8 +170,8 @@
                                       Visibility="{x:Bind CanChangePaneState}"
                                       Icon="ClosePane"
                                       Width="50"
-									  Height="50"
-                                      Click="{x:Bind ExpandCollapsePane}" />
+                                      Height="50"
+                                      Click="ExpandPane_OnClick" />
                     </Pivot.LeftHeader>
 
                     <PivotItem x:Name="PropertiesPivotItem"
@@ -255,7 +256,7 @@
                                         StackMode="QueueBehind"
                                         Margin="10"
                                         Canvas.ZIndex="999" />
-            
+
             <Grid x:Name="waitRing"
                     Grid.Row="1"
                     Grid.RowSpan="3"
@@ -271,6 +272,7 @@
                                 IsActive="True" />
             </Grid>
         </Grid>
+
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowStates"
                               CurrentStateChanged="WindowStates_CurrentStateChanged">
@@ -283,7 +285,7 @@
                     <VisualState.Setters>
                         <Setter Target="NarrowInfoButton.Visibility" Value="Visible" />
                         <Setter Target="SampleTitleBar.(Grid.ColumnSpan)" Value="2" />
-                        <Setter Target="InfoAreaPivot.Margin" Value="0,50,0,0" />
+						<Setter Target="InfoAreaGrid.Margin" Value="0,50,0,0" />
 
                         <Setter Target="InfoAreaGrid.(Grid.Column)" Value="0" />
                         <Setter Target="InfoAreaGrid.(Grid.ColumnSpan)" Value="2" />
@@ -302,14 +304,14 @@
                               CurrentStateChanged="PaneStates_CurrentStateChanged">
                 <VisualState x:Name="Full">
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind SidePaneState.Equals(models:PaneState.Full), Mode=OneWay}" />
+                        <triggers:PaneStateTrigger Binding="{x:Bind SidePaneState, Mode=OneWay}" Value="Full" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="InfoAreaGrid.Visibility" Value="Visible" />
                         <Setter Target="ExpandPane.Icon" Value="OpenPane" />
                         <Setter Target="SampleTitleBar.(Grid.ColumnSpan)" Value="1" />
                         <Setter Target="SampleTitleBar.(Grid.Column)" Value="0" />
-                        <Setter Target="InfoAreaPivot.Margin" Value="0,50,0,0" />
+						<Setter Target="InfoAreaGrid.Margin" Value="0,50,0,0" />
 
                         <Setter Target="InfoAreaGrid.(Grid.Column)" Value="0" />
                         <Setter Target="InfoAreaGrid.(Grid.ColumnSpan)" Value="2" />
@@ -320,7 +322,7 @@
                 </VisualState>
                 <VisualState x:Name="Show">
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind SidePaneState.Equals(models:PaneState.Normal), Mode=OneWay}" />
+                        <triggers:PaneStateTrigger Binding="{x:Bind SidePaneState, Mode=OneWay}" Value="Normal" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="InfoAreaGrid.Visibility" Value="Visible" />
@@ -329,7 +331,7 @@
                 </VisualState>
                 <VisualState x:Name="Hide">
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind SidePaneState.Equals(models:PaneState.Closed), Mode=OneWay}" />
+                        <triggers:PaneStateTrigger Binding="{x:Bind SidePaneState, Mode=OneWay}" Value="Closed" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="InfoAreaGrid.Visibility" Value="Collapsed" />
@@ -338,7 +340,7 @@
                 </VisualState>
                 <VisualState x:Name="None">
                     <VisualState.StateTriggers>
-                        <StateTrigger IsActive="{x:Bind SidePaneState.Equals(models:PaneState.None), Mode=OneWay}" />
+                        <triggers:PaneStateTrigger Binding="{x:Bind SidePaneState, Mode=OneWay}" Value="None" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="InfoAreaGrid.Visibility" Value="Collapsed" />
