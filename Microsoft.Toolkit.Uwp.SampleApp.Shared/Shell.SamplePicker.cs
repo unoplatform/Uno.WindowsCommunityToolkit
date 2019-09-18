@@ -67,6 +67,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
 
         private async void ShowSamplePicker(Sample[] samples = null, bool group = false)
         {
+            // force materialization
+            FindName("SamplePickerGrid");
+
             if (samples == null && _currentSample != null)
             {
                 var category = await Samples.GetCategoryBySample(_currentSample);
@@ -127,6 +130,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         private void NavView_ItemInvoked(Windows.UI.Xaml.Controls.NavigationView sender, Windows.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
 #endif
         {
+            // force materialization
             FindName("SamplePickerGrid");
 
             if (args.InvokedItem is SampleCategory category)
