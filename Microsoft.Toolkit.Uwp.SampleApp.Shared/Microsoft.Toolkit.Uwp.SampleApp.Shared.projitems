@@ -385,6 +385,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Styles\ThemeInjector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TrackingManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\PaneStateTrigger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UnoPlatformShell.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -465,7 +466,6 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.scale-200.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.scale-400.png" />
   </ItemGroup>
-
   <!--  Workaround for https://github.com/unoplatform/uno/issues/1370  -->
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)' != 'MonoAndroid'">
     <Content Include="$(MSBuildThisFileDirectory)Assets\UWPCommunityToolkitSampleAppAppList.targetsize-16.png" />
