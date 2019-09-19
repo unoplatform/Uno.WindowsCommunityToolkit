@@ -280,6 +280,55 @@
         </Setter>
     </Style>
 
+    <ControlTemplate TargetType="AutoSuggestBox" x:Key="TokenizingTextBox_AutoSuggestBoxTemplate">
+        <Grid x:Name="LayoutRoot">
+
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="Orientation">
+                    <VisualState x:Name="Landscape" />
+                    <VisualState x:Name="Portrait" />
+
+                </VisualStateGroup>
+
+            </VisualStateManager.VisualStateGroups>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBox x:Name="TextBox"
+                                        Style="{TemplateBinding TextBoxStyle}"
+                                        PlaceholderText="{TemplateBinding PlaceholderText}"
+                                        Header="{TemplateBinding Header}"
+                                        Width="{TemplateBinding Width}"
+                                        ScrollViewer.BringIntoViewOnFocusChange="False"
+                                        Canvas.ZIndex="0"
+                                        DesiredCandidateWindowAlignment="BottomEdge"
+                                        UseSystemFocusVisuals="{TemplateBinding UseSystemFocusVisuals}" />
+
+            <Popup x:Name="SuggestionsPopup">
+                <Border x:Name="SuggestionsContainer">
+                    <ListView x:Name="SuggestionsList"
+                                                Background="{ThemeResource AutoSuggestBoxSuggestionsListBackground}"
+                                                BorderThickness="{ThemeResource AutoSuggestListBorderThemeThickness}"
+                                                BorderBrush="{ThemeResource AutoSuggestBoxSuggestionsListBorderBrush}"
+                                                DisplayMemberPath="{TemplateBinding DisplayMemberPath}"
+                                                IsItemClickEnabled="True"
+                                                ItemTemplate="{TemplateBinding ItemTemplate}"
+                                                ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                                ItemContainerStyle="{TemplateBinding ItemContainerStyle}"
+                                                MaxHeight="{ThemeResource AutoSuggestListMaxHeight}"
+                                                Margin="{ThemeResource AutoSuggestListMargin}"
+                                                Padding="{ThemeResource AutoSuggestListPadding}" />
+                </Border>
+            </Popup>
+        </Grid>
+    </ControlTemplate>
+
     <!-- Default style for TokenizingTextBox -->
     <Style TargetType="local:TokenizingTextBox">
         <Setter Property="AutoSuggestBoxTextBoxStyle" Value="{StaticResource TokenizingTextBoxTextBoxStyle}" />
@@ -307,57 +356,6 @@
                         Background="{TemplateBinding Background}"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}">
-
-                        <Grid.Resources>
-                            <ControlTemplate TargetType="AutoSuggestBox" x:Key="AutoSuggestBoxTemplate">
-                                <Grid x:Name="LayoutRoot">
-
-                                    <VisualStateManager.VisualStateGroups>
-                                        <VisualStateGroup x:Name="Orientation">
-                                            <VisualState x:Name="Landscape" />
-                                            <VisualState x:Name="Portrait" />
-
-                                        </VisualStateGroup>
-
-                                    </VisualStateManager.VisualStateGroups>
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
-
-                                    <TextBox x:Name="TextBox"
-                                        Style="{TemplateBinding TextBoxStyle}"
-                                        PlaceholderText="{TemplateBinding PlaceholderText}"
-                                        Header="{TemplateBinding Header}"
-                                        Width="{TemplateBinding Width}"
-                                        ScrollViewer.BringIntoViewOnFocusChange="False"
-                                        Canvas.ZIndex="0"
-                                        DesiredCandidateWindowAlignment="BottomEdge"
-                                        UseSystemFocusVisuals="{TemplateBinding UseSystemFocusVisuals}" />
-
-                                    <Popup x:Name="SuggestionsPopup">
-                                        <Border x:Name="SuggestionsContainer">
-                                            <ListView x:Name="SuggestionsList"
-                                                Background="{ThemeResource AutoSuggestBoxSuggestionsListBackground}"
-                                                BorderThickness="{ThemeResource AutoSuggestListBorderThemeThickness}"
-                                                BorderBrush="{ThemeResource AutoSuggestBoxSuggestionsListBorderBrush}"
-                                                DisplayMemberPath="{TemplateBinding DisplayMemberPath}"
-                                                IsItemClickEnabled="True"
-                                                ItemTemplate="{TemplateBinding ItemTemplate}"
-                                                ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}"
-                                                ItemContainerStyle="{TemplateBinding ItemContainerStyle}"
-                                                MaxHeight="{ThemeResource AutoSuggestListMaxHeight}"
-                                                Margin="{ThemeResource AutoSuggestListMargin}"
-                                                Padding="{ThemeResource AutoSuggestListPadding}" />
-                                        </Border>
-                                    </Popup>
-                                </Grid>
-                            </ControlTemplate>
-                        </Grid.Resources>
 
                         <ScrollViewer 
                             Margin="-2"
@@ -392,7 +390,7 @@
                                     ItemsSource="{TemplateBinding SuggestedItemsSource}"
                                     ItemTemplate="{TemplateBinding SuggestedItemTemplate}"
                                     TextBoxStyle="{TemplateBinding AutoSuggestBoxTextBoxStyle}"
-                                    Template="{StaticResource AutoSuggestBoxTemplate}" />
+                                    Template="{StaticResource TokenizingTextBox_AutoSuggestBoxTemplate}" />
 
                             </local:WrapPanel>
                         </ScrollViewer>
