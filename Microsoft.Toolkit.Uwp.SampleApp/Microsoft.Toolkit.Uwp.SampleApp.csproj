@@ -115,7 +115,7 @@
   <PropertyGroup>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
-  <ItemGroup>    
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
@@ -275,8 +275,8 @@
     <ItemGroup>
       <GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
     </ItemGroup>
-    <Message Text="CSFiles: @(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')" />
-    <Exec Command="for %%f in (@(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f | findstr /v /b &quot;#pragma&quot; &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
+    <Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
+    <Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f | findstr /v /b &quot;#pragma&quot; &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
   </Target>
   <!-- fake target to allow the nuget pack to work solution wide -->
   <Target Name="Pack" />

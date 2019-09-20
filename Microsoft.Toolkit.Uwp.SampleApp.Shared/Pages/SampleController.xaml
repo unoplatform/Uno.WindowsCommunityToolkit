@@ -13,7 +13,7 @@
       xmlns:common="using:Microsoft.Toolkit.Uwp.SampleApp.Common"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:models="using:Microsoft.Toolkit.Uwp.SampleApp.Models"
-      xmlns:triggers="clr-namespace:Microsoft.Toolkit.Uwp.SampleApp.Shared.Triggers"
+      xmlns:triggers="using:Microsoft.Toolkit.Uwp.SampleApp.Shared.Triggers"
       mc:Ignorable="d xamarin">
 
     <Grid>

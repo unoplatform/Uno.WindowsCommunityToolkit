@@ -34,9 +34,9 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
         /// </summary>
         public App()
         {
-#if DEBUG
-            ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
-#endif
+//#if DEBUG
+//            ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
+//#endif
 
             InitializeComponent();
             Suspending += OnSuspending;

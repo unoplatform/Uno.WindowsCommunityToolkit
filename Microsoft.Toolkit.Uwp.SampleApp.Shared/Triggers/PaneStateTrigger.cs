@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Uwp.SampleApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Microsoft.Toolkit.Uwp.SampleApp.Models;
 using Windows.UI.Xaml;
 
 namespace Microsoft.Toolkit.Uwp.SampleApp.Shared.Triggers
 {
     public class PaneStateTrigger : StateTriggerBase
-	{
+    {
         #region Property: Binding
         public static readonly DependencyProperty BindingProperty = DependencyProperty.Register(
             nameof(Binding),
