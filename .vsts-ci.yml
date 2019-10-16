@@ -33,7 +33,7 @@ jobs:
       
   - task: NuGetCommand@2
     inputs:
-      restoreDirectory: 'Windows Community Toolkit.sln'
+      restoreSolution: 'Windows Community Toolkit.sln'
       
   - task: DotNetCoreCLI@2  
     inputs:
