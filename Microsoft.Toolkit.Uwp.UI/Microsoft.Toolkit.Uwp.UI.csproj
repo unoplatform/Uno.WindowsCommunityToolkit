@@ -7,7 +7,8 @@
     <PackageTags>UWP Toolkit Windows UI Converters XAML extensions helpers brushes blur</PackageTags>
 
 		<UseWindowsDesktopSdk>true</UseWindowsDesktopSdk>
-		<UseWindowsMobileSdk>true</UseWindowsMobileSdk>
+    <!-- For StatusBar -->
+    <UseWindowsMobileSdk>true</UseWindowsMobileSdk>
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI</PackageId>
 	</PropertyGroup>
