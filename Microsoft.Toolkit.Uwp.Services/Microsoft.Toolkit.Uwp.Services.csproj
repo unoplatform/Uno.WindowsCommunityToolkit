@@ -10,13 +10,14 @@
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 	</PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='uap10.0' or '$(TargetFramework)' == 'uap10.0.16299'">
+  <ItemGroup Condition="'$(TargetFramework)'=='uap10.0' or '$(TargetFramework)' == 'uap10.0.17763'">
     <PackageReference Include="winsdkfb" Version="0.12.20161020.4" />
 
   </ItemGroup>
   <ItemGroup>
     <!-- This is here to prevent a conflict in certain circumstances -->
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Uno.UI" Version="2.0.512-dev.3530" />
     
     <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj" />  
     <ProjectReference Include="..\Microsoft.Toolkit.Services\Microsoft.Toolkit.Services.csproj" />

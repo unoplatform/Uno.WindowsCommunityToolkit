@@ -16,9 +16,13 @@
 		<DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.16299'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.17763'">
 		<PackageReference Include="Win2D.uwp" Version="1.21.0" />
   </ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Uno.UI" Version="2.0.512-dev.3530" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />

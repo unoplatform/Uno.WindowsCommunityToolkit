@@ -20,6 +20,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Uno.UI" Version="2.0.512-dev.3530" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Page Update="FocusTracker\FocusTracker.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
@@ -33,8 +37,8 @@
 		<ItemGroup>
 			<GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
 		</ItemGroup>
-		<Message Text="CSFiles: @(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')" />
-		<Exec Command="for %%f in (@(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
+		<Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
+		<Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
 	</Target>
 	
 	<Import Project="..\uno.ui.include.props" />

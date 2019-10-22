@@ -11,7 +11,7 @@
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
   </PropertyGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.16299'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'uap10.0' or '$(TargetFramework)' == 'uap10.0.17763'">
 		<None Include="VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools" />
 		<!--<None Include="$(OutDir)\Design\$(MSBuildProjectName).Design.dll" Pack="true" PackagePath="lib\$(TargetFramework)\Design" Visible="False" />-->
 	</ItemGroup>
@@ -30,6 +30,10 @@
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid80' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
 		<PackageReference Include="Uno.UI" Version="2.0.236-dev.2800" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Uno.UI" Version="2.0.512-dev.3530" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -61,8 +65,8 @@
 		<ItemGroup>
 			<GeneratedCSFiles Include="**\*.g.cs;**\*.g.i.cs" />
 		</ItemGroup>
-		<Message Text="CSFiles: @(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')" />
-		<Exec Command="for %%f in (@(GeneratedCSFiles-&gt;'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
+		<Message Text="CSFiles: @(GeneratedCSFiles->'&quot;%(Identity)&quot;')" />
+		<Exec Command="for %%f in (@(GeneratedCSFiles->'&quot;%(Identity)&quot;')) do echo #pragma warning disable &gt; %%f.temp &amp;&amp; type %%f &gt;&gt; %%f.temp &amp;&amp; move /y %%f.temp %%f &gt; NUL" />
 	</Target>
 
 	<Import Project="..\uno.ui.include.props" />
