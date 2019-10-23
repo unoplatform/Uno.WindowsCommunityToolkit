@@ -2,6 +2,10 @@
 
 The foundation of the **Windows Community Toolkit** is simplicity. 
 
+The Windows Community Toolkit is a collection of helper functions, custom controls, and app services. It simplifies and demonstrates common developer tasks building UWP apps for Windows 10.
+
+The toolkit can be used to build apps for any Windows 10 device, including PC, Mobile, Xbox, IoT and HoloLens. You can also use the toolkit with an existing desktop app converted to UWP using the Desktop Bridge.
+
 A developer should be able to quickly and easily learn to use the API. 
 
 Simplicity and a low barrier to entry are must-have features of every API. If you have any second thoughts about the complexity of a design, it is almost always much better to cut the feature from the current release and spend more time to get the design right for the next release. 
