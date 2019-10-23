@@ -31,9 +31,7 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             {
                 CreateGripperDisplay();
 
-#if NETFX_CORE // UNO TODO
 				Element = _gripperDisplay;
-#endif
 			}
 
             if (_hoverWrapper == null)
@@ -144,8 +142,8 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
         /// <inheritdoc />
         protected override void OnManipulationCompleted(ManipulationCompletedRoutedEventArgs e)
         {
-			// UNO TODO
-			Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = PreviousCursor;
+            // UNO TODO
+            Windows.UI.Xaml.Window.Current.CoreWindow.PointerCursor = PreviousCursor;
 
             base.OnManipulationCompleted(e);
         }

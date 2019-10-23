@@ -22,7 +22,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Uno.UI" Version="2.0.512-dev.3530" />
+	  <PackageReference Include="Uno.UI" Version="2.0.512-dev.3565" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -30,7 +30,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
-		<PackageReference Include="Uno.UI" Version="2.0.236-dev.2800" />
+		<PackageReference Include="Uno.UI" Version="2.0.512-dev.3565" />
 	</ItemGroup>
 
 	<Import Project="..\uno.ui.include.props" />
