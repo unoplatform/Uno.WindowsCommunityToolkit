@@ -6,9 +6,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <DefineConstants>$(DefineConstants);__WASM__</DefineConstants>
     <WasmHead>true</WasmHead>
-    <WasmPWAManifestFile>manifest.json</WasmPWAManifestFile>
+    <WasmPWAManifestFile Condition="'$(Configuration)'=='Release'">manifest.json</WasmPWAManifestFile>
     <NoWarn>$(NoWarm);Uno0001</NoWarn>
-    <WasmShellGenerateCompressedFiles>false</WasmShellGenerateCompressedFiles>
     <MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>
     <WasmShellMonoRuntimeExecutionMode Condition="$([MSBuild]::IsOsUnixLike())">InterpreterAndAOT</WasmShellMonoRuntimeExecutionMode>
   </PropertyGroup>
@@ -33,7 +32,7 @@
   </ItemGroup>
       
   <ItemGroup>
-    <PackageReference Include="Uno.UI" Version="2.0.236-dev.2800" />
+    <PackageReference Include="Uno.UI" Version="2.0.512-dev.3565" />
     <PackageReference Include="Uno.Wasm.Bootstrap" Version="1.0.0-dev.302" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
