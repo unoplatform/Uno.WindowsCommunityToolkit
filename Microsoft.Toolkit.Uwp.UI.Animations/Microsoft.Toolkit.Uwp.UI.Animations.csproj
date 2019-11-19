@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
@@ -13,7 +13,7 @@
 	<ItemGroup>
 		<PackageReference Include="System.ValueTuple" Version="4.4.0" />
 		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.Uwp.Managed" Version="2.0.1-uno.28" />
-		<PackageReference Include="Uno.UI" Version="2.0.512-dev.3565" />
+		<PackageReference Include="Uno.UI" Version="2.0.512-dev.4019" />
 		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj" />
 	</ItemGroup>
 	
@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard'">
-		<PackageReference Include="Uno.UI" Version="2.0.512-dev.3565" />
+		<PackageReference Include="Uno.UI" Version="2.0.512-dev.4019" />
 	</ItemGroup>
 
 	<Import Project="..\uno.ui.include.props" />
