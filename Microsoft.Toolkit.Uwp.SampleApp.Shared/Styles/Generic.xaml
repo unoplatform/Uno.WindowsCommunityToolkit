@@ -1182,7 +1182,8 @@
 										SingleSelectionFollowsFocus="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.SingleSelectionFollowsFocus}">
                                         <ListView.ItemsPanel>
                                             <ItemsPanelTemplate>
-                                                <ItemsStackPanel Orientation="Horizontal" />
+												<!--Use a StackPanel instead of a ItemsStackPanel to workaround https://github.com/unoplatform/uno/issues/2136-->
+												<StackPanel Orientation="Horizontal" />
                                             </ItemsPanelTemplate>
                                         </ListView.ItemsPanel>
                                         <ListView.ItemContainerTransitions>
