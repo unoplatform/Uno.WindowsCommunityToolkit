@@ -24,16 +24,16 @@
       //  "Icon": "/SamplePages/TabView/TabView.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/TabView.md"
       //},
-      {
-        "Name": "DataGrid",
-        "Type": "DataGridPage",
-        "Subcategory": "Layout",
-        "About": "Control that presents data in a customizable table of rows and columns.",
-        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/DataGrid",
-        "XamlCodeFile": "DataGridCode.bind",
-        "Icon": "/SamplePages/DataGrid/DataGrid.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/DataGrid.md"
-      },
+      //{
+      //  "Name": "DataGrid",
+      //  "Type": "DataGridPage",
+      //  "Subcategory": "Layout",
+      //  "About": "Control that presents data in a customizable table of rows and columns.",
+      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls.DataGrid/DataGrid",
+      //  "XamlCodeFile": "DataGridCode.bind",
+      //  "Icon": "/SamplePages/DataGrid/DataGrid.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/DataGrid.md"
+      //},
       //{
       //  "Name": "Carousel",
       //  "Type": "CarouselPage",
