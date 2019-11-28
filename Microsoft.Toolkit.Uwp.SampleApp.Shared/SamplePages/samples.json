@@ -168,16 +168,16 @@
       //  "Icon": "/SamplePages/ScrollHeader/ScrollHeader.png",
       //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/ScrollHeader.md"
       //},
-      {
-        "Name": "GridSplitter",
-        "Type": "GridSplitterPage",
-        "Subcategory": "Layout",
-        "About": "GridSplitter represents the control that redistributes space between columns or rows of a Grid control.",
-        "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/GridSplitter",
-        "XamlCodeFile": "GridSplitter.bind",
-        "Icon": "/SamplePages/GridSplitter/GridSplitter.png",
-        "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/GridSplitter.md"
-      },
+      //{
+      //  "Name": "GridSplitter",
+      //  "Type": "GridSplitterPage",
+      //  "Subcategory": "Layout",
+      //  "About": "GridSplitter represents the control that redistributes space between columns or rows of a Grid control.",
+      //  "CodeUrl": "https://github.com/windows-toolkit/WindowsCommunityToolkit/tree/master/Microsoft.Toolkit.Uwp.UI.Controls/GridSplitter",
+      //  "XamlCodeFile": "GridSplitter.bind",
+      //  "Icon": "/SamplePages/GridSplitter/GridSplitter.png",
+      //  "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/GridSplitter.md"
+      //},
       //{
       //  "Name": "DropShadowPanel",
       //  "Type": "DropShadowPanelPage",
