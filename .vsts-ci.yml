@@ -30,7 +30,11 @@ jobs:
     displayName: Use NuGet 5.0.0
     inputs:
       versionSpec: 5.0.0
-  
+      
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: 'Windows Community Toolkit.sln'
+      
   - task: DotNetCoreCLI@2  
     inputs:
       command: custom

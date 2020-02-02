@@ -7,6 +7,7 @@
 // See the LICENSE file in the project root for more information.
 
 using System;
+using System.Linq;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -109,6 +110,26 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 				typeof(WrapPanel),
 				new PropertyMetadata(default(Thickness), LayoutPropertyChanged));
 
+        /// <summary>
+        /// Gets or sets a value indicating how to arrange child items
+        /// </summary>
+        public StretchChild StretchChild
+        {
+            get { return (StretchChild)GetValue(StretchChildProperty); }
+            set { SetValue(StretchChildProperty, value); }
+        }
+
+        /// <summary>
+        /// Identifies the <see cref="StretchChild"/> dependency property.
+        /// </summary>
+        /// <returns>The identifier for the <see cref="StretchChild"/> dependency property.</returns>
+        public static readonly DependencyProperty StretchChildProperty =
+            DependencyProperty.Register(
+                nameof(StretchChild),
+                typeof(StretchChild),
+                typeof(WrapPanel),
+                new PropertyMetadata(StretchChild.None, LayoutPropertyChanged));
+
 		private static void LayoutPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			if (d is WrapPanel wp)
@@ -133,40 +154,47 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 				// UNO TODO
 				if (nativeChild is UIElement child)
 				{
-					child.Measure(availableSize);
+	                child.Measure(availableSize);
+	                var currentMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+	                if (currentMeasure.U == 0)
+	                {
+	                    continue; // ignore collapsed items
+	                }
 
-					var currentMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+	                // if this is the first item, do not add spacing. Spacing is added to the "left"
+	                double uChange = lineMeasure.U == 0
+	                    ? currentMeasure.U
+	                    : currentMeasure.U + spacingMeasure.U;
+	                if (parentMeasure.U >= uChange + lineMeasure.U)
+	                {
+	                    lineMeasure.U += uChange;
+	                    lineMeasure.V = Math.Max(lineMeasure.V, currentMeasure.V);
+	                }
+	                else
+	                {
+	                    // new line should be added
+	                    // to get the max U to provide it correctly to ui width ex: ---| or -----|
+	                    totalMeasure.U = Math.Max(lineMeasure.U, totalMeasure.U);
+	                    totalMeasure.V += lineMeasure.V + spacingMeasure.V;
 
-					if (parentMeasure.U >= currentMeasure.U + lineMeasure.U + spacingMeasure.U)
-					{
-						lineMeasure.U += currentMeasure.U + spacingMeasure.U;
-						lineMeasure.V = Math.Max(lineMeasure.V, currentMeasure.V);
-					}
-					else
-					{
-						// new line should be added
-						// to get the max U to provide it correctly to ui width ex: ---| or -----|
-						totalMeasure.U = Math.Max(lineMeasure.U, totalMeasure.U);
-						totalMeasure.V += lineMeasure.V + spacingMeasure.V;
+	                    // if the next new row still can handle more controls
+	                    if (parentMeasure.U > currentMeasure.U)
+	                    {
+	                        // set lineMeasure initial values to the currentMeasure to be calculated later on the new loop
+	                        lineMeasure = currentMeasure;
+	                    }
 
-						// if the next new row still can handle more controls
-						if (parentMeasure.U > currentMeasure.U)
-						{
-							// set lineMeasure initial values to the currentMeasure to be calculated later on the new loop
-							lineMeasure = currentMeasure;
-						}
+	                    // the control will take one row alone
+	                    else
+	                    {
+	                        // validate the new control measures
+	                        totalMeasure.U = Math.Max(currentMeasure.U, totalMeasure.U);
+	                        totalMeasure.V += currentMeasure.V;
 
-						// the control will take one row alone
-						else
-						{
-							// validate the new control measures
-							totalMeasure.U = Math.Max(currentMeasure.U, totalMeasure.U);
-							totalMeasure.V += currentMeasure.V;
-
-							// add new empty line
-							lineMeasure = UvMeasure.Zero;
-						}
-					}
+	                        // add new empty line
+	                        lineMeasure = UvMeasure.Zero;
+	                    }
+	                }
 				}
 			}
 
@@ -183,48 +211,68 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
 			return Orientation == Orientation.Horizontal ? new Size(totalMeasure.U, totalMeasure.V) : new Size(totalMeasure.V, totalMeasure.U);
 		}
 
-		/// <inheritdoc />
-		protected override Size ArrangeOverride(Size finalSize)
-		{
-			var parentMeasure = new UvMeasure(Orientation, finalSize.Width, finalSize.Height);
-			var spacingMeasure = new UvMeasure(Orientation, HorizontalSpacing, VerticalSpacing);
-			var paddingStart = new UvMeasure(Orientation, Padding.Left, Padding.Top);
-			var paddingEnd = new UvMeasure(Orientation, Padding.Right, Padding.Bottom);
-			var position = new UvMeasure(Orientation, Padding.Left, Padding.Top);
+        /// <inheritdoc />
+        protected override Size ArrangeOverride(Size finalSize)
+        {
+			// UNO TODO
+			var children = Children.Where(e => e is UIElement).Select(ui => ui as UIElement);
+		
+            if (children.Any())
+            {
+                var parentMeasure = new UvMeasure(Orientation, finalSize.Width, finalSize.Height);
+                var spacingMeasure = new UvMeasure(Orientation, HorizontalSpacing, VerticalSpacing);
+                var paddingStart = new UvMeasure(Orientation, Padding.Left, Padding.Top);
+                var paddingEnd = new UvMeasure(Orientation, Padding.Right, Padding.Bottom);
+                var position = new UvMeasure(Orientation, Padding.Left, Padding.Top);
 
-			double currentV = 0;
-			foreach (var nativeChild in Children)
-			{
-				// UNO TODO
-				if (nativeChild is UIElement child)
-				{
+                double currentV = 0;
+                void arrange(UIElement child, bool isLast = false)
+                {
+                    var desiredMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+                    if (desiredMeasure.U == 0)
+                    {
+                        return; // if an item is collapsed, avoid adding the spacing
+                    }
 
-					var desiredMeasure = new UvMeasure(Orientation, child.DesiredSize.Width, child.DesiredSize.Height);
-					if ((desiredMeasure.U + position.U + paddingEnd.U) > parentMeasure.U)
-					{
-						// next row!
-						position.U = paddingStart.U;
-						position.V += currentV + spacingMeasure.V;
-						currentV = 0;
-					}
+                    if ((desiredMeasure.U + position.U + paddingEnd.U) > parentMeasure.U)
+                    {
+                        // next row!
+                        position.U = paddingStart.U;
+                        position.V += currentV + spacingMeasure.V;
+                        currentV = 0;
+                    }
 
-					// Place the item
-					if (Orientation == Orientation.Horizontal)
-					{
-						child.Arrange(new Rect(position.U, position.V, child.DesiredSize.Width, child.DesiredSize.Height));
-					}
-					else
-					{
-						child.Arrange(new Rect(position.V, position.U, child.DesiredSize.Width, child.DesiredSize.Height));
-					}
+                    // Stretch the last item to fill the available space
+                    if (isLast)
+                    {
+                        desiredMeasure.U = parentMeasure.U - position.U;
+                    }
 
-					// adjust the location for the next items
-					position.U += desiredMeasure.U + spacingMeasure.U;
-					currentV = Math.Max(desiredMeasure.V, currentV);
-				}
-			}
+                    // place the item
+                    if (Orientation == Orientation.Horizontal)
+                    {
+                        child.Arrange(new Rect(position.U, position.V, desiredMeasure.U, desiredMeasure.V));
+                    }
+                    else
+                    {
+                        child.Arrange(new Rect(position.V, position.U, desiredMeasure.V, desiredMeasure.U));
+                    }
 
-			return finalSize;
-		}
-	}
+                    // adjust the location for the next items
+                    position.U += desiredMeasure.U + spacingMeasure.U;
+                    currentV = Math.Max(desiredMeasure.V, currentV);
+                }
+
+                var lastIndex = children.Count() - 1;
+                for (var i = 0; i < lastIndex; i++)
+                {
+                    arrange(children.ElementAt(i));
+                }
+
+                arrange(children.ElementAt(lastIndex), StretchChild == StretchChild.Last);
+            }
+
+            return finalSize;
+        }
+    }
 }
