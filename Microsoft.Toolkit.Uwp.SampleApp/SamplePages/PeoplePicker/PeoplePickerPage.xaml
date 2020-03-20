@@ -11,6 +11,6 @@
     </Page.Resources>
     <!-- Shallow Copy -->
     <Grid>
-        <wgt:PeoplePicker/>
+        <!--<wgt:PeoplePicker/>-->
     </Grid>
 </Page>

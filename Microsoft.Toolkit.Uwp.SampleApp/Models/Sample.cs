@@ -25,10 +25,10 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 
 #if !HAS_UNO
-using Microsoft.Toolkit.Uwp.UI.Controls.Graph;
+//using Microsoft.Toolkit.Uwp.UI.Controls.Graph;
 using Microsoft.Toolkit.Uwp.UI.Media;
-using Microsoft.Toolkit.Graph.Converters;
-using Microsoft.Toolkit.Graph.Providers;
+//using Microsoft.Toolkit.Graph.Converters;
+//using Microsoft.Toolkit.Graph.Providers;
 using Microsoft.Toolkit.Uwp.Input.GazeInteraction;
 using Microsoft.Toolkit.Uwp.UI.Media;
 #endif
@@ -697,7 +697,8 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
                 }
             }
 
-#if NETFX_CORE
+//#if NETFX_CORE
+#if false
             // Search in Microsoft.Toolkit.Graph.Controls
             var graphControlsProxyType = typeof(UserToPersonConverter);
             assembly = graphControlsProxyType.GetTypeInfo().Assembly;

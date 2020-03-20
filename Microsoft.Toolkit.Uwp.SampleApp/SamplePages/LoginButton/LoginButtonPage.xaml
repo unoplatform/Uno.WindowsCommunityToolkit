@@ -8,12 +8,12 @@
       xmlns:providers="using:Microsoft.Toolkit.Graph.Providers"
       mc:Ignorable="d">
 
-    <Interactivity:Interaction.Behaviors>
+    <!--<Interactivity:Interaction.Behaviors>
         <providers:MockProviderBehavior SignedIn="False"/>
-    </Interactivity:Interaction.Behaviors>
+    </Interactivity:Interaction.Behaviors>-->
     
     <!-- Shallow Copy -->
     <Grid>
-        <wgt:LoginButton/>
+        <!--<wgt:LoginButton/>-->
     </Grid>
 </Page>
