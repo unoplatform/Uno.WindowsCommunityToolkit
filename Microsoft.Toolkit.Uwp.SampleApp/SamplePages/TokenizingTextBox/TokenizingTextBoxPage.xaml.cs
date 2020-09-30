@@ -209,11 +209,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
             // TODO: Add InApp Notification?
             if (data is SampleDataType sample)
             {
-                Debug.WriteLine("Added Token: " + sample.Text);
+                //Debug.WriteLine("Added Token: " + sample.Text);
             }
             else
             {
-                Debug.WriteLine("Added Token: " + data);
+                //Debug.WriteLine("Added Token: " + data);
             }
         }
 
@@ -221,11 +221,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         {
             if (args.Item is SampleDataType sample)
             {
-                Debug.WriteLine("Removed Token: " + sample.Text);
+                //Debug.WriteLine("Removed Token: " + sample.Text);
             }
             else
             {
-                Debug.WriteLine("Removed Token: " + args.Item);
+                //Debug.WriteLine("Removed Token: " + args.Item);
             }
         }
 
@@ -258,11 +258,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         {
             if (args is SampleEmailDataType sample)
             {
-                Debug.WriteLine("Added Email: " + sample.DisplayName);
+                //Debug.WriteLine("Added Email: " + sample.DisplayName);
             }
             else
             {
-                Debug.WriteLine("Added Token: " + args);
+                //Debug.WriteLine("Added Token: " + args);
             }
 
             _acvEmail.RefreshFilter();
@@ -272,11 +272,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.SamplePages
         {
             if (args is SampleEmailDataType sample)
             {
-                Debug.WriteLine("Removed Email: " + sample.DisplayName);
+                //Debug.WriteLine("Removed Email: " + sample.DisplayName);
             }
             else
             {
-                Debug.WriteLine("Removed Token: " + args);
+                //Debug.WriteLine("Removed Token: " + args);
             }
 
             _acvEmail.RefreshFilter();
