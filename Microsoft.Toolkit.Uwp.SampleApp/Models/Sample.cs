@@ -33,10 +33,10 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 
 #if !HAS_UNO
-using Microsoft.Toolkit.Uwp.UI.Controls.Graph;
+//using Microsoft.Toolkit.Uwp.UI.Controls.Graph;
 using Microsoft.Toolkit.Uwp.UI.Media;
-using Microsoft.Toolkit.Graph.Converters;
-using Microsoft.Toolkit.Graph.Providers;
+//using Microsoft.Toolkit.Graph.Converters;
+//using Microsoft.Toolkit.Graph.Providers;
 using Microsoft.Toolkit.Uwp.Input.GazeInteraction;
 using Microsoft.Toolkit.Uwp.UI.Media;
 #endif
