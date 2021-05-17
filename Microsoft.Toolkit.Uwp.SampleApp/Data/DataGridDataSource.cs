@@ -27,11 +27,19 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Data
         // Loading data
         public async Task<IEnumerable<DataGridDataItem>> GetDataAsync()
         {
+#if HAS_UNO
             using (var stream = await StreamHelper.GetEmbeddedFileStreamAsync(GetType(), "mtns.csv"))
+#else
+            using (var stream = await StreamHelper.GetPackagedFileStreamAsync("Assets/mtns.csv"))
+#endif
             {
                 var list = new List<DataGridDataItem>();
 
+#if HAS_UNO
                 using (var sr = new StreamReader(stream))
+#else
+                using (var sr = new StreamReader(stream.AsStream()))
+#endif
                 {
                     while (!sr.EndOfStream)
                     {
