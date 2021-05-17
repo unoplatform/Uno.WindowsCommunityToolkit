@@ -59,8 +59,11 @@ namespace Microsoft.Toolkit.Uwp.SampleApp
             if (_samplesCategories == null)
             {
                 List<SampleCategory> allCategories;
-
+#if HAS_UNO
+                using (var jsonStream = await StreamHelper.GetEmbeddedFileStreamAsync(typeof(Samples), "samples.json"))
+#else
                 using (var jsonStream = await StreamHelper.GetPackagedFileStreamAsync("SamplePages/samples.json"))
+#endif
                 {
                     allCategories = await JsonSerializer.DeserializeAsync<List<SampleCategory>>(jsonStream.AsStream(), new JsonSerializerOptions
                     {
