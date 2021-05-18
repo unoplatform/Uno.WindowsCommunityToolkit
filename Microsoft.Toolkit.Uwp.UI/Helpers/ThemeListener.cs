@@ -71,11 +71,11 @@ namespace Microsoft.Toolkit.Uwp.UI.Helpers
             if (ApiInformation.IsPropertyPresent("Windows.UI.ViewManagement.AccessibilitySettings", "HighContrast"))
             {
                 IsHighContrast = _accessible.HighContrast;
+                _accessible.HighContrastChanged += Accessible_HighContrastChanged;
             }
 
             DispatcherQueue = dispatcherQueue ?? DispatcherQueue.GetForCurrentThread();
 
-            _accessible.HighContrastChanged += Accessible_HighContrastChanged;
             _settings.ColorValuesChanged += Settings_ColorValuesChanged;
 
             // Fallback in case either of the above fail, we'll check when we get activated next.
@@ -107,29 +107,35 @@ namespace Microsoft.Toolkit.Uwp.UI.Helpers
             return DispatcherQueue.EnqueueAsync(
                 () =>
                 {
-                    // TODO: This doesn't stop the multiple calls if we're in our faked 'White' HighContrast Mode below.
-                    if (CurrentTheme != Application.Current.RequestedTheme ||
-                        IsHighContrast != _accessible.HighContrast)
+                    if (ApiInformation.IsPropertyPresent("Windows.UI.ViewManagement.AccessibilitySettings", "HighContrast"))
                     {
+                    // TODO: This doesn't stop the multiple calls if we're in our faked 'White' HighContrast Mode below.
+                        if (CurrentTheme != Application.Current.RequestedTheme ||
+                            IsHighContrast != _accessible.HighContrast)
+                        {
 #if DEBUG
-                        System.Diagnostics.Debug.WriteLine("Color Values Changed");
+                            System.Diagnostics.Debug.WriteLine("Color Values Changed");
 #endif
 
-                        UpdateProperties();
+                            UpdateProperties();
+                        }
                     }
                 }, DispatcherQueuePriority.Normal);
         }
 
         private void CoreWindow_Activated(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.WindowActivatedEventArgs args)
         {
-            if (CurrentTheme != Application.Current.RequestedTheme ||
-                IsHighContrast != _accessible.HighContrast)
+            if (ApiInformation.IsPropertyPresent("Windows.UI.ViewManagement.AccessibilitySettings", "HighContrast"))
             {
+                if (CurrentTheme != Application.Current.RequestedTheme ||
+                IsHighContrast != _accessible.HighContrast)
+                {
 #if DEBUG
-                System.Diagnostics.Debug.WriteLine("CoreWindow Activated Changed");
+                    System.Diagnostics.Debug.WriteLine("CoreWindow Activated Changed");
 #endif
 
-                UpdateProperties();
+                    UpdateProperties();
+                }
             }
         }
 
@@ -138,18 +144,21 @@ namespace Microsoft.Toolkit.Uwp.UI.Helpers
         /// </summary>
         private void UpdateProperties()
         {
-            // TODO: Not sure if HighContrastScheme names are localized?
-            if (_accessible.HighContrast && _accessible.HighContrastScheme.IndexOf("white", StringComparison.OrdinalIgnoreCase) != -1)
+            if (ApiInformation.IsPropertyPresent("Windows.UI.ViewManagement.AccessibilitySettings", "HighContrast"))
             {
-                // If our HighContrastScheme is ON & a lighter one, then we should remain in 'Light' theme mode for Monaco Themes Perspective
-                IsHighContrast = false;
-                CurrentTheme = ApplicationTheme.Light;
-            }
-            else
-            {
-                // Otherwise, we just set to what's in the system as we'd expect.
-                IsHighContrast = _accessible.HighContrast;
-                CurrentTheme = Application.Current.RequestedTheme;
+                // TODO: Not sure if HighContrastScheme names are localized?
+                if (_accessible.HighContrast && _accessible.HighContrastScheme.IndexOf("white", StringComparison.OrdinalIgnoreCase) != -1)
+                {
+                    // If our HighContrastScheme is ON & a lighter one, then we should remain in 'Light' theme mode for Monaco Themes Perspective
+                    IsHighContrast = false;
+                    CurrentTheme = ApplicationTheme.Light;
+                }
+                else
+                {
+                    // Otherwise, we just set to what's in the system as we'd expect.
+                    IsHighContrast = _accessible.HighContrast;
+                    CurrentTheme = Application.Current.RequestedTheme;
+                }
             }
 
             ThemeChanged?.Invoke(this);
@@ -158,7 +167,10 @@ namespace Microsoft.Toolkit.Uwp.UI.Helpers
         /// <inheritdoc/>
         public void Dispose()
         {
-            _accessible.HighContrastChanged -= Accessible_HighContrastChanged;
+            if (ApiInformation.IsPropertyPresent("Windows.UI.ViewManagement.AccessibilitySettings", "HighContrast"))
+            {
+                _accessible.HighContrastChanged -= Accessible_HighContrastChanged;
+            }
             _settings.ColorValuesChanged -= Settings_ColorValuesChanged;
             if (Window.Current != null)
             {
