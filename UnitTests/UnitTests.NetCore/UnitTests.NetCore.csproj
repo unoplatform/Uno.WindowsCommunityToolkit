@@ -6,17 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
-    <ProjectReference Include="..\..\Microsoft.Toolkit.Mvvm\Microsoft.Toolkit.Mvvm.csproj" />
-    <ProjectReference Include="..\..\Microsoft.Toolkit.Diagnostics\Microsoft.Toolkit.Diagnostics.csproj" />
-    <ProjectReference Include="..\..\Microsoft.Toolkit.Mvvm.SourceGenerators\Microsoft.Toolkit.Mvvm.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" PrivateAssets="contentfiles;build" />
+    <ProjectReference Include="..\..\CommunityToolkit.Common\CommunityToolkit.Common.csproj" />
+    <ProjectReference Include="..\..\CommunityToolkit.Mvvm\CommunityToolkitToolkit.Mvvm.csproj" />
+    <ProjectReference Include="..\..\CommunityToolkit.Diagnostics\CommunityToolkitToolkit.Diagnostics.csproj" />
+    <ProjectReference Include="..\..\CommunityToolkit.Mvvm.SourceGenerators\CommunityToolkitToolkit.Mvvm.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" PrivateAssets="contentfiles;build" />
     <ProjectReference Include="..\UnitTests.NetStandard\UnitTests.NetStandard.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.4-preview-20210331-02" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.4-preview-20210331-02" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
   </ItemGroup>

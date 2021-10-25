@@ -5,8 +5,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+#pragma warning disable SA1124
 
 namespace UnitTests.Mvvm
 {
@@ -78,6 +80,8 @@ namespace UnitTests.Mvvm
                 Counter += 1;
             }
 
+            #region Test region
+
             /// <summary>
             /// This is multi line with also other stuff below
             /// </summary>
@@ -99,6 +103,8 @@ namespace UnitTests.Mvvm
 
                 Counter += count;
             }
+
+            #endregion
 
             [ICommand]
             private async Task DelayAndIncrementCounterWithValueAndTokenAsync(int count, CancellationToken token)

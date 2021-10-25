@@ -1,0 +1,52 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="using:CommunityToolkit.WinUI.SampleApp.Controls"    
+                    xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:xamarin="http://uno.ui/xamarin"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d xamarin"
+
+                    xmlns:local="using:CommunityToolkit.WinUI.SampleApp.Controls">
+
+    <Style TargetType="controls:CodeRenderer">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:CodeRenderer">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid x:Name="Container"
+                                  Grid.RowSpan="2"
+                                  Opacity="0" />
+                        <ScrollViewer
+                                          Grid.Row="0"
+                                          HorizontalScrollMode="Auto"
+                                          HorizontalScrollBarVisibility="Auto">
+                            <win:RichTextBlock Name="codeView"
+                                               FontFamily="Consolas"
+                                               Padding="10" />
+                            <xamarin:TextBox Name="codeView"
+											 IsReadOnly="True"
+											 AcceptsReturn="True"
+                                               FontFamily="Consolas"
+                                               Padding="10" />
+                        </ScrollViewer>
+                        <StackPanel Grid.Row="1"
+                                    HorizontalAlignment="Center"
+                                    Orientation="Horizontal">
+                            <Button x:Name="CopyButton"
+                                        Margin="5"
+                                        Content="Copy" />
+                            <win:Button x:Name="PrintButton"
+                                        Margin="5"
+                                        Content="Print" />
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
