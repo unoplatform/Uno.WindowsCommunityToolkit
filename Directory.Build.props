@@ -93,16 +93,6 @@
   
 	<!-- BEGIN Uno Specific -->
 
-	<ItemGroup>
-		<!--t
-		Override the reference to SourceGenerationTasks because the Uno.UI implicit dependency is too old for recent versions of VisualStudio.
-
-		Updating to recent would solve the problem, but we don't want to force dependend projects to upgrade their version of Uno.UI.
-		-->
-		<PackageReference Include="Uno.SourceGenerationTasks"
-											Version="3.2.0" />
-	</ItemGroup>
-
 	<PropertyGroup>
       <TargetFrameworksOverride>MonoAndroid10.0;xamarinios10;netstandard2.0;xamarinmac20</TargetFrameworksOverride>
       <!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->

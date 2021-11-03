@@ -65,7 +65,6 @@
 
   <ItemGroup>
     <None Remove="tsconfig.json" />
-    <None Remove="web.config" />
   </ItemGroup>
 
   <ItemGroup>
