@@ -71,7 +71,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
 
         private bool IsCtrlDown()
         {
-            if (Window.Current == null)
+            if (Microsoft.UI.Xaml.Window.Current == null)
             {
                 return false;
             }

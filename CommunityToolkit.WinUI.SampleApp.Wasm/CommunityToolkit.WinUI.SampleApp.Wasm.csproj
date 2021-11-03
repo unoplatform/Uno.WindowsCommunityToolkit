@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <WasmShellMonoEnvironment Include="MONO_GC_PARAMS" Value="soft-heap-limit=512m,nursery-size=64m,evacuation-threshold=66,major=marksweep" />
-  </ItemGroup>
+  </ItemGroup>  
 
   <!--
 	<ItemGroup>
@@ -27,31 +27,31 @@
 	-->
 
   <ItemGroup>
-    <PackageReference Include="Uno.UI.WebAssembly" Version="3.10.0-dev.359" />
-    <PackageReference Include="Uno.Wasm.Bootstrap" Version="3.0.0-dev.127" />
-    <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="3.0.0-dev.127" />
+    <PackageReference Include="Uno.WinUI.WebAssembly" Version="4.0.0-dev.5441" />
+    <PackageReference Include="Uno.Wasm.Bootstrap" Version="3.0.0" />
+    <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
     <PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
-    <PackageReference Include="Uno.UI.Sample.Banner" Version="1.44.0-dev.33" />
+    <!--<PackageReference Include="Uno.UI.Sample.Banner" Version="1.44.0-dev.33" />-->
     <Reference Include="System.Net.Http" />
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.Connectivity\Microsoft.Toolkit.Uwp.Connectivity.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.DeveloperTools\Microsoft.Toolkit.Uwp.DeveloperTools.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.Markdown\Microsoft.Toolkit.Uwp.UI.Controls.Markdown.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls\Microsoft.Toolkit.Uwp.UI.Controls.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Behaviors\Microsoft.Toolkit.Uwp.UI.Behaviors.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Media\Microsoft.Toolkit.Uwp.UI.Media.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI\Microsoft.Toolkit.Uwp.UI.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit.Uwp\Microsoft.Toolkit.Uwp.csproj" />
-    <ProjectReference Include="..\Microsoft.Toolkit\Microsoft.Toolkit.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.Connectivity\CommunityToolkit.WinUI.Connectivity.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.DeveloperTools\CommunityToolkit.WinUI.DeveloperTools.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Animations\CommunityToolkit.WinUI.UI.Animations.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.DataGrid\CommunityToolkit.WinUI.UI.Controls.DataGrid.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.Markdown\CommunityToolkit.WinUI.UI.Controls.Markdown.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls\CommunityToolkit.WinUI.UI.Controls.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Behaviors\CommunityToolkit.WinUI.UI.Behaviors.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Media\CommunityToolkit.WinUI.UI.Media.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI\CommunityToolkit.WinUI.UI.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI\CommunityToolkit.WinUI.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.Common\CommunityToolkit.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -182,8 +182,8 @@
     <None Include="wwwroot\pwa-images\windows\windowsphone-storelogo-70-70.png" />
   </ItemGroup>
 
-  <Import Project="..\Microsoft.Toolkit.Uwp.SampleApp\Microsoft.Toolkit.Uwp.SampleApp.Shared.projitems" Label="Shared" />
+  <Import Project="..\CommunityToolkit.WinUI.SampleApp\CommunityToolkit.WinUI.SampleApp.Shared.projitems" Label="Shared" />
 
-  <Import Project="..\Microsoft.Toolkit.Uwp.SampleApp.iOS\Exclusions.props" />
+  <Import Project="..\CommunityToolkit.WinUI.SampleApp.iOS\Exclusions.props" />
 
 </Project>

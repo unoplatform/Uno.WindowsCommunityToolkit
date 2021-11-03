@@ -24,7 +24,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
     public partial class CameraPreview : Control
     {
         private CameraHelper _cameraHelper;
-        private MediaPlayer _mediaPlayer;
+        private Windows.Media.Playback.MediaPlayer _mediaPlayer;
 
         // TODO: WinUI3 Preview4 removed MediaPlayerElement
         // private MediaPlayerElement _mediaPlayerElementControl;

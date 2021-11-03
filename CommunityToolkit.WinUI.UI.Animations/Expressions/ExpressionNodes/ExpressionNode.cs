@@ -334,7 +334,9 @@ namespace CommunityToolkit.WinUI.UI.Animations.Expressions
             // precompute the exact number of characters in the resulting string. This is not
             // important in this context as the only critical property to maintain is to have
             // a unique mapping to each input value to the resulting sequence of letters.
+#if NET5_0_WINDOWS10_0_18362_0 || NET6_0_OR_GREATER
             [SkipLocalsInit]
+#endif
             static unsafe string CreateUniqueParamNameFromIndex(uint i)
             {
                 const int alphabetLength = 'Z' - 'A' + 1;

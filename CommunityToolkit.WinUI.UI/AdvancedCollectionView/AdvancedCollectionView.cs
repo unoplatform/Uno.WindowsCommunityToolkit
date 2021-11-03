@@ -22,7 +22,7 @@ namespace CommunityToolkit.WinUI.UI
     /// <summary>
     /// A collection view implementation that supports filtering, sorting and incremental loading
     /// </summary>
-    public partial class AdvancedCollectionView : IAdvancedCollectionView, INotifyPropertyChanged, ISupportIncrementalLoading, IComparer<object>
+    public partial class AdvancedCollectionView : IAdvancedCollectionView, /*UNO TODO*/System.ComponentModel.INotifyPropertyChanged, ISupportIncrementalLoading, IComparer<object>
     {
         private readonly List<object> _view;
 
@@ -420,7 +420,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <summary>
         /// Occurs when a property value changes.
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event /*UNO TODO*/System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Property changed event invoker
@@ -428,7 +428,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="propertyName">name of the property that changed</param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new /*UNO TODO*/System.ComponentModel.PropertyChangedEventArgs(propertyName));
         }
 
         /// <inheritdoc/>
@@ -443,7 +443,7 @@ namespace CommunityToolkit.WinUI.UI
             _observedFilterProperties.Clear();
         }
 
-        private void ItemOnPropertyChanged(object item, PropertyChangedEventArgs e)
+        private void ItemOnPropertyChanged(object item, /*UNO TODO*/System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (!_liveShapingEnabled)
             {
@@ -510,7 +510,7 @@ namespace CommunityToolkit.WinUI.UI
                 return;
             }
 
-            foreach (var item in items.OfType<INotifyPropertyChanged>())
+            foreach (var item in items.OfType</*UNO TODO*/System.ComponentModel.INotifyPropertyChanged>())
             {
                 item.PropertyChanged += ItemOnPropertyChanged;
             }
@@ -523,7 +523,7 @@ namespace CommunityToolkit.WinUI.UI
                 return;
             }
 
-            foreach (var item in items.OfType<INotifyPropertyChanged>())
+            foreach (var item in items.OfType</*UNO TODO*/System.ComponentModel.INotifyPropertyChanged>())
             {
                 item.PropertyChanged -= ItemOnPropertyChanged;
             }

@@ -8,7 +8,7 @@
             <!--  Color Resources  -->
             <ResourceDictionary.MergedDictionaries>
                 <!--  WinUI  -->
-                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <!--<XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />-->
 
                 <ResourceDictionary Source="ms-appx:///Styles/Themes.xaml" />
                 <ResourceDictionary Source="ms-appx:///Styles/Generic.xaml" />

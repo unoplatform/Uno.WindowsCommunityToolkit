@@ -204,7 +204,7 @@ namespace CommunityToolkit.WinUI.SampleApp
                 // UNO TODO
                 // The controls may be loaded when set directly to their parent
                 // so the datacontext of the renderer needs to be set early.
-                await SetSampleDataContext();
+                // await SetSampleDataContext();
 
                 if (CurrentSample.HasType)
                 {
@@ -247,6 +247,7 @@ namespace CommunityToolkit.WinUI.SampleApp
 
                 InfoAreaPivot.TabItems.Clear();
 
+                { 
                     // Load Sample Properties before we load sample (if we haven't before)
                     await CurrentSample.PreparePropertyDescriptorAsync();
 

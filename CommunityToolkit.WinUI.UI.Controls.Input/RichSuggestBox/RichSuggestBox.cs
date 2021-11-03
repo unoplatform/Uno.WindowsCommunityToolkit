@@ -15,12 +15,6 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.System;
 
-#if HAS_UNO
-using Popup = Windows.UI.Xaml.Controls.Popup;
-#else
-using Popup = Windows.UI.Xaml.Controls.Primitives.Popup;
-#endif
-
 namespace CommunityToolkit.WinUI.UI.Controls
 {
     /// <summary>

@@ -251,6 +251,7 @@ namespace CommunityToolkit.WinUI.UI.Data.Utilities
                 (exception is StackOverflowException) ||
                 (exception is AccessViolationException) ||
                 (exception is ThreadAbortException);
+#endif
         }
 
         /// <summary>

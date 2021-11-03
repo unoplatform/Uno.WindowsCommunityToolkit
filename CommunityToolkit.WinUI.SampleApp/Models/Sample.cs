@@ -22,7 +22,9 @@ using System.Threading.Tasks;
 // using CommunityToolkit.Graph.Providers;
 using CommunityToolkit.Common.Helpers;
 using CommunityToolkit.WinUI.Helpers;
+#if !HAS_UNO
 using CommunityToolkit.WinUI.Input.GazeInteraction;
+#endif
 using CommunityToolkit.WinUI.SampleApp.Models;
 using CommunityToolkit.WinUI.UI;
 using CommunityToolkit.WinUI.UI.Animations;
@@ -507,6 +509,7 @@ namespace CommunityToolkit.WinUI.SampleApp
 #else
                 // Get Xaml code
                 using (var codeStream = await Samples.LoadLocalFile(XamlCodeFile.StartsWith('/') ? XamlCodeFile : $"SamplePages/{Name}/{XamlCodeFile}"))
+#endif
                 {
                     using (var streamreader = new StreamReader(codeStream))
                     {
@@ -718,7 +721,7 @@ namespace CommunityToolkit.WinUI.SampleApp
 
             var targets = new Type[]
             {
-                VerticalAlignment.Center.GetType(), // MUX
+               VerticalAlignment.Center.GetType(), // MUX
                 Windows.UI.Input.RadialControllerMenuKnownIcon.InkColor.GetType(), // Windows
                 StackMode.Replace.GetType(), // CommunityToolkit.WinUI.UI.Controls.Core
 
@@ -726,12 +729,16 @@ namespace CommunityToolkit.WinUI.SampleApp
               // typeof(UserToPersonConverter)) // Search in CommunityToolkit.Graph.Controls
                 ScrollItemPlacement.Default.GetType(), // Search in CommunityToolkit.WinUI.UI
                 EasingType.Default.GetType(), // CommunityToolkit.WinUI.UI.Animations
+#if !HAS_UNO
                 ImageBlendMode.Multiply.GetType(), // Search in CommunityToolkit.WinUI.UI.Media
                 Interaction.Enabled.GetType(), // CommunityToolkit.WinUI.Input.GazeInteraction
+#endif
                 DataGridGridLinesVisibility.None.GetType(), // CommunityToolkit.WinUI.UI.Controls.DataGrid
                 GridSplitter.GridResizeDirection.Auto.GetType(), // CommunityToolkit.WinUI.UI.Controls.Layout
                 typeof(MarkdownTextBlock), // CommunityToolkit.WinUI.UI.Controls.Markdown
+#if !HAS_UNO
                 BitmapFileFormat.Bmp.GetType(), // CommunityToolkit.WinUI.UI.Controls.Media
+#endif
                 typeof(AlphaMode), // CommunityToolkit.WinUI.UI.Media
                 StretchChild.Last.GetType() // CommunityToolkit.WinUI.UI.Controls.Primitivs
             };

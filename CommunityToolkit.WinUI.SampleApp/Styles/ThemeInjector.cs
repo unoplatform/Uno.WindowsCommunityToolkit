@@ -60,7 +60,6 @@ namespace CommunityToolkit.WinUI.SampleApp.Styles
             });
         }
 
-#if !HAS_UNO
         private static void AddAcrylic(ThemeAcrylic resource)
         {
             var light = resource?.LightAcrylic;
@@ -76,7 +75,7 @@ namespace CommunityToolkit.WinUI.SampleApp.Styles
             {
                 if (light != null)
                 {
-                    if (light.FallbackColor == null && lightTheme[res] is SolidColorBrush brush)
+                    if (/*light.FallbackColor == null && */ lightTheme[res] is SolidColorBrush brush)
                     {
                         light.FallbackColor = brush.Color;
                     }
@@ -86,7 +85,7 @@ namespace CommunityToolkit.WinUI.SampleApp.Styles
 
                 if (dark != null)
                 {
-                    if (dark.FallbackColor == null && darkTheme[res] is SolidColorBrush brush)
+                    if (/*dark.FallbackColor == null && */ darkTheme[res] is SolidColorBrush brush)
                     {
                         dark.FallbackColor = brush.Color;
                     }
@@ -106,6 +105,5 @@ namespace CommunityToolkit.WinUI.SampleApp.Styles
 
             public AcrylicBrush DarkAcrylic { get; set; }
         }
-#endif
     }
 }

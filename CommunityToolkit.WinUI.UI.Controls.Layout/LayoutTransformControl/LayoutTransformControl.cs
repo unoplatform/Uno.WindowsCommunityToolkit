@@ -160,7 +160,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 if (transformGroup != null)
                 {
                     // UNO TODO
-                    var groupMatrix = Windows.UI.Xaml.Media.Matrix.Identity;
+                    var groupMatrix = Microsoft.UI.Xaml.Media.Matrix.Identity;
 
                     foreach (var child in transformGroup.Children)
                     {
@@ -211,7 +211,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
 
             // Fall back to no-op transformation
             // UNO TODO
-            return Windows.UI.Xaml.Media.Matrix.Identity;
+            return Microsoft.UI.Xaml.Media.Matrix.Identity;
         }
 
         /// <summary>

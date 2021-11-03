@@ -1,0 +1,29 @@
+<linker>
+	<!--<assembly fullname="Uno.Foundation"/>
+	<assembly fullname="Uno.Xaml"/>-->
+  <assembly fullname="CommunityToolkit.WinUI.SampleApp.Wasm"/>
+	<!--<assembly fullname="ColorCode.WinUI"/>
+	<assembly fullname="ColorCode.Core"/>
+	<assembly fullname="CommunityToolkit.Common"/>
+	<assembly fullname="CommunityToolkit.WinUI.DeveloperTools"/>
+	<assembly fullname="CommunityToolkit.WinUI"/>
+	<assembly fullname="CommunityToolkit.WinUI.UI.Animations"/>
+  <assembly fullname="CommunityToolkit.WinUI.UI.Controls" />
+	<assembly fullname="CommunityToolkit.WinUI.UI.Controls.DataGrid"/>
+	<assembly fullname="CommunityToolkit.WinUI.UI"/>
+	<assembly fullname="CommunityToolkit.WinUI"/>-->
+	
+	<!--<assembly fullname="Uno.UI">
+		<type fullname="Microsoft.UI.Xaml.Media.LinearGradientBrush" />
+		<type fullname="Microsoft.UI.Xaml.Media.GradientStop" />
+		<type fullname="Microsoft.UI.Xaml.FrameworkElement" />
+		<type fullname="Microsoft.UI.Xaml.UIElement" />
+		<type fullname="Microsoft.UI.Xaml.Controls.RowDefinition" />
+		<type fullname="Microsoft.UI.Xaml.Controls.ColumnDefinition" />
+	</assembly>-->
+
+  <assembly fullname="System.Core">
+		<!-- This is required by JSon.NET and any expression.Compile caller -->
+		<type fullname="System.Linq.Expressions*" />
+	</assembly>
+</linker>

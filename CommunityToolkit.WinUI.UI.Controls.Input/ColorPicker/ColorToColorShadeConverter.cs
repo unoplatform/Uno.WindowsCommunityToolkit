@@ -4,6 +4,7 @@
 
 using System;
 using CommunityToolkit.WinUI.Helpers;
+using CommunityToolkit.WinUI.UI.Extensions;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Media;
@@ -107,7 +108,7 @@ namespace CommunityToolkit.WinUI.UI.Controls.ColorPickerConverters
                     colorValue *= 1.0 + (shade * valueDelta);
                 }
 
-                return ColorHelper.FromHsv(
+                return WinUI.Helpers.ColorHelper.FromHsv(
                     MathEx.Clamp(colorHue,        0.0, 360.0),
                     MathEx.Clamp(colorSaturation, 0.0, 1.0),
                     MathEx.Clamp(colorValue,      0.0, 1.0),

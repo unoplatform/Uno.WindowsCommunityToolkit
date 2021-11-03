@@ -40,7 +40,7 @@ namespace CommunityToolkit.WinUI.UI.Controls.DataGridInternals
         private WeakEventListener<DataGridDataConnection, object, IVectorChangedEventArgs> _weakVectorChangedListener;
         private WeakEventListener<DataGridDataConnection, object, CurrentChangingEventArgs> _weakCurrentChangingListener;
         private WeakEventListener<DataGridDataConnection, object, object> _weakCurrentChangedListener;
-        private WeakEventListener<DataGridDataConnection, object, PropertyChangedEventArgs> _weakIncrementalItemsSourcePropertyChangedListener;
+        private WeakEventListener<DataGridDataConnection, object, /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs> _weakIncrementalItemsSourcePropertyChangedListener;
 
 #if FEATURE_ICOLLECTIONVIEW_SORT
         private WeakEventListener<DataGridDataConnection, object, NotifyCollectionChangedEventArgs> _weakSortDescriptionsCollectionChangedListener;
@@ -998,7 +998,7 @@ namespace CommunityToolkit.WinUI.UI.Controls.DataGridInternals
             }
         }
 
-        private void NotifyingIncrementalItemsSource(object sender, PropertyChangedEventArgs e)
+        private void NotifyingIncrementalItemsSource(object sender, /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(HasMoreItems))
             {

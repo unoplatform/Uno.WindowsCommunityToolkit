@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace Microsoft.Toolkit.Extensions
+namespace CommunityToolkit.WinUI.UI.Extensions
 {
     /// <summary>
     /// Compatibility for System.Math.Clamp for netstandard2.0

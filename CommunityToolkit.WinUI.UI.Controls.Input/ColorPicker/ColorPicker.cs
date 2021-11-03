@@ -8,6 +8,7 @@ using System.Collections.Specialized;
 using System.Globalization;
 using CommunityToolkit.WinUI.Helpers;
 using CommunityToolkit.WinUI.UI.Controls.ColorPickerConverters;
+using CommunityToolkit.WinUI.UI.Extensions;
 using Microsoft.UI;
 using Microsoft.UI.Dispatching;
 using Microsoft.UI.Xaml;

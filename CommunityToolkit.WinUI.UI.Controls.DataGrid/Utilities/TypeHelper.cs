@@ -450,6 +450,7 @@ namespace CommunityToolkit.WinUI.Utilities
             {
                 return customTypeProvider.GetCustomType() ?? instance.GetType();
             }
+#endif
 
             return instance == null ? null : instance.GetType();
         }

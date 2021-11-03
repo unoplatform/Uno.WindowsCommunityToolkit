@@ -69,7 +69,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 }
                 else
                 {
-                    width = Windows.UI.Xaml.Window.Current.Bounds.Width;
+                    width = Microsoft.UI.Xaml.Window.Current.Bounds.Width;
                 }
             }
 
@@ -81,7 +81,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 }
                 else
                 {
-                    height = Windows.UI.Xaml.Window.Current.Bounds.Height;
+                    height = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
                 }
             }
 

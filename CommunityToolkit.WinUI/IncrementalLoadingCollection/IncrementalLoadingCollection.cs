@@ -82,7 +82,7 @@ namespace CommunityToolkit.WinUI
                 if (value != _isLoading)
                 {
                     _isLoading = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs(nameof(IsLoading)));
+                    OnPropertyChanged(new /*UNO TODO*/System.ComponentModel.PropertyChangedEventArgs(nameof(IsLoading)));
 
                     if (_isLoading)
                     {
@@ -116,7 +116,7 @@ namespace CommunityToolkit.WinUI
                 if (value != _hasMoreItems)
                 {
                     _hasMoreItems = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs(nameof(HasMoreItems)));
+                    OnPropertyChanged(new /*UNO TODO*/System.ComponentModel.PropertyChangedEventArgs(nameof(HasMoreItems)));
                 }
             }
         }

@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 using UIKit;
 using Uno.Extensions;
 
-namespace Microsoft.Toolkit.Uwp.SampleApp.iOS
+namespace CommunityToolkit.WinUI.SampleApp.iOS
 {
 	public class Application
 	{

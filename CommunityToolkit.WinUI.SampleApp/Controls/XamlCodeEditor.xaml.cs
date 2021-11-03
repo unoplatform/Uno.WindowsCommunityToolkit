@@ -2,16 +2,23 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+#if HAS_UNO_WASM
+// #define HAS_MONACO
+#endif
+
 using System;
 using System.Threading.Tasks;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
+using Windows.System.Threading;
+using Windows.UI;
+
+#if HAS_MONACO
 using Monaco;
 using Monaco.Editor;
 using Monaco.Helpers;
-using Windows.System.Threading;
-using Windows.UI;
+#endif
 
 namespace CommunityToolkit.WinUI.SampleApp.Controls
 {
@@ -20,7 +27,7 @@ namespace CommunityToolkit.WinUI.SampleApp.Controls
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register(nameof(Text), typeof(string), typeof(XamlCodeEditor), new PropertyMetadata(string.Empty));
 
-#if !HAS_UNO
+#if HAS_MONACO
         private ThemeListener _themeListener = new ThemeListener();
 #endif
 
@@ -28,22 +35,24 @@ namespace CommunityToolkit.WinUI.SampleApp.Controls
         {
             this.InitializeComponent();
 
+#if HAS_MONACO
             _errorIconStyle = new CssGlyphStyle(XamlCodeRenderer)
             {
                 GlyphImage = new global::System.Uri("ms-appx-web:///Icons/Error.png")
             };
+#endif
         }
 
         public async Task ResetPosition()
         {
-#if !HAS_UNO
+#if HAS_MONACO
             await XamlCodeRenderer.RevealPositionAsync(new Position(1, 1));
 #endif
         }
 
         public async void ReportError(XamlExceptionRange error)
         {
-#if !HAS_UNO
+#if HAS_MONACO
             XamlCodeRenderer.Options.GlyphMargin = true;
 
             var range = new Monaco.Range(error.StartLine, 1, error.EndLine, await XamlCodeRenderer.GetModel().GetLineMaxColumnAsync(error.EndLine));
@@ -62,7 +71,7 @@ namespace CommunityToolkit.WinUI.SampleApp.Controls
 
         public void ClearErrors()
         {
-#if !HAS_UNO
+#if HAS_MONACO
             XamlCodeRenderer.Decorations.Clear();
             XamlCodeRenderer.Options.GlyphMargin = false;
 #endif
@@ -75,12 +84,12 @@ namespace CommunityToolkit.WinUI.SampleApp.Controls
 
         private void XamlCodeRenderer_Loading(object sender, RoutedEventArgs e)
         {
-#if !HAS_UNO
+#if HAS_MONACO
         XamlCodeRenderer.Options.Folding = true;
 #endif
         }
 
-#if !HAS_UNO
+#if HAS_MONACO
         private void XamlCodeRenderer_InternalException(CodeEditor sender, Exception args)
         {
             TrackingManager.TrackException(args);
@@ -140,6 +149,7 @@ namespace CommunityToolkit.WinUI.SampleApp.Controls
 
         public DateTime TimeSampleEditedLast { get; private set; } = DateTime.MinValue;
 
+#if HAS_MONACO
         private CssLineStyle ErrorStyle
         {
             get => _themeListener.CurrentTheme.Equals(ApplicationTheme.Light) ?
@@ -148,6 +158,7 @@ namespace CommunityToolkit.WinUI.SampleApp.Controls
         }
 
         private CssGlyphStyle _errorIconStyle;
+#endif
 
         private ThreadPoolTimer _autoCompileTimer;
 

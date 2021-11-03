@@ -10,6 +10,7 @@ using Microsoft.UI.Xaml.Input;
 using Windows.ApplicationModel;
 using Windows.UI.Core;
 using NavigationView = Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 
 #if HAS_UNO
 using Uno.Extensions.Specialized;
@@ -126,10 +127,15 @@ namespace CommunityToolkit.WinUI.UI.Controls
         {
             if (e.NewValue is int newIndex)
             {
+#if HAS_UNO
                 var count = this.GetItems()?.Count();
 
                 object newItem = newIndex >= 0 && count > newIndex ? this.GetItems()?.ElementAt(newIndex) : null;
                 object oldItem = e.OldValue is int oldIndex && oldIndex >= 0 && count > oldIndex ? this.GetItems()?.ElementAtOrDefault(oldIndex) : null;
+#else
+                object newItem = newIndex >= 0 && Items.Count > newIndex ? Items[newIndex] : null;
+                object oldItem = e.OldValue is int oldIndex && oldIndex >= 0 && Items.Count > oldIndex ? Items[oldIndex] : null;
+#endif
                 if (SelectedItem != newItem)
                 {
                     if (newItem is null)
@@ -178,7 +184,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
         {
             if (!DesignMode.DesignModeEnabled)
             {
-                if (Window.Current != null)
+                if (Microsoft.UI.Xaml.Window.Current != null)
                 {
                     SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
                 }
@@ -201,7 +207,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
         {
             if (DesignMode.DesignModeEnabled == false)
             {
-                if (Window.Current != null)
+                if (Microsoft.UI.Xaml.Window.Current != null)
                 {
                     SystemNavigationManager.GetForCurrentView().BackRequested -= OnBackRequested;
                 }

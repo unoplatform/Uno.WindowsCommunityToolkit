@@ -34,7 +34,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <summary>
         /// Gets or sets the thickness of the icon glyph.
         /// </summary>
-        public FontWeight FontWeight { get; set; } = FontWeights.Normal;
+        public FontWeight FontWeight { get; set; } = /* UNO TODO */Microsoft.UI.Text.FontWeights.Normal;
 
         /// <summary>
         /// Gets or sets the font style for the icon glyph.

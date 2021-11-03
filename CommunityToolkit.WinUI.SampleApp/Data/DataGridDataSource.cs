@@ -45,9 +45,7 @@ namespace CommunityToolkit.WinUI.SampleApp.Data
                     });
             }
 
-                _items = new ObservableCollection<DataGridDataItem>(list);
-                return _items;
-            }
+            return _items;
         }
 
         // Load mountains into separate collection for use in combobox column

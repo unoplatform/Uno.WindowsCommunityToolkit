@@ -10,9 +10,9 @@ using Microsoft.UI.Xaml.Controls;
 using Windows.ApplicationModel.DataTransfer;
 
 #if HAS_UNO
-using RichTextBlock = Windows.UI.Xaml.Controls.TextBox;
+using RichTextBlock = Microsoft.UI.Xaml.Controls.TextBox;
 #else
-using RichTextBlock = Windows.UI.Xaml.Controls.RichTextBlock;
+using RichTextBlock = Microsoft.UI.Xaml.Controls.RichTextBlock;
 #endif
 
 namespace CommunityToolkit.WinUI.SampleApp.Controls

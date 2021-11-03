@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using CommunityToolkit.WinUI.UI.Extensions;
 using Microsoft.UI;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
@@ -295,7 +296,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
                             {
                                 // Sweep hue
                                 newRgbColor = WinUI.Helpers.ColorHelper.FromHsv(
-                                    Math.Clamp(channelValue, 0.0, 360.0),
+                                    MathEx.Clamp(channelValue, 0.0, 360.0),
                                     baseHsvColor.S,
                                     baseHsvColor.V,
                                     baseHsvColor.A);

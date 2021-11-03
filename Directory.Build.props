@@ -94,27 +94,28 @@
 	<!-- BEGIN Uno Specific -->
 
 	<ItemGroup>
-		<!--
+		<!--t
 		Override the reference to SourceGenerationTasks because the Uno.UI implicit dependency is too old for recent versions of VisualStudio.
 
 		Updating to recent would solve the problem, but we don't want to force dependend projects to upgrade their version of Uno.UI.
 		-->
 		<PackageReference Include="Uno.SourceGenerationTasks"
-											Version="3.2.0-dev.2" />
+											Version="3.2.0" />
 	</ItemGroup>
 
 	<PropertyGroup>
-		<TargetFrameworksOverride>MonoAndroid10.0;xamarinios10;netstandard2.0;xamarinmac20</TargetFrameworksOverride>
+      <TargetFrameworksOverride>MonoAndroid10.0;xamarinios10;netstandard2.0;xamarinmac20</TargetFrameworksOverride>
+      <!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
 
-		<NoWarn>$(NoWarn);SA1633</NoWarn>
+      <NoWarn>$(NoWarn);SA1633</NoWarn>
 
-		<!--
-		UWP is not supported for this build, users must reference
+			<!--
+		WinUI is not supported for this build, users must reference
 		the official toolkit packages instead.
 		-->
-		<TargetFrameworksOverride Condition="'$(BUILD_REPOSITORY_PROVIDER)'==''">$(TargetFrameworksOverride);uap10.0.17763</TargetFrameworksOverride>
+		<TargetFrameworksOverride Condition="'$(BUILD_REPOSITORY_PROVIDER)'==''">$(TargetFrameworksOverride);net5.0-windows10.0.18362.0</TargetFrameworksOverride>
 
-		<!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
+	<!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
@@ -133,9 +134,14 @@
       <ExtrasEnableDefaultPageItems>false</ExtrasEnableDefaultPageItems>
     </PropertyGroup>
 
+  <PropertyGroup>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
+  </PropertyGroup>
+
     <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
       <None Remove="$(MSBuildProjectDirectory)\**\*.xaml"/>
-      <Page Include="$(MSBuildProjectDirectory)\**\*.xaml" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(ExtrasDefaultPageExcludes)" />
+      <Page Include="$(MSBuildProjectDirectory)\**\*.xaml" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(ExtrasDefaultPageExcludes)" 
+            XamlRuntime="WinUI" />
       <UpToDateCheckInput Include="@(Page)"/>
     </ItemGroup>
 	<!-- END Uno Specific -->

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
@@ -13,5 +13,18 @@
   <ItemGroup>
     <ProjectReference Include="..\CommunityToolkit.Common\CommunityToolkit.Common.csproj" />
   </ItemGroup>
+  
+  <!-- BEGIN UNO SPECIFIC -->
+  <PropertyGroup>
+    <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+    <NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
+    <PackageId>Uno.CommunityToolkit.WinUI</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
+    <PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5441" />
+  </ItemGroup>
+
+  <!-- END UNO SPECIFIC -->
 
 </Project>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -61,15 +61,12 @@
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
-		<PackageReference Include="Uno.UI"
-											Version="3.4.0" />
-		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.Uwp.Managed"
-											Version="2.0.2-uno.74" />
+		<PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5441" />
+		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.3.0-uno.8" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)'=='uap10.0.17763'">
-		<PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed"
-											Version="2.0.1" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed" Version="2.0.1" />
 	</ItemGroup>
 	
 	<!-- END UNO SPECIFIC -->

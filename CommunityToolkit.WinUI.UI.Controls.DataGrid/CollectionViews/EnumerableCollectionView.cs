@@ -49,8 +49,9 @@ namespace CommunityToolkit.WinUI.UI.Data.Utilities
             INotifyCollectionChanged incc = _view as INotifyCollectionChanged;
             incc.CollectionChanged += new NotifyCollectionChangedEventHandler(EnumerableCollectionView_OnViewChanged);
 
-            INotifyPropertyChanged ipc = _view as INotifyPropertyChanged;
-            ipc.PropertyChanged += new PropertyChangedEventHandler(EnumerableCollectionView_OnPropertyChanged);
+            /* UNO TODO */
+            global::System.ComponentModel.INotifyPropertyChanged ipc = _view as /* UNO TODO */ global::System.ComponentModel.INotifyPropertyChanged;
+            ipc.PropertyChanged += new /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventHandler(EnumerableCollectionView_OnPropertyChanged);
 
             _view.CurrentChanging += new CurrentChangingEventHandler(EnumerableCollectionView_OnCurrentChanging);
             _view.CurrentChanged += new EventHandler<object>(EnumerableCollectionView_OnCurrentChanged);
@@ -531,22 +532,22 @@ namespace CommunityToolkit.WinUI.UI.Data.Utilities
 
             if (IsCurrentAfterLast != oldIsCurrentAfterLast)
             {
-                OnPropertyChanged(new PropertyChangedEventArgs(IsCurrentAfterLastPropertyName));
+                OnPropertyChanged(new /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs(IsCurrentAfterLastPropertyName));
             }
 
             if (IsCurrentBeforeFirst != oldIsCurrentBeforeFirst)
             {
-                OnPropertyChanged(new PropertyChangedEventArgs(IsCurrentBeforeFirstPropertyName));
+                OnPropertyChanged(new /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs(IsCurrentBeforeFirstPropertyName));
             }
 
             if (oldCurrentPosition != CurrentPosition)
             {
-                OnPropertyChanged(new PropertyChangedEventArgs(CurrentPositionPropertyName));
+                OnPropertyChanged(new /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs(CurrentPositionPropertyName));
             }
 
             if (oldCurrentItem != CurrentItem)
             {
-                OnPropertyChanged(new PropertyChangedEventArgs(CurrentItemPropertyName));
+                OnPropertyChanged(new /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs(CurrentItemPropertyName));
             }
         }
 
@@ -606,7 +607,7 @@ namespace CommunityToolkit.WinUI.UI.Data.Utilities
         }
 
         // forward events from the internal view to our own listeners
-        private void EnumerableCollectionView_OnPropertyChanged(object sender, PropertyChangedEventArgs args)
+        private void EnumerableCollectionView_OnPropertyChanged(object sender, /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs args)
         {
             if (_ignoreEventsLevel != 0)
             {

@@ -4,7 +4,12 @@
 
 using System;
 using Microsoft.UI.Xaml.Data;
+
+#if HAS_UNO
+using Windows.ApplicationModel.Resources;
+#else
 using Microsoft.Windows.ApplicationModel.Resources;
+#endif
 
 namespace CommunityToolkit.WinUI.UI.Converters
 {

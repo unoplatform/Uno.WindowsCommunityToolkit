@@ -211,11 +211,11 @@ namespace CommunityToolkit.WinUI.UI.Controls
             double height = XamlRoot.Size.Height;
             double width = XamlRoot.Size.Width;
 
-            if (Window.Current != null && content == null)
+            if (Microsoft.UI.Xaml.Window.Current != null && content == null)
             {
-                content = Windows.UI.Xaml.Window.Current.Content;
-                height = Windows.UI.Xaml.Window.Current.Bounds.Height;
-                width = Windows.UI.Xaml.Window.Current.Bounds.Width;
+                content = Microsoft.UI.Xaml.Window.Current.Content;
+                height = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
+                width = Microsoft.UI.Xaml.Window.Current.Bounds.Width;
             }
 
             var ttv = TransformToVisual(content);
@@ -315,7 +315,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
 
         internal void CalculateBounds()
         {
-            var ttv = TransformToVisual(XamlRoot != null ? XamlRoot.Content : Window.Current.Content);
+            var ttv = TransformToVisual(XamlRoot != null ? XamlRoot.Content : Microsoft.UI.Xaml.Window.Current.Content);
             Point screenCoords = ttv.TransformPoint(new Point(0, 0));
             _bounds.X = screenCoords.X;
             _bounds.Y = screenCoords.Y;

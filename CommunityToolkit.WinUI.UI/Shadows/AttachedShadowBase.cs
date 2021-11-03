@@ -35,7 +35,7 @@ namespace CommunityToolkit.WinUI.UI
         /// The <see cref="DependencyProperty"/> for <see cref="Color"/>.
         /// </summary>
         public static readonly DependencyProperty ColorProperty =
-            DependencyProperty.Register(nameof(Color), typeof(Color), typeof(AttachedShadowBase), new PropertyMetadata(Colors.Black, OnDependencyPropertyChanged));
+            DependencyProperty.Register(nameof(Color), typeof(Color), typeof(AttachedShadowBase), new PropertyMetadata(/* UNO TODO */Microsoft.UI.Colors.Black, OnDependencyPropertyChanged));
 
         /// <summary>
         /// The <see cref="DependencyProperty"/> for <see cref="Opacity"/>.

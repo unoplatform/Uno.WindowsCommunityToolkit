@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Com.Nostra13.Universalimageloader.Core;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media;
 
-namespace Microsoft.Toolkit.Uwp.SampleApp.Droid
+namespace CommunityToolkit.WinUI.SampleApp.Droid
 {
     [global::Android.App.ApplicationAttribute(
         Label = "@string/app_name",
@@ -21,7 +21,7 @@ namespace Microsoft.Toolkit.Uwp.SampleApp.Droid
         ,
         Theme = "@style/AppTheme"
     )]
-    public class Application : Windows.UI.Xaml.NativeApplication
+    public class Application : Microsoft.UI.Xaml.NativeApplication
     {
         public Application(IntPtr javaReference, JniHandleOwnership transfer)
             : base(() => new App(), javaReference, transfer)

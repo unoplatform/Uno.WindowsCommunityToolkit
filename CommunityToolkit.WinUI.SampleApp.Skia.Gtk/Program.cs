@@ -2,7 +2,7 @@ using System;
 using GLib;
 using Uno.UI.Runtime.Skia;
 
-namespace Microsoft.Toolkit.Uwp.SampleApp.Skia.Gtk
+namespace CommunityToolkit.WinUI.SampleApp.Skia.Gtk
 {
 	class Program
 	{

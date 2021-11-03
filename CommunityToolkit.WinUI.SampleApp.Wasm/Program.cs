@@ -1,11 +1,12 @@
-﻿using System;
+using System;
 using System.Threading;
 using Microsoft.Extensions.Logging;
+using Microsoft.UI.Xaml;
 using Uno.Extensions;
 using Uno.UI;
 using Windows.UI.Xaml;
 
-namespace Microsoft.Toolkit.Uwp.SampleApp.Wasm
+namespace CommunityToolkit.WinUI.SampleApp.Wasm
 {
     public static class Program
     {

@@ -8,6 +8,8 @@ using Microsoft.UI.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Input;
 
+#if !HAS_UNO
+
 namespace CommunityToolkit.WinUI.UI
 {
     /// <inheritdoc cref="FrameworkElementExtensions"/>
@@ -119,3 +121,5 @@ namespace CommunityToolkit.WinUI.UI
         }
     }
 }
+
+#endif

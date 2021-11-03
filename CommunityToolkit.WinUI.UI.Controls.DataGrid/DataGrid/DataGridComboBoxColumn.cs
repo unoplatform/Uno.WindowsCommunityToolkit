@@ -162,7 +162,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
         {
             get
             {
-                return _fontWeight ?? FontWeights.Normal;
+                return _fontWeight ?? /* UNO TODO */ Microsoft.UI.Text.FontWeights.Normal;
             }
 
             set
@@ -689,7 +689,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 return;
             }
 
-            var notifyingDataItem = dataItem as INotifyPropertyChanged;
+            var notifyingDataItem = dataItem as /* UNO TODO */ global::System.ComponentModel.INotifyPropertyChanged;
 
             if (notifyingDataItem == null)
             {
@@ -715,7 +715,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 return;
             }
 
-            var notifyingDataItem = dataItem as INotifyPropertyChanged;
+            var notifyingDataItem = dataItem as /* UNO TODO */ global::System.ComponentModel.INotifyPropertyChanged;
 
             if (notifyingDataItem == null)
             {
@@ -729,7 +729,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
             }
         }
 
-        private void DataItem_PropertyChanged(object dataItem, PropertyChangedEventArgs e)
+        private void DataItem_PropertyChanged(object dataItem, /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (this.OwningGrid != null && Binding?.Path != null && this.Binding.Path.Path == e.PropertyName)
             {

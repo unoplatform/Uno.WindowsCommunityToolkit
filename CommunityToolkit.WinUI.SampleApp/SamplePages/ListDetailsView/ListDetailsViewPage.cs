@@ -16,7 +16,7 @@ namespace CommunityToolkit.WinUI.SampleApp.SamplePages
     public sealed partial class ListDetailsViewPage : Page, IXamlRenderListener
     {
         // UNO TODO
-        private double _previousWidth = Windows.UI.Xaml.Window.Current.Bounds.Width;
+        private double _previousWidth = Microsoft.UI.Xaml.Window.Current.Bounds.Width;
 
         public ListDetailsViewPage()
         {

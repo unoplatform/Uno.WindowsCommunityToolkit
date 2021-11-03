@@ -188,7 +188,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
             }
             else
             {
-                content = Windows.UI.Xaml.Window.Current.Content;
+                content = Microsoft.UI.Xaml.Window.Current.Content;
             }
 
             var ttv = TransformToVisual(content);
@@ -375,10 +375,10 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 }
                 else
                 {
-                    popups = VisualTreeHelper.GetOpenPopups(Windows.UI.Xaml.Window.Current);
-                    content = Windows.UI.Xaml.Window.Current.Content;
-                    outerContentWidth = Windows.UI.Xaml.Window.Current.Bounds.Width;
-                    outerContentHeight = Windows.UI.Xaml.Window.Current.Bounds.Height;
+                    popups = VisualTreeHelper.GetOpenPopups(Microsoft.UI.Xaml.Window.Current);
+                    content = Microsoft.UI.Xaml.Window.Current.Content;
+                    outerContentWidth = Microsoft.UI.Xaml.Window.Current.Bounds.Width;
+                    outerContentHeight = Microsoft.UI.Xaml.Window.Current.Bounds.Height;
                 }
 
                 var popup = popups.FirstOrDefault(p => p.Child is MenuFlyoutPresenter);

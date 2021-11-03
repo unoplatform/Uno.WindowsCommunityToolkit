@@ -189,6 +189,7 @@ namespace CommunityToolkit.WinUI.UI
 
             Pointer pointer = e.Pointer;
 
+#if !HAS_UNO // UNO TODO
             if (pointer.PointerDeviceType == Microsoft.UI.Input.PointerDeviceType.Mouse)
             {
                 _scrollViewer = sender as ScrollViewer;
@@ -207,6 +208,7 @@ namespace CommunityToolkit.WinUI.UI
                     }
                 }
             }
+#endif
         }
 
         private static void CoreWindow_PointerMoved(CoreWindow sender, PointerEventArgs args)

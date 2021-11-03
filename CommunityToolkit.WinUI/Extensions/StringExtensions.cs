@@ -2,7 +2,11 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+#if HAS_UNO
+using Windows.ApplicationModel.Resources;
+#else
 using Microsoft.Windows.ApplicationModel.Resources;
+#endif
 
 namespace CommunityToolkit.WinUI
 {
@@ -79,7 +83,11 @@ namespace CommunityToolkit.WinUI
 
             if (string.IsNullOrEmpty(result))
             {
+#if HAS_UNO
+                result = new ResourceLoader(resourcePath).GetString(resourceKey);
+#else
                 result = new ResourceLoader(ResourceLoader.GetDefaultResourceFilePath(), resourcePath).GetString(resourceKey);
+#endif
             }
 
             return result;

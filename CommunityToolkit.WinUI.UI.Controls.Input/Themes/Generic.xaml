@@ -8,6 +8,6 @@
         <ResourceDictionary Source="ms-appx:///CommunityToolkit.WinUI.UI.Controls.Input/RangeSelector/RangeSelector.xaml" />
         <ResourceDictionary Source="ms-appx:///CommunityToolkit.WinUI.UI.Controls.Input/RemoteDevicePicker/RemoteDevicePicker.xaml" />
         <ResourceDictionary Source="ms-appx:///CommunityToolkit.WinUI.UI.Controls.Input/TokenizingTextBox/TokenizingTextBox.xaml" />
-        <ResourceDictionary Source="ms-appx:///CommunityToolkit.WinUI.UI.Controls.Input/RichSuggestBox/RichSuggestBox.xaml" />
+        <!-- UNO TODO <ResourceDictionary Source="ms-appx:///CommunityToolkit.WinUI.UI.Controls.Input/RichSuggestBox/RichSuggestBox.xaml" />-->
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

@@ -18,6 +18,7 @@ namespace CommunityToolkit.WinUI.UI.Triggers
         /// </summary>
         public UserInteractionModeStateTrigger()
         {
+#if !HAS_UNO // UNO TODO
             if (!Windows.ApplicationModel.DesignMode.DesignModeEnabled)
             {
                 var weakEvent =
@@ -40,6 +41,7 @@ namespace CommunityToolkit.WinUI.UI.Triggers
 
                 UpdateTrigger(InteractionMode);
             }
+#endif
         }
 
         /// <summary>

@@ -111,18 +111,18 @@ namespace CommunityToolkit.WinUI.SampleApp.Pages
 
             _ = Init();
 
-            if (Window.Current != null)
+            if (Microsoft.UI.Xaml.Window.Current != null)
             {
-                Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
+                Microsoft.UI.Xaml.Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
             }
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
-            if (Window.Current != null)
+            if (Microsoft.UI.Xaml.Window.Current != null)
             {
-                Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
+                Microsoft.UI.Xaml.Window.Current.CoreWindow.KeyDown -= CoreWindow_KeyDown;
             }
         }
 

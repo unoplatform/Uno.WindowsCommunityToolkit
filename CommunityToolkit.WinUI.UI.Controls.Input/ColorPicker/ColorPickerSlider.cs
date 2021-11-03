@@ -5,6 +5,7 @@
 using System;
 using CommunityToolkit.WinUI.Helpers;
 using CommunityToolkit.WinUI.UI.Controls.ColorPickerConverters;
+using CommunityToolkit.WinUI.UI.Extensions;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
@@ -61,7 +62,7 @@ namespace CommunityToolkit.WinUI.UI.Controls.Primitives
             this.UpdateBackground(hsvColor);
 
             // Calculate and set the foreground ensuring contrast with the background
-            Color rgbColor = ColorHelper.FromHsv(hsvColor.H, hsvColor.S, hsvColor.V, hsvColor.A);
+            Color rgbColor = WinUI.Helpers.ColorHelper.FromHsv(hsvColor.H, hsvColor.S, hsvColor.V, hsvColor.A);
             Color selectedRgbColor;
             double sliderPercent = this.Value / (this.Maximum - this.Minimum);
 
@@ -124,7 +125,7 @@ namespace CommunityToolkit.WinUI.UI.Controls.Primitives
                     }
                 }
 
-                selectedRgbColor = ColorHelper.FromHsv(
+                selectedRgbColor = WinUI.Helpers.ColorHelper.FromHsv(
                     hsvColor.H,
                     hsvColor.S,
                     hsvColor.V,

@@ -8,6 +8,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Hosting;
 using Windows.ApplicationModel;
+using Windows.Foundation.Metadata;
 
 #nullable enable
 

@@ -108,6 +108,7 @@ namespace CommunityToolkit.WinUI.UI.Utilities
                     return readOnlyAttribute.IsReadOnly;
                 }
             }
+#endif
 
             return false;
         }
@@ -130,6 +131,7 @@ namespace CommunityToolkit.WinUI.UI.Utilities
                 {
                     isICustomTypeProvider = typeof(ICustomTypeProvider).IsAssignableFrom(itemType);
                 }
+#endif
             }
 
             // Bare IEnumerables mean that result type will be object.  In that case, try to get something more interesting.

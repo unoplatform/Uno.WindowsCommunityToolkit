@@ -15,7 +15,7 @@ using Windows.Foundation.Collections;
 
 namespace CommunityToolkit.WinUI.UI.Data.Utilities
 {
-    internal abstract class CollectionView : ICollectionView, INotifyCollectionChanged, INotifyPropertyChanged
+    internal abstract class CollectionView : ICollectionView, INotifyCollectionChanged, /* UNO TODO */ global::System.ComponentModel.INotifyPropertyChanged
     {
         /// <summary>
         /// Raise this event before changing currency.
@@ -615,7 +615,7 @@ namespace CommunityToolkit.WinUI.UI.Data.Utilities
         /// <summary>
         /// Raises a PropertyChanged event (per <see cref="INotifyPropertyChanged" />).
         /// </summary>
-        protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
+        protected virtual void OnPropertyChanged(/* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, e);
         }
@@ -623,7 +623,7 @@ namespace CommunityToolkit.WinUI.UI.Data.Utilities
         /// <summary>
         /// PropertyChanged event (per <see cref="INotifyPropertyChanged" />).
         /// </summary>
-        public virtual event PropertyChangedEventHandler PropertyChanged;
+        public virtual event /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Re-create the view, using any SortDescriptions and/or Filter.
@@ -1141,7 +1141,7 @@ namespace CommunityToolkit.WinUI.UI.Data.Utilities
         /// </summary>
         private void OnPropertyChanged(string propertyName)
         {
-            OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
+            OnPropertyChanged(new /* UNO TODO */ global::System.ComponentModel.PropertyChangedEventArgs(propertyName));
         }
 
         //------------------------------------------------------
