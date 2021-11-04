@@ -127,12 +127,12 @@ jobs:
 
   - bash: |
       cd $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm
-      dotnet msbuild /r /nr:false /m:1 /p:Configuration=Release /p:UnoUIUseRoslynSourceGenerators=false /p:UnoUIVersionOverride=true $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm/Microsoft.Toolkit.Uwp.SampleApp.Wasm.csproj /p:TargetFrameworksOverride=netstandard2.0 /bl:$(build.artifactstagingdirectory)/build.binlog
+      dotnet msbuild /r /nr:false /m:1 /p:Configuration=Release /p:UnoUIUseRoslynSourceGenerators=false /p:UnoUIVersionOverride=true $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm/CommunityToolkit.WinUI.SampleApp.Wasm.csproj /p:TargetFrameworksOverride=netstandard2.0 /bl:$(build.artifactstagingdirectory)/build.binlog
 
   - task: CopyFiles@2
     displayName: 'Publish Wasm Binaries'
     inputs:
-      SourceFolder: $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm/bin/Release/net5.0/dist
+      SourceFolder: $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm/bin/Release/net5.0/dist
       Contents: '**/*.*'
       TargetFolder: $(build.artifactstagingdirectory)
       CleanTargetFolder: false
