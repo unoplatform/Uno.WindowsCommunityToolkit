@@ -25,7 +25,8 @@
     </Compile>
   </ItemGroup>
 
-  <ItemGroup Condition="'$(SolutionDir)' == '' OR '$(SolutionDir)' == '*Undefined*'">
+  <!-- UNO TODO <ItemGroup Condition="'$(SolutionDir)' == '' OR '$(SolutionDir)' == '*Undefined*'">-->
+  <ItemGroup>
     <ProjectReference Include="..\$(ParentProjectName)\$(ParentProjectName)$(MSBuildProjectExtension)">
       <Private>False</Private>
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
