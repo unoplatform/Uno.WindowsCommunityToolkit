@@ -187,9 +187,10 @@ Task("BuildProjects")
     }
     .SetConfiguration(configuration)
     .EnableBinaryLogger()
-    .WithTarget("Build");
+    .WithTarget("Build")
     .SetPlatformTarget("Any CPU")
-    .WithProperty("GenerateLibraryLayout", "true")
+    .WithProperty("GenerateLibraryLayout", "true");
+
     UpdateToolsPath(buildSettings);
 
     MSBuild(Solution, buildSettings);
