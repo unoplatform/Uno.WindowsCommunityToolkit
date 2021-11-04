@@ -4,12 +4,12 @@
 
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.Toolkit.Uwp;
+using CommunityToolkit.WinUI;
 using Windows.UI.Xaml.Controls;
-using Microsoft.Toolkit.Uwp.UI;
+using CommunityToolkit.WinUI.UI;
 using System.Numerics;
 using Windows.UI.Composition;
-using Microsoft.Toolkit.Uwp.UI.Animations;
+using CommunityToolkit.WinUI.UI.Animations;
 
 namespace UnitTests.UWP.UI
 {

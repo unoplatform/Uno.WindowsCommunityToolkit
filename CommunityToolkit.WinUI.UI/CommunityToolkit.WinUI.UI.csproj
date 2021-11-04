@@ -57,7 +57,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
-		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI</PackageId>
+		<PackageId>Uno.CommunityToolkit.WinUI.UI</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">

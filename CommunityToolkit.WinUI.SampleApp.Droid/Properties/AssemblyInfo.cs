@@ -6,11 +6,11 @@ using Android.App;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Microsoft.Toolkit.Uwp.SampleApp.Droid")]
+[assembly: AssemblyTitle("CommunityToolkit.WinUI.SampleApp.Droid")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Microsoft.Toolkit.Uwp.SampleApp.Droid")]
+[assembly: AssemblyProduct("CommunityToolkit.WinUI.SampleApp.Droid")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

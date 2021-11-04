@@ -6,7 +6,7 @@
     <SharedGUID>30cb6cf1-80f7-43d5-b619-c737503724b0</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Microsoft.Toolkit.Uwp.SampleApp.Shared</Import_RootNamespace>
+    <Import_RootNamespace>CommunityToolkit.WinUI.SampleApp.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.xaml">
@@ -1022,16 +1022,16 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\mtns.csv" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\RemoteDeviceHelper\RemoteDeviceHelperPage.xaml.cs">
+    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\CommunityToolkit.WinUI.SampleApp.Shared\SamplePages\RemoteDeviceHelper\RemoteDeviceHelperPage.xaml.cs">
       <DependentUpon>RemoteDeviceHelperPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\RemoteDevicePicker\RemoteDevicePickerControlPage.xaml.cs">
+    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\CommunityToolkit.WinUI.SampleApp.Shared\SamplePages\RemoteDevicePicker\RemoteDevicePickerControlPage.xaml.cs">
       <DependentUpon>RemoteDevicePickerControlPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\TabView\TabViewPage.xaml.cs">
+    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\CommunityToolkit.WinUI.SampleApp.Shared\SamplePages\TabView\TabViewPage.xaml.cs">
       <DependentUpon>TabViewPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\Microsoft.Toolkit.Uwp.SampleApp.Shared\SamplePages\Weibo Service\WeiboPage.xaml.cs">
+    <Compile Update="C:\s\nv.github\Uno.WindowsCommunityToolkit\CommunityToolkit.WinUI.SampleApp.Shared\SamplePages\Weibo Service\WeiboPage.xaml.cs">
       <DependentUpon>WeiboPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

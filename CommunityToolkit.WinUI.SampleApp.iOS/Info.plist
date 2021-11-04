@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Microsoft.Toolkit.Uwp.SampleApp.iOS</string>
+	<string>CommunityToolkit.WinUI.SampleApp.iOS</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.Microsoft.Toolkit.Uwp.SampleApp.iOS</string>
+	<string>com.companyname.CommunityToolkit.WinUI.SampleApp.iOS</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

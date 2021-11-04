@@ -75,7 +75,7 @@
 
 	<!-- BEGIN UNO SPECIFIC -->
 	<PropertyGroup>
-		<PackageId>Uno.Microsoft.Toolkit.Uwp.Notifications</PackageId>
+		<PackageId>Uno.CommunityToolkit.WinUI.Notifications</PackageId>
 	</PropertyGroup>
 	<!-- END UNO SPECIFIC -->
 

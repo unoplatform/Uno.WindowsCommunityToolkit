@@ -43,8 +43,8 @@
 	<PropertyGroup>
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
-		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls.Markdown</PackageId>
-        <RootNamespace>Microsoft.Toolkit.Uwp.UI.Controls.Markdown</RootNamespace>
+		<PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.Markdown</PackageId>
+        <RootNamespace>CommunityToolkit.WinUI.UI.Controls.Markdown</RootNamespace>
 
         <!-- Validation fails as the generated document is too big -->
 		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>

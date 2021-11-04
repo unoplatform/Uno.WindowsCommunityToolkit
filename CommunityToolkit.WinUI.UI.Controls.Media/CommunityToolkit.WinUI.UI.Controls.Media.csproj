@@ -41,8 +41,8 @@
 	<PropertyGroup>
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
-		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls.Media</PackageId>
-        <RootNamespace>Microsoft.Toolkit.Uwp.UI.Controls.Media</RootNamespace>
+		<PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.Media</PackageId>
+        <RootNamespace>CommunityToolkit.WinUI.UI.Controls.Media</RootNamespace>
 
       <!-- Validation fails as the generated document is too big -->
 		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>

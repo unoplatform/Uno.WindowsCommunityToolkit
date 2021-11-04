@@ -4,7 +4,7 @@
 
 using System;
 using Microsoft.Toolkit.Helpers;
-using Microsoft.Toolkit.Uwp.Helpers;
+using CommunityToolkit.WinUI.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Windows.ApplicationModel;
 using Windows.Storage;

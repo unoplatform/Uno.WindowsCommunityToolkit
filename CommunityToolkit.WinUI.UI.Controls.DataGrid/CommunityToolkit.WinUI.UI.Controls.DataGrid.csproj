@@ -33,8 +33,8 @@
 	<PropertyGroup>
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
-		<RootNamespace>Microsoft.Toolkit.Uwp.UI.Controls.DG</RootNamespace>
-		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid</PackageId>
+		<RootNamespace>CommunityToolkit.WinUI.Controls.DG</RootNamespace>
+		<PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.DataGrid</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
