@@ -32,6 +32,7 @@
   <PropertyGroup>
     <TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
     <NoWarn>$(NoWarn);Uno0001;NU1701;CS0436</NoWarn>
+    <PackageId>Uno.CommunityToolkit.WinUI.UI.Controls</PackageId>
   </PropertyGroup>
   <!-- END UNO SPECIFIC -->
 

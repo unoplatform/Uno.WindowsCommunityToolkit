@@ -15,11 +15,6 @@
     </Description>
     <PackageTags>Incremental;Loading;Collection;IncrementalLoadingCollection;String;Array;Extensions;Helpers</PackageTags>
   </PropertyGroup>
-	
-  <PropertyGroup>
-    <NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
-    <PackageId>Uno.Microsoft.Toolkit</PackageId>
-  </PropertyGroup>
 
   <!-- .NET Standard 2.1 and .NET 5 already have [NotNullIfNotNull] and [NotNullWhen] -->
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.1' OR '$(TargetFramework)' == 'net5.0'">
@@ -31,5 +26,14 @@
     <PackageReference Include="System.Diagnostics.Contracts" Version="4.3.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
+  
+  <!-- BEGIN UNO SPECIFIC -->
+  
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
+    <PackageId>Uno.CommunityToolkit.Common</PackageId>
+  </PropertyGroup>
+
+  <!-- END UNO SPECIFIC -->
 
 </Project>
