@@ -21,7 +21,7 @@
                  This example is configured for 100% DPI at the moment.
                  See https://github.com/CommunityToolkit/WindowsCommunityToolkit/issues/4150
                  -->
-            <brushes:TilesBrush TextureUri="ms-appx:///Assets/checker.png"/>
+            <SolidColorBrush Color="Red" />
         </controls:ConstrainedBox.Background>
     </controls:ConstrainedBox>
   </Grid>

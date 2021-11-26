@@ -38,6 +38,7 @@
     <Reference Include="System.Net.Http" />
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.1" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.0.0-dev.5688" />
   </ItemGroup>
 
   <ItemGroup>

@@ -413,6 +413,10 @@ namespace CommunityToolkit.WinUI.SampleApp
                 .AddConsole(LogLevel.Debug)
 #endif
                 ;
+
+#if HAS_UNO
+            Uno.UI.Adapter.Microsoft.Extensions.Logging.LoggingAdapter.Initialize();
+#endif
         }
     }
 }
