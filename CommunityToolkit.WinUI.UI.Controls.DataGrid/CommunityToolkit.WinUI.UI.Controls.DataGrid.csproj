@@ -40,7 +40,7 @@
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
     <PackageReference Remove="Microsoft.UI.Xaml" />
 		<PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
-		<PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5612" />
+		<PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5688" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid10.0' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
