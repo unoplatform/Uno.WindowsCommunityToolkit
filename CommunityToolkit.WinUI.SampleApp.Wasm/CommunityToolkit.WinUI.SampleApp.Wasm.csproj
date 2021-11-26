@@ -34,7 +34,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
     <PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
-    <!--<PackageReference Include="Uno.UI.Sample.Banner" Version="1.44.0-dev.33" />-->
+    <PackageReference Include="Uno.UI.Sample.Banner" Version="1.44.0-dev.42" />
     <Reference Include="System.Net.Http" />
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.1" />
