@@ -431,6 +431,7 @@
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\ListDetailsView\OneDriveLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\OnDevice\OnDevice.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\PipelineBrush\PipelineBrush.png" />
+    <Content Include="$(MSBuildThisFileDirectory)SamplePages\Primitives\ConstrainedBox.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\Primitives\SwitchPresenter.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDeviceHelper\RemoteDeviceHelper.png" />
     <Content Include="$(MSBuildThisFileDirectory)SamplePages\RemoteDevicePicker\RemoteDevicePicker.png" />

@@ -48,7 +48,7 @@
 		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
 	</PropertyGroup>
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
-		<PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5612" />
+		<PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5688" />
 		
 		<Page Remove="Eyedropper/**/*.xaml" />
 		<Page Remove="InfiniteCanvas/**/*.xaml" />
