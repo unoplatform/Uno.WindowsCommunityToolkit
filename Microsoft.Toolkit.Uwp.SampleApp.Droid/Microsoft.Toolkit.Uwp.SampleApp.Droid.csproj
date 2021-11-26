@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -25,7 +25,7 @@
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>false</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
-		<LangVersion>8.0</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -86,15 +86,15 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
-    <PackageReference Include="Uno.UI.Sample.Banner" Version="1.44.0-dev.33" />
-    <PackageReference Include="Uno.UniversalImageLoader" Version="1.9.33" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.0.0-dev.5688" />
+    <PackageReference Include="Uno.UI.Sample.Banner" Version="1.44.0-dev.35" />
+    <PackageReference Include="Uno.UniversalImageLoader" Version="1.9.35" />
     <PackageReference Include="Uno.Microsoft.Xaml.Behaviors.Uwp.Managed">
-      <Version>2.0.2-uno.74</Version>
+      <Version>2.3.0-uno.12</Version>
     </PackageReference>
-    <PackageReference Include="Uno.UI" Version="3.6.0-dev.359" />
-		<PackageReference Include="System.Text.Json"
-											Version="4.7.2" />
-	</ItemGroup>
+    <PackageReference Include="Uno.UI" Version="4.0.0-dev.5688" />
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj">
       <Project>{42ca4935-54be-42ea-ac19-992378c08de6}</Project>
@@ -116,14 +116,14 @@
       <Project>{b24a296c-b3eb-4e06-a64e-74ac2d1acc91}</Project>
       <Name>Microsoft.Toolkit.Uwp.UI.Animations</Name>
     </ProjectReference>
-		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Behaviors\Microsoft.Toolkit.Uwp.UI.Behaviors.csproj">
-			<Project>{d4ff799d-0df2-495a-adc9-3bbc4aef8971}</Project>
-			<Name>Microsoft.Toolkit.Uwp.UI.Behaviors</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.Core\Microsoft.Toolkit.Uwp.UI.Controls.Core.csproj">
-			<Name>Microsoft.Toolkit.Uwp.UI.Controls.Core</Name>
-		</ProjectReference>
-		<ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.csproj">
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Behaviors\Microsoft.Toolkit.Uwp.UI.Behaviors.csproj">
+      <Project>{d4ff799d-0df2-495a-adc9-3bbc4aef8971}</Project>
+      <Name>Microsoft.Toolkit.Uwp.UI.Behaviors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.Core\Microsoft.Toolkit.Uwp.UI.Controls.Core.csproj">
+      <Name>Microsoft.Toolkit.Uwp.UI.Controls.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.csproj">
       <Project>{ae9086c5-6aad-4f37-b93d-1eb491aa8356}</Project>
       <Name>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid</Name>
     </ProjectReference>

@@ -15,10 +15,6 @@ using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 
-#if HAS_UNO
-using Popup = Windows.UI.Xaml.Controls.Popup;
-#endif
-
 namespace Microsoft.Toolkit.Uwp.UI.Controls
 {
     /// <summary>

@@ -36,7 +36,7 @@
 	<ItemGroup Condition="'$(UnoUIVersionOverride)'!=''">
 		<!-- Force all projects to use the same uno version to avoid net5 build issues on linux -->
 		<PackageReference Update="Uno.UI"
-											Version="3.6.0-dev.359" />
+											Version="4.0.0-dev.5688" />
 	</ItemGroup>
 	<!-- END Uno Specific -->
 
