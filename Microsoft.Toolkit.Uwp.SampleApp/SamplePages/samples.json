@@ -90,7 +90,7 @@
         "Subcategory": "Media",
         "About": "Images are downloaded asynchronously showing a load indicator. Source images are then stored in the App local cache to preserve resources and load time.",
         "CodeUrl": "https://github.com/CommunityToolkit/WindowsCommunityToolkit/tree/main/Microsoft.Toolkit.Uwp.UI.Controls.Core/ImageEx",
-        "XamlCodeFile": "ImageExCode.bind",
+        "XamlCodeFile": "ImageExCode.bind" ,
         "Icon": "/SamplePages/ImageEx/ImageEx.png",
         "DocumentationUrl": "https://raw.githubusercontent.com/MicrosoftDocs/WindowsCommunityToolkitDocs/master/docs/controls/ImageEx.md"
       },

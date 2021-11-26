@@ -27,17 +27,18 @@
 	-->
 
   <ItemGroup>
-    <PackageReference Include="Uno.UI.WebAssembly" Version="3.10.0-dev.359" />
+    <PackageReference Include="Uno.UI.WebAssembly" Version="4.0.0-dev.5688" />
     <PackageReference Include="Uno.Wasm.Bootstrap" Version="3.0.0-dev.127" />
     <PackageReference Include="Uno.Wasm.Bootstrap.DevServer" Version="3.0.0-dev.127" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
     <PackageReference Include="Microsoft.TypeScript.Compiler" Version="2.8.3" />
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="2.8.3" />
-    <PackageReference Include="Uno.UI.Sample.Banner" Version="1.44.0-dev.33" />
+    <PackageReference Include="Uno.UI.Sample.Banner" Version="1.44.0-dev.35" />
     <Reference Include="System.Net.Http" />
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.1" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.0.0-dev.5688" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,7 +66,6 @@
 
   <ItemGroup>
     <None Remove="tsconfig.json" />
-    <None Remove="web.config" />
   </ItemGroup>
 
   <ItemGroup>

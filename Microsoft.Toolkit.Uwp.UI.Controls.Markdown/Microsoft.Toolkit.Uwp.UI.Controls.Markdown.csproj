@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
     <TargetFrameworks>uap10.0.17763</TargetFrameworks>
@@ -48,8 +48,8 @@
 		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
 	</PropertyGroup>
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
-		<PackageReference Include="Uno.UI" Version="3.4.0" />
-		<PackageReference Include="Uno.ColorCode.UWP" Version="2.0.8-gd42a883502" />
+		<PackageReference Include="Uno.UI" Version="4.0.0-dev.5688" />
+		<PackageReference Include="Uno.ColorCode.UWP" Version="2.1.0-uno.4" />
 	</ItemGroup>
 		
 	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid10.0' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">

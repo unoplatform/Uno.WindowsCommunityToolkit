@@ -51,7 +51,7 @@
 	</PropertyGroup>
 	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
 		<PackageReference Include="Uno.UI"
-											Version="3.4.0" />
+											Version="4.0.0-dev.5688" />
 		
 		<Page Remove="Eyedropper/**/*.xaml" />
 		<Page Remove="InfiniteCanvas/**/*.xaml" />

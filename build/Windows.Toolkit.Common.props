@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Company>.NET Foundation</Company>
-    <Authors>Microsoft.Toolkit</Authors>
+    <Authors>nventive</Authors>
     <Product>Windows Community Toolkit</Product>
     <CommonTags>Windows;Community;Toolkit;WCT</CommonTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

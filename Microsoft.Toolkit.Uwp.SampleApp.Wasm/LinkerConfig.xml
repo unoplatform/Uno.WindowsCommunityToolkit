@@ -1,4 +1,4 @@
-﻿<linker>
+<linker>
 	<assembly fullname="Uno.Foundation"/>
 	<assembly fullname="Uno.Xaml"/>
   <assembly fullname="Microsoft.Toolkit.Uwp.SampleApp.Wasm"/>
@@ -9,6 +9,7 @@
 	<assembly fullname="Microsoft.Toolkit.Uwp"/>
 	<assembly fullname="Microsoft.Toolkit.Uwp.UI.Animations"/>
   <assembly fullname="Microsoft.Toolkit.Uwp.UI.Controls" />
+  <assembly fullname="Microsoft.Toolkit.Uwp.UI.Controls.Primitives" />
 	<assembly fullname="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid"/>
 	<assembly fullname="Microsoft.Toolkit.Uwp.UI"/>
 	<assembly fullname="Microsoft.Toolkit.Uwp"/>
