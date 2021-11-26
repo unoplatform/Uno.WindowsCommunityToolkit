@@ -92,6 +92,7 @@
       <Version>2.3.0-uno.12</Version>
     </PackageReference>
     <PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5688" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.0.0-dev.5688" />
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
   </ItemGroup>
   <ItemGroup>
