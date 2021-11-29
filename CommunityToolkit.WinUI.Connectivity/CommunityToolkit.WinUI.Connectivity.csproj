@@ -1,0 +1,28 @@
+<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Title>Windows Community Toolkit - Devices</Title>
+    <Description>This library enables easier consumption of connectivity Devices/Peripherals and handle its connection to Windows devices. It contains BluetoothLE and Network connectivity helpers.</Description>
+    <PackageTags>Devices;Bluetooth;LE;BluetoothLE;BLE;Networking</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommunityToolkit.WinUI\CommunityToolkit.WinUI.csproj" />
+  </ItemGroup>
+
+	<!-- BEGIN UNO SPECIFIC -->
+	<PropertyGroup>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
+		<PackageId>Uno.CommunityToolkit.WinUI.Connectivity</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
+		<PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5688" />
+	</ItemGroup>
+	<!-- END UNO SPECIFIC -->
+</Project>

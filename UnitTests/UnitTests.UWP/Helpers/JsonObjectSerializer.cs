@@ -4,14 +4,14 @@
 
 using System;
 using System.Reflection;
-using Microsoft.Toolkit.Uwp.Helpers;
+using CommunityToolkit.WinUI.Helpers;
 using Newtonsoft.Json;
 
 namespace UnitTests.Helpers
 {
     /// <summary>
     /// This is a Serializer which should mimic the previous functionality of 6.1.1 release of the Toolkit with Newtonsoft.Json.
-    /// Based on <see cref="Microsoft.Toolkit.Uwp.Helpers.IObjectSerializer"/>.
+    /// Based on <see cref="CommunityToolkit.WinUI.Helpers.IObjectSerializer"/>.
     /// </summary>
     [Obsolete]
     internal class JsonObjectSerializer : IObjectSerializer

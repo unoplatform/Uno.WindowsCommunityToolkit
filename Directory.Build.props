@@ -1,5 +1,5 @@
 <Project>
-
+  
   <PropertyGroup>
     <RepositoryDirectory>$(MSBuildThisFileDirectory)</RepositoryDirectory>
     <BuildToolsDirectory>$(RepositoryDirectory)build\</BuildToolsDirectory>
@@ -7,13 +7,23 @@
 
   <Import Project="$(BuildToolsDirectory)Windows.Toolkit.Common.props" />
 
+  <PropertyGroup>
+    <!-- Remove after https://github.com/DotNetAnalyzers/StyleCopAnalyzers/pull/3285 is merged, as this is already in our .editorconfig -->
+    <NoWarn>$(NoWarn);SA1101;SA1633;SA1202;SA1600;SA1413;SA1611;SA1629;SA1201;SA1309;SA1310;SA1602</NoWarn>
+    <!-- TODO: WinUI3 - Need to fix -->
+    <NoWarn>$(NoWarn);CA1033;CA1065;CA1001;CS0252;CS8073;CA1063;CA2213;CA2214;CS8600;CS8604</NoWarn>
+    <!-- TODO: WinUI3 - Remove when XAMLBehaviors is strong signed -->
+    <NoWarn>$(NoWarn);CS8002</NoWarn>
+  </PropertyGroup>
+  
   <Choose>
     <When Condition="$(IsCoreProject)">
       <PropertyGroup>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <PackageOutputPath>$(RepositoryDirectory)bin\nupkg</PackageOutputPath>
-        <GenerateLibraryLayout Condition="$(IsUwpProject)">true</GenerateLibraryLayout>
-        <TreatWarningsAsErrors Condition="'$(Configuration)' == 'Release'">true</TreatWarningsAsErrors>
+        <GenerateLibraryLayout Condition="$(IsWinUIProject)">true</GenerateLibraryLayout>
+        <!-- Turned off until 16.11 (https://github.com/dotnet/msbuild/pull/6676) -->
+        <!--<TreatWarningsAsErrors Condition="'$(Configuration)' == 'Release'">true</TreatWarningsAsErrors>-->
       </PropertyGroup>
     </When>
     <Otherwise>
@@ -26,7 +36,7 @@
   </Choose>
 
   <Choose>
-    <When Condition="$(IsUwpProject)">
+    <When Condition="$(IsWinUIProject)">
       <PropertyGroup>
         <!-- Code CS8002 is a warning for strong named -> non-strong-named reference. This is valid for platforms other than .NET Framework (and is needed for the UWP targets. -->
         <NoWarn>$(NoWarn);CS8002</NoWarn>
@@ -84,17 +94,18 @@
 	<!-- BEGIN Uno Specific -->
 
 	<PropertyGroup>
-		<TargetFrameworksOverride>MonoAndroid10.0;xamarinios10;netstandard2.0;xamarinmac20</TargetFrameworksOverride>
+      <TargetFrameworksOverride>MonoAndroid10.0;xamarinios10;netstandard2.0;xamarinmac20</TargetFrameworksOverride>
+      <!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
 
-		<NoWarn>$(NoWarn);SA1633</NoWarn>
+      <NoWarn>$(NoWarn);SA1633</NoWarn>
 
-		<!--
-		UWP is not supported for this build, users must reference
+			<!--
+		WinUI is not supported for this build, users must reference
 		the official toolkit packages instead.
 		-->
-		<TargetFrameworksOverride Condition="'$(BUILD_REPOSITORY_PROVIDER)'==''">$(TargetFrameworksOverride);uap10.0.17763</TargetFrameworksOverride>
+		<TargetFrameworksOverride Condition="'$(BUILD_REPOSITORY_PROVIDER)'==''">$(TargetFrameworksOverride);net5.0-windows10.0.18362.0</TargetFrameworksOverride>
 
-		<!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
+	<!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
@@ -113,9 +124,14 @@
       <ExtrasEnableDefaultPageItems>false</ExtrasEnableDefaultPageItems>
     </PropertyGroup>
 
+  <PropertyGroup>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
+  </PropertyGroup>
+
     <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
       <None Remove="$(MSBuildProjectDirectory)\**\*.xaml"/>
-      <Page Include="$(MSBuildProjectDirectory)\**\*.xaml" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(ExtrasDefaultPageExcludes)" />
+      <Page Include="$(MSBuildProjectDirectory)\**\*.xaml" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(ExtrasDefaultPageExcludes)" 
+            XamlRuntime="WinUI" />
       <UpToDateCheckInput Include="@(Page)"/>
     </ItemGroup>
 	<!-- END Uno Specific -->

@@ -1,0 +1,62 @@
+<Project>
+
+  <Target Name="RemoveUnsupported" BeforeTargets="ResolveReferences">
+    <ItemGroup>
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\BackdropBlurBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Blur\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Fade\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Light\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Offset\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Rotate\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Scale\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Saturation\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\AadLogin\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\BluetoothLEHelper\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Facebook Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\GazeInteraction\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\GazeTracing\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\LinkedIn Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\LiveTile\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Microsoft Graph Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Microsoft Translator Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\PowerBIEmbedded\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\NetworkHelper\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\OneDrive Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\PeoplePicker\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\ProfileCard\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\SharePointFileList\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Toast\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Twitter Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\WeatherLiveTileAndToast\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\InfiniteCanvas\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\BackdropGammaTransferBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\BackdropSaturationBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\BackdropSepiaBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\BackdropInvertBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\BackgroundTaskHelper\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Connected Animations\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Bing Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Implicit Animations\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\RadialGradientBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\ImageBlendBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\LoginButton\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\ImageCropper\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Eyedropper\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\Weibo Service\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\PersonView\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\CameraPreview\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\ViewportBehavior\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\PipelineBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\CanvasPathGeometry\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\TilesBrush\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\ObservableGroup\**" />
+      <_UnsupportedSamples Include="$(MSBuildThisFileDirectory)..\CommunityToolkit.WinUI.SampleApp\SamplePages\DropShadowPanel\**" />
+
+      <!-- This is required under linux where evaluated paths are not compared the same way as windows -->
+      <_AbsoluteUnsupportedSamples Include="@(_UnsupportedSamples->'$([System.IO.Path]::GetFullPath('%(_UnsupportedSamples.Identity)'))')"/>
+
+      <Page Remove="@(_AbsoluteUnsupportedSamples)" />
+      <Compile Remove="@(_AbsoluteUnsupportedSamples)" />
+    </ItemGroup>
+  </Target>
+</Project>

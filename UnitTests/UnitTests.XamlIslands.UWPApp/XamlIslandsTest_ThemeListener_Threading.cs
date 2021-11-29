@@ -3,10 +3,10 @@
 // See the LICENSE file in the project root for more information.
 
 using System.Threading.Tasks;
-using Microsoft.Toolkit.Uwp;
-using Microsoft.Toolkit.Uwp.UI.Helpers;
+using CommunityToolkit.WinUI;
+using CommunityToolkit.WinUI.UI.Helpers;
+using Microsoft.UI.Xaml;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Windows.UI.Xaml;
 
 namespace UnitTests.XamlIslands.UWPApp
 {
@@ -39,7 +39,7 @@ namespace UnitTests.XamlIslands.UWPApp
         [TestMethod]
         public async Task ThemeListenerDispatcherTestAsync()
         {
-            await _themeListener.OnColorValuesChanged();
+            await _themeListener.OnThemePropertyChangedAsync();
 
             await _taskCompletionSource.Task;
         }
@@ -49,7 +49,7 @@ namespace UnitTests.XamlIslands.UWPApp
         {
             await Task.Run(async () =>
             {
-                await _themeListener.OnColorValuesChanged();
+                await _themeListener.OnThemePropertyChangedAsync();
             });
             await _taskCompletionSource.Task;
         }

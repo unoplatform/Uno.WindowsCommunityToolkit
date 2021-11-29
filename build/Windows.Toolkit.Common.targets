@@ -7,7 +7,7 @@
 
   <PropertyGroup>
     <CommonTags Condition="$(IsCoreProject)">$(CommonTags);.NET</CommonTags>
-    <CommonTags Condition="$(IsUwpProject)">$(CommonTags);UWP</CommonTags>
+    <CommonTags Condition="$(IsWinUIProject)">$(CommonTags);WinUI</CommonTags>
     <PackageTags Condition="'$(PackageTags)' != ''">$(CommonTags);$(PackageTags)</PackageTags>
     <PackageTags Condition="'$(PackageTags)' == ''">$(CommonTags)</PackageTags>
   </PropertyGroup>
@@ -15,6 +15,7 @@
   <ItemGroup Condition="$(IsPackable)">
     <None Include="$(BuildToolsDirectory)nuget.png" Pack="true" PackagePath="\Icon.png" />
     <None Include="$(RepositoryDirectory)License.md" Pack="true" PackagePath="\" />
+    <None Include="$(RepositoryDirectory)ThirdPartyNotices.txt" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <ItemGroup>

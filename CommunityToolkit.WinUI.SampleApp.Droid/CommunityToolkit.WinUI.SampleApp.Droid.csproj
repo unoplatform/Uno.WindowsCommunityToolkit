@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AF2B0725-7859-4D38-A340-4474C5040C3F}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{122416d6-6b49-4ee2-a1e8-b825f31c79fe}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommunityToolkit.WinUI.SampleApp.Droid</RootNamespace>
+    <AssemblyName>CommunityToolkit.WinUI.SampleApp.Droid</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidUseAapt2>false</AndroidUseAapt2>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Export" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Fonts\winjs-symbols.ttf" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
+    <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
+    <PackageReference Include="Uno.WinUI.Sample.Banner" Version="1.44.0-dev.42" />
+    <PackageReference Include="Uno.UniversalImageLoader" Version="1.9.33" />
+    <PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed">
+      <Version>2.3.0-uno.12</Version>
+    </PackageReference>
+    <PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5688" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.0.0-dev.5688" />
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj">
+      <Project>{42ca4935-54be-42ea-ac19-992378c08de6}</Project>
+      <Name>Microsoft.Toolkit.Parsers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Microsoft.Toolkit.Services\Microsoft.Toolkit.Services.csproj">
+      <Project>{34398053-fc70-4243-84f9-f355defff66d}</Project>
+      <Name>Microsoft.Toolkit.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.Connectivity\CommunityToolkit.WinUI.Connectivity.csproj">
+      <Project>{b1e850ff-dde6-44d5-a830-34250e97a687}</Project>
+      <Name>CommunityToolkit.WinUI.Connectivity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.DeveloperTools\CommunityToolkit.WinUI.DeveloperTools.csproj">
+      <Project>{e7697922-9555-4cfb-aee0-c5f4d657e559}</Project>
+      <Name>CommunityToolkit.WinUI.DeveloperTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Animations\CommunityToolkit.WinUI.UI.Animations.csproj">
+      <Project>{b24a296c-b3eb-4e06-a64e-74ac2d1acc91}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Animations</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Behaviors\CommunityToolkit.WinUI.UI.Behaviors.csproj">
+      <Project>{d4ff799d-0df2-495a-adc9-3bbc4aef8971}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Behaviors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.Core\CommunityToolkit.WinUI.UI.Controls.Core.csproj">
+      <Name>CommunityToolkit.WinUI.UI.Controls.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.DataGrid\CommunityToolkit.WinUI.UI.Controls.DataGrid.csproj">
+      <Project>{ae9086c5-6aad-4f37-b93d-1eb491aa8356}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Controls.DataGrid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.Graph\CommunityToolkit.WinUI.UI.Controls.Graph.csproj">
+      <Project>{d4d78cba-b238-4794-89a0-4f1a2d8fea97}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Controls.Graph</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.Input\CommunityToolkit.WinUI.UI.Controls.Input.csproj">
+      <Project>{af1be4e9-e2e1-4729-b076-b3725d8e21ee}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Controls.Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.Layout\CommunityToolkit.WinUI.UI.Controls.Layout.csproj">
+      <Project>{cb444381-18ba-4a51-bb32-3a498bcc1e99}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Controls.Layout</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.Markdown\CommunityToolkit.WinUI.UI.Controls.Markdown.csproj">
+      <Project>{6fedf199-b052-49dd-8f3e-2a9224998e0f}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Controls.Markdown</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.Media\CommunityToolkit.WinUI.UI.Controls.Media.csproj">
+      <Project>{43bd2a36-9e12-4788-80ae-2377e41e6d05}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Controls.Media</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.Primitives\CommunityToolkit.WinUI.UI.Controls.Primitives.csproj">
+      <Project>{84ab7dc5-95c9-4cf8-a370-d077e9e9ef1a}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Controls.Primitives</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls\CommunityToolkit.WinUI.UI.Controls.csproj">
+      <Project>{e9faabfb-d726-42c1-83c1-cb46a29fea81}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Controls</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SkipGetTargetFrameworkProperties>true</SkipGetTargetFrameworkProperties>
+      <UndefineProperties>TargetFramework</UndefineProperties>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Media\CommunityToolkit.WinUI.UI.Media.csproj">
+      <Project>{75f9ee44-3efa-47bc-aedd-351b9834a0af}</Project>
+      <Name>CommunityToolkit.WinUI.UI.Media</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI\CommunityToolkit.WinUI.UI.csproj">
+      <Project>{3dd8aa7c-3569-4e51-992f-0c2257e8878e}</Project>
+      <Name>CommunityToolkit.WinUI.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.WinUI\CommunityToolkit.WinUI.csproj">
+      <Project>{805f80df-75c6-4c2f-8fd9-b47f6d0df5a3}</Project>
+      <Name>CommunityToolkit.WinUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityToolkit.Common\CommunityToolkit.Common.csproj">
+      <Project>{6fe128a8-cefa-4a61-a987-ec92de6b538e}</Project>
+      <Name>Microsoft.Toolkit</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <Import Project="..\CommunityToolkit.WinUI.SampleApp\CommunityToolkit.WinUI.SampleApp.Shared.projitems" Label="Shared" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="..\CommunityToolkit.WinUI.SampleApp.iOS\Exclusions.props" />
+  <!-- fake target to allow the nuget pack to work solution wide -->
+  <Target Name="Pack" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+    Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+  -->
+</Project>

@@ -1,0 +1,51 @@
+<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
+    <RootNamespace>CommunityToolkit.WinUI.UI.Controls</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Title>Windows Community Toolkit - DataGrid Control</Title>
+    <Description>
+      This library provides a XAML DataGrid control. It is a part of the Windows Community Toolkit.
+    </Description>
+    <PackageTags>Controls;XAML;UI;Data;Grid;DataGrid</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>$(RootNamespace)</CustomToolNamespace>
+      <!-- The 'ManifestResourceName' metadata changes the default manifest naming scheme -->
+      <ManifestResourceName>$(RootNamespace).%(Filename)</ManifestResourceName>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+
+	<!-- BEGIN UNO SPECIFIC -->
+	<PropertyGroup>
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
+		<RootNamespace>CommunityToolkit.WinUI.UI.Controls.DG</RootNamespace>
+		<PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.DataGrid</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
+    <PackageReference Remove="Microsoft.UI.Xaml" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+		<PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5688" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid10.0' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
+		<Reference Include="System.ComponentModel.DataAnnotations" />
+	</ItemGroup>
+	<!-- END UNO SPECIFIC -->
+
+</Project>

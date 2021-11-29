@@ -2,15 +2,15 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-using Microsoft.Windows.Apps.Test.Foundation;
-using Microsoft.Windows.Apps.Test.Foundation.Controls;
-using Windows.UI.Xaml.Tests.MUXControls.InteractionTests.Common;
-using Windows.UI.Xaml.Tests.MUXControls.InteractionTests.Infra;
-using System.Linq;
-using System.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
-using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.UI.Xaml.Tests.MUXControls.InteractionTests.Common;
+using Microsoft.UI.Xaml.Tests.MUXControls.InteractionTests.Infra;
+using Microsoft.Windows.Apps.Test.Foundation;
+using Microsoft.Windows.Apps.Test.Foundation.Controls;
 
 #if USING_TAEF
 using WEX.Logging.Interop;
@@ -22,7 +22,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UITests.Tests
 {
-
     [TestClass]
     public class GridSplitterTest : UITestBase
     {
@@ -32,13 +31,15 @@ namespace UITests.Tests
         [TestProperty("Platform", "Any")]
         public static void ClassInitialize(TestContext testContext)
         {
-            TestEnvironment.Initialize(testContext, WinUICsUWPSampleApp);
+            TestEnvironment.Initialize(testContext, UITestsAppSampleApp);
         }
 
         [TestMethod]
         [TestPage("GridSplitterTestPage")]
         public async Task TestGridSplitterDragHorizontalAsync()
         {
+            var scaleFactor = await TestAssembly.GetHostDpi() / 96.0f;
+
             var amount = 50;
             var tolerance = 10;
 
@@ -121,6 +122,8 @@ namespace UITests.Tests
         [TestPage("GridSplitterTestPage")]
         public async Task TestGridSplitterDragVerticalAsync()
         {
+            var scaleFactor = await TestAssembly.GetHostDpi() / 96.0f;
+
             var amount = 50;
             var tolerance = 10;
 

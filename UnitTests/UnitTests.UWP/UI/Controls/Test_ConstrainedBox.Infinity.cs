@@ -4,9 +4,9 @@
 
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Toolkit.Uwp;
-using Microsoft.Toolkit.Uwp.UI;
-using Microsoft.Toolkit.Uwp.UI.Controls;
+using CommunityToolkit.WinUI;
+using CommunityToolkit.WinUI.UI;
+using CommunityToolkit.WinUI.UI.Controls;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting.AppContainer;
 using Windows.Foundation;
@@ -34,7 +34,7 @@ namespace UnitTests.UWP.UI.Controls
                 var treeRoot = XamlReader.Load(@"<Page
     xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""
     xmlns:x=""http://schemas.microsoft.com/winfx/2006/xaml""
-    xmlns:controls=""using:Microsoft.Toolkit.Uwp.UI.Controls"">
+    xmlns:controls=""using:CommunityToolkit.WinUI.UI.Controls"">
     <ScrollViewer HorizontalScrollMode=""Enabled"" HorizontalScrollBarVisibility=""Visible""
                   VerticalScrollMode=""Enabled"" VerticalScrollBarVisibility=""Visible""
                   Width=""200"">
@@ -75,7 +75,7 @@ namespace UnitTests.UWP.UI.Controls
                 var treeRoot = XamlReader.Load(@"<Page
     xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""
     xmlns:x=""http://schemas.microsoft.com/winfx/2006/xaml""
-    xmlns:controls=""using:Microsoft.Toolkit.Uwp.UI.Controls"">
+    xmlns:controls=""using:CommunityToolkit.WinUI.UI.Controls"">
     <ScrollViewer HorizontalScrollMode=""Enabled"" HorizontalScrollBarVisibility=""Visible""
                   VerticalScrollMode=""Enabled"" VerticalScrollBarVisibility=""Visible""
                   Height=""200"">
@@ -116,7 +116,7 @@ namespace UnitTests.UWP.UI.Controls
                 var treeRoot = XamlReader.Load(@"<Page
     xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation""
     xmlns:x=""http://schemas.microsoft.com/winfx/2006/xaml""
-    xmlns:controls=""using:Microsoft.Toolkit.Uwp.UI.Controls"">
+    xmlns:controls=""using:CommunityToolkit.WinUI.UI.Controls"">
     <ScrollViewer x:Name=""ScrollArea""
                   HorizontalScrollMode=""Enabled"" HorizontalScrollBarVisibility=""Visible""
                   VerticalScrollMode=""Enabled"" VerticalScrollBarVisibility=""Visible"">

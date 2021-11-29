@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Toolkit.Uwp;
+using CommunityToolkit.WinUI;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.UI

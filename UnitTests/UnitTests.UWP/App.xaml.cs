@@ -6,13 +6,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 using System;
 using UnitTests.Extensions;
 using Windows.ApplicationModel;
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Navigation;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.System;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
 
 namespace UnitTests
 {
@@ -51,10 +53,12 @@ namespace UnitTests
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
-        public App()
+        public App(ITestMethod testMethod, TaskCompletionSource<TestResult> taskCompletionSource)
         {
             InitializeComponent();
             Suspending += OnSuspending;
+            _testMethod = testMethod;
+            _taskCompletionSource = taskCompletionSource;
         }
 
         /// <summary>
@@ -62,7 +66,7 @@ namespace UnitTests
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs e)
         {
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -86,7 +90,7 @@ namespace UnitTests
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                if (e.UWPLaunchActivatedEventArgs.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     // TODO: Load state from previously suspended application
                 }
@@ -106,12 +110,17 @@ namespace UnitTests
                 Window.Current.Content = rootFrame;
             }
 
-            Microsoft.VisualStudio.TestPlatform.TestExecutor.UnitTestClient.CreateDefaultUI();
+            // Microsoft.VisualStudio.TestPlatform.TestExecutor.UnitTestClient.CreateDefaultUI();
 
             // Ensure the current window is active
             Window.Current.Activate();
 
-            Microsoft.VisualStudio.TestPlatform.TestExecutor.UnitTestClient.Run(e.Arguments);
+            // Microsoft.VisualStudio.TestPlatform.TestExecutor.UnitTestClient.Run(e.Arguments);
+            var result = _testMethod.Invoke(new object[] { });
+
+            _taskCompletionSource.SetResult(result);
+
+            Exit();
         }
 
         /// <summary>
