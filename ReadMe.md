@@ -1,7 +1,7 @@
 # Uno Platform port of Windows Community Toolkit
 
-This port allows for [Uno Platform based](https://github.com/unoplatform/uno) apps to use [Windows Community Toolkit](https://github.com/Microsoft/WindowsCommunityToolkit) for WinUI 3
-on Windows, iOS, macOS, Android, WebAssembly and Linux.
+This port allows for [Uno Platform based](https://github.com/unoplatform/uno) apps to use the [Windows Community Toolkit](https://github.com/Microsoft/WindowsCommunityToolkit) for WinUI 3
+on Windows, iOS, macOS, Android, WebAssembly and Linux. These packages are used when depending on `Uno.WinUI.*` packages.
 
 See below on this page for information about UWP.
 
@@ -42,7 +42,7 @@ If you are building a library, use the following to conditionally include the to
 
 ## Support for UWP
 
-As the original Community Toolkit does, this fork also provides binaries for UWP, and the branch [`unorel/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/7.1) is used to provide this support.
+As the original Community Toolkit does, this fork also provides packages for UWP (based on `Uno.UI.*` packages), and the branch [`unorel/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/7.1) is used to provide this support.
 
 The following packages are available from this branch:
 - Uno.Microsoft.Toolkit [![NuGet](https://img.shields.io/nuget/v/Uno.Microsoft.Toolkit.svg)](https://www.nuget.org/packages/Uno.Microsoft.Toolkit)
