@@ -3336,16 +3336,15 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
             }
             else
             {
-#if !HAS_UNO
-                // This section is commented out in Uno until the measure
-                // loop in uno is adressed
-                if (_rowsPresenter != null)
+                if (DataGridFeatureConfiguation.EnableInvalidateMeasureInMeasureOverride)
                 {
-                    _rowsPresenter.InvalidateMeasure();
-                }
+                    if (_rowsPresenter != null)
+                    {
+                        _rowsPresenter.InvalidateMeasure();
+                    }
 
-                InvalidateColumnHeadersMeasure();
-#endif
+                    InvalidateColumnHeadersMeasure();
+                }
 
                 desiredSize = base.MeasureOverride(availableSize);
 
