@@ -133,9 +133,12 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls.Primitives
                 DataGridRow row = element as DataGridRow;
                 if (row != null)
                 {
-                    if (invalidateRows)
+                    if (DataGridFeatureConfiguation.EnableInvalidateMeasureInMeasureOverride)
                     {
-                        row.InvalidateMeasure();
+                        if (invalidateRows)
+                        {
+                            row.InvalidateMeasure();
+                        }
                     }
                 }
 
