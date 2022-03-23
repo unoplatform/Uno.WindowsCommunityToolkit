@@ -94,7 +94,8 @@
 	<!-- BEGIN Uno Specific -->
 
 	<PropertyGroup>
-      <TargetFrameworksOverride>MonoAndroid11.0;xamarinios10;netstandard2.0;xamarinmac20</TargetFrameworksOverride>
+      <TargetFrameworksOverride>MonoAndroid11.0;xamarinios10;netstandard2.0;xamarinmac20;net6.0-ios;net6.0-macos;net6.0-android;net6.0-maccatalyst</TargetFrameworksOverride>
+      <_IsUno>true</_IsUno>
       <!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
 
       <NoWarn>$(NoWarn);SA1633</NoWarn>
@@ -108,7 +109,7 @@
 	<!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
 	</PropertyGroup>
 
-	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
+	<PropertyGroup Condition=" '$(_IsUno)'=='true' ">
 		<NoWarn>$(NoWarn);CS0649;CS0067;CS1998</NoWarn>
 	</PropertyGroup>
 
@@ -120,7 +121,7 @@
 		<JavaSdkDirectory Condition="'$(JavaSdkDirectory)'=='' and '$(JAVA_HOME_8_X64)'!=''">$(JAVA_HOME_8_X64)</JavaSdkDirectory>
 	</PropertyGroup>
 
-    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
+    <PropertyGroup Condition=" '$(_IsUno)'=='true' ">
       <ExtrasEnableDefaultPageItems>false</ExtrasEnableDefaultPageItems>
     </PropertyGroup>
 
@@ -128,7 +129,7 @@
     <EnableDefaultPageItems>false</EnableDefaultPageItems>
   </PropertyGroup>
 
-    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
+    <ItemGroup Condition=" '$(_IsUno)'=='true' ">
       <None Remove="$(MSBuildProjectDirectory)\**\*.xaml"/>
       <Page Include="$(MSBuildProjectDirectory)\**\*.xaml" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(ExtrasDefaultPageExcludes)" 
             XamlRuntime="WinUI" />

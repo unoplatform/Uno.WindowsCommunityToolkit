@@ -44,10 +44,10 @@
   <ItemGroup>
     <PackageReference Remove="Microsoft.Xaml.Behaviors.WinUI.Managed" />
   </ItemGroup>
-	
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
-		<PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5688" />
-		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.3.0-uno.12" />
+
+  <ItemGroup Condition="'$(_IsUno)'=='true'">
+    <PackageReference Include="Uno.WinUI" Version="4.1.9" />
+		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.3.1-uno.2" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0-windows10.0.18362.0'">

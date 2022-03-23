@@ -6,7 +6,7 @@ jobs:
 - job: Windows
 
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-2022'
 
   variables: 
     BuildConfiguration: Release
@@ -58,6 +58,8 @@ jobs:
       packageType: 'sdk'
       version: '5.0.402'
     displayName: Use .NET SDK 5.0.402
+
+  - template: build/ci/dotnet-install-windows.yml
 
   - task: DotNetCoreCLI@2  
     inputs:
