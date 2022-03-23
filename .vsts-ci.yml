@@ -63,6 +63,7 @@ jobs:
     displayName: Use .NET SDK 5.0.402
 
   - template: build/ci/dotnet-install-windows.yml
+  - template: build/ci/jdk-setup.yml
 
   - task: DotNetCoreCLI@2  
     inputs:
