@@ -42,6 +42,9 @@ jobs:
       modifyEnvironment: true
     displayName: Setup Environment Variables
     
+  - powershell: .\build\Install-WindowsSdkISO.ps1 18362
+    displayName: Install Windows SDK 18362
+    
   - task: NuGetToolInstaller@0
     displayName: Use NuGet 5.6.0
     inputs:
