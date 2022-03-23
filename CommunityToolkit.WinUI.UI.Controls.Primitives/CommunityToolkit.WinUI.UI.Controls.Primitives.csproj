@@ -51,9 +51,9 @@
       <!-- Validation fails as the generated document is too big -->
 		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
 	</PropertyGroup>
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
-		<PackageReference Remove="Microsoft.UI.Xaml" />
-		<PackageReference Include="Uno.WinUI" Version="4.0.0-dev.5688" />
+  <ItemGroup Condition="'$(_IsUno)'=='true'">
+    <PackageReference Remove="Microsoft.UI.Xaml" />
+		<PackageReference Include="Uno.WinUI" Version="4.1.9" />
 	</ItemGroup>
 	<!-- END UNO SPECIFIC -->
 
