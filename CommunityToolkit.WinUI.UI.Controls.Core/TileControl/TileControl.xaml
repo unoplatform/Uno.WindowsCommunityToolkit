@@ -13,7 +13,9 @@
                                 BorderThickness="{TemplateBinding BorderThickness}">
                             <Canvas x:Name="ContainerElement" />
                         </Border>
-                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
