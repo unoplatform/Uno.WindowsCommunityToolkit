@@ -27,7 +27,9 @@
                         <ContentPresenter x:Name="CenterContent"
                                           HorizontalAlignment="Center"
                                           VerticalAlignment="Center"
-                                          Content="{TemplateBinding CenterContent}" />
+                                          Content="{TemplateBinding CenterContent}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -42,7 +44,9 @@
                 <ControlTemplate TargetType="local:OrbitViewItem">
                     <Grid x:Name="RootGrid">
                         <ContentPresenter x:Name="ContentPresenter"
-                                          Content="{TemplateBinding Content}">
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}">
                             <ContentPresenter.RenderTransform>
                                 <CompositeTransform x:Name="Transform" />
                             </ContentPresenter.RenderTransform>
