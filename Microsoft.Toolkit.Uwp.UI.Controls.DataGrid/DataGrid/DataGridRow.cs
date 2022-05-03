@@ -780,23 +780,20 @@ namespace Microsoft.Toolkit.Uwp.UI.Controls
                 return base.MeasureOverride(availableSize);
             }
 
-            if (DataGridFeatureConfiguation.EnableInvalidateMeasureInMeasureOverride)
+            // Allow the DataGrid specific components to adjust themselves based on new values
+            if (_headerElement != null)
             {
-                // Allow the DataGrid specific components to adjust themselves based on new values
-                if (_headerElement != null)
-                {
-                    _headerElement.InvalidateMeasure();
-                }
+                _headerElement.InvalidateMeasure();
+            }
 
-                if (_cellsElement != null)
-                {
-                    _cellsElement.InvalidateMeasure();
-                }
+            if (_cellsElement != null)
+            {
+                _cellsElement.InvalidateMeasure();
+            }
 
-                if (_detailsElement != null)
-                {
-                    _detailsElement.InvalidateMeasure();
-                }
+            if (_detailsElement != null)
+            {
+                _detailsElement.InvalidateMeasure();
             }
 
             bool currentAddItemIsDataContext = false;
