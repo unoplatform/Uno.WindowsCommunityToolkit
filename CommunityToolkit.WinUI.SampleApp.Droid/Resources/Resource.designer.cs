@@ -14,7 +14,7 @@ namespace CommunityToolkit.WinUI.SampleApp.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.2.99.0")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.0.99.154")]
 	public partial class Resource
 	{
 		
