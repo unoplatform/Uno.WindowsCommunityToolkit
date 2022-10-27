@@ -16,7 +16,7 @@
     }
   },
   "release": {
-    "branchName" : "rel/{version}",
+    "branchName" : "reluno/winui/{version}",
     "versionIncrement" : "build",
     "firstUnstableTag" : "preview"
   }
