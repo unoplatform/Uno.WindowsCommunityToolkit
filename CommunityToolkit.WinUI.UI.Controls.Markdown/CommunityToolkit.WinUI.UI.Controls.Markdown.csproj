@@ -50,7 +50,7 @@
 		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
 	</PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="4.1.9" />
+    <PackageReference Include="Uno.WinUI" Version="4.4.20" />
 		<PackageReference Include="Uno.ColorCode.WinUI" Version="2.1.0-uno.36" />
 	</ItemGroup>
 		

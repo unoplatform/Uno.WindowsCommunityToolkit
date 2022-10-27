@@ -16,6 +16,6 @@ namespace CommunityToolkit.WinUI.UI.Controls
         /// This configuration is required until https://github.com/unoplatform/uno/issues/3519 is fixed. Without this
         /// the layout engine turns into a loop and consumes CPU excessively, or freezes the app.
         /// </remarks>
-        public static bool EnableInvalidateMeasureInMeasureOverride { get; set; } = false;
+        public static bool EnableInvalidateMeasureInMeasureOverride { get; set; } = true;
     }
 }
