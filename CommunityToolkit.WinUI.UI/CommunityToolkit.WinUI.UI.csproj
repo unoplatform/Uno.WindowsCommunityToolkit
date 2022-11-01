@@ -72,7 +72,7 @@
   <ItemGroup>
     <Content Include="buildTransitive/**">
       <Pack>true</Pack>
-      <PackagePath>buildTransitive/net5.0-windows</PackagePath>
+      <PackagePath>buildTransitive/net5.0-windows10.0.18362.0</PackagePath>
     </Content>
   </ItemGroup>
 	
