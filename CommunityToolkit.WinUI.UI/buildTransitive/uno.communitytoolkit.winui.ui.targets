@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Project>
-  <Target Name="_UnoCommunityToolkitNotSupported" BeforeTargets="BeforeBuild">
+  <Target Name="_UnoCommunityToolkitNotSupported"
+          Condition="'$(WindowsAppSDKWinUI)'=='true'"
+          BeforeTargets="BeforeBuild">
     <Error Text="The Uno Platform version of Community Toolkit is not supported on WinAppSDK. Use the official packages instead, see https://aka.platform.uno/install-uno-community-toolkit for details." />
   </Target>
 </Project>
