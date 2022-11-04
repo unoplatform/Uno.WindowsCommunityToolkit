@@ -54,7 +54,7 @@
 		<PackageReference Include="Uno.ColorCode.WinUI" Version="2.1.0-uno.36" />
 	</ItemGroup>
 		
-	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid11.0' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid12.0' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
 		<Reference Include="System.Xml" />
 		<Reference Include="System.Xml.Linq" />
 	</ItemGroup>
