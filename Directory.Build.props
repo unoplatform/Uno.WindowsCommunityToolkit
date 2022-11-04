@@ -94,7 +94,7 @@
 	<!-- BEGIN Uno Specific -->
 
 	<PropertyGroup>
-      <TargetFrameworksOverride>MonoAndroid11.0;xamarinios10;netstandard2.0;xamarinmac20;net6.0-ios;net6.0-macos;net6.0-android;net6.0-maccatalyst</TargetFrameworksOverride>
+      <TargetFrameworksOverride>MonoAndroid12.0;xamarinios10;netstandard2.0;xamarinmac20;net6.0-ios;net6.0-macos;net6.0-android;net6.0-maccatalyst</TargetFrameworksOverride>
       <_IsUno>true</_IsUno>
       <!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
 
