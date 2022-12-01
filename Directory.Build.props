@@ -24,6 +24,9 @@
         <GenerateLibraryLayout Condition="$(IsWinUIProject)">true</GenerateLibraryLayout>
         <!-- Turned off until 16.11 (https://github.com/dotnet/msbuild/pull/6676) -->
         <!--<TreatWarningsAsErrors Condition="'$(Configuration)' == 'Release'">true</TreatWarningsAsErrors>-->
+
+        <!-- Enable XAML trimming capability to remove code for Uno targets -->
+        <UnoXamlResourcesTrimming>true</UnoXamlResourcesTrimming>
       </PropertyGroup>
     </When>
     <Otherwise>
