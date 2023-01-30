@@ -246,6 +246,7 @@ namespace CommunityToolkit.WinUI.SampleApp
             // UNO TODO SystemInformation.Instance.TrackAppUse(e);
         }
 
+        /*
         /// <summary>
         /// Event fired when a Background Task is activated (in Single Process Model)
         /// </summary>
@@ -256,17 +257,16 @@ namespace CommunityToolkit.WinUI.SampleApp
 
             var deferral = args.TaskInstance.GetDeferral();
 
-#if !HAS_UNO
             switch (args.TaskInstance.Task.Name)
             {
                 case Constants.TestBackgroundTaskName:
                     new TestBackgroundTask().Run(args.TaskInstance);
                     break;
             }
-#endif
 
             deferral.Complete();
         }
+        */
 
         private async System.Threading.Tasks.Task RunAppInitialization(string launchParameters)
         {
