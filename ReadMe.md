@@ -32,10 +32,10 @@ On Windows projects (the WinUI 3 Desktop head), please install the official [Win
 If you are building a library, use the following to conditionally include the toolkit builds:
 
 ```xml
-<ItemGroup Condition="'$(TargetFramework)' == 'net5.0-windows10.0.19041'">
-	<PackageReference Include="CommunityToolkit.WinUI.Controls" Version="7.1.100" />
+<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows10.0.18362'">
+	<PackageReference Include="CommunityToolkit.WinUI.Controls" Version="7.1.2" />
 </ItemGroup>
-<ItemGroup Condition="'$(TargetFramework)' != 'net5.0-windows10.0.19041'">
+<ItemGroup Condition="'$(TargetFramework)' != 'net7.0-windows10.0.18362'">
 	<PackageReference Include="Uno.CommunityToolkit.WinUI.Controls" Version="7.1.100" />
 </ItemGroup>
 ```
