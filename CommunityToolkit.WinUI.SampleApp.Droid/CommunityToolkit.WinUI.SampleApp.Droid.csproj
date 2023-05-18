@@ -93,8 +93,8 @@
     <PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed">
       <Version>2.3.1-uno.2</Version>
     </PackageReference>
-    <PackageReference Include="Uno.WinUI" Version="4.4.20" />
-    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.4.20" />
+    <PackageReference Include="Uno.WinUI" Version="4.9.0-dev.1136" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.9.0-dev.1136" />
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
   </ItemGroup>
   <ItemGroup>

@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="4.4.20" />
+    <PackageReference Include="Uno.WinUI" Version="4.9.0-dev.1136" />
 		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.3.1-uno.2" />
 	</ItemGroup>
 
