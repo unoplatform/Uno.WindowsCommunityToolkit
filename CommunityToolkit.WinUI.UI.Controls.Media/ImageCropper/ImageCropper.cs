@@ -412,6 +412,8 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 return;
             }
 
+            await CropImageAsync(Source, stream, _currentCroppedRect, bitmapFileFormat);
+#if false
             if (keepRectangularOutput || CropShape == CropShape.Rectangular)
             {
                 await CropImageAsync(Source, stream, _currentCroppedRect, bitmapFileFormat);
@@ -419,6 +421,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
             }
 
             await CropImageWithShapeAsync(Source, stream, _currentCroppedRect, bitmapFileFormat, CropShape);
+#endif
         }
 
         /// <summary>
