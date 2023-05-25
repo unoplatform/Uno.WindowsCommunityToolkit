@@ -383,22 +383,6 @@ namespace CommunityToolkit.WinUI.UI.Controls
         }
 
         /// <summary>
-        /// Load an image from a file.
-        /// </summary>
-        /// <param name="imagePath">The path of the image file.</param>
-        /// <returns>Task</returns>
-        public async Task LoadImageFromFile(string imagePath)
-        {
-            var writeableBitmap = new WriteableBitmap(1, 1);
-            using (var stream = new MemoryStream(await File.ReadAllBytesAsync(imagePath)))
-            {
-                await writeableBitmap.SetSourceAsync(stream.AsRandomAccessStream());
-            }
-
-            Source = writeableBitmap;
-        }
-
-        /// <summary>
         /// Saves the cropped image to a stream with the specified format.
         /// </summary>
         /// <param name="stream">The target stream.</param>
