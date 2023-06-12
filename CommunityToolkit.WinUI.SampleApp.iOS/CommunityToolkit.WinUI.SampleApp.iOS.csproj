@@ -117,9 +117,9 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Filter" Version="1.1.1" />
     <PackageReference Include="Uno.WinUI.Sample.Banner" Version="1.44.0-dev.42" />
     <PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.3.1-uno.2" />
-    <PackageReference Include="Uno.WinUI" Version="4.4.20" />
+    <PackageReference Include="Uno.WinUI" Version="5.0.0-feature.5x.634" />
     <PackageReference Include="System.Text.Json" Version="4.7.2" />
-    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="4.4.20" />
+    <PackageReference Include="Uno.UI.Adapter.Microsoft.Extensions.Logging" Version="5.0.0-feature.5x.634" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Microsoft.Toolkit.Parsers\Microsoft.Toolkit.Parsers.csproj">

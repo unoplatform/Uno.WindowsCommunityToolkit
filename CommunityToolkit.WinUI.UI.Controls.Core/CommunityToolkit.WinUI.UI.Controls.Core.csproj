@@ -64,7 +64,7 @@
 	</PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
     <PackageReference Remove="Microsoft.UI.Xaml" />
-		<PackageReference Include="Uno.WinUI" Version="4.4.20" />
+		<PackageReference Include="Uno.WinUI" Version="5.0.0-feature.5x.634" />
 	</ItemGroup>
 	<!-- END UNO SPECIFIC -->
 
