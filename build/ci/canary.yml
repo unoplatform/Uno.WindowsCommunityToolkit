@@ -1,0 +1,31 @@
+steps:
+
+  - task: nventiveCanaryUpdater@5
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries/dev')
+    inputs:
+      solution: 'Windows Community Toolkit.sln'
+      usePrivateFeed: false
+      useNuGetOrg: true
+      mergeBranch: true
+      branchToMerge: 'uno'
+      nugetUpdaterVersion: '2.0.2'
+      allowDowngrade: true
+      nugetVersion: 'dev'
+      packageAuthor: 'nventive,uno platform'
+      summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
+      resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'
+
+  - task: nventiveCanaryUpdater@5
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries/5x')
+    inputs:
+      solution: 'Windows Community Toolkit.sln'
+      usePrivateFeed: false
+      useNuGetOrg: true
+      mergeBranch: true
+      branchToMerge: 'uno'
+      nugetUpdaterVersion: '2.0.2'
+      allowDowngrade: true
+      nugetVersion: 'feature.5x'
+      packageAuthor: 'nventive,uno platform'
+      summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
+      resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'

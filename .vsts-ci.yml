@@ -21,19 +21,7 @@ jobs:
       packageType: 'runtime'
       version: '2.2.0'
 
-  - task: nventiveCanaryUpdater@5
-    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries')
-    inputs:
-      solution: 'Windows Community Toolkit.sln'
-      usePrivateFeed: false
-      useNuGetOrg: true
-      mergeBranch: true
-      branchToMerge: 'uno'
-      nugetUpdaterVersion: '2.0.2'
-      allowDowngrade: true
-      packageAuthor: 'nventive'
-      summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
-      resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'
+  - template: build/ci/canary.yml
 
   - task: BatchScript@1
     inputs:
