@@ -1,5 +1,10 @@
 steps:
 
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'runtime'
+      version: '3.1.x'
+
   - task: nventiveCanaryUpdater@5
     condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries/dev')
     inputs:
