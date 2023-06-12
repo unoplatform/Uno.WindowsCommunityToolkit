@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsPackable>false</IsPackable>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <WasmPWAManifestFile Condition="'$(Configuration)'=='Release'">manifest.json</WasmPWAManifestFile>
     <NoWarn>$(NoWarm);Uno0001</NoWarn>
     <MonoRuntimeDebuggerEnabled Condition="'$(Configuration)'=='Debug'">true</MonoRuntimeDebuggerEnabled>
@@ -12,8 +12,6 @@
     <!--<WasmShellGenerateAOTProfile>true</WasmShellGenerateAOTProfile>-->
     <WasmShellEnableEmccProfiling>true</WasmShellEnableEmccProfiling>
     <WasmShellEnableLongPathSupport>false</WasmShellEnableLongPathSupport>
-
-    <UnoUIUseRoslynSourceGenerators>false</UnoUIUseRoslynSourceGenerators>
   </PropertyGroup>
 
   <ItemGroup>

@@ -4,6 +4,11 @@ steps:
     inputs:
       packageType: 'runtime'
       version: '3.1.x'
+  
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'runtime'
+      version: '2.2.0'
 
   - task: UseDotNet@2
     inputs:
@@ -19,10 +24,10 @@ steps:
       useNuGetOrg: true
       mergeBranch: true
       branchToMerge: 'uno'
-      nugetUpdaterVersion: '2.0.2'
       allowDowngrade: true
       nugetVersion: 'dev'
-      packageAuthor: 'nventive,uno platform'
+      nugetUpdaterVersion: 2.3.0-alpha.42
+      packageAuthor: 'nventive,Uno Platform'
       summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
       resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'
 
@@ -34,9 +39,10 @@ steps:
       useNuGetOrg: true
       mergeBranch: true
       branchToMerge: 'uno'
-      nugetUpdaterVersion: '2.0.2'
       allowDowngrade: true
       nugetVersion: 'feature.5x'
-      packageAuthor: 'nventive,uno platform'
+      nugetUpdaterVersion: 2.3.0-alpha.42
+      packageAuthor: 'nventive,Uno Platform'
       summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
       resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'
+      additionalPublicSources: 'https://pkgs.dev.azure.com/uno-platform/1dd81cbd-cb35-41de-a570-b0df3571a196/_packaging/dev-uno5/nuget/v3/index.json'

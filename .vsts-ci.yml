@@ -87,41 +87,12 @@ jobs:
   steps:
   - checkout: self
     clean: true
-  
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'runtime'
-      version: '2.2.0'
 
-  - task: nventiveCanaryUpdater@5
-    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries')
-    inputs:
-      solution: 'Windows Community Toolkit.sln'
-      usePrivateFeed: false
-      useNuGetOrg: true
-      mergeBranch: true
-      branchToMerge: 'uno'
-      nugetUpdaterVersion: '2.0.4'
-      allowDowngrade: true
-      packageAuthor: 'nventive'
-      summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
-      resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'
-
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'sdk'
-      version: '3.1.101'
-    displayName: Use .NET Core SDK 3.1.101
-
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'sdk'
-      version: '5.0.402'
-    displayName: Use .NET SDK 5.0.402
+  - template: build/ci/canary.yml
 
   - bash: |
       cd $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm
-      dotnet msbuild /r /nr:false /m:1 /p:Configuration=Release /p:UnoUIUseRoslynSourceGenerators=false /p:UnoUIVersionOverride=true $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm/CommunityToolkit.WinUI.SampleApp.Wasm.csproj /p:TargetFrameworksOverride=netstandard2.0 /bl:$(build.artifactstagingdirectory)/build.binlog
+      dotnet msbuild /r /nr:false /m:1 /p:Configuration=Release /p:UnoUIUseRoslynSourceGenerators=false /p:UnoUIVersionOverride=true $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm/CommunityToolkit.WinUI.SampleApp.Wasm.csproj /p:TargetFrameworksOverride=net7.0 /bl:$(build.artifactstagingdirectory)/build.binlog
 
   - task: CopyFiles@2
     displayName: 'Publish Wasm Binaries'
