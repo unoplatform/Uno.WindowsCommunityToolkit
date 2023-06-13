@@ -26,7 +26,7 @@ steps:
       branchToMerge: 'uno'
       allowDowngrade: true
       nugetVersion: 'dev'
-      nugetUpdaterVersion: 2.3.0-alpha.42
+      nugetUpdaterVersion: 2.3.0-alpha.44
       packageAuthor: 'nventive,Uno Platform'
       summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
       resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'
@@ -41,7 +41,7 @@ steps:
       branchToMerge: 'uno'
       allowDowngrade: true
       nugetVersion: '5x'
-      nugetUpdaterVersion: 2.3.0-alpha.42
+      nugetUpdaterVersion: 2.3.0-alpha.44
       packageAuthor: 'nventive,Uno Platform'
       summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
       resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'
