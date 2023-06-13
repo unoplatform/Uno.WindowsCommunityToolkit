@@ -40,7 +40,7 @@ steps:
       mergeBranch: true
       branchToMerge: 'uno'
       allowDowngrade: true
-      nugetVersion: '5x'
+      nugetVersion: 'feature.5x,dev'
       nugetUpdaterVersion: 2.3.0-alpha.44
       packageAuthor: 'nventive,Uno Platform'
       summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
