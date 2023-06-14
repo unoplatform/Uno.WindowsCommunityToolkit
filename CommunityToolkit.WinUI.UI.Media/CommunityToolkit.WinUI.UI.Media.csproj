@@ -65,7 +65,7 @@
     <XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
   </PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="5.0.0-feature.5x.634" />
+    <PackageReference Include="Uno.WinUI" Version="5.0.0-feature.5x.655" />
 
 
     <Compile Remove="Brushes\**\*.cs" />
