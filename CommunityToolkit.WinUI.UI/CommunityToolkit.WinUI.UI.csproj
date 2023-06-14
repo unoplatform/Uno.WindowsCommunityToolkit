@@ -62,7 +62,7 @@
 
   <ItemGroup Condition="'$(_IsUno)'=='true'">
     <PackageReference Include="Uno.WinUI" Version="5.0.0-feature.5x.655" />
-		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.3.1-uno.2" />
+		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.4.0-feature.5x.11" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)'=='uap10.0.17763'">
