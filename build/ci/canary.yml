@@ -1,0 +1,48 @@
+steps:
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'runtime'
+      version: '3.1.x'
+  
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'runtime'
+      version: '2.2.0'
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: sdk
+      useGlobalJson: true
+      includePreviewVersions: true
+
+  - task: nventiveCanaryUpdater@5
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries/dev')
+    inputs:
+      solution: 'Windows Community Toolkit.sln'
+      usePrivateFeed: false
+      useNuGetOrg: true
+      mergeBranch: true
+      branchToMerge: 'uno'
+      allowDowngrade: true
+      nugetVersion: 'dev'
+      nugetUpdaterVersion: 2.3.0-alpha.44
+      packageAuthor: 'nventive,unoplatform'
+      summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
+      resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'
+
+  - task: nventiveCanaryUpdater@5
+    condition: startsWith(variables['Build.SourceBranch'], 'refs/heads/canaries/5x')
+    inputs:
+      solution: 'Windows Community Toolkit.sln'
+      usePrivateFeed: false
+      useNuGetOrg: true
+      mergeBranch: true
+      branchToMerge: 'uno'
+      allowDowngrade: true
+      nugetVersion: 'feature.5x,dev'
+      nugetUpdaterVersion: 2.3.0-alpha.44
+      packageAuthor: 'nventive,unoplatform'
+      summaryFile: '$(Build.ArtifactStagingDirectory)/Canary.md'
+      resultFile: '$(Build.ArtifactStagingDirectory)/update_result.json'
+      additionalPublicSources: 'https://pkgs.dev.azure.com/uno-platform/1dd81cbd-cb35-41de-a570-b0df3571a196/_packaging/dev-uno5/nuget/v3/index.json'
