@@ -46,8 +46,8 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="5.0.0-feature.5x.655" />
-		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.4.0-feature.5x.12" />
+    <PackageReference Include="Uno.WinUI" Version="5.0.0-dev.1155" />
+		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.WinUI.Managed" Version="2.4.0-uno.17" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0-windows10.0.18362.0'">
