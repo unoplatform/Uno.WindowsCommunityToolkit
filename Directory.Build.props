@@ -99,7 +99,6 @@
 	<PropertyGroup>
       <TargetFrameworksOverride>net7.0;net7.0-ios;net7.0-macos;net7.0-android;net7.0-maccatalyst</TargetFrameworksOverride>
       <_IsUno>true</_IsUno>
-      <TargetFrameworksOverride>net7.0</TargetFrameworksOverride>
 
       <NoWarn>$(NoWarn);SA1633</NoWarn>
 
