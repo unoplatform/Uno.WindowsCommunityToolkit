@@ -86,7 +86,7 @@
 	<PropertyGroup>
 		<TargetFrameworksOverride>net7.0;net7.0-ios;net7.0-android;net7.0-maccatalyst;net7.0-macos</TargetFrameworksOverride>
 
-		<NoWarn>$(NoWarn);SA1633;CA1033;CS8604;CA1063;CA1001;CA2214;CA2213;CS8073;CA2242;CS8600;CA1065;CS8622</NoWarn>
+		<NoWarn>$(NoWarn);SA1633;CA1033;CS8604;CA1063;CA1001;CA2214;CA2213;CS8073;CA2242;CS8600;CA1065;CS8622;CS8602</NoWarn>
 
 		<!--
 		UWP is not supported for this build, users must reference
