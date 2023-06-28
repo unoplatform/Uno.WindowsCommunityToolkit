@@ -84,9 +84,9 @@
 	<!-- BEGIN Uno Specific -->
 
 	<PropertyGroup>
-		<TargetFrameworksOverride>MonoAndroid10.0;xamarinios10;netstandard2.0;xamarinmac20</TargetFrameworksOverride>
+		<TargetFrameworksOverride>net7.0;net7.0-ios;net7.0-android;net7.0-maccatalyst;net7.0-macos</TargetFrameworksOverride>
 
-		<NoWarn>$(NoWarn);SA1633</NoWarn>
+		<NoWarn>$(NoWarn);SA1633;CA1033</NoWarn>
 
 		<!--
 		UWP is not supported for this build, users must reference
@@ -94,10 +94,10 @@
 		-->
 		<TargetFrameworksOverride Condition="'$(BUILD_REPOSITORY_PROVIDER)'==''">$(TargetFrameworksOverride);uap10.0.17763</TargetFrameworksOverride>
 
-		<!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
+		<!--<TargetFrameworksOverride>net7.0</TargetFrameworksOverride>-->
 	</PropertyGroup>
 
-	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net7.0' or '$(TargetFramework)' == 'net7.0-ios' or '$(TargetFramework)' == 'net7.0-android' or '$(TargetFramework)' == 'net7.0-maccatalyst' or '$(TargetFramework)' == 'net7.0-macos' ">
 		<NoWarn>$(NoWarn);CS0649;CS0067;CS1998</NoWarn>
 	</PropertyGroup>
 
@@ -109,11 +109,11 @@
 		<JavaSdkDirectory Condition="'$(JavaSdkDirectory)'=='' and '$(JAVA_HOME_8_X64)'!=''">$(JAVA_HOME_8_X64)</JavaSdkDirectory>
 	</PropertyGroup>
 
-    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'net7.0' or '$(TargetFramework)' == 'net7.0-ios' or '$(TargetFramework)' == 'net7.0-android' or '$(TargetFramework)' == 'net7.0-maccatalyst' or '$(TargetFramework)' == 'net7.0-macos' ">
       <ExtrasEnableDefaultPageItems>false</ExtrasEnableDefaultPageItems>
     </PropertyGroup>
 
-    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'MonoAndroid80' or '$(TargetFramework)' == 'xamarinios10' ">
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' or '$(TargetFramework)' == 'net7.0-ios' or '$(TargetFramework)' == 'net7.0-android' or '$(TargetFramework)' == 'net7.0-maccatalyst' or '$(TargetFramework)' == 'net7.0-macos' ">
       <None Remove="$(MSBuildProjectDirectory)\**\*.xaml"/>
       <Page Include="$(MSBuildProjectDirectory)\**\*.xaml" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(ExtrasDefaultPageExcludes)" />
       <UpToDateCheckInput Include="@(Page)"/>

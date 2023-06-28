@@ -6,7 +6,7 @@ using System.Text;
 namespace Microsoft.Toolkit.Extensions
 {
     /// <summary>
-    /// Compatibility for System.Math.Clamp for netstandard2.0
+    /// Compatibility for System.Math.Clamp for net7.0
     /// </summary>
     public static class MathEx
     {

@@ -38,9 +38,9 @@
 	  <XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
   </PropertyGroup>
 	
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' or '$(TargetFramework)' == 'net7.0-ios' or '$(TargetFramework)' == 'net7.0-android' or '$(TargetFramework)' == 'net7.0-maccatalyst' or '$(TargetFramework)' == 'net7.0-macos' ">
 		<PackageReference Include="Uno.UI" 
-											Version="4.0.0-dev.5688" />
+											Version="5.0.0-dev.1148" />
 		<PackageReference Include="Uno.ColorCode.UWP" 
 											Version="2.1.0-uno.4" />
 
