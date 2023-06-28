@@ -57,8 +57,8 @@
 		<PackageId>Uno.Microsoft.Toolkit.Uwp.UI</PackageId>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(TargetFrameworkIdentifier)' == 'MonoAndroid' or '$(TargetFrameworkIdentifier)' == 'Xamarin.iOS' or '$(TargetFrameworkIdentifier)' == '.NETStandard' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
-		<PackageReference Include="Uno.UI" Version="4.0.0-dev.5688" />
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net7.0' or '$(TargetFramework)' == 'net7.0-ios' or '$(TargetFramework)' == 'net7.0-android' or '$(TargetFramework)' == 'net7.0-maccatalyst' or '$(TargetFramework)' == 'net7.0-macos' ">
+		<PackageReference Include="Uno.UI" Version="5.0.0-dev.1148" />
 		<PackageReference Include="Uno.Microsoft.Xaml.Behaviors.Uwp.Managed" Version="2.3.0-uno.12" />
 	</ItemGroup>
 

@@ -30,11 +30,6 @@
             </Grid>
         </DataTemplate>
     </Page.Resources>
-  <banner:BannerControl
-      LinkToUnoPlatformApp="https://github.com/unoplatform/Uno.WindowsCommunityToolkit"
-      LinkToOriginalApp="https://github.com/windows-toolkit/WindowsCommunityToolkit"
-      AppName="Windows Community Toolkit"
-      AppAuthor="Microsoft">
     <Grid>
         <winui:NavigationView x:Name="NavView"
                               IsSettingsVisible="False"
@@ -280,5 +275,4 @@
             </Grid>
         </Canvas>
     </Grid>
-  </banner:BannerControl>
 </Page>
