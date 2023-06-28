@@ -106,6 +106,19 @@ void RetrieveVersion()
     Information("\nBuild Version: " + Version);
 }
 
+void UpdateToolsPath(MSBuildSettings buildSettings)
+{
+    // Workaround for https://github.com/cake-build/cake/issues/2128
+	var vsInstallation = VSWhereLatest(new VSWhereLatestSettings { Requires = "Microsoft.Component.MSBuild", IncludePrerelease = false });
+
+	if (vsInstallation != null)
+	{
+		buildSettings.ToolPath = vsInstallation.CombineWithFilePath(@"MSBuild\Current\Bin\MSBuild.exe");
+		if (!FileExists(buildSettings.ToolPath))
+			buildSettings.ToolPath = vsInstallation.CombineWithFilePath(@"MSBuild\15.0\Bin\MSBuild.exe");
+	}
+}
+
 //////////////////////////////////////////////////////////////////////
 // DEFAULT TASK
 //////////////////////////////////////////////////////////////////////
@@ -157,6 +170,8 @@ Task("BuildProjects")
     .SetPlatformTarget("Any CPU")
     .WithTarget("Restore");
 
+    UpdateToolsPath(buildSettings);
+
     MSBuild(Solution, buildSettings);
 
     EnsureDirectoryExists(nupkgDir);
@@ -171,6 +186,8 @@ Task("BuildProjects")
     .SetPlatformTarget("Any CPU")
     .WithTarget("Build")
     .WithProperty("GenerateLibraryLayout", "true");
+
+    UpdateToolsPath(buildSettings);
 
     MSBuild(Solution, buildSettings);
 });
@@ -227,6 +244,8 @@ Task("Package")
     .WithTarget("Pack")
     .WithProperty("GenerateLibraryLayout", "true")
     .WithProperty("PackageOutputPath", nupkgDir);
+
+    UpdateToolsPath(buildSettings);
 
     MSBuild(Solution, buildSettings);
 });
