@@ -13,4 +13,5 @@ steps:
       SignPackageName: "Uno.CommunityToolkit"
       SignPackageDescription: "Uno.CommunityToolkit"
       ArtifactDirectory: $(build.sourcesdirectory)\bin\nupkg
-      condition: and(succeeded(), not(eq(variables['build.reason'], 'PullRequest')), not(eq(variables['SignClientSecret'], '')), not(eq(variables  ['SignClientUser'], '')))
+
+    condition: and(succeeded(), not(eq(variables['build.reason'], 'PullRequest')), not(eq(variables['SignClientSecret'], '')), not(eq(variables  ['SignClientUser'], '')))
