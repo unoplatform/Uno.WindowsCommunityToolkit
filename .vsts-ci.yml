@@ -65,7 +65,9 @@ jobs:
     
   - powershell: .\build\build.ps1
     displayName: Build 
-  
+
+  - template: build/ci/sign-packages.yml
+
   - task: PublishBuildArtifacts@1
     displayName: Publish Package Artifacts
     inputs:
