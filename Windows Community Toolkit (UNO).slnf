@@ -27,7 +27,8 @@
       "Microsoft.Toolkit.Uwp.UI.Media\\Microsoft.Toolkit.Uwp.UI.Media.csproj",
       "Microsoft.Toolkit.Uwp.UI\\Microsoft.Toolkit.Uwp.UI.csproj",
       "Microsoft.Toolkit.Uwp\\Microsoft.Toolkit.Uwp.csproj",
-      "Microsoft.Toolkit\\Microsoft.Toolkit.csproj"
+      "Microsoft.Toolkit\\Microsoft.Toolkit.csproj",
+      "UnitTests\\UnitTests.Shared\\UnitTests.Shared.shproj"
     ]
   }
 }
