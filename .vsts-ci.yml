@@ -134,7 +134,7 @@ jobs:
   - task: CopyFiles@2
     displayName: 'Publish Wasm Binaries'
     inputs:
-      SourceFolder: $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm/bin/Release/net5.0/dist
+      SourceFolder: $(build.sourcesdirectory)/Microsoft.Toolkit.Uwp.SampleApp.Wasm/bin/Release/net7.0/dist
       Contents: '**/*.*'
       TargetFolder: $(build.artifactstagingdirectory)
       CleanTargetFolder: false
