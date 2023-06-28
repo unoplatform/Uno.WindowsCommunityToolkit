@@ -1,8 +1,4 @@
 steps:
-  - task: DotNetCoreInstaller@0
-    inputs:
-      version: '2.1.504'
-
   - task: PowerShell@2
     displayName: Authenticode Sign Packages
     inputs:
