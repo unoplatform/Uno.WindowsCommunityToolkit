@@ -12,7 +12,8 @@ jobs:
     BuildConfiguration: Release
     ANDROID_NDK_HOME: C:\Microsoft\AndroidNDK64\android-ndk-r16b
     ANDROID_NDK_PATH: C:\Microsoft\AndroidNDK64\android-ndk-r16b
-    AndroidNdkDirectory: C:\Microsoft\AndroidNDK64\android-ndk-r16b 
+    AndroidNdkDirectory: C:\Microsoft\AndroidNDK64\android-ndk-r16b
+    DOTNET_CLI_TELEMETRY_OPTOUT: true
 
   steps:
   
@@ -85,6 +86,7 @@ jobs:
 
   variables:
     NUGET_PACKAGES: $(build.sourcesdirectory)/.nuget
+    DOTNET_CLI_TELEMETRY_OPTOUT: true
 
   steps:
   - checkout: self
