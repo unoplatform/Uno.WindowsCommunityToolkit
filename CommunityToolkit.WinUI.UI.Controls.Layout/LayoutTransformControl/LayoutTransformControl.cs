@@ -159,8 +159,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
 
                 if (transformGroup != null)
                 {
-                    // UNO TODO
-                    var groupMatrix = Microsoft.UI.Xaml.Media.Matrix.Identity;
+                    var groupMatrix = Matrix.Identity;
 
                     foreach (var child in transformGroup.Children)
                     {
