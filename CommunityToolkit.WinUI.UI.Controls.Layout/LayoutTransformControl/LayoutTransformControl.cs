@@ -159,7 +159,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
 
                 if (transformGroup != null)
                 {
-                    // UNO TODO
+                    // Fully qualifying the type is required on Android 
                     var groupMatrix = Microsoft.UI.Xaml.Media.Matrix.Identity;
 
                     foreach (var child in transformGroup.Children)
