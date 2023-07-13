@@ -383,22 +383,6 @@ namespace CommunityToolkit.WinUI.UI.Controls
         }
 
         /// <summary>
-        /// Load an image from a file.
-        /// </summary>
-        /// <param name="imagePath">The path of the image file.</param>
-        /// <returns>Task</returns>
-        public async Task LoadImageFromFile(string imagePath)
-        {
-            var writeableBitmap = new WriteableBitmap(1, 1);
-            using (var stream = new MemoryStream(await File.ReadAllBytesAsync(imagePath)))
-            {
-                await writeableBitmap.SetSourceAsync(stream.AsRandomAccessStream());
-            }
-
-            Source = writeableBitmap;
-        }
-
-        /// <summary>
         /// Saves the cropped image to a stream with the specified format.
         /// </summary>
         /// <param name="stream">The target stream.</param>
@@ -412,6 +396,8 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 return;
             }
 
+            await CropImageAsync(Source, stream, _currentCroppedRect, bitmapFileFormat);
+#if false
             if (keepRectangularOutput || CropShape == CropShape.Rectangular)
             {
                 await CropImageAsync(Source, stream, _currentCroppedRect, bitmapFileFormat);
@@ -419,6 +405,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
             }
 
             await CropImageWithShapeAsync(Source, stream, _currentCroppedRect, bitmapFileFormat, CropShape);
+#endif
         }
 
         /// <summary>

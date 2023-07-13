@@ -52,14 +52,11 @@
 		
 		<Page Remove="Eyedropper/**/*.xaml" />
 		<Page Remove="InfiniteCanvas/**/*.xaml" />
-		<Page Remove="ImageCropper/**/*.xaml" />
 		<Compile Remove="Eyedropper/**/*.cs" />
 		<Compile Remove="InfiniteCanvas/**/*.cs" />
-		<Compile Remove="ImageCropper/**/*.cs" />
 
 		<None Include="Eyedropper/**/*.*" />
 		<None Include="InfiniteCanvas/**/*.*" />
-		<None Include="ImageCropper/**/*.*" />
 	</ItemGroup>
 	<!-- END UNO SPECIFIC -->
 

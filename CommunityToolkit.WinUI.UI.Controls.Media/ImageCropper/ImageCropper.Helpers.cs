@@ -6,9 +6,9 @@ using System;
 using System.Numerics;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.Effects;
-using Microsoft.Graphics.Canvas.Geometry;
+//using Microsoft.Graphics.Canvas;
+//using Microsoft.Graphics.Canvas.Effects;
+//using Microsoft.Graphics.Canvas.Geometry;
 using Microsoft.UI;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Windows.Foundation;
@@ -49,6 +49,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
             }
         }
 
+#if false
         private static async Task CropImageWithShapeAsync(WriteableBitmap writeableBitmap, IRandomAccessStream stream, Rect croppedRect, BitmapFileFormat bitmapFileFormat, CropShape cropShape)
         {
             var device = CanvasDevice.GetSharedDevice();
@@ -109,6 +110,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
 
             return null;
         }
+#endif
 
         private static Guid GetEncoderId(BitmapFileFormat bitmapFileFormat)
         {
