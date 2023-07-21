@@ -101,6 +101,7 @@
       <_IsUno>true</_IsUno>
 
       <NoWarn>$(NoWarn);SA1633</NoWarn>
+      <UnoEnableXamlFuzzyMatching>false</UnoEnableXamlFuzzyMatching>
 
 			<!--
 		WinUI is not supported for this build, users must reference
