@@ -33,7 +33,7 @@
 	</PropertyGroup>
 
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="5.0.0-dev.1155" />
+    <PackageReference Include="Uno.WinUI" Version="5.0.0-dev.1728" />
 
 		<Compile Remove="Effects\Blur.cs" />
 		<Compile Remove="Effects\Saturation.cs" />
