@@ -55,7 +55,7 @@
   </PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
     <PackageReference Remove="Microsoft.UI.Xaml" />
-    <PackageReference Include="Uno.WinUI" Version="5.0.0-dev.1728" />
+    <PackageReference Include="Uno.WinUI" Version="5.0.0-dev.3538" />
 
     <Page Remove="RichSuggestBox/**/*.xaml" />
     <Compile Remove="RichSuggestBox/**/*.cs" />
