@@ -37,7 +37,7 @@
 		<!-- Force all projects to use the same uno version to avoid net5 build issues on linux -->
 		<PackageReference 
 			Update="Uno.WinUI"
-			Version="5.0.0-dev.1728" />
+			Version="5.0.0-dev.3538" />
 	</ItemGroup>
 	<!-- END Uno Specific -->
 
