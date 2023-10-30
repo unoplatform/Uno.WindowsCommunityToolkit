@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.UI.Xaml;
 using Uno.Extensions;
 using Uno.UI;
-using Windows.UI.Xaml;
 
 namespace CommunityToolkit.WinUI.SampleApp.Wasm
 {
