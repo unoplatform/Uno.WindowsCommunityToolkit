@@ -14,10 +14,5 @@
     "buildNumber": {
       "enabled": false
     }
-  },
-  "release": {
-    "branchName" : "rel/{version}",
-    "versionIncrement" : "build",
-    "firstUnstableTag" : "preview"
   }
 }
