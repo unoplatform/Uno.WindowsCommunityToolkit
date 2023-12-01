@@ -80,6 +80,43 @@ For example, using the default Uno template, you only need to add the following 
 </ItemGroup>
 ```
 
+Also, don't forget to add the corresponding package versions in `Directory.Packages.props`:
+```xml
+<PackageVersion Include="Uno.CommunityToolkit.Common" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.Connectivity" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.DeveloperTools" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Animations" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Behaviors" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Controls" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Controls.Core" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Controls.Input" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Controls.Layout" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Controls.Markdown" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Controls.Media" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Controls.Primitives" Version="7.1.200" />
+<PackageVersion Include="Uno.CommunityToolkit.WinUI.UI.Media" Version="7.1.200" />
+
+<PackageVersion Include="CommunityToolkit.Common" Version="8.2.2" />
+<PackageVersion Include="CommunityToolkit.WinUI" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.Connectivity" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.DeveloperTools" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Animations" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Behaviors" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Controls.Core" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Controls.Input" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Controls.Layout" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Controls.Markdown" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Controls.Media" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Controls.Primitives" Version="7.1.2" />
+<PackageVersion Include="CommunityToolkit.WinUI.UI.Media" Version="7.1.2" />
+```
+
 ## Support for UWP
 
 As the original Community Toolkit does, this fork also provides binaries for UWP, and the branch [`unorel/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/7.1) is used to provide this support.
