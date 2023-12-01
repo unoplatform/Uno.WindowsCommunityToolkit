@@ -80,8 +80,6 @@ For example, using the default Uno template, you only need to add the following 
 </ItemGroup>
 ```
 
-For the class library 
-
 ## Support for UWP
 
 As the original Community Toolkit does, this fork also provides binaries for UWP, and the branch [`unorel/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/7.1) is used to provide this support.
