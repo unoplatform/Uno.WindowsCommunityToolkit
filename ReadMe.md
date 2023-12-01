@@ -6,7 +6,7 @@ on Windows, iOS, macOS, Android, WebAssembly and Linux.
 See below on this page for information about UWP.
 
 The following packages are available:
-- Uno.CommunityToolkit.Common [![NuGet](https://img.shields.io/nuget/v/CommunityToolkit.Common.svg)](https://www.nuget.org/packages/Uno.CommunityToolkit.Common)
+- Uno.CommunityToolkit.Common [![NuGet](https://img.shields.io/nuget/v/CommunityToolkit.Common.svg)](https://www.nuget.org/packages/CommunityToolkit.Common)
 - Uno.CommunityToolkit.WinUI [![NuGet](https://img.shields.io/nuget/v/Uno.CommunityToolkit.WinUI.svg)](https://www.nuget.org/packages/Uno.CommunityToolkit.WinUI)
 - Uno.CommunityToolkit.WinUI.Connectivity [![NuGet](https://img.shields.io/nuget/v/Uno.CommunityToolkit.WinUI.Connectivity.svg)](https://www.nuget.org/packages/Uno.CommunityToolkit.WinUI.Connectivity)
 - Uno.CommunityToolkit.WinUI.DeveloperTools [![NuGet](https://img.shields.io/nuget/v/Uno.CommunityToolkit.WinUI.DeveloperTools.svg)](https://www.nuget.org/packages/Uno.CommunityToolkit.WinUI.DeveloperTools)
@@ -32,13 +32,55 @@ On Windows projects (the WinUI 3 Desktop head), please install the official [Win
 If you are building a library, use the following to conditionally include the toolkit builds:
 
 ```xml
-<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-windows10.0.18362'">
+<ItemGroup Condition="$(TargetFramework.Contains('windows10'))">
 	<PackageReference Include="CommunityToolkit.WinUI.Controls" Version="7.1.2" />
 </ItemGroup>
-<ItemGroup Condition="'$(TargetFramework)' != 'net7.0-windows10.0.18362'">
-	<PackageReference Include="Uno.CommunityToolkit.WinUI.Controls" Version="7.1.100" />
+<ItemGroup Condition="!$(TargetFramework.Contains('windows10'))">
+	<PackageReference Include="Uno.CommunityToolkit.WinUI.Controls" Version="7.1.200" />
 </ItemGroup>
 ```
+
+For example, using the default Uno template, you only need to add the following lines (as needed) to the class library `<AppName>.csproj`. No changes are needed in each target separately (`<AppName>.Wasm.csproj`, `<AppName>.Windows.csproj`, etc.)
+```xml
+<ItemGroup Condition="$(TargetFramework.Contains('windows10'))">
+  <PackageReference Include="CommunityToolkit.Common" />
+  <PackageReference Include="CommunityToolkit.WinUI" />
+  <PackageReference Include="CommunityToolkit.WinUI.Connectivity" />
+  <PackageReference Include="CommunityToolkit.WinUI.DeveloperTools" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Animations" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Behaviors" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Core" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Input" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Layout" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Markdown" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Media" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.Primitives" />
+  <PackageReference Include="CommunityToolkit.WinUI.UI.Media" />
+</ItemGroup>
+<ItemGroup Condition="!$(TargetFramework.Contains('windows10'))">
+  <PackageReference Include="Uno.CommunityToolkit.Common" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.Connectivity" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.DeveloperTools" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Animations" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Behaviors" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls.Core" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls.DataGrid" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls.Input" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls.Layout" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls.Markdown" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls.Media" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls.Primitives" />
+  <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Media" />
+</ItemGroup>
+```
+
+For the class library 
 
 ## Support for UWP
 
