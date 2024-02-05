@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.4;uap10.0.19041;net461;netcoreapp3.1;net5.0;net5.0-windows10.0.18362.0;native</TargetFrameworks>
+    <TargetFrameworks>netstandard1.4;uap10.0.19041;net461;net5.0;net5.0-windows10.0.18362.0;native</TargetFrameworks>
     <DefineConstants>$(DefineConstants);NETFX_CORE</DefineConstants>
     <NuspecFile>CommunityToolkit.WinUI.Notifications.nuspec</NuspecFile>
   </PropertyGroup>
@@ -11,7 +11,7 @@
     <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'netcoreapp3.1' or '$(TargetFramework)' == 'net5.0-windows10.0.18362.0'">
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net461' or '$(TargetFramework)' == 'net5.0-windows10.0.18362.0'">
     <!-- Define the WINDOWS_UWP conditional symbol, since the Windows.Data.Xml and the Windows.UI.Notification namespaces are available -->
     <DefineConstants>$(DefineConstants);WINDOWS_UWP;WIN32</DefineConstants>
   </PropertyGroup>
