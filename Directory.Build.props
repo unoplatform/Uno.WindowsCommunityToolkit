@@ -97,7 +97,7 @@
 	<!-- BEGIN Uno Specific -->
 
 	<PropertyGroup>
-      <TargetFrameworksOverride>net7.0;net7.0-ios;net7.0-macos;net7.0-android;net7.0-maccatalyst</TargetFrameworksOverride>
+      <TargetFrameworksOverride>net8.0;net8.0-ios;net8.0-macos;net8.0-android;net8.0-maccatalyst</TargetFrameworksOverride>
       <_IsUno>true</_IsUno>
 
       <NoWarn>$(NoWarn);SA1633</NoWarn>
