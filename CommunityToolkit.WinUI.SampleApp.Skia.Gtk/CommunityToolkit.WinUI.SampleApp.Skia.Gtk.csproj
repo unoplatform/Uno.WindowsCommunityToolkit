@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType Condition="'$(Configuration)'=='Release'">WinExe</OutputType>
     <OutputType Condition="'$(Configuration)'=='Debug'">Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <UnoUIUseRoslynSourceGenerators>false</UnoUIUseRoslynSourceGenerators>
     <IsPackable>false</IsPackable>
     <NoWarn>$(NoWarn);Uno0001</NoWarn>
