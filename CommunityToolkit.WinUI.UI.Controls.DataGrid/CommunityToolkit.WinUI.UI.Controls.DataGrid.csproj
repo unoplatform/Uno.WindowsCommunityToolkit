@@ -20,6 +20,7 @@
       <CustomToolNamespace>$(RootNamespace)</CustomToolNamespace>
       <!-- The 'ManifestResourceName' metadata changes the default manifest naming scheme -->
       <ManifestResourceName>$(RootNamespace).%(Filename)</ManifestResourceName>
+      <LogicalName>$(RootNamespace).%(Filename)</LogicalName>
     </EmbeddedResource>
     <Compile Update="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
