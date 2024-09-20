@@ -32,7 +32,7 @@
 
 	<!-- BEGIN UNO SPECIFIC -->
 	<PropertyGroup>
-		<!--<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>-->
+		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 		<RootNamespace>CommunityToolkit.WinUI.UI.Controls.DG</RootNamespace>
 		<PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.DataGrid</PackageId>
