@@ -109,6 +109,7 @@
 		-->
 		<TargetFrameworksOverride Condition="'$(BUILD_REPOSITORY_PROVIDER)'==''">$(TargetFrameworksOverride);net5.0-windows10.0.18362.0</TargetFrameworksOverride>
 
+    <TargetFrameworksOverride Condition="$([MSBuild]::IsOSPlatform('Linux'))">net7.0</TargetFrameworksOverride>
 	<!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
 	</PropertyGroup>
 
