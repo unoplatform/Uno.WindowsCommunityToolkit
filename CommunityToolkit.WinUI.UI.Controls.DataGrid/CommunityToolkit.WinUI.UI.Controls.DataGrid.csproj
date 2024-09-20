@@ -1,7 +1,7 @@
 <Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net7.0-ios</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
     <RootNamespace>CommunityToolkit.WinUI.UI.Controls</RootNamespace>
   </PropertyGroup>
 
