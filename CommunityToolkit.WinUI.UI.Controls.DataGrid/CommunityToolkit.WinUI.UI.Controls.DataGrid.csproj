@@ -1,7 +1,7 @@
 <Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
+    <TargetFrameworks>net7.0;net7.0-ios</TargetFrameworks>
     <RootNamespace>CommunityToolkit.WinUI.UI.Controls</RootNamespace>
   </PropertyGroup>
 
@@ -20,7 +20,7 @@
       <CustomToolNamespace>$(RootNamespace)</CustomToolNamespace>
       <!-- The 'ManifestResourceName' metadata changes the default manifest naming scheme -->
       <ManifestResourceName>$(RootNamespace).%(Filename)</ManifestResourceName>
-      <LogicalName>$(RootNamespace).%(Filename)</LogicalName>
+      <LogicalName>$(RootNamespace).%(Filename).resources</LogicalName>
     </EmbeddedResource>
     <Compile Update="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -32,7 +32,7 @@
 
 	<!-- BEGIN UNO SPECIFIC -->
 	<PropertyGroup>
-		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
+		<!--<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>-->
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 		<RootNamespace>CommunityToolkit.WinUI.UI.Controls.DG</RootNamespace>
 		<PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.DataGrid</PackageId>
