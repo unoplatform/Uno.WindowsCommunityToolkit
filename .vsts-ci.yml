@@ -93,9 +93,6 @@ jobs:
   - template: build/ci/canary.yml
 
   - bash: |
-      dotnet workload install wasm-tools
-
-  - bash: |
       cd $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm
       dotnet msbuild /r /nr:false /m:1 /p:Configuration=Release /p:UnoUIUseRoslynSourceGenerators=false /p:UnoUIVersionOverride=true $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm/CommunityToolkit.WinUI.SampleApp.Wasm.csproj /p:TargetFrameworksOverride=net7.0 /bl:$(build.artifactstagingdirectory)/build.binlog
 
