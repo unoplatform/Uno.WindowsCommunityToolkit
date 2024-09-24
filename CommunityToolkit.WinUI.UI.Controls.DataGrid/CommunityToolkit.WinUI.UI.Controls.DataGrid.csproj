@@ -20,7 +20,6 @@
       <CustomToolNamespace>$(RootNamespace)</CustomToolNamespace>
       <!-- The 'ManifestResourceName' metadata changes the default manifest naming scheme -->
       <ManifestResourceName>$(RootNamespace).%(Filename)</ManifestResourceName>
-      <LogicalName>$(RootNamespace).%(Filename).resources</LogicalName>
     </EmbeddedResource>
     <Compile Update="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -29,8 +28,18 @@
     </Compile>
   </ItemGroup>
 
+  <Target Name="AdjustResources" BeforeTargets="_UnoEmbeddedResourcesInjection">
+    <!--
+    Workaround for issue fixed in later uno where existing
+    embedded resources are overridden incorrectly
+    https://github.com/unoplatform/uno/pull/16522
+    -->
+    <ItemGroup>
+      <EmbeddedResource Remove="@(EmbeddedResource)" Condition="'%(EmbeddedResource.LogicalName)'==''" />
+    </ItemGroup>
+  </Target>
 
-	<!-- BEGIN UNO SPECIFIC -->
+  <!-- BEGIN UNO SPECIFIC -->
 	<PropertyGroup>
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
