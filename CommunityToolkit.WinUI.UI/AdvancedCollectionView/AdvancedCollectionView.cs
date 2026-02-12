@@ -22,7 +22,7 @@ namespace CommunityToolkit.WinUI.UI
     /// <summary>
     /// A collection view implementation that supports filtering, sorting and incremental loading
     /// </summary>
-    public partial class AdvancedCollectionView : IAdvancedCollectionView, /*UNO TODO*/System.ComponentModel.INotifyPropertyChanged, ISupportIncrementalLoading, IComparer<object>
+    public partial class AdvancedCollectionView : IAdvancedCollectionView, /*UNO TODO*/System.ComponentModel.INotifyPropertyChanged, ISupportIncrementalLoading, IComparer<object>, INotifyCollectionChanged
     {
         private readonly List<object> _view;
 
@@ -416,6 +416,11 @@ namespace CommunityToolkit.WinUI.UI
 
             return 0;
         }
+
+        /// <summary>
+        /// Occurs when the collection changes.
+        /// </summary>
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
 
         /// <summary>
         /// Occurs when a property value changes.
