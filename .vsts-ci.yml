@@ -8,11 +8,16 @@ jobs:
   pool:
     vmImage: 'windows-2022'
 
-  variables: 
-    BuildConfiguration: Release
-    ANDROID_NDK_HOME: C:\Microsoft\AndroidNDK64\android-ndk-r16b
-    ANDROID_NDK_PATH: C:\Microsoft\AndroidNDK64\android-ndk-r16b
-    AndroidNdkDirectory: C:\Microsoft\AndroidNDK64\android-ndk-r16b 
+  variables:
+  - group: uno-codesign-vault
+  - name: BuildConfiguration
+    value: Release
+  - name: ANDROID_NDK_HOME
+    value: C:\Microsoft\AndroidNDK64\android-ndk-r16b
+  - name: ANDROID_NDK_PATH
+    value: C:\Microsoft\AndroidNDK64\android-ndk-r16b
+  - name: AndroidNdkDirectory
+    value: C:\Microsoft\AndroidNDK64\android-ndk-r16b
 
   steps:
   
