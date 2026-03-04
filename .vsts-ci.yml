@@ -1,6 +1,7 @@
 trigger:
 - master
 - rel/*
+- unorel/winui/*
 
 jobs:
 - job: Windows
@@ -20,7 +21,7 @@ jobs:
     value: C:\Microsoft\AndroidNDK64\android-ndk-r16b
 
   steps:
-  
+
   - task: UseDotNet@2
     inputs:
       packageType: 'runtime'
