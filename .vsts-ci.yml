@@ -71,6 +71,12 @@ jobs:
   - powershell: .\build\build.ps1
     displayName: Build 
 
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '8.0.x'
+    displayName: Use .NET SDK 8.x for signing
+
   - template: build/ci/sign-packages.yml
 
   - task: PublishBuildArtifacts@1
