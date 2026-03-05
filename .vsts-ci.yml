@@ -62,7 +62,7 @@ jobs:
     inputs:
       command: custom
       custom: tool
-      arguments: install --tool-path . nbgv
+      arguments: install --tool-path . nbgv --version 3.6.146
     displayName: Install NBGV tool
   
   - script: nbgv cloud
