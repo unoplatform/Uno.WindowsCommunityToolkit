@@ -55,6 +55,12 @@ jobs:
       version: '5.0.402'
     displayName: Use .NET SDK 5.0.402
 
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '8.0.x'
+    displayName: Use .NET SDK 8.x
+
   - template: build/ci/dotnet-install-windows.yml
   - template: build/ci/jdk-setup.yml
 
