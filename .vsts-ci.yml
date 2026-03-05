@@ -73,6 +73,12 @@ jobs:
   
   - script: nbgv cloud
     displayName: Set Version
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '7.0.302'
+    displayName: Use .NET SDK 7.0.302
     
   - powershell: .\build\build.ps1
     displayName: Build 
