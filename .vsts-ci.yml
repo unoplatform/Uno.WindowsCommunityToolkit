@@ -55,12 +55,6 @@ jobs:
       version: '5.0.402'
     displayName: Use .NET SDK 5.0.402
 
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'sdk'
-      version: '8.0.x'
-    displayName: Use .NET SDK 8.x
-
   - template: build/ci/dotnet-install-windows.yml
   - template: build/ci/jdk-setup.yml
 
@@ -68,17 +62,11 @@ jobs:
     inputs:
       command: custom
       custom: tool
-      arguments: install --tool-path . nbgv
+      arguments: install --tool-path . nbgv --version 3.6.146
     displayName: Install NBGV tool
   
   - script: nbgv cloud
     displayName: Set Version
-
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'sdk'
-      version: '7.0.302'
-    displayName: Use .NET SDK 7.0.302
     
   - powershell: .\build\build.ps1
     displayName: Build 
