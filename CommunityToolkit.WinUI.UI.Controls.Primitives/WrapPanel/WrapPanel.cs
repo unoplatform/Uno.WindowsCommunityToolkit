@@ -10,6 +10,7 @@ using System.Linq;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Windows.Foundation;
+using CommunityToolkit.WinUI.UI.Extensions;
 
 namespace CommunityToolkit.WinUI.UI.Controls
 {
@@ -152,8 +153,11 @@ namespace CommunityToolkit.WinUI.UI.Controls
         /// <inheritdoc />
         protected override Size ArrangeOverride(Size finalSize)
         {
-            if ((Orientation == Orientation.Horizontal && finalSize.Width < DesiredSize.Width) ||
-                (Orientation == Orientation.Vertical && finalSize.Height < DesiredSize.Height))
+            var scale = this.XamlRoot?.RasterizationScale ?? 1.0;
+            var snappedFinalSize = finalSize.SnapToPixels(scale);
+
+            if ((Orientation == Orientation.Horizontal && snappedFinalSize.Width < DesiredSize.Width) ||
+                (Orientation == Orientation.Vertical && snappedFinalSize.Height < DesiredSize.Height))
             {
                 // We haven't received our desired size. We need to refresh the rows.
                 UpdateRows(finalSize);
@@ -194,8 +198,11 @@ namespace CommunityToolkit.WinUI.UI.Controls
         {
             _rows.Clear();
 
-            var paddingStart = new UvMeasure(Orientation, Padding.Left, Padding.Top);
-            var paddingEnd = new UvMeasure(Orientation, Padding.Right, Padding.Bottom);
+            var scale = this.XamlRoot?.RasterizationScale ?? 1.0;
+            var snappedPadding = Padding.SnapToPixels(scale);
+
+            var paddingStart = new UvMeasure(Orientation, snappedPadding.Left, snappedPadding.Top);
+            var paddingEnd = new UvMeasure(Orientation, snappedPadding.Right, snappedPadding.Bottom);
 
             if (Children.Count == 0)
             {
@@ -204,8 +211,8 @@ namespace CommunityToolkit.WinUI.UI.Controls
             }
 
             var parentMeasure = new UvMeasure(Orientation, availableSize.Width, availableSize.Height);
-            var spacingMeasure = new UvMeasure(Orientation, HorizontalSpacing, VerticalSpacing);
-            var position = new UvMeasure(Orientation, Padding.Left, Padding.Top);
+            var spacingMeasure = new UvMeasure(Orientation, HorizontalSpacing.SnapToPixels(scale), VerticalSpacing.SnapToPixels(scale));
+            var position = paddingStart;
 
             var currentRow = new Row(new List<UvRect>(), default);
             var finalMeasure = new UvMeasure(Orientation, width: 0.0, height: 0.0);
@@ -216,8 +223,8 @@ namespace CommunityToolkit.WinUI.UI.Controls
                     return; // if an item is collapsed, avoid adding the spacing
                 }
 
-                var desiredMeasure = new UvMeasure(Orientation, child.DesiredSize);
-                if ((desiredMeasure.U + position.U + paddingEnd.U) > parentMeasure.U)
+                var desiredMeasure = new UvMeasure(Orientation, child.DesiredSize.SnapToPixels(scale));
+                if ((desiredMeasure.U + position.U + paddingEnd.U) > parentMeasure.U.SnapToPixels(scale))
                 {
                     // next row!
                     position.U = paddingStart.U;
@@ -236,7 +243,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 currentRow.Add(position, desiredMeasure);
 
                 // adjust the location for the next items
-                position.U += desiredMeasure.U + spacingMeasure.U;
+                position.U = position.U + desiredMeasure.U + spacingMeasure.U;
                 finalMeasure.U = Math.Max(finalMeasure.U, position.U);
             }
 
