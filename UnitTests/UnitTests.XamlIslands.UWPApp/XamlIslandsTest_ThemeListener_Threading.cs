@@ -36,6 +36,24 @@ namespace UnitTests.XamlIslands.UWPApp
             });
         }
 
+        [TestCleanup]
+        public Task Cleanup()
+        {
+            return App.Dispatcher.EnqueueAsync(() => _themeListener.Dispose());
+        }
+
+        [TestMethod]
+        public async Task ThemeListenerCanBeCreatedAndDisposedForCurrentWindowAsync()
+        {
+            await App.Dispatcher.EnqueueAsync(() =>
+            {
+                using var listener = new ThemeListener();
+                Assert.AreEqual(Application.Current.RequestedTheme, listener.CurrentTheme);
+                Assert.IsNotNull(listener.DispatcherQueue);
+                listener.Dispose();
+            });
+        }
+
         [TestMethod]
         public async Task ThemeListenerDispatcherTestAsync()
         {

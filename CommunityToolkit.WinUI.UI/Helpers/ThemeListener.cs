@@ -57,6 +57,7 @@ namespace CommunityToolkit.WinUI.UI.Helpers
 
         private AccessibilitySettings _accessible = new AccessibilitySettings();
         private UISettings _settings = new UISettings();
+        private readonly Window _window;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ThemeListener"/> class.
@@ -73,12 +74,15 @@ namespace CommunityToolkit.WinUI.UI.Helpers
 
             DispatcherQueue = dispatcherQueue ?? DispatcherQueue.GetForCurrentThread();
 
-            if (Window.Current != null)
+            _window = Window.Current;
+            if (_window != null)
             {
                 _accessible.HighContrastChanged += Accessible_HighContrastChanged;
                 _settings.ColorValuesChanged += Settings_ColorValuesChanged;
 
-                Window.Current.CoreWindow.Activated += CoreWindow_Activated;
+                // Desktop windows (including Uno Skia) do not have a CoreWindow. Subscribe to the
+                // XAML window event so both desktop and CoreWindow-backed hosts retain activation updates.
+                _window.Activated += Window_Activated;
             }
         }
 
@@ -120,13 +124,13 @@ namespace CommunityToolkit.WinUI.UI.Helpers
                 }, DispatcherQueuePriority.Normal);
         }
 
-        private void CoreWindow_Activated(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.WindowActivatedEventArgs args)
+        private void Window_Activated(object sender, WindowActivatedEventArgs args)
         {
             if (CurrentTheme != Application.Current.RequestedTheme ||
                 IsHighContrast != _accessible.HighContrast)
             {
 #if DEBUG
-                global::System.Diagnostics.Debug.WriteLine("CoreWindow Activated Changed");
+                global::System.Diagnostics.Debug.WriteLine("Window Activated Changed");
 #endif
 
                 UpdateProperties();
@@ -160,9 +164,9 @@ namespace CommunityToolkit.WinUI.UI.Helpers
         {
             _accessible.HighContrastChanged -= Accessible_HighContrastChanged;
             _settings.ColorValuesChanged -= Settings_ColorValuesChanged;
-            if (Window.Current != null)
+            if (_window != null)
             {
-                Window.Current.CoreWindow.Activated -= CoreWindow_Activated;
+                _window.Activated -= Window_Activated;
             }
         }
     }
