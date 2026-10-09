@@ -244,7 +244,7 @@ namespace CommunityToolkit.WinUI.UI.Data.Utilities
         /// <returns>True if the process cannot be recovered from the exception.</returns>
         public static bool IsCriticalException(Exception exception)
         {
-#if WINDOWS_UWP || HAS_UNO
+#if WINDOWS_UWP
             return exception is OutOfMemoryException;
 #else
             return (exception is OutOfMemoryException) ||

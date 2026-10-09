@@ -175,14 +175,10 @@ namespace CommunityToolkit.WinUI.UI
         /// <inheritdoc/>
         public IEnumerable<AttachedShadowElementContext> EnumerateElementContexts()
         {
-#if !HAS_UNO // Needs more recent API of ConditionalWeakTable not in netstd2.0
             foreach (var kvp in ShadowElementContextTable)
             {
                 yield return kvp.Value;
             }
-#else
-            yield break;
-#endif
         }
 
         /// <summary>
@@ -201,7 +197,6 @@ namespace CommunityToolkit.WinUI.UI
                 return;
             }
 
-#if !HAS_UNO // Needs more recent API of ConditionalWeakTable not in netstd2.0
             foreach (var context in ShadowElementContextTable)
             {
                 if (context.Value.IsInitialized)
@@ -209,7 +204,6 @@ namespace CommunityToolkit.WinUI.UI
                     OnPropertyChanged(context.Value, property, oldValue, newValue);
                 }
             }
-#endif
         }
 
         /// <summary>
