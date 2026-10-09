@@ -2,19 +2,23 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-using Microsoft.UI.Xaml;
+using System.Threading.Tasks;
+using Uno.UI.Hosting;
 
 namespace CommunityToolkit.WinUI.SampleApp
 {
     public static class Program
     {
-        public static int Main(string[] args)
+        public static async Task Main(string[] args)
         {
             App.InitializeLogging();
 
-            Application.Start(_ => new App());
+            var host = UnoPlatformHostBuilder.Create()
+                .App(() => new App())
+                .UseWebAssembly()
+                .Build();
 
-            return 0;
+            await host.RunAsync();
         }
     }
 }

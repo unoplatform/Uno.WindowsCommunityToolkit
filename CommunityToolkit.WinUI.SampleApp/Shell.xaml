@@ -21,7 +21,7 @@
                       x:DataType="local:SampleCategory">
             <Grid>
                 <TextBlock VerticalAlignment="Center"
-                           FontFamily="Segoe UI"
+                           FontFamily="{ThemeResource ContentControlThemeFontFamily}"
                            FontSize="15px"
                            FontWeight="Normal"
                            Text="{x:Bind Name}" />

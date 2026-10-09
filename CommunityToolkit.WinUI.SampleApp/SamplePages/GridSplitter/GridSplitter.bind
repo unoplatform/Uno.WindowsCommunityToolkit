@@ -91,7 +91,7 @@
                          VerticalAlignment="Center"
                          Text="&#xE76F;"
                          Foreground="White"
-                         FontFamily="Segoe MDL2 Assets"/>
+                         FontFamily="{ThemeResource SymbolThemeFontFamily}"/>
       </controls:GridSplitter.Element>
     </controls:GridSplitter>
 

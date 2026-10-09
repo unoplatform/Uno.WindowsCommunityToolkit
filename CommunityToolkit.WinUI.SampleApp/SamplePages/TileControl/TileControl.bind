@@ -8,7 +8,7 @@
   <Page.Resources>
     <Style x:Name="TextBlockStyle" TargetType="TextBlock">
       <Setter Property="FontSize" Value="40" />
-      <Setter Property="FontFamily" Value="Segoe UI" />
+      <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
       <Setter Property="FontWeight" Value="Light" />
       <Setter Property="Foreground" Value="White" />
       <Setter Property="Margin" Value="48" />
