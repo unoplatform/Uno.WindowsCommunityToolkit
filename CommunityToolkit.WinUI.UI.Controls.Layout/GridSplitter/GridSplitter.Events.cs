@@ -7,6 +7,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
+using Windows.Foundation;
 using Windows.System;
 using Windows.UI.Core;
 
@@ -151,6 +152,10 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 ProtectedCursor = RowSplitterCursor;
             }
 
+            // The distance travelled before the manipulation was recognized is only reported here, never as a
+            // ManipulationDelta (Uno Platform 7 matches WinUI), so apply it to keep the splitter under the pointer.
+            Move(e.Cumulative.Translation);
+
             base.OnManipulationStarted(e);
         }
 
@@ -165,8 +170,18 @@ namespace CommunityToolkit.WinUI.UI.Controls
         /// <inheritdoc />
         protected override void OnManipulationDelta(ManipulationDeltaRoutedEventArgs e)
         {
-            var horizontalChange = e.Delta.Translation.X;
-            var verticalChange = e.Delta.Translation.Y;
+            if (Move(e.Delta.Translation))
+            {
+                return;
+            }
+
+            base.OnManipulationDelta(e);
+        }
+
+        private bool Move(Point translation)
+        {
+            var horizontalChange = translation.X;
+            var verticalChange = translation.Y;
 
             if (this.FlowDirection == FlowDirection.RightToLeft)
             {
@@ -175,20 +190,14 @@ namespace CommunityToolkit.WinUI.UI.Controls
 
             if (_resizeDirection == GridResizeDirection.Columns)
             {
-                if (HorizontalMove(horizontalChange))
-                {
-                    return;
-                }
+                return HorizontalMove(horizontalChange);
             }
             else if (_resizeDirection == GridResizeDirection.Rows)
             {
-                if (VerticalMove(verticalChange))
-                {
-                    return;
-                }
+                return VerticalMove(verticalChange);
             }
 
-            base.OnManipulationDelta(e);
+            return false;
         }
 
         private bool VerticalMove(double verticalChange)
