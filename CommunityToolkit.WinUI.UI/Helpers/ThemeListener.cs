@@ -78,7 +78,11 @@ namespace CommunityToolkit.WinUI.UI.Helpers
                 _accessible.HighContrastChanged += Accessible_HighContrastChanged;
                 _settings.ColorValuesChanged += Settings_ColorValuesChanged;
 
-                Window.Current.CoreWindow.Activated += CoreWindow_Activated;
+                // Uno Platform 7 can have a current Window without a CoreWindow, as WinUI desktop apps do.
+                if (Window.Current.CoreWindow is { } coreWindow)
+                {
+                    coreWindow.Activated += CoreWindow_Activated;
+                }
             }
         }
 
@@ -160,9 +164,9 @@ namespace CommunityToolkit.WinUI.UI.Helpers
         {
             _accessible.HighContrastChanged -= Accessible_HighContrastChanged;
             _settings.ColorValuesChanged -= Settings_ColorValuesChanged;
-            if (Window.Current != null)
+            if (Window.Current?.CoreWindow is { } coreWindow)
             {
-                Window.Current.CoreWindow.Activated -= CoreWindow_Activated;
+                coreWindow.Activated -= CoreWindow_Activated;
             }
         }
     }
