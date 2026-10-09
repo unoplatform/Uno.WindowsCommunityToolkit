@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Uno.Sdk.Private">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
@@ -46,17 +46,9 @@
 		<PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.Markdown</PackageId>
         <RootNamespace>CommunityToolkit.WinUI.UI.Controls.Markdown</RootNamespace>
 
-        <!-- Validation fails as the generated document is too big -->
-		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
 	</PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="5.0.19" />
-		<PackageReference Include="Uno.ColorCode.WinUI" Version="2.1.0-uno.36" />
-	</ItemGroup>
-		
-	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid12.0' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
-		<Reference Include="System.Xml" />
-		<Reference Include="System.Xml.Linq" />
+		<PackageReference Include="Uno.ColorCode.WinUI" Version="3.0.0-uno.0" />
 	</ItemGroup>
 
 	<!-- END UNO SPECIFIC -->
