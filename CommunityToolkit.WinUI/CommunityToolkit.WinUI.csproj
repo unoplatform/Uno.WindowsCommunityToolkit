@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Uno.Sdk.Private">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
@@ -21,9 +21,6 @@
     <PackageId>Uno.CommunityToolkit.WinUI</PackageId>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="5.0.19" />
-  </ItemGroup>
 
   <!-- END UNO SPECIFIC -->
 

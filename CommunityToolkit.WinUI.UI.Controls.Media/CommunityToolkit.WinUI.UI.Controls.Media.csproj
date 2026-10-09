@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Uno.Sdk.Private">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
@@ -44,19 +44,10 @@
 		<PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.Media</PackageId>
         <RootNamespace>CommunityToolkit.WinUI.UI.Controls.Media</RootNamespace>
 
-      <!-- Validation fails as the generated document is too big -->
-		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
+		<!-- Not supported on Uno. Uno.Sdk adds its default items after this file, so a Page/Compile Remove is too early. -->
+		<DefaultItemExcludes>$(DefaultItemExcludes);Eyedropper/**;InfiniteCanvas/**;ImageCropper/**</DefaultItemExcludes>
 	</PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="5.0.19" />
-		
-		<Page Remove="Eyedropper/**/*.xaml" />
-		<Page Remove="InfiniteCanvas/**/*.xaml" />
-		<Page Remove="ImageCropper/**/*.xaml" />
-		<Compile Remove="Eyedropper/**/*.cs" />
-		<Compile Remove="InfiniteCanvas/**/*.cs" />
-		<Compile Remove="ImageCropper/**/*.cs" />
-
 		<None Include="Eyedropper/**/*.*" />
 		<None Include="InfiniteCanvas/**/*.*" />
 		<None Include="ImageCropper/**/*.*" />

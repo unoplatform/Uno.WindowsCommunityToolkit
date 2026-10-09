@@ -97,31 +97,20 @@
 	<!-- BEGIN Uno Specific -->
 
 	<PropertyGroup>
-      <TargetFrameworksOverride>net8.0;net8.0-ios;net8.0-macos;net8.0-android;net8.0-maccatalyst</TargetFrameworksOverride>
+      <!--
+      Uno Platform 7.0 renders every target with Skia, and a plain net10.0 library is consumed by every
+      Uno head. WinUI (WinAppSDK) is not supported for this build, users must reference the official
+      toolkit packages instead.
+      -->
+      <TargetFrameworksOverride>net10.0</TargetFrameworksOverride>
       <_IsUno>true</_IsUno>
 
       <NoWarn>$(NoWarn);SA1633</NoWarn>
       <UnoEnableXamlFuzzyMatching>false</UnoEnableXamlFuzzyMatching>
-
-			<!--
-		WinUI is not supported for this build, users must reference
-		the official toolkit packages instead.
-		-->
-		<TargetFrameworksOverride Condition="'$(BUILD_REPOSITORY_PROVIDER)'==''">$(TargetFrameworksOverride);net5.0-windows10.0.18362.0</TargetFrameworksOverride>
-
-	<!--<TargetFrameworksOverride>netstandard2.0</TargetFrameworksOverride>-->
 	</PropertyGroup>
 
 	<PropertyGroup Condition=" '$(_IsUno)'=='true' ">
 		<NoWarn>$(NoWarn);CS0649;CS0067;CS1998</NoWarn>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<!--https://github.com/xamarin/AndroidSupportComponents/issues/176-->
-		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
-
-		<!-- Workaround for android build using the Uno Source Generators: https://github.com/nventive/Uno.SourceGeneration/issues/109 -->
-		<JavaSdkDirectory Condition="'$(JavaSdkDirectory)'=='' and '$(JAVA_HOME_8_X64)'!=''">$(JAVA_HOME_8_X64)</JavaSdkDirectory>
 	</PropertyGroup>
 
     <PropertyGroup Condition=" '$(_IsUno)'=='true' ">
@@ -139,15 +128,6 @@
       <UpToDateCheckInput Include="@(Page)"/>
     </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework.ToLower().StartsWith('xamarinmac')) and '$(Configuration)' == 'Release'">
-    <Reference Include="Xamarin.Mac">
-      <HintPath Condition="Exists('C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Xamarin.VisualStudio')">C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Xamarin.VisualStudio\Xamarin.Mac.dll</HintPath>
-      <HintPath Condition="Exists('C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Xamarin.VisualStudio')">C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Xamarin.VisualStudio\Xamarin.Mac.dll</HintPath>
-      <HintPath Condition="Exists('C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Xamarin.VisualStudio')">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Xamarin.VisualStudio\Xamarin.Mac.dll</HintPath>
-      <HintPath Condition="Exists('C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\Extensions\Xamarin.VisualStudio')">C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\Extensions\Xamarin.VisualStudio\Xamarin.Mac.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  
 	<!-- END Uno Specific -->
 
 </Project>

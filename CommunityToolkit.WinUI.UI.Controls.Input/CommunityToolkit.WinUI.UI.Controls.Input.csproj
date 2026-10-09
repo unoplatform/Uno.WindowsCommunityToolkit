@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Uno.Sdk.Private">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
@@ -50,15 +50,11 @@
     <PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.Input</PackageId>
     <RootNamespace>CommunityToolkit.WinUI.UI.Controls.Input</RootNamespace>
 
-    <!-- Validation fails as the generated document is too big -->
-    <XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
+    <!-- Not supported on Uno. Uno.Sdk adds its default items after this file, so a Page/Compile Remove is too early. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);RichSuggestBox/**</DefaultItemExcludes>
   </PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
     <PackageReference Remove="Microsoft.UI.Xaml" />
-    <PackageReference Include="Uno.WinUI" Version="5.0.19" />
-
-    <Page Remove="RichSuggestBox/**/*.xaml" />
-    <Compile Remove="RichSuggestBox/**/*.cs" />
     <None Include="RichSuggestBox/**/*.cs" />
     <None Include="RichSuggestBox/**/*.xaml" />
 

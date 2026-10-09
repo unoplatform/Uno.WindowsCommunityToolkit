@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Uno.Sdk.Private">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
@@ -30,10 +30,15 @@
 		<TargetFrameworks>$(TargetFrameworksOverride)</TargetFrameworks>
 		<NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
 		<PackageId>Uno.CommunityToolkit.WinUI.UI.Animations</PackageId>
+
+		<!--
+		ExpressionValues.Reference.cs is the ExpressionValues.Reference class, not an Uno ".reference.cs" platform file.
+		Uno 5 and 6 skipped it because of that suffix; it builds on Uno 7 and keeps the API aligned with WinUI.
+		-->
+		<MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);UNOB0027</MSBuildWarningsAsMessages>
 	</PropertyGroup>
 
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="5.0.19" />
 
 		<Compile Remove="Effects\Blur.cs" />
 		<Compile Remove="Effects\Saturation.cs" />

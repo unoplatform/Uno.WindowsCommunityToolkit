@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Uno.Sdk.Private">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
@@ -61,11 +61,8 @@
     <NoWarn>$(NoWarn);Uno0001;NU1701</NoWarn>
     <PackageId>Uno.CommunityToolkit.WinUI.UI.Media</PackageId>
 
-    <!-- Validation fails as the generated document is too big -->
-    <XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
   </PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-    <PackageReference Include="Uno.WinUI" Version="5.0.19" />
 
 
     <Compile Remove="Brushes\**\*.cs" />
