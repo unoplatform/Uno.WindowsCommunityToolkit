@@ -3,19 +3,10 @@
     "path": "Windows Community Toolkit.sln",
     "projects": [
       "CommunityToolkit.Common\\CommunityToolkit.Common.csproj",
-      "CommunityToolkit.Diagnostics\\CommunityToolkit.Diagnostics.csproj",
-      "CommunityToolkit.HighPerformance\\CommunityToolkit.HighPerformance.csproj",
-      "CommunityToolkit.Mvvm.SourceGenerators\\CommunityToolkit.Mvvm.SourceGenerators.csproj",
-      "CommunityToolkit.Mvvm\\CommunityToolkit.Mvvm.csproj",
       "CommunityToolkit.WinUI.Connectivity\\CommunityToolkit.WinUI.Connectivity.csproj",
       "CommunityToolkit.WinUI.DeveloperTools\\CommunityToolkit.WinUI.DeveloperTools.csproj",
-      "CommunityToolkit.WinUI.Input.GazeInteraction\\CommunityToolkit.WinUI.Input.GazeInteraction.csproj",
-      "CommunityToolkit.WinUI.Notifications\\CommunityToolkit.WinUI.Notifications.csproj",
-      "CommunityToolkit.WinUI.SampleApp.Package\\CommunityToolkit.WinUI.SampleApp.Package.wapproj",
-      "CommunityToolkit.WinUI.SampleApp.Skia.Gtk\\CommunityToolkit.WinUI.SampleApp.Skia.Gtk.csproj",
-      "CommunityToolkit.WinUI.SampleApp.Wasm\\CommunityToolkit.WinUI.SampleApp.Wasm.csproj",
+      "CommunityToolkit.WinUI.SampleApp.Uno\\CommunityToolkit.WinUI.SampleApp.Uno.csproj",
       "CommunityToolkit.WinUI.SampleApp\\CommunityToolkit.WinUI.SampleApp.Shared.shproj",
-      "CommunityToolkit.WinUI.SampleApp\\CommunityToolkit.WinUI.SampleApp.csproj",
       "CommunityToolkit.WinUI.UI.Animations\\CommunityToolkit.WinUI.UI.Animations.csproj",
       "CommunityToolkit.WinUI.UI.Behaviors\\CommunityToolkit.WinUI.UI.Behaviors.csproj",
       "CommunityToolkit.WinUI.UI.Controls.Core\\CommunityToolkit.WinUI.UI.Controls.Core.csproj",
@@ -28,8 +19,7 @@
       "CommunityToolkit.WinUI.UI.Controls\\CommunityToolkit.WinUI.UI.Controls.csproj",
       "CommunityToolkit.WinUI.UI.Media\\CommunityToolkit.WinUI.UI.Media.csproj",
       "CommunityToolkit.WinUI.UI\\CommunityToolkit.WinUI.UI.csproj",
-      "CommunityToolkit.WinUI\\CommunityToolkit.WinUI.csproj",
-      "UnitTests\\UnitTests.Notifications.Shared\\UnitTests.Notifications.Shared.shproj"
+      "CommunityToolkit.WinUI\\CommunityToolkit.WinUI.csproj"
     ]
   }
 }

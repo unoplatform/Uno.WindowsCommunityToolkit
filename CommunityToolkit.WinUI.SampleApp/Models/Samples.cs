@@ -60,26 +60,36 @@ namespace CommunityToolkit.WinUI.SampleApp
 
         public static async Task<MemoryStream> LoadLocalFile(string fileName)
         {
+            if (fileName.StartsWith('/'))
+            {
+                fileName = fileName.TrimStart('/');
+            }
+
+            var stream = new MemoryStream();
+
+#if HAS_UNO
+            // On Uno Platform the sample sources are embedded resources, not files next to the app.
+            using (var resource = await StreamHelper.GetEmbeddedFileStreamAsync(typeof(Samples), fileName.Replace('/', '.').Replace(' ', '_')))
+            {
+                await resource.CopyToAsync(stream);
+            }
+#else
             if (_installedLocationPath == null)
             {
                 var workingFolder = Package.Current.InstalledLocation;
                 _installedLocationPath = workingFolder.Path;
             }
 
-            if (fileName.StartsWith('/'))
-            {
-                fileName = fileName.TrimStart('/');
-            }
-
             var fullFileName = Path.Combine(_installedLocationPath, fileName);
 
-            var stream = new MemoryStream();
             if (!File.Exists(fullFileName))
             {
                 throw new FileNotFoundException("File not found.", fullFileName);
             }
 
             await File.OpenRead(fullFileName).CopyToAsync(stream);
+#endif
+
             stream.Seek(0, SeekOrigin.Begin);
 
             return stream;

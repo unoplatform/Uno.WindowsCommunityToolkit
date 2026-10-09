@@ -4,7 +4,7 @@
       xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
       xmlns:converters="using:CommunityToolkit.WinUI.UI.Converters"
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:core="using:Microsoft.Xaml.Interactivity"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d">
