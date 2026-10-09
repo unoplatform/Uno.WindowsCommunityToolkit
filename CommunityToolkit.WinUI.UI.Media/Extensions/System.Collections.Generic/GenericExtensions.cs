@@ -32,18 +32,7 @@ namespace CommunityToolkit.WinUI.UI.Media
                 throw new InvalidOperationException($"The key {key} already exists in the current pipeline");
             }
 
-#if HAS_UNO
-            var ret = new Dictionary<TKey, TValue>();
-
-            foreach(var pair in a.Concat(b))
-            {
-                ret.Add(pair.Key, pair.Value);
-            }
-
-            return ret;
-#else
             return new Dictionary<TKey, TValue>(a.Concat(b));
-#endif
         }
 
         /// <summary>
