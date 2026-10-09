@@ -258,7 +258,7 @@
                         Height="43" Width="48"
                         Style="{StaticResource DismissTextBlockButtonStyle}"
                         Content="&#xE894;"
-                        FontFamily="Segoe MDL2 Assets"
+                        FontFamily="{ThemeResource SymbolThemeFontFamily}"
                         AutomationProperties.Name="Dismiss"
                         Command="{StaticResource DismissCommand}"
                         CommandParameter="{Binding ElementName=ExampleCustomInAppNotification}"

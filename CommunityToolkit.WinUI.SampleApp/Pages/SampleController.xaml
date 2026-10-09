@@ -92,7 +92,7 @@
                               Visibility="Collapsed"
                               Click="OpenClosePane">
                     <AppBarButton.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;" />
+                        <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE946;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
             </Grid>

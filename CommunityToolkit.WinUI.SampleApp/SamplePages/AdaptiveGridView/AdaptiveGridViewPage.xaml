@@ -37,7 +37,8 @@
                    Grid.ColumnSpan="2"
                    Margin="0,12"
                    HorizontalAlignment="Center"
-                   FontFamily="Segoe UI Light"
+                   FontFamily="{ThemeResource ContentControlThemeFontFamily}"
+                   FontWeight="Light"
                    FontSize="21"
                    Text="You haven't selected any items"
                    Visibility="{Binding IsItemClickEnabled.Value, Converter={StaticResource BoolToVisibilityConverter}}" />
@@ -48,7 +49,8 @@
 
         <TextBlock Grid.Row="2"
                    Margin="4"
-                   FontFamily="Segoe UI Light"
+                   FontFamily="{ThemeResource ContentControlThemeFontFamily}"
+                   FontWeight="Light"
                    FontSize="21"
                    Text="Number of Photos" />
 
