@@ -192,10 +192,6 @@ namespace CommunityToolkit.WinUI.SampleApp
         /// </summary>
         public App()
         {
-#if DEBUG
-            ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
-#endif
-
             InitializeComponent();
             Suspending += OnSuspending;
         }
@@ -370,53 +366,30 @@ namespace CommunityToolkit.WinUI.SampleApp
             }
         }
 
-        static void ConfigureFilters(ILoggerFactory factory)
+        /// <summary>
+        /// Routes Uno Platform's logging to the console. Called by each platform's entry point before the app starts.
+        /// </summary>
+        public static void InitializeLogging()
         {
-#if HAS_UNO
             System.Threading.Tasks.TaskScheduler.UnobservedTaskException += (s, e) => typeof(App).Log().Error("UnobservedTaskException", e.Exception);
             AppDomain.CurrentDomain.UnhandledException += (s, e) => typeof(App).Log().Error("UnhandledException", e.ExceptionObject as Exception);
+
+            var factory = LoggerFactory.Create(builder =>
+            {
+#if __WASM__
+                builder.AddProvider(new global::Uno.Extensions.Logging.WebAssembly.WebAssemblyConsoleLoggerProvider());
+#else
+                builder.AddConsole();
 #endif
 
-            factory
-                .WithFilter(new FilterLoggerSettings
-                    {
-                        { "Uno", LogLevel.Warning },
-                        { "Windows", LogLevel.Warning },
-                        { "Microsoft", LogLevel.Warning },
+                builder.SetMinimumLevel(LogLevel.Information);
+                builder.AddFilter("Uno", LogLevel.Warning);
+                builder.AddFilter("Windows", LogLevel.Warning);
+                builder.AddFilter("Microsoft", LogLevel.Warning);
+            });
 
-                        // { "SampleControl.Presentation", LogLevel.Debug },
-
-                        // Generic Xaml events
-                        // { "Windows.UI.Xaml", LogLevel.Debug },
-
-                    // { "Uno.UI.Controls.AsyncValuePresenter", LogLevel.Debug },
-                    // { "Uno.UI.Controls.IfDataContext", LogLevel.Debug },
-                     // { "Windows.UI.Xaml.FrameworkElement", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.UIElement", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.Controls.SinglelineTextBoxView", LogLevel.Debug },
-
-                    // Layouter specific messages
-                    // { "Windows.UI.Xaml.Controls", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.Controls.Layouter", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.Controls.Panel", LogLevel.Debug },
-
-                    // Binding related messages
-                     // { "Windows.UI.Xaml.Data", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.DependencyObjectStore", LogLevel.Debug },
-                     // { "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
-
-					// Binder memory references tracking
-					// { "ReferenceHolder", LogLevel.Debug },
-				}
-                )
-#if !NETFX_CORE
-                .AddConsole(LogLevel.Debug)
-#endif
-                ;
-
-#if HAS_UNO
+            LogExtensionPoint.AmbientLoggerFactory = factory;
             Uno.UI.Adapter.Microsoft.Extensions.Logging.LoggingAdapter.Initialize();
-#endif
         }
     }
 }

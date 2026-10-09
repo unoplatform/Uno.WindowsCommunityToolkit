@@ -9,7 +9,7 @@
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:common="using:CommunityToolkit.WinUI.SampleApp.Common"
-      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:core="using:Microsoft.Xaml.Interactivity"
       xmlns:models="using:CommunityToolkit.WinUI.SampleApp.Models"
     mc:Ignorable="d">
 

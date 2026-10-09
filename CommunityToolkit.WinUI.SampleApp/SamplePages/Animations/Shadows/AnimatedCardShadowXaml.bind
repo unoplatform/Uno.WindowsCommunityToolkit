@@ -6,7 +6,7 @@
   xmlns:ui="using:CommunityToolkit.WinUI.UI"
   xmlns:media="using:CommunityToolkit.WinUI.UI.Media"
   xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-  xmlns:interactions="using:Microsoft.Xaml.Interactions.Core"
+  xmlns:interactions="using:Microsoft.Xaml.Interactivity"
   xmlns:ani="using:CommunityToolkit.WinUI.UI.Animations"
   xmlns:behaviors="using:CommunityToolkit.WinUI.UI.Behaviors"
   mc:Ignorable="d">

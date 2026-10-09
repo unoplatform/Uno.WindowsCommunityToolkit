@@ -743,8 +743,11 @@ namespace CommunityToolkit.WinUI.SampleApp
                 StretchChild.Last.GetType() // CommunityToolkit.WinUI.UI.Controls.Primitivs
             };
 
+            // Prefer the toolkit's types: WinUI declares some of the same names (e.g. ExpandDirection, with fewer values).
             return targets.SelectMany(t => t.Assembly.ExportedTypes)
-                .FirstOrDefault(t => t.Name == typeName);
+                .Where(t => t.Name == typeName)
+                .OrderBy(t => t.Namespace?.StartsWith("CommunityToolkit", StringComparison.Ordinal) == true ? 0 : 1)
+                .FirstOrDefault();
         }
 
         private static async Task<string> GetDocsSHA()

@@ -6,7 +6,7 @@
     xmlns:local="using:CommunityToolkit.WinUI.SampleApp.SamplePages"
     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:core="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
 
     <Page.Resources>

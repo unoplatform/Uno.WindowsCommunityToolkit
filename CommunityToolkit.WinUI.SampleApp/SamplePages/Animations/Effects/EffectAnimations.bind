@@ -7,7 +7,7 @@
     xmlns:behaviors="using:CommunityToolkit.WinUI.UI.Behaviors"
     xmlns:media="using:CommunityToolkit.WinUI.UI.Media"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:Interactions="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Interactions="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
 
   <Grid>

@@ -1,0 +1,43 @@
+<Project Sdk="Uno.Sdk.Private">
+
+  <PropertyGroup>
+    <TargetFrameworks>net10.0-desktop;net10.0-browserwasm</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <UnoSingleProject>true</UnoSingleProject>
+    <RootNamespace>CommunityToolkit.WinUI.SampleApp</RootNamespace>
+
+    <ApplicationTitle>Windows Community Toolkit</ApplicationTitle>
+    <ApplicationId>com.unoplatform.communitytoolkit.sampleapp</ApplicationId>
+    <ApplicationDisplayVersion>7.2</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationPublisher>Uno Platform</ApplicationPublisher>
+    <Description>Windows Community Toolkit sample app, powered by Uno Platform.</Description>
+
+    <NoWarn>$(NoWarn);Uno0001</NoWarn>
+
+    <!--
+    Debug-only add-ins without a working Uno Platform 7.0 build in this SDK: Hot Design (unoplatform/uno.hotdesign#8166),
+    and Uno.UI.App.Mcp 1.3.0-dev.98, which references SkiaSharp.Views.Windows and fails at startup.
+    -->
+    <UnoDisableHotDesign>true</UnoDisableHotDesign>
+    <UnoDisableMCPSupport>true</UnoDisableMCPSupport>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommunityToolkit.Common\CommunityToolkit.Common.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI\CommunityToolkit.WinUI.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.Connectivity\CommunityToolkit.WinUI.Connectivity.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.DeveloperTools\CommunityToolkit.WinUI.DeveloperTools.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI\CommunityToolkit.WinUI.UI.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Animations\CommunityToolkit.WinUI.UI.Animations.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Behaviors\CommunityToolkit.WinUI.UI.Behaviors.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls\CommunityToolkit.WinUI.UI.Controls.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.DataGrid\CommunityToolkit.WinUI.UI.Controls.DataGrid.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Controls.Markdown\CommunityToolkit.WinUI.UI.Controls.Markdown.csproj" />
+    <ProjectReference Include="..\CommunityToolkit.WinUI.UI.Media\CommunityToolkit.WinUI.UI.Media.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\CommunityToolkit.WinUI.SampleApp\CommunityToolkit.WinUI.SampleApp.Shared.projitems" Label="Shared" />
+  <Import Project="..\CommunityToolkit.WinUI.SampleApp.iOS\Exclusions.props" />
+
+</Project>
