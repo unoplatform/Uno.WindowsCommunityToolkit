@@ -127,7 +127,6 @@ namespace CommunityToolkit.WinUI.UI.Controls.TextToolbarButtons
         /// <summary>
         /// Gets or sets the Tooltip message, explaining what the button does.
         /// </summary>
-#pragma warning disable CS0114 // Member hides inherited member, for macOS.
         public string ToolTip
         {
             get { return (string)GetValue(ToolTipProperty); }

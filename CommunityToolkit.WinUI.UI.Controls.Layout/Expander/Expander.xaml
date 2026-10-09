@@ -3,9 +3,8 @@
                     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:xamarin="http://uno.ui/xamarin"
                     xmlns:converters="using:CommunityToolkit.WinUI.UI.Converters"
-                    mc:Ignorable="d xamarin">
+                    mc:Ignorable="d">
 
     <converters:EmptyObjectToObjectConverter x:Key="NullToVisibilityConverter" EmptyValue="Collapsed" NotEmptyValue="Visible" />
     <converters:BoolNegationConverter x:Key="BoolNegationConverter" />
@@ -377,9 +376,9 @@
                                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                   HorizontalContentAlignment="Stretch"
                                                   VerticalContentAlignment="Stretch"
-												  xamarin:Content="{TemplateBinding Content}"
-												  xamarin:ContentTemplate="{TemplateBinding ContentTemplate}"
-												  xamarin:ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
+												  Content="{TemplateBinding Content}"
+												  ContentTemplate="{TemplateBinding ContentTemplate}"
+												  ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                                   Opacity="0">
                                     <ContentPresenter.RenderTransform>
                                         <TranslateTransform Y="0" />

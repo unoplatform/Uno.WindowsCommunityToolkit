@@ -1,11 +1,11 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   					xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-  					xmlns:xamarin="http://uno.ui/xamarin"
+  					xmlns:not_winappsdk="http://uno.ui/not_winappsdk"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                    mc:Ignorable="d xamarin">
+                    mc:Ignorable="d not_winappsdk">
 
     <Style x:Key="HorizontalGridView"
            TargetType="GridView">
@@ -42,7 +42,7 @@
             <Setter.Value>
                 <ItemsPanelTemplate>
 					<win:ItemsStackPanel Orientation="Horizontal" />
-					<xamarin:StackPanel Orientation="Horizontal" />
+					<not_winappsdk:StackPanel Orientation="Horizontal" />
 				</ItemsPanelTemplate>
             </Setter.Value>
         </Setter>

@@ -38,11 +38,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="element">The root element.</param>
         /// <returns>The descendant that was found, or <see langword="null"/>.</returns>
         public static T? FindDescendant<T>(this DependencyObject element)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             PredicateByAny<T> predicateByAny = default;
 
@@ -70,11 +66,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the descendant nodes.</param>
         /// <returns>The descendant that was found, or <see langword="null"/>.</returns>
         public static T? FindDescendant<T>(this DependencyObject element, Func<T, bool> predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             PredicateByFunc<T> predicateByFunc = new (predicate);
 
@@ -91,11 +83,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the descendant nodes.</param>
         /// <returns>The descendant that was found, or <see langword="null"/>.</returns>
         public static T? FindDescendant<T, TState>(this DependencyObject element, TState state, Func<T, TState, bool> predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             PredicateByFunc<T, TState> predicateByFunc = new (state, predicate);
 
@@ -111,11 +99,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the descendant nodes.</param>
         /// <returns>The descendant that was found, or <see langword="null"/>.</returns>
         private static T? FindDescendant<T, TPredicate>(this DependencyObject element, ref TPredicate predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
             where TPredicate : struct, IPredicate<T>
         {
             int childrenCount = VisualTreeHelper.GetChildrenCount(element);
@@ -164,11 +148,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="element">The root element.</param>
         /// <returns>The descendant (or self) that was found, or <see langword="null"/>.</returns>
         public static T? FindDescendantOrSelf<T>(this DependencyObject element)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             if (element is T result)
             {
@@ -202,11 +182,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the descendant nodes.</param>
         /// <returns>The descendant (or self) that was found, or <see langword="null"/>.</returns>
         public static T? FindDescendantOrSelf<T>(this DependencyObject element, Func<T, bool> predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             if (element is T result && predicate(result))
             {
@@ -226,11 +202,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the descendant nodes.</param>
         /// <returns>The descendant (or self) that was found, or <see langword="null"/>.</returns>
         public static T? FindDescendantOrSelf<T, TState>(this DependencyObject element, TState state, Func<T, TState, bool> predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             if (element is T result && predicate(result, state))
             {
@@ -290,11 +262,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="element">The starting element.</param>
         /// <returns>The ascendant that was found, or <see langword="null"/>.</returns>
         public static T? FindAscendant<T>(this DependencyObject element)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             PredicateByAny<T> predicateByAny = default;
 
@@ -322,11 +290,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the ascendant nodes.</param>
         /// <returns>The ascendant that was found, or <see langword="null"/>.</returns>
         public static T? FindAscendant<T>(this DependencyObject element, Func<T, bool> predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             PredicateByFunc<T> predicateByFunc = new (predicate);
 
@@ -343,11 +307,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the ascendant nodes.</param>
         /// <returns>The ascendant that was found, or <see langword="null"/>.</returns>
         public static T? FindAscendant<T, TState>(this DependencyObject element, TState state, Func<T, TState, bool> predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             PredicateByFunc<T, TState> predicateByFunc = new (state, predicate);
 
@@ -363,11 +323,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the ascendant nodes.</param>
         /// <returns>The ascendant that was found, or <see langword="null"/>.</returns>
         private static T? FindAscendant<T, TPredicate>(this DependencyObject element, ref TPredicate predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
             where TPredicate : struct, IPredicate<T>
         {
             while (true)
@@ -412,11 +368,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="element">The starting element.</param>
         /// <returns>The ascendant (or self) that was found, or <see langword="null"/>.</returns>
         public static T? FindAscendantOrSelf<T>(this DependencyObject element)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             if (element is T result)
             {
@@ -450,11 +402,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the ascendant nodes.</param>
         /// <returns>The ascendant (or self) that was found, or <see langword="null"/>.</returns>
         public static T? FindAscendantOrSelf<T>(this DependencyObject element, Func<T, bool> predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             if (element is T result && predicate(result))
             {
@@ -474,11 +422,7 @@ namespace CommunityToolkit.WinUI.UI
         /// <param name="predicate">The predicatee to use to match the ascendant nodes.</param>
         /// <returns>The ascendant (or self) that was found, or <see langword="null"/>.</returns>
         public static T? FindAscendantOrSelf<T, TState>(this DependencyObject element, TState state, Func<T, TState, bool> predicate)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : notnull, DependencyObject
-#endif
         {
             if (element is T result && predicate(result, state))
             {
