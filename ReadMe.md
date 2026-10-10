@@ -8,6 +8,25 @@ on Windows, iOS, macOS, Android, WebAssembly, and Linux.
 > If you update to version 8.x, Uno Platform support is now available out of the box. You can remove the Uno Windows Community Toolkit references and all `Condition` statements around the packages.
 > For more details on how to use Windows Community Toolkit, complete details are available [here](https://aka.platform.uno/install-uno-community-toolkit).
 
+## Versions
+
+Pick the package version that matches the Uno Platform version of your app:
+
+| Packages | Uno Platform | Target frameworks | Branch |
+|---|---|---|---|
+| 7.2.x | 7.0 and later | `net10.0`, used by every Uno Platform head | [`uno`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/uno) (in development on [`feature/uno7`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/feature/uno7)) |
+| 7.1.2xx | 5.x and 6.x | `net7.0`, `net7.0-android`, `net7.0-ios`, `net7.0-maccatalyst`, `net7.0-macos` | [`unorel/winui/7.1.200`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/winui/7.1.200) |
+| 7.1.1xx | 4.x | Xamarin and `net6.0` targets | [`unorel/winui/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/winui/7.1) |
+
+Until Uno Platform 7.0 is released, 7.2 builds are published to the Uno Platform dev feed only.
+
+### Moving to 7.2 (Uno Platform 7)
+
+- The packages are built against Uno Platform 7 and require .NET 10. Uno Platform 7 renders every target with Skia, so a single `net10.0` build serves the desktop, WebAssembly, Android and iOS heads. Binaries built for Uno Platform 6 or earlier cannot be loaded by an Uno Platform 7 app.
+- The XAML Behaviors dependency is now `Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI` 4.x. Since XAML Behaviors 3.0, the types of `Microsoft.Xaml.Interactions.Core` and `Microsoft.Xaml.Interactions.Media` live in `Microsoft.Xaml.Interactivity`: update `xmlns` declarations that use the old namespaces.
+- `DataGrid` honors `[ReadOnly]` on auto-generated columns, as it does on Windows.
+- Windows (WinAppSDK) heads keep using the packages published by Microsoft, as before.
+
 The following packages are available:
 
 ## [WinUI / WinAppSDK]
@@ -33,7 +52,7 @@ These package IDs are for Uno Platform (non-Windows) projects. For WinUI 3 proje
 
 ### [UWP]
 
-As the original Community Toolkit does, this fork also provides binaries for UWP, and the branch [`unorel/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/7.1) is used to provide this support.
+As the original Community Toolkit does, this fork also provides binaries for UWP, and the branch [`unorel/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/7.1) is used to provide this support. Uno Platform ships its UWP API (`Uno.UI`) up to version 5.x only, so there is no UWP flavor of these packages for Uno Platform 6 or 7.
 
 - Uno.Microsoft.Toolkit [![NuGet](https://img.shields.io/nuget/v/Uno.Microsoft.Toolkit.svg)](https://www.nuget.org/packages/Uno.Microsoft.Toolkit)
 - Uno.Microsoft.Toolkit.Uwp [![NuGet](https://img.shields.io/nuget/v/Uno.Microsoft.Toolkit.Uwp.svg)](https://www.nuget.org/packages/Uno.Microsoft.Toolkit.Uwp)
