@@ -110,6 +110,9 @@ jobs:
   - checkout: self
     clean: true
 
+  # Same canary update as the other jobs, so the tests run against the packages being packed.
+  - template: build/ci/canary.yml
+
   - task: UseDotNet@2
     displayName: Use .NET SDK 10.0.x
     retryCountOnTaskFailure: 3

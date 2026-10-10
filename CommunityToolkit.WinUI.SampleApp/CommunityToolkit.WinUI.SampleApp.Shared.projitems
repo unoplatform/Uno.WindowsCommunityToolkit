@@ -1044,6 +1044,7 @@
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\**\*.bind" Exclude="$(MSBuildThisFileDirectory)bin\**;$(MSBuildThisFileDirectory)obj\**" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\**\*.csv" Exclude="$(MSBuildThisFileDirectory)bin\**;$(MSBuildThisFileDirectory)obj\**" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SamplePages\**\*.md" Exclude="$(MSBuildThisFileDirectory)bin\**;$(MSBuildThisFileDirectory)obj\**" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)**\*.json" Exclude="$(MSBuildThisFileDirectory)bin\**;$(MSBuildThisFileDirectory)obj\**" />
   </ItemGroup>
   <!-- END UNO SPECIFIC -->
