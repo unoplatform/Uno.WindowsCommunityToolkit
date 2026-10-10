@@ -2,6 +2,7 @@ trigger:
 - master
 - rel/*
 - unorel/winui/*
+- feature/uno7
 
 jobs:
 - job: Windows
@@ -13,64 +14,34 @@ jobs:
   - group: uno-codesign-vault
   - name: BuildConfiguration
     value: Release
-  - name: ANDROID_NDK_HOME
-    value: C:\Microsoft\AndroidNDK64\android-ndk-r16b
-  - name: ANDROID_NDK_PATH
-    value: C:\Microsoft\AndroidNDK64\android-ndk-r16b
-  - name: AndroidNdkDirectory
-    value: C:\Microsoft\AndroidNDK64\android-ndk-r16b
 
   steps:
 
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'runtime'
-      version: '2.2.0'
-
   - template: build/ci/canary.yml
+  - template: build/ci/dotnet-install.yml
 
-  - task: BatchScript@1
-    inputs:
-      filename: "C:\\Program Files\\Microsoft Visual Studio\\2022\\Enterprise\\Common7\\Tools\\VsDevCmd.bat"
-      arguments: -no_logo
-      modifyEnvironment: true
-    displayName: Setup Environment Variables
-    
-  - powershell: .\build\Install-WindowsSdkISO.ps1 18362
-    displayName: Install Windows SDK 18362
-    
-  - task: NuGetToolInstaller@0
-    displayName: Use NuGet 5.6.0
-    inputs:
-      versionSpec: 5.6.0
-
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'sdk'
-      version: '3.1.101'
-    displayName: Use .NET Core SDK 3.1.101
-
-  - task: UseDotNet@2
-    inputs:
-      packageType: 'sdk'
-      version: '5.0.402'
-    displayName: Use .NET SDK 5.0.402
-
-  - template: build/ci/dotnet-install-windows.yml
-  - template: build/ci/jdk-setup.yml
-
-  - task: DotNetCoreCLI@2  
+  - task: DotNetCoreCLI@2
     inputs:
       command: custom
       custom: tool
-      arguments: install --tool-path . nbgv
+      arguments: install --tool-path . nbgv --version 3.6.146
     displayName: Install NBGV tool
-  
+
   - script: nbgv cloud
     displayName: Set Version
-    
-  - powershell: .\build\build.ps1
-    displayName: Build 
+
+  - script: dotnet build "Windows Community Toolkit (UNO).slnf" -c $(BuildConfiguration) "-bl:$(Build.ArtifactStagingDirectory)\logs\build.binlog"
+    displayName: Build
+
+  # Not --no-build: packing makes Uno.Sdk build the project references again, which NoBuild rejects (NETSDK1085).
+  - script: dotnet pack "Windows Community Toolkit (UNO).slnf" -c $(BuildConfiguration) --no-restore -o "$(Build.SourcesDirectory)\bin\nupkg" "-bl:$(Build.ArtifactStagingDirectory)\logs\pack.binlog"
+    displayName: Pack
+
+  - task: UseDotNet@2
+    inputs:
+      packageType: 'sdk'
+      version: '8.0.x'
+    displayName: Use .NET SDK 8.x for signing
 
   - template: build/ci/sign-packages.yml
 
@@ -82,36 +53,42 @@ jobs:
       artifactName: WCT-Packages
     condition: always()
 
-- job: linux
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Build Logs
+    inputs:
+      pathToPublish: $(Build.ArtifactStagingDirectory)\logs
+      artifactType: container
+      artifactName: logs-windows
+    condition: always()
 
-  container: unoplatform/wasm-build:2.3
+- job: linux
 
   pool:
     vmImage: 'ubuntu-latest'
-
-  variables:
-    NUGET_PACKAGES: $(build.sourcesdirectory)/.nuget
 
   steps:
   - checkout: self
     clean: true
 
   - template: build/ci/canary.yml
+  - template: build/ci/dotnet-install.yml
 
-  - bash: |
-      cd $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm
-      dotnet msbuild /r /nr:false /m:1 /p:Configuration=Release /p:UnoUIUseRoslynSourceGenerators=false /p:UnoUIVersionOverride=true $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm/CommunityToolkit.WinUI.SampleApp.Wasm.csproj /p:TargetFrameworksOverride=net8.0 /bl:$(build.artifactstagingdirectory)/build.binlog
+  # Publishes to the default folder: an -o path reaches Uno.Wasm.Bootstrap without its trailing slash,
+  # and it then looks for the site in "<dir>wwwroot".
+  - bash: dotnet publish CommunityToolkit.WinUI.SampleApp.Uno/CommunityToolkit.WinUI.SampleApp.Uno.csproj -f net10.0-browserwasm -c Release "-bl:$(build.artifactstagingdirectory)/build.binlog"
+    displayName: Publish the WebAssembly sample
 
   - task: CopyFiles@2
     displayName: 'Publish Wasm Binaries'
     inputs:
-      SourceFolder: $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Wasm/bin/Release/net8.0/dist
+      SourceFolder: $(build.sourcesdirectory)/CommunityToolkit.WinUI.SampleApp.Uno/bin/Release/net10.0-browserwasm/publish/wwwroot
       Contents: '**/*.*'
       TargetFolder: $(build.artifactstagingdirectory)
       CleanTargetFolder: false
       OverWrite: false
       flattenFolders: false
 
+  # The artifact keeps its name for the deployment that consumes it; the site is not AOT-compiled any more.
   - task: PublishBuildArtifacts@1
     condition: always()
     inputs:
