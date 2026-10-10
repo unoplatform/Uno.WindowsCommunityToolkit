@@ -95,3 +95,60 @@ jobs:
       PathtoPublish: $(build.artifactstagingdirectory)
       ArtifactName: wct-aot-drop
       ArtifactType: Container
+
+- job: RuntimeTests_Desktop
+  displayName: Desktop Runtime Tests
+
+  pool:
+    vmImage: 'ubuntu-latest'
+
+  variables:
+    RuntimeTestsProject: CommunityToolkit.WinUI.RuntimeTests
+    RuntimeTestsResults: $(Build.ArtifactStagingDirectory)/desktop-runtime-tests-results.xml
+
+  steps:
+  - checkout: self
+    clean: true
+
+  - task: UseDotNet@2
+    displayName: Use .NET SDK 10.0.x
+    retryCountOnTaskFailure: 3
+    inputs:
+      packageType: sdk
+      version: '10.0.x'
+
+  - bash: dotnet build $(RuntimeTestsProject)/CommunityToolkit.WinUI.RuntimeTests.csproj -c Release "-bl:$(Build.ArtifactStagingDirectory)/build-runtime-tests.binlog"
+    displayName: Build the runtime tests app
+
+  # The engine runs every test on startup when UNO_RUNTIME_TESTS_RUN_TESTS is set, writes the
+  # NUnit results to UNO_RUNTIME_TESTS_OUTPUT_PATH, then exits the app.
+  - bash: |
+      set -euo pipefail
+      sudo apt-get update -qq
+      sudo apt-get install -y -qq xvfb fluxbox
+      cd $(RuntimeTestsProject)/bin/Release/net10.0-desktop
+      xvfb-run --auto-servernum --server-args='-screen 0 1280x1024x24' bash -c "{ fluxbox & } ; dotnet CommunityToolkit.WinUI.RuntimeTests.dll" || true
+      if [ ! -f "$UNO_RUNTIME_TESTS_OUTPUT_PATH" ]; then
+        echo "Runtime tests did not produce results at $UNO_RUNTIME_TESTS_OUTPUT_PATH"
+        exit 1
+      fi
+    displayName: Run the runtime tests
+    env:
+      UNO_RUNTIME_TESTS_RUN_TESTS: '{}'
+      UNO_RUNTIME_TESTS_OUTPUT_PATH: $(RuntimeTestsResults)
+
+  - task: PublishTestResults@2
+    condition: always()
+    inputs:
+      testRunTitle: 'Desktop Runtime Tests'
+      testResultsFormat: 'NUnit'
+      testResultsFiles: $(RuntimeTestsResults)
+      failTaskOnFailedTests: true
+      failTaskOnMissingResultsFile: true
+
+  - task: PublishBuildArtifacts@1
+    condition: always()
+    inputs:
+      PathtoPublish: $(Build.ArtifactStagingDirectory)
+      ArtifactName: runtime-tests
+      ArtifactType: Container

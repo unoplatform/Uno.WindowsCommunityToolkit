@@ -5,6 +5,7 @@
       "CommunityToolkit.Common\\CommunityToolkit.Common.csproj",
       "CommunityToolkit.WinUI.Connectivity\\CommunityToolkit.WinUI.Connectivity.csproj",
       "CommunityToolkit.WinUI.DeveloperTools\\CommunityToolkit.WinUI.DeveloperTools.csproj",
+      "CommunityToolkit.WinUI.RuntimeTests\\CommunityToolkit.WinUI.RuntimeTests.csproj",
       "CommunityToolkit.WinUI.SampleApp.Uno\\CommunityToolkit.WinUI.SampleApp.Uno.csproj",
       "CommunityToolkit.WinUI.SampleApp\\CommunityToolkit.WinUI.SampleApp.Shared.shproj",
       "CommunityToolkit.WinUI.UI.Animations\\CommunityToolkit.WinUI.UI.Animations.csproj",
