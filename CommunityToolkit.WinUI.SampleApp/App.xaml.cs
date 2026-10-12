@@ -174,9 +174,14 @@ namespace CommunityToolkit.WinUI.SampleApp
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 using Microsoft.Extensions.Logging;
+using Microsoft.Windows.AppLifecycle;
 using Uno.Extensions;
 using Uno.Logging;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation.Metadata;
+
+// The UWP Windows.ApplicationModel.AppInstance is imported above too; activation comes from the Windows App SDK one.
+using AppInstance = Microsoft.Windows.AppLifecycle.AppInstance;
 
 namespace CommunityToolkit.WinUI.SampleApp
 {
@@ -193,30 +198,12 @@ namespace CommunityToolkit.WinUI.SampleApp
         public App()
         {
             InitializeComponent();
-            Suspending += OnSuspending;
-        }
 
-        protected override async void OnActivated(IActivatedEventArgs args)
-        {
-            await RunAppInitialization(null);
+            // Uno Platform 7 raises the lifecycle events on CoreApplication; the Windows App SDK's Application has none.
+            CoreApplication.Suspending += OnSuspending;
 
-            if (args.Kind == ActivationKind.Protocol)
-            {
-                try
-                {
-                    // Launching via protocol link
-                    var parser = DeepLinkParser.Create(args);
-                    var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
-                    if (targetSample != null)
-                    {
-                        Shell.Current?.NavigateToSample(targetSample);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine($"Error processing protocol launch: {ex.ToString()}");
-                }
-            }
+            // Subscribed before OnLaunched runs, so an activation that arrives while the app is running is not missed.
+            AppInstance.GetCurrent().Activated += (s, args) => HandleActivation(args);
         }
 
         /// <summary>
@@ -239,7 +226,34 @@ namespace CommunityToolkit.WinUI.SampleApp
                 await RunAppInitialization(e?.Arguments);
             }
 
+            // Like the Windows App SDK, Uno Platform 7 always passes plain launch arguments here and reports
+            // the activation the process really started with through AppInstance.
+            HandleActivation(AppInstance.GetCurrent().GetActivatedEventArgs());
+
             // UNO TODO SystemInformation.Instance.TrackAppUse(e);
+        }
+
+        private async void HandleActivation(AppActivationArguments activation)
+        {
+            if (activation.Kind != ExtendedActivationKind.Protocol || activation.Data is not IProtocolActivatedEventArgs protocol)
+            {
+                return;
+            }
+
+            try
+            {
+                // Launching via protocol link
+                var parser = DeepLinkParser.Create(protocol.Uri);
+                var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
+                if (targetSample != null)
+                {
+                    Shell.Current?.NavigateToSample(targetSample);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error processing protocol launch: {ex.ToString()}");
+            }
         }
 
         /*

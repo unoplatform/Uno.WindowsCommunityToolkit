@@ -20,7 +20,7 @@ namespace CommunityToolkit.WinUI.RuntimeTests.Tests
         // ManipulationStarted, so a splitter that sums the deltas lags the pointer by that threshold.
         [TestMethod]
         [InjectedPointer(PointerDeviceType.Mouse)]
-        [Ignore("Injected mouse input does not reach the app with Uno.UI.RuntimeTests.Engine 3.0.0-dev.2 on Uno Platform 7.0.0-dev.1666: the press is never delivered and moves land offset.")]
+        [Ignore("Injected mouse input does not reach the app with Uno.UI.RuntimeTests.Engine 3.0.0-dev.2 on Uno Platform 7.0.0-dev.1666 through 7.0.0-dev.2270: the press is never delivered and moves land offset.")]
         public async Task When_Dragged_Then_Column_Follows_The_Pointer()
         {
             var leftColumn = new ColumnDefinition { Width = new GridLength(200) };
