@@ -395,6 +395,8 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\People\shen.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\People\vlad.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\Backgrounds\HERO.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\OnlinePhotos.json" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\Photos.json" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\BigFourSummerHeat.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\BisonBadlandsChillin.jpg" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Photos\ColumbiaRiverGorge.jpg" />
