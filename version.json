@@ -5,7 +5,8 @@
     "^refs/heads/dev$", // we release out of dev
     "^refs/heads/winui$", // we release out of winui
     "^refs/heads/rel/\\d+\\.\\d+\\.\\d+", // we also release branches starting with rel/N.N.N
-    "^refs/heads/rel/winui/\\d+\\.\\d+\\.\\d+" // we also release branches starting with rel/winui/N.N.N
+    "^refs/heads/rel/winui/\\d+\\.\\d+\\.\\d+", // we also release branches starting with rel/winui/N.N.N
+    "^refs/heads/servicing/.*$" // we release the Uno Platform 5/6 dev line out of servicing/*
   ],
   "nugetPackageVersion": {
     "semVer": 2
