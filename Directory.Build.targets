@@ -22,6 +22,15 @@
 
   <Import Project="$(BuildToolsDirectory)Windows.Toolkit.Workarounds.Xaml.targets" Condition="$(IsCoreProject)" />
 
+  <!-- BEGIN Uno Specific -->
+  <PropertyGroup Condition="$(IsWinUIProject) and $(IsPackable)">
+    <Description>$(Description.TrimEnd())
+
+      WinUI (WinAppSDK) is not supported by this package, reference the official CommunityToolkit.WinUI packages instead.
+    </Description>
+  </PropertyGroup>
+  <!-- END Uno Specific -->
+
   <Target Name="AddCommitHashToAssemblyAttributes" BeforeTargets="GetAssemblyAttributes">
     <ItemGroup>
       <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute" Condition="'$(SourceRevisionId)' != ''">
