@@ -32,7 +32,9 @@ namespace CommunityToolkit.WinUI.RuntimeTests.Tests
             await UIHelper.Load(root);
 
             Assert.AreSame(root, second.FindAscendant<StackPanel>());
-            Assert.IsNotNull(second.FindAscendant<Border>(b => b.Tag is "outer"));
+            Assert.AreEqual("inner", second.FindAscendant<Border>()?.Tag);
+            Assert.AreEqual("outer", second.FindAscendant<Border>(b => b.Tag is "outer")?.Tag);
+            Assert.AreEqual("outer", second.FindAscendant<Border, string>("outer", (b, tag) => tag.Equals(b.Tag))?.Tag);
         }
 
         private static (StackPanel Root, TextBlock First, TextBlock Second) CreateTree()
@@ -46,7 +48,11 @@ namespace CommunityToolkit.WinUI.RuntimeTests.Tests
                     new Border
                     {
                         Tag = "outer",
-                        Child = new Grid { Children = { first, second } },
+                        Child = new Border
+                        {
+                            Tag = "inner",
+                            Child = new Grid { Children = { first, second } },
+                        },
                     },
                 },
             };
