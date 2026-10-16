@@ -132,7 +132,6 @@ namespace CommunityToolkit.WinUI.UI.Controls.TextToolbarButtons
             get { return (string)GetValue(ToolTipProperty); }
             set { SetValue(ToolTipProperty, value); }
         }
-#pragma warning restore CS0114 // Member hides inherited member
 
         /// <summary>
         /// Gets or sets a key to activate this button from the keyboard.
