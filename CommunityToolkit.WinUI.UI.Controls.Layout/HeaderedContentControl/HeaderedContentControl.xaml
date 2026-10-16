@@ -29,9 +29,6 @@
                                           Grid.ColumnSpan="2"
                                           Grid.Row="1"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="OrientationStates">

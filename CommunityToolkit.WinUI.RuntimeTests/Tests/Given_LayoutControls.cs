@@ -70,6 +70,7 @@ namespace CommunityToolkit.WinUI.RuntimeTests.Tests
             var control = new HeaderedContentControl { Header = "header", Content = content };
 
             await UIHelper.Load(control);
+            await UIHelper.WaitForIdle();
 
             Assert.IsTrue(content.ActualWidth > 0 && content.ActualHeight > 0, $"Content is {content.ActualWidth}x{content.ActualHeight}");
         }
