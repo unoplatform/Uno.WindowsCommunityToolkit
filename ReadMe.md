@@ -14,11 +14,11 @@ Pick the package version that matches the Uno Platform version of your app:
 
 | Packages | Uno Platform | Target frameworks | Branch |
 |---|---|---|---|
-| 7.2.x | 7.0 and later | `net10.0`, used by every Uno Platform head | [`uno`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/uno) (in development on [`feature/uno7`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/feature/uno7)) |
-| 7.1.2xx | 5.x and 6.x | `net7.0`, `net7.0-android`, `net7.0-ios`, `net7.0-maccatalyst`, `net7.0-macos` | [`unorel/winui/7.1.200`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/winui/7.1.200) |
+| 7.2.x | 7.0 and later | `net10.0`, used by every Uno Platform head | [`uno`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/uno) |
+| 7.1.2xx | 5.x and 6.x | `net7.0`, `net7.0-android`, `net7.0-ios`, `net7.0-maccatalyst`, `net7.0-macos` | [`servicing/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/servicing/7.1) for dev builds, [`unorel/winui/7.1.200`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/winui/7.1.200) for stable releases |
 | 7.1.1xx | 4.x | Xamarin and `net6.0` targets | [`unorel/winui/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/winui/7.1) |
 
-Until Uno Platform 7.0 is released, 7.2 builds are published to the Uno Platform dev feed only.
+Until Uno Platform 7.0 is released, 7.2 is published to nuget.org as `7.2.0-dev.N` prereleases.
 
 ### Moving to 7.2 (Uno Platform 7)
 

@@ -2,7 +2,6 @@ trigger:
 - master
 - rel/*
 - unorel/winui/*
-- feature/uno7
 
 jobs:
 - job: Windows
