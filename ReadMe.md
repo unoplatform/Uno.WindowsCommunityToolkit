@@ -18,7 +18,7 @@ Pick the package version that matches the Uno Platform version of your app:
 | 7.1.2xx | 5.x and 6.x | `net7.0`, `net7.0-android`, `net7.0-ios`, `net7.0-maccatalyst`, `net7.0-macos` | [`servicing/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/servicing/7.1) for dev builds, [`unorel/winui/7.1.200`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/winui/7.1.200) for stable releases |
 | 7.1.1xx | 4.x | Xamarin and `net6.0` targets | [`unorel/winui/7.1`](https://github.com/unoplatform/Uno.WindowsCommunityToolkit/tree/unorel/winui/7.1) |
 
-Until Uno Platform 7.0 is released, 7.2 is published to nuget.org as `7.2.0-dev.N` prereleases.
+Until Uno Platform 7.0 is released, 7.2 is published to nuget.org as `7.2.0-dev.N` prereleases. They depend on `Uno.WinUI` 7.0.0-dev.2270 or later, so the app needs an Uno.Sdk that ships at least that version: Uno.Sdk 7.0.0-dev.81 (`Uno.WinUI` 7.0.0-dev.2347) works, while 7.0.0-dev.67 (`Uno.WinUI` 7.0.0-dev.2100) fails to restore with NU1605.
 
 ### Moving to 7.2 (Uno Platform 7)
 
