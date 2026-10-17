@@ -13,8 +13,8 @@ namespace CommunityToolkit.WinUI.UI.Controls
         /// Gets or sets a value indicating whether if InvalidateMeasure invocations can be done in MeasureOverride locations.
         /// </summary>
         /// <remarks>
-        /// This configuration is required until https://github.com/unoplatform/uno/issues/3519 is fixed. Without this
-        /// the layout engine turns into a loop and consumes CPU excessively, or freezes the app.
+        /// Defaults to <c>true</c>, as the upstream DataGrid always invalidates. It was <c>false</c> on iOS to work around
+        /// https://github.com/unoplatform/uno/issues/3519, which no longer applies to Uno Platform 7, and is only kept as an opt-out.
         /// </remarks>
         public static bool EnableInvalidateMeasureInMeasureOverride { get; set; } = true;
     }
