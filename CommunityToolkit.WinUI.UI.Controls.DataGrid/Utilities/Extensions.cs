@@ -96,7 +96,7 @@ namespace CommunityToolkit.WinUI.UI.Utilities
         /// <returns>true if MemberInfo is read-only, false otherwise</returns>
         internal static bool GetIsReadOnly(this MemberInfo memberInfo)
         {
-#if !WINDOWS_UWP && !HAS_UNO
+#if !WINDOWS_UWP
             if (memberInfo != null)
             {
                 // Check if ReadOnlyAttribute is defined on the member
@@ -126,7 +126,7 @@ namespace CommunityToolkit.WinUI.UI.Utilities
             if (listType.IsEnumerableType())
             {
                 itemType = listType.GetEnumerableItemType();
-#if !WINDOWS_UWP && !HAS_UNO
+#if !WINDOWS_UWP
                 if (itemType != null)
                 {
                     isICustomTypeProvider = typeof(ICustomTypeProvider).IsAssignableFrom(itemType);

@@ -22,7 +22,7 @@
         <Setter Property="Margin" Value="0,0,0,10" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="UseSystemFocusVisuals" Value="True" />
         <Setter Property="FocusVisualMargin" Value="-3" />
@@ -454,7 +454,7 @@
                     <FontIcon Margin="10"
                               HorizontalAlignment="Right"
                               VerticalAlignment="Center"
-                              FontFamily="Segoe MDL2 Assets"
+                              FontFamily="{ThemeResource SymbolThemeFontFamily}"
                               FontSize="10"
                               Glyph="&#xE946;" />
                 </Button>
@@ -588,7 +588,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <FontIcon Margin="0,0,10,0"
-                                              FontFamily="Segoe MDL2 Assets"
+                                              FontFamily="{ThemeResource SymbolThemeFontFamily}"
                                               Foreground="DarkRed"
                                               Glyph="&#xEA39;" />
 
@@ -607,7 +607,7 @@
                                             Margin="10,0,-10,0"
                                             AutomationProperties.Name="Dismiss"
                                             Content="&#xE894;"
-                                            FontFamily="Segoe MDL2 Assets"
+                                            FontFamily="{ThemeResource SymbolThemeFontFamily}"
                                             FontSize="12"
                                             Style="{StaticResource DismissTextBlockButtonStyle}" />
                                 </Grid>
@@ -671,7 +671,7 @@
 
     <Style x:Key="AboutPageHeader"
            TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="Segoe UI" />
+        <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
@@ -920,7 +920,7 @@
                                         x:Name="TopNavOverflowButton"
                                         Grid.Column="4"
                                         Content="More"
-                                        FontFamily="Segoe UI"
+                                        FontFamily="{ThemeResource ContentControlThemeFontFamily}"
                                         FontSize="15px"
                                         FontWeight="Normal"
                                         VerticalAlignment="Center"

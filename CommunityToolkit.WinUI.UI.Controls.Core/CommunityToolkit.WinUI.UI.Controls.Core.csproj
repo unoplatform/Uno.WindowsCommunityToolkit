@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Uno.Sdk.Private">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
@@ -59,12 +59,9 @@
 		<PackageId>Uno.CommunityToolkit.WinUI.UI.Controls.Core</PackageId>
         <RootNamespace>CommunityToolkit.WinUI.UI.Controls.Core</RootNamespace>
 
-      <!-- Validation fails as the generated document is too big -->
-		<XamarinAndroidSupportSkipVerifyVersions>true</XamarinAndroidSupportSkipVerifyVersions>
 	</PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
     <PackageReference Remove="Microsoft.UI.Xaml" />
-		<PackageReference Include="Uno.WinUI" Version="5.0.19" />
 	</ItemGroup>
 	<!-- END UNO SPECIFIC -->
 

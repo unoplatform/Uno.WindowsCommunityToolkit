@@ -190,10 +190,8 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 }
                 else if (link is Image image)
                 {
-#if !HAS_UNO
                     image.Tapped -= NewImagelink_Tapped;
                     image.Tapped += NewImagelink_Tapped;
-#endif
                 }
             }
         }
@@ -209,9 +207,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 }
                 else if (link is Image image)
                 {
-#if !HAS_UNO // UNO TODO
                     image.Tapped -= NewImagelink_Tapped;
-#endif
                 }
             }
         }
@@ -236,10 +232,8 @@ namespace CommunityToolkit.WinUI.UI.Controls
         /// </summary>
         public void RegisterNewHyperLink(Image newImagelink, string linkUrl, bool isHyperLink)
         {
-#if !HAS_UNO // UNO TODO
-           // Setup a listener for clicks.
+            // Setup a listener for clicks.
             newImagelink.Tapped += NewImagelink_Tapped;
-#endif
 
             // Associate the URL with the hyperlink.
             newImagelink.SetValue(HyperlinkUrlProperty, linkUrl);
