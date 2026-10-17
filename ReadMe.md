@@ -26,6 +26,7 @@ Until Uno Platform 7.0 is released, 7.2 is published to nuget.org as `7.2.0-dev.
 - The XAML Behaviors dependency is now `Uno.Microsoft.Xaml.Behaviors.Interactivity.WinUI` 4.x. Since XAML Behaviors 3.0, the types of `Microsoft.Xaml.Interactions.Core` and `Microsoft.Xaml.Interactions.Media` live in `Microsoft.Xaml.Interactivity`: update `xmlns` declarations that use the old namespaces.
 - `DataGrid` honors `[ReadOnly]` on auto-generated columns, as it does on Windows.
 - `UserInteractionModeStateTrigger` never activates on Uno Platform, because `UIViewSettings.GetForCurrentView()` is not implemented there. It used to throw and fail the page that used it.
+- `ScrollViewerExtensions.EnableMiddleClickScrolling` does nothing on Uno Platform 7, because it tracks the pointer through `CoreWindow`, which is `null` for Uno Platform 7 windows. It used to throw.
 - `CommunityToolkit.WinUI.Notifications` is not part of the Uno Platform build: it targets Windows only and was never published as an Uno package.
 - Windows (WinAppSDK) heads keep using the packages published by Microsoft, as before.
 
