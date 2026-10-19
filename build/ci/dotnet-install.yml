@@ -1,0 +1,18 @@
+parameters:
+  DotNetVersion: '10.0.x'
+
+steps:
+
+  - task: UseDotNet@2
+    displayName: Use .NET SDK ${{ parameters.DotNetVersion }}
+    retryCountOnTaskFailure: 3
+    inputs:
+      packageType: sdk
+      version: ${{ parameters.DotNetVersion }}
+
+  # The sample app's net10.0-browserwasm target needs the WebAssembly build tools.
+  # Run from the repository root so global.json selects the same SDK as the build.
+  - script: dotnet workload install wasm-tools
+    displayName: Install the wasm-tools workload
+    workingDirectory: $(Build.SourcesDirectory)
+    retryCountOnTaskFailure: 3

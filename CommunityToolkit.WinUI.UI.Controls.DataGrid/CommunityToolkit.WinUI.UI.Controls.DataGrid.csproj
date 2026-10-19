@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+<Project Sdk="Uno.Sdk.Private">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0-windows10.0.18362.0</TargetFrameworks>
@@ -49,12 +49,6 @@
 
   <ItemGroup Condition="'$(_IsUno)'=='true'">
     <PackageReference Remove="Microsoft.UI.Xaml" />
-		<PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
-		<PackageReference Include="Uno.WinUI" Version="5.0.19" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'monoandroid12.0' or '$(TargetFramework)' == 'xamarinios10' or '$(TargetFrameworkIdentifier)' == 'Xamarin.Mac'">
-		<Reference Include="System.ComponentModel.DataAnnotations" />
 	</ItemGroup>
 	<!-- END UNO SPECIFIC -->
 

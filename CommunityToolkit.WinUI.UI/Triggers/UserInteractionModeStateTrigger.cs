@@ -71,7 +71,12 @@ namespace CommunityToolkit.WinUI.UI.Triggers
 
         private void UpdateTrigger(UserInteractionMode interactionMode)
         {
+#if HAS_UNO
+            // UIViewSettings.GetForCurrentView() is not implemented on Uno Platform, so the current mode is unknown.
+            SetActive(false);
+#else
             SetActive(interactionMode == UIViewSettings.GetForCurrentView().UserInteractionMode);
+#endif
         }
 
         private void UserInteractionModeTrigger_SizeChanged(object sender, WindowSizeChangedEventArgs e)

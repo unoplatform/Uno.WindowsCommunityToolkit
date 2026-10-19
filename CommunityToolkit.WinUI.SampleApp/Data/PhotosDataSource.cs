@@ -2,14 +2,14 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.UI.Xaml.Data;
-using Windows.ApplicationModel;
+using Windows.Storage;
 
 namespace CommunityToolkit.WinUI.SampleApp.Data
 {
@@ -74,7 +74,10 @@ namespace CommunityToolkit.WinUI.SampleApp.Data
         private static async Task<IEnumerable<PhotoDataItem>> GetPhotosAsync(bool online)
         {
             var prefix = online ? "Online" : string.Empty;
-            return Parse(await File.ReadAllTextAsync(Path.Combine(Package.Current.InstalledLocation.Path, $"Assets/Photos/{prefix}Photos.json")));
+
+            // Read the packaged asset through ms-appx: on WebAssembly the assets are not on the file system.
+            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/Photos/{prefix}Photos.json"));
+            return Parse(await FileIO.ReadTextAsync(file));
         }
 
         private static IEnumerable<PhotoDataItem> Parse(string jsonData)

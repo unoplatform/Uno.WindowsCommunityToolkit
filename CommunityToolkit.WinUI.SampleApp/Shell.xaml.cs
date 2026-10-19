@@ -110,14 +110,21 @@ namespace CommunityToolkit.WinUI.SampleApp
 
             if (!string.IsNullOrWhiteSpace(e?.Parameter?.ToString()))
             {
-                var parser = DeepLinkParser.Create(e.Parameter.ToString());
+                // On WebAssembly the launch arguments are the page's query string, so "?Controls?sample=DataGrid" is a deep link
+                // once its leading '?' is dropped: the root is the category.
+                var parser = DeepLinkParser.Create(e.Parameter.ToString().TrimStart('?'));
 
                 if (parser.TryGetValue("sample", out var sample))
                 {
                     var targetSample = await Sample.FindAsync(parser.Root, sample);
                     if (targetSample != null)
                     {
-                        NavigateToSample(targetSample);
+                        // Navigate after the shell's first layout: navigating from here stalls the app on WebAssembly.
+                        _ = dispatcherQueue.EnqueueAsync(() =>
+                        {
+                            System.Console.WriteLine($"Deep link: navigating to {targetSample.Name}");
+                            NavigateToSample(targetSample);
+                        });
                     }
                 }
             }

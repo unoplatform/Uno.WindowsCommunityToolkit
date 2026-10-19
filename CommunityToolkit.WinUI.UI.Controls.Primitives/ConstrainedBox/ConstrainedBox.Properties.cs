@@ -14,11 +14,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
         /// <summary>
         /// Gets or sets the scale for the width of the panel. Should be a value between 0-1.0. Default is 1.0.
         /// </summary>
-        public
-#if __ANDROID__
-            new
-#endif
-            double ScaleX
+        public double ScaleX
         {
             get { return (double)GetValue(ScaleXProperty); }
             set { SetValue(ScaleXProperty, value); }
@@ -33,11 +29,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
         /// <summary>
         /// Gets or sets the scale for the height of the panel. Should be a value between 0-1.0. Default is 1.0.
         /// </summary>
-        public
-#if __ANDROID__
-            new
-#endif
-            double ScaleY
+        public double ScaleY
         {
             get { return (double)GetValue(ScaleYProperty); }
             set { SetValue(ScaleYProperty, value); }

@@ -444,7 +444,7 @@ namespace CommunityToolkit.WinUI.Utilities
         /// <returns>Type of the instance</returns>
         internal static Type GetCustomOrCLRType(this object instance)
         {
-#if !WINDOWS_UWP && !HAS_UNO
+#if !WINDOWS_UWP
             ICustomTypeProvider customTypeProvider = instance as ICustomTypeProvider;
             if (customTypeProvider != null)
             {

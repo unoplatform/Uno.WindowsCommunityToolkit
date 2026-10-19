@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="using:CommunityToolkit.WinUI.SampleApp.Controls"    
                     xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:xamarin="http://uno.ui/xamarin"
+                    xmlns:not_winappsdk="http://uno.ui/not_winappsdk"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    mc:Ignorable="d xamarin"
+                    mc:Ignorable="d not_winappsdk"
 
                     xmlns:local="using:CommunityToolkit.WinUI.SampleApp.Controls">
 
@@ -28,7 +28,7 @@
                             <win:RichTextBlock Name="codeView"
                                                FontFamily="Consolas"
                                                Padding="10" />
-                            <xamarin:TextBox Name="codeView"
+                            <not_winappsdk:TextBox Name="codeView"
 											 IsReadOnly="True"
 											 AcceptsReturn="True"
                                                FontFamily="Consolas"

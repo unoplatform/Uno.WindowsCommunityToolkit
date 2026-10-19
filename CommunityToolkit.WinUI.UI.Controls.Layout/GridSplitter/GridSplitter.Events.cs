@@ -151,6 +151,26 @@ namespace CommunityToolkit.WinUI.UI.Controls
                 ProtectedCursor = RowSplitterCursor;
             }
 
+#if HAS_UNO
+            // The distance travelled before the manipulation was recognized is only reported here, never as a
+            // ManipulationDelta (Uno Platform 7 matches WinUI since unoplatform/uno#20473), so apply it to keep the
+            // splitter under the pointer.
+            var startHorizontalChange = e.Cumulative.Translation.X;
+            if (this.FlowDirection == FlowDirection.RightToLeft)
+            {
+                startHorizontalChange *= -1;
+            }
+
+            if (_resizeDirection == GridResizeDirection.Columns)
+            {
+                HorizontalMove(startHorizontalChange);
+            }
+            else if (_resizeDirection == GridResizeDirection.Rows)
+            {
+                VerticalMove(e.Cumulative.Translation.Y);
+            }
+#endif
+
             base.OnManipulationStarted(e);
         }
 

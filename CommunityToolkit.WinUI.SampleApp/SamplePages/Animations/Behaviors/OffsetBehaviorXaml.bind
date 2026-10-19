@@ -4,10 +4,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
-    xmlns:interactions="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:interactions="using:Microsoft.Xaml.Interactivity"
     xmlns:ani="using:CommunityToolkit.WinUI.UI.Animations"
     xmlns:behaviors="using:CommunityToolkit.WinUI.UI.Behaviors"
-    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:core="using:Microsoft.Xaml.Interactivity"
     mc:Ignorable="d">
 
   <Button Background="Gray" Width="200" Height="200" VerticalAlignment="Top">

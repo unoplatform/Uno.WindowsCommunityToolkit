@@ -174,9 +174,14 @@ namespace CommunityToolkit.WinUI.SampleApp
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 using Microsoft.Extensions.Logging;
+using Microsoft.Windows.AppLifecycle;
 using Uno.Extensions;
 using Uno.Logging;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation.Metadata;
+
+// The UWP Windows.ApplicationModel.AppInstance is imported above too; activation comes from the Windows App SDK one.
+using AppInstance = Microsoft.Windows.AppLifecycle.AppInstance;
 
 namespace CommunityToolkit.WinUI.SampleApp
 {
@@ -192,35 +197,13 @@ namespace CommunityToolkit.WinUI.SampleApp
         /// </summary>
         public App()
         {
-#if DEBUG
-            ConfigureFilters(LogExtensionPoint.AmbientLoggerFactory);
-#endif
-
             InitializeComponent();
-            Suspending += OnSuspending;
-        }
 
-        protected override async void OnActivated(IActivatedEventArgs args)
-        {
-            await RunAppInitialization(null);
+            // Uno Platform 7 raises the lifecycle events on CoreApplication; the Windows App SDK's Application has none.
+            CoreApplication.Suspending += OnSuspending;
 
-            if (args.Kind == ActivationKind.Protocol)
-            {
-                try
-                {
-                    // Launching via protocol link
-                    var parser = DeepLinkParser.Create(args);
-                    var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
-                    if (targetSample != null)
-                    {
-                        Shell.Current?.NavigateToSample(targetSample);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine($"Error processing protocol launch: {ex.ToString()}");
-                }
-            }
+            // Subscribed before OnLaunched runs, so an activation that arrives while the app is running is not missed.
+            AppInstance.GetCurrent().Activated += (s, args) => HandleActivation(args);
         }
 
         /// <summary>
@@ -243,7 +226,34 @@ namespace CommunityToolkit.WinUI.SampleApp
                 await RunAppInitialization(e?.Arguments);
             }
 
+            // Like the Windows App SDK, Uno Platform 7 always passes plain launch arguments here and reports
+            // the activation the process really started with through AppInstance.
+            HandleActivation(AppInstance.GetCurrent().GetActivatedEventArgs());
+
             // UNO TODO SystemInformation.Instance.TrackAppUse(e);
+        }
+
+        private async void HandleActivation(AppActivationArguments activation)
+        {
+            if (activation.Kind != ExtendedActivationKind.Protocol || activation.Data is not IProtocolActivatedEventArgs protocol)
+            {
+                return;
+            }
+
+            try
+            {
+                // Launching via protocol link
+                var parser = DeepLinkParser.Create(protocol.Uri);
+                var targetSample = await Sample.FindAsync(parser.Root, parser["sample"]);
+                if (targetSample != null)
+                {
+                    Shell.Current?.NavigateToSample(targetSample);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error processing protocol launch: {ex.ToString()}");
+            }
         }
 
         /*
@@ -370,53 +380,30 @@ namespace CommunityToolkit.WinUI.SampleApp
             }
         }
 
-        static void ConfigureFilters(ILoggerFactory factory)
+        /// <summary>
+        /// Routes Uno Platform's logging to the console. Called by each platform's entry point before the app starts.
+        /// </summary>
+        public static void InitializeLogging()
         {
-#if HAS_UNO
             System.Threading.Tasks.TaskScheduler.UnobservedTaskException += (s, e) => typeof(App).Log().Error("UnobservedTaskException", e.Exception);
             AppDomain.CurrentDomain.UnhandledException += (s, e) => typeof(App).Log().Error("UnhandledException", e.ExceptionObject as Exception);
+
+            var factory = LoggerFactory.Create(builder =>
+            {
+#if __WASM__
+                builder.AddProvider(new global::Uno.Extensions.Logging.WebAssembly.WebAssemblyConsoleLoggerProvider());
+#else
+                builder.AddConsole();
 #endif
 
-            factory
-                .WithFilter(new FilterLoggerSettings
-                    {
-                        { "Uno", LogLevel.Warning },
-                        { "Windows", LogLevel.Warning },
-                        { "Microsoft", LogLevel.Warning },
+                builder.SetMinimumLevel(LogLevel.Information);
+                builder.AddFilter("Uno", LogLevel.Warning);
+                builder.AddFilter("Windows", LogLevel.Warning);
+                builder.AddFilter("Microsoft", LogLevel.Warning);
+            });
 
-                        // { "SampleControl.Presentation", LogLevel.Debug },
-
-                        // Generic Xaml events
-                        // { "Windows.UI.Xaml", LogLevel.Debug },
-
-                    // { "Uno.UI.Controls.AsyncValuePresenter", LogLevel.Debug },
-                    // { "Uno.UI.Controls.IfDataContext", LogLevel.Debug },
-                     // { "Windows.UI.Xaml.FrameworkElement", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.UIElement", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.Controls.SinglelineTextBoxView", LogLevel.Debug },
-
-                    // Layouter specific messages
-                    // { "Windows.UI.Xaml.Controls", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.Controls.Layouter", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.Controls.Panel", LogLevel.Debug },
-
-                    // Binding related messages
-                     // { "Windows.UI.Xaml.Data", LogLevel.Debug },
-                    // { "Windows.UI.Xaml.DependencyObjectStore", LogLevel.Debug },
-                     // { "Uno.UI.DataBinding.BindingPropertyHelper", LogLevel.Debug },
-
-					// Binder memory references tracking
-					// { "ReferenceHolder", LogLevel.Debug },
-				}
-                )
-#if !NETFX_CORE
-                .AddConsole(LogLevel.Debug)
-#endif
-                ;
-
-#if HAS_UNO
+            LogExtensionPoint.AmbientLoggerFactory = factory;
             Uno.UI.Adapter.Microsoft.Extensions.Logging.LoggingAdapter.Initialize();
-#endif
         }
     }
 }

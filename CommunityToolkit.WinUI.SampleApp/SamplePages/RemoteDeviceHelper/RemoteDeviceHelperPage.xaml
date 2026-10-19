@@ -42,7 +42,7 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Kind, Converter={StaticResource KindToImageConverter}}" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" FontSize="{StaticResource HubHeaderThemeFontSize}"  />
+                        <TextBlock Text="{Binding Kind, Converter={StaticResource KindToImageConverter}}" FontFamily="{ThemeResource SymbolThemeFontFamily}" VerticalAlignment="Center" FontSize="{StaticResource HubHeaderThemeFontSize}"  />
                         <Grid Grid.Column="1" Margin="10,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>

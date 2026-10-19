@@ -4,13 +4,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using CommunityToolkit.WinUI.UI;
 using CommunityToolkit.WinUI.UI.Controls;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Windows.ApplicationModel;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using WinRT;
@@ -38,7 +36,9 @@ namespace CommunityToolkit.WinUI.SampleApp.SamplePages
             _imageCropper = control.FindChild("ImageCropper") as ImageCropper;
             if (_imageCropper != null)
             {
-                await _imageCropper.LoadImageFromFile(Path.Combine(Package.Current.InstalledLocation.Path, "Assets/Photos/Owl.jpg"));
+                // Load the packaged asset through ms-appx: on WebAssembly the assets are not on the file system.
+                var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/Photos/Owl.jpg"));
+                await _imageCropper.LoadImageFromFile(file);
             }
         }
 

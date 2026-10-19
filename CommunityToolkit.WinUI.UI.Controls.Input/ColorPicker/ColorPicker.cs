@@ -235,11 +235,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
         /// <param name="isRequired">Whether the element is required and will throw an exception if missing.</param>
         /// <returns>The template child matching the given name and type.</returns>
         private T GetTemplateChild<T>(string childName, bool isRequired = false)
-#if HAS_UNO
-            where T : class, DependencyObject
-#else
             where T : DependencyObject
-#endif
         {
             T child = this.GetTemplateChild(childName) as T;
             if ((child == null) && isRequired)

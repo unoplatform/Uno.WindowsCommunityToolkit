@@ -144,7 +144,7 @@
 
                         <StackPanel Grid.Row="1"
                                     Grid.Column="1">
-                            <TextBlock FontFamily="Segoe UI"
+                            <TextBlock FontFamily="{ThemeResource ContentControlThemeFontFamily}"
                                        FontSize="36"
                                        FontWeight="Bold"
                                        Text="Get Started" />
@@ -163,7 +163,7 @@
                                 <TextBlock Style="{StaticResource AboutPageHeader}" Text="Recent Activity"/>
 
                                 <Grid Margin="0,16,0,0">
-                                    <TextBlock FontFamily="Segoe UI"
+                                    <TextBlock FontFamily="{ThemeResource ContentControlThemeFontFamily}"
                                                FontSize="12"
                                                Opacity="0.5"
                                                Text="None"
