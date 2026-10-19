@@ -48,7 +48,7 @@
 
 	</PropertyGroup>
   <ItemGroup Condition="'$(_IsUno)'=='true'">
-		<PackageReference Include="Uno.ColorCode.WinUI" Version="3.0.0-uno.53" />
+		<PackageReference Include="Uno.ColorCode.WinUI" Version="3.0.0-uno.58" />
 	</ItemGroup>
 
 	<!-- END UNO SPECIFIC -->
