@@ -3,6 +3,7 @@
 // See the LICENSE file in the project root for more information.
 
 using Microsoft.UI.Xaml.Data;
+using System.Collections.Specialized;
 using Windows.Foundation.Collections;
 
 namespace CommunityToolkit.WinUI.UI
@@ -55,6 +56,29 @@ namespace CommunityToolkit.WinUI.UI
             }
 
             VectorChanged?.Invoke(this, e);
+
+            if (CollectionChanged != null)
+            {
+                switch (e.CollectionChange)
+                {
+                    case CollectionChange.ItemInserted:
+                        CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, _view[(int)e.Index], (int)e.Index));
+                        break;
+                    case CollectionChange.ItemRemoved:
+                        if (e is VectorChangedEventArgs args)
+                        {
+                            CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, args.Item, (int)e.Index));
+                        }
+
+                        break;
+                    case CollectionChange.ItemChanged:
+                        CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, _view[(int)e.Index], _view[(int)e.Index], (int)e.Index));
+                        break;
+                    case CollectionChange.Reset:
+                        CollectionChanged.Invoke(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                        break;
+                }
+            }
 
             // ReSharper disable once ExplicitCallerInfoArgument
             OnPropertyChanged(nameof(Count));

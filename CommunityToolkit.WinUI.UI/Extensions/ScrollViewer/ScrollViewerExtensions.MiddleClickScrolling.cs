@@ -102,13 +102,13 @@ namespace CommunityToolkit.WinUI.UI
             _timer?.Dispose();
             _timer = new Timer(Scroll, dispatcherQueue, 5, 5);
 
-            if (Window.Current != null)
+            if (Window.Current?.CoreWindow is { } coreWindow)
             {
-                Window.Current.CoreWindow.PointerMoved -= CoreWindow_PointerMoved;
-                Window.Current.CoreWindow.PointerReleased -= CoreWindow_PointerReleased;
+                coreWindow.PointerMoved -= CoreWindow_PointerMoved;
+                coreWindow.PointerReleased -= CoreWindow_PointerReleased;
 
-                Window.Current.CoreWindow.PointerMoved += CoreWindow_PointerMoved;
-                Window.Current.CoreWindow.PointerReleased += CoreWindow_PointerReleased;
+                coreWindow.PointerMoved += CoreWindow_PointerMoved;
+                coreWindow.PointerReleased += CoreWindow_PointerReleased;
             }
         }
 
@@ -125,10 +125,10 @@ namespace CommunityToolkit.WinUI.UI
             _oldCursorID = 100;
             _timer?.Dispose();
 
-            if (Window.Current != null)
+            if (Window.Current?.CoreWindow is { } coreWindow)
             {
-                Window.Current.CoreWindow.PointerMoved -= CoreWindow_PointerMoved;
-                Window.Current.CoreWindow.PointerReleased -= CoreWindow_PointerReleased;
+                coreWindow.PointerMoved -= CoreWindow_PointerMoved;
+                coreWindow.PointerReleased -= CoreWindow_PointerReleased;
 
                 // Window.Current.CoreWindow.PointerCursor = InputSystemCursor.Create(InputSystemCursorShape.Arrow);
             }
@@ -201,10 +201,10 @@ namespace CommunityToolkit.WinUI.UI
                 {
                     SubscribeMiddleClickScrolling(DispatcherQueue.GetForCurrentThread());
 
-                    if (Window.Current != null)
+                    if (Window.Current?.CoreWindow is { } coreWindow)
                     {
-                        _startPosition = Window.Current.CoreWindow.PointerPosition;
-                        _currentPosition = Window.Current.CoreWindow.PointerPosition;
+                        _startPosition = coreWindow.PointerPosition;
+                        _currentPosition = coreWindow.PointerPosition;
                     }
                 }
             }
@@ -220,9 +220,9 @@ namespace CommunityToolkit.WinUI.UI
 
                 if (pointerPoint.Properties.IsMiddleButtonPressed)
                 {
-                    if (Window.Current != null)
+                    if (Window.Current?.CoreWindow is { } coreWindow)
                     {
-                        _currentPosition = Window.Current.CoreWindow.PointerPosition;
+                        _currentPosition = coreWindow.PointerPosition;
 
                         var offsetX = _currentPosition.X - _startPosition.X;
                         var offsetY = _currentPosition.Y - _startPosition.Y;
@@ -239,9 +239,9 @@ namespace CommunityToolkit.WinUI.UI
             // Update current position of the pointer if scrolling started
             if (CanScroll())
             {
-                if (Window.Current != null)
+                if (Window.Current?.CoreWindow is { } coreWindow)
                 {
-                    _currentPosition = Window.Current.CoreWindow.PointerPosition;
+                    _currentPosition = coreWindow.PointerPosition;
                 }
             }
         }
@@ -253,15 +253,15 @@ namespace CommunityToolkit.WinUI.UI
             {
                 _isDeferredMovingStarted = true;
 
-                if (Window.Current != null)
+                if (Window.Current?.CoreWindow is { } coreWindow)
                 {
                     // Event to stop deferred scrolling if pointer exited
-                    Window.Current.CoreWindow.PointerExited -= CoreWindow_PointerExited;
-                    Window.Current.CoreWindow.PointerExited += CoreWindow_PointerExited;
+                    coreWindow.PointerExited -= CoreWindow_PointerExited;
+                    coreWindow.PointerExited += CoreWindow_PointerExited;
 
                     // Event to stop deferred scrolling if pointer pressed
-                    Window.Current.CoreWindow.PointerPressed -= CoreWindow_PointerPressed;
-                    Window.Current.CoreWindow.PointerPressed += CoreWindow_PointerPressed;
+                    coreWindow.PointerPressed -= CoreWindow_PointerPressed;
+                    coreWindow.PointerPressed += CoreWindow_PointerPressed;
                 }
 
                 SetCursorType(DispatcherQueue.GetForCurrentThread(), 0, 0);
@@ -280,10 +280,10 @@ namespace CommunityToolkit.WinUI.UI
 
         private static void CoreWindow_PointerPressed(CoreWindow sender, PointerEventArgs args)
         {
-            if (Window.Current != null)
+            if (Window.Current?.CoreWindow is { } coreWindow)
             {
-                Window.Current.CoreWindow.PointerPressed -= CoreWindow_PointerPressed;
-                Window.Current.CoreWindow.PointerExited -= CoreWindow_PointerExited;
+                coreWindow.PointerPressed -= CoreWindow_PointerPressed;
+                coreWindow.PointerExited -= CoreWindow_PointerExited;
             }
 
             UnsubscribeMiddleClickScrolling();
@@ -291,10 +291,10 @@ namespace CommunityToolkit.WinUI.UI
 
         private static void CoreWindow_PointerExited(CoreWindow sender, PointerEventArgs args)
         {
-            if (Window.Current != null)
+            if (Window.Current?.CoreWindow is { } coreWindow)
             {
-                Window.Current.CoreWindow.PointerPressed -= CoreWindow_PointerPressed;
-                Window.Current.CoreWindow.PointerExited -= CoreWindow_PointerExited;
+                coreWindow.PointerPressed -= CoreWindow_PointerPressed;
+                coreWindow.PointerExited -= CoreWindow_PointerExited;
             }
 
             UnsubscribeMiddleClickScrolling();

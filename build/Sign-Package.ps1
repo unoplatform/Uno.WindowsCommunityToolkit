@@ -2,27 +2,37 @@
 $currentDirectory = split-path $MyInvocation.MyCommand.Definition
 
 # See if we have the ClientSecret available
-if ([string]::IsNullOrEmpty($Env:SignClientSecret)) {
+if ([string]::IsNullOrEmpty($env:VaultSignClientSecret)) {
   Write-Host "Client Secret not found, not signing packages"
   return;
 }
 
-dotnet tool install --tool-path . SignClient
+dotnet tool install --tool-path . sign --version 0.9.1-beta.25278.1
 
-# Setup Variables we need to pass into the sign client tool
+$filesToSign = Get-ChildItem -Recurse $Env:ArtifactDirectory\* -Include *.nupkg,*.vsix | Select-Object -ExpandProperty FullName
 
-$appSettings = "$currentDirectory\SignClientSettings.json"
+foreach ($fileToSign in $filesToSign)
+{
+  Write-Host "Submitting $fileToSign for signing"
 
-$nupkgs = Get-ChildItem $Env:ArtifactDirectory\*.nupkg -recurse | Select-Object -ExpandProperty FullName
+  .\sign code azure-key-vault `
+      $fileToSign `
+      --publisher-name "$env:SignPackageName" `
+      --description "$env:SignPackageDescription" `
+      --description-url "$env:build_repository_uri" `
+      --azure-key-vault-tenant-id "$env:VaultSignTenantId" `
+      --azure-key-vault-client-id "$env:VaultSignClientId" `
+      --azure-key-vault-client-secret "$env:VaultSignClientSecret" `
+      --azure-key-vault-certificate "$env:VaultSignCertificate" `
+      --azure-key-vault-url "$env:VaultSignUrl" `
+      --verbosity information
 
-foreach ($nupkg in $nupkgs) {
-  Write-Host "Submitting $nupkg for signing"
-
-  .\SignClient 'sign' -c $appSettings -i $nupkg -r $Env:SignClientUser -s $Env:SignClientSecret -n 'Windows Community Toolkit' -d 'Windows Community Toolkit' -u 'https://developer.microsoft.com/en-us/windows/uwp-community-toolkit'
   if ($LASTEXITCODE -ne 0) {
-    exit 1
+    Write-Error "Failed to sign $fileToSign"
+    exit $LASTEXITCODE
   }
-  Write-Host "Finished signing $nupkg"
+
+  Write-Host "Finished signing $fileToSign"
 }
 
 Write-Host "Sign-package complete"

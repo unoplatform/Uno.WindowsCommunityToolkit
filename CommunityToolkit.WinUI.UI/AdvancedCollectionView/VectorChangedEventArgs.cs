@@ -21,6 +21,7 @@ namespace CommunityToolkit.WinUI.UI
         {
             CollectionChange = cc;
             Index = (uint)index;
+            Item = item;
         }
 
         /// <summary>
@@ -38,5 +39,7 @@ namespace CommunityToolkit.WinUI.UI
         /// The zero-based position where the change occurred in the vector, if applicable.
         /// </returns>
         public uint Index { get; }
+
+        public object Item { get; }
     }
 }

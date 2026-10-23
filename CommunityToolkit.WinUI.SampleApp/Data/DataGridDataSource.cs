@@ -5,11 +5,10 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.UI.Xaml.Data;
-using Windows.ApplicationModel;
+using Windows.Storage;
 
 namespace CommunityToolkit.WinUI.SampleApp.Data
 {
@@ -26,7 +25,9 @@ namespace CommunityToolkit.WinUI.SampleApp.Data
         {
             _items = new ObservableCollection<DataGridDataItem>();
 
-            foreach (var line in await File.ReadAllLinesAsync(Path.Combine(Package.Current.InstalledLocation.Path, @"Assets/mtns.csv")))
+            // Read the packaged asset through ms-appx: on WebAssembly the assets are not on the file system.
+            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Assets/mtns.csv"));
+            foreach (var line in await FileIO.ReadLinesAsync(file))
             {
                 string[] values = line.Split(',');
 

@@ -1,5 +1,5 @@
 #if HAS_UNO
-#pragma warning disable CS0108 // UNO TODO
+#pragma warning disable CS0108 // Uno's ListViewBase declares an ItemClickCommand that WinUI's does not.
 #endif
 
 // Licensed to the .NET Foundation under one or more agreements.

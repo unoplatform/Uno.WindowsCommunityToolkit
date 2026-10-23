@@ -22,6 +22,27 @@
 
   <Import Project="$(BuildToolsDirectory)Windows.Toolkit.Workarounds.Xaml.targets" Condition="$(IsCoreProject)" />
 
+  <!-- BEGIN Uno Specific -->
+  <PropertyGroup Condition="$(IsWinUIProject) and $(IsPackable)">
+    <Description>$(Description.TrimEnd())
+
+      WinUI (WinAppSDK) is not supported by this package, reference the official CommunityToolkit.WinUI packages instead.
+    </Description>
+  </PropertyGroup>
+
+  <!--
+    Uno.Sdk implies the 'skia' feature and injects the renderer add-ins it brings. The renderer is the app's
+    choice and the libraries use none of them, so drop them. Marking them private is not enough: the XAML
+    generator would still chain the generated GlobalStaticResources into every add-in it is compiled against,
+    and an app without that add-in would fail to load it.
+  -->
+  <Target Name="_ToolkitRemoveRendererPackages" AfterTargets="UnoImplicitPackages" Condition="'$(IsUnoHead)' != 'true'">
+    <ItemGroup>
+      <PackageReference Remove="Uno.WinUI.Composition.Skia;Uno.WinUI.Graphics2DSK" />
+    </ItemGroup>
+  </Target>
+  <!-- END Uno Specific -->
+
   <Target Name="AddCommitHashToAssemblyAttributes" BeforeTargets="GetAssemblyAttributes">
     <ItemGroup>
       <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute" Condition="'$(SourceRevisionId)' != ''">
@@ -30,15 +51,5 @@
       </AssemblyAttribute>
     </ItemGroup>
   </Target>
-
-
-	<!-- BEGIN Uno Specific -->
-	<ItemGroup Condition="'$(UnoUIVersionOverride)'!=''">
-		<!-- Force all projects to use the same uno version to avoid net5 build issues on linux -->
-		<PackageReference 
-			Update="Uno.WinUI"
-			Version="5.0.19" />
-	</ItemGroup>
-	<!-- END Uno Specific -->
 
 </Project>

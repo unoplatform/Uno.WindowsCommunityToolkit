@@ -952,6 +952,7 @@ namespace CommunityToolkit.WinUI.UI.Controls.DataGridInternals
                 case CollectionChange.ItemRemoved:
                     if (!this.IsGrouping)
                     {
+                        // Uno comment: This is incorrect as sender[index] is already removed at this point, but we have no way to get the removed item from IObservableVector.
                         // If we're grouping then we handle this through the CollectionViewGroup notifications.
                         // Remove is a single item operation.
                         _owner.RemoveRowAt(index, sender[index]);
