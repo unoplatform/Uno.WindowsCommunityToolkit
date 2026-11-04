@@ -54,11 +54,12 @@ namespace CommunityToolkit.WinUI.UI.Data.Utilities
                 _sourceWeakEventListener =
                     new WeakEventListener<CollectionView, object, NotifyCollectionChangedEventArgs>(this)
                     {
-                        // Call the actual collection changed event
-                        OnEventAction = (source, changed, arg) => OnCollectionChanged(source, arg),
+                        // Call the actual collection changed event. Neither lambda may capture 'this' (through
+                        // a member access): the source collection would then hold this view strongly.
+                        OnEventAction = (instance, sender, arg) => instance.OnCollectionChanged(instance, arg),
 
                         // The source doesn't exist anymore
-                        OnDetachAction = (listener) => incc.CollectionChanged -= _sourceWeakEventListener.OnEvent
+                        OnDetachAction = (listener) => incc.CollectionChanged -= listener.OnEvent
                     };
                 incc.CollectionChanged += _sourceWeakEventListener.OnEvent;
             }
