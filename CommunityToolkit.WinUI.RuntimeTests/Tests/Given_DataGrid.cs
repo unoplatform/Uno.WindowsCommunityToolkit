@@ -156,8 +156,13 @@ namespace CommunityToolkit.WinUI.RuntimeTests.Tests
             await UIHelper.WaitForIdle();
             Assert.IsTrue(VisibleRows(grid) > 0, "No row was realized");
 
-            var dataConnection = typeof(DataGrid).GetProperty("DataConnection", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(grid)!;
-            var dataSource = dataConnection.GetType().GetProperty("DataSource")!.GetValue(dataConnection);
+            var dataConnectionProperty = typeof(DataGrid).GetProperty("DataConnection", BindingFlags.Instance | BindingFlags.NonPublic);
+            Assert.IsNotNull(dataConnectionProperty, "DataGrid.DataConnection was not found");
+            var dataConnection = dataConnectionProperty.GetValue(grid);
+            Assert.IsNotNull(dataConnection, "DataGrid.DataConnection is null");
+            var dataSourceProperty = dataConnection.GetType().GetProperty("DataSource");
+            Assert.IsNotNull(dataSourceProperty, "DataGridDataConnection.DataSource was not found");
+            var dataSource = dataSourceProperty.GetValue(dataConnection);
             var view = dataSource is not null && !ReferenceEquals(dataSource, itemsSource) ? new WeakReference(dataSource) : null;
 
             UIHelper.Content = null;
