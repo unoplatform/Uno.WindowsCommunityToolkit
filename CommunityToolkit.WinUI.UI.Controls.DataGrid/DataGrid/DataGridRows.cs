@@ -2517,7 +2517,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
             {
                 WeakEventListener<DataGrid, object, NotifyCollectionChangedEventArgs> weakCollectionChangedListener = new WeakEventListener<DataGrid, object, NotifyCollectionChangedEventArgs>(this);
                 weakCollectionChangedListener.OnEventAction = (instance, source, eventArgs) => instance.CollectionViewGroup_CollectionChanged(source, eventArgs);
-                weakCollectionChangedListener.OnDetachAction = (weakEventListener) => incc.CollectionChanged -= weakCollectionChangedListener.OnEvent;
+                weakCollectionChangedListener.OnDetachAction = (weakEventListener) => incc.CollectionChanged -= weakEventListener.OnEvent;
                 incc.CollectionChanged += weakCollectionChangedListener.OnEvent;
 
                 _groupsCollectionChangedListenersTable.Add(incc, weakCollectionChangedListener);
@@ -2543,7 +2543,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
             {
                 WeakEventListener<DataGrid, object, IVectorChangedEventArgs> weakVectorChangedListener = new WeakEventListener<DataGrid, object, IVectorChangedEventArgs>(this);
                 weakVectorChangedListener.OnEventAction = (instance, source, eventArgs) => instance.CollectionViewGroupItems_VectorChanged(source as IObservableVector<object>, eventArgs);
-                weakVectorChangedListener.OnDetachAction = (weakEventListener) => groupItems.VectorChanged -= weakVectorChangedListener.OnEvent;
+                weakVectorChangedListener.OnDetachAction = (weakEventListener) => groupItems.VectorChanged -= weakEventListener.OnEvent;
                 groupItems.VectorChanged += weakVectorChangedListener.OnEvent;
 
                 _groupsVectorChangedListenersTable.Add(groupItems, weakVectorChangedListener);
