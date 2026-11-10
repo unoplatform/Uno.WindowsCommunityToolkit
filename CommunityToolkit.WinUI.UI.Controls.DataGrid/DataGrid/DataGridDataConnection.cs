@@ -771,7 +771,9 @@ namespace CommunityToolkit.WinUI.UI.Controls.DataGridInternals
                 {
                     _weakVectorChangedListener = new WeakEventListener<DataGridDataConnection, object, IVectorChangedEventArgs>(this);
                     _weakVectorChangedListener.OnEventAction = (instance, source, eventArgs) => instance.NotifyingDataSource_VectorChanged(source as IObservableVector<object>, eventArgs);
-                    _weakVectorChangedListener.OnDetachAction = (weakEventListener) => notifyingDataSource2.VectorChanged -= _weakVectorChangedListener.OnEvent;
+                    // The detach action must not touch a field: that would capture 'this' in a closure shared with the
+                    // other detach actions in this method, and the source would then hold this connection (and its DataGrid) strongly.
+                    _weakVectorChangedListener.OnDetachAction = (weakEventListener) => notifyingDataSource2.VectorChanged -= weakEventListener.OnEvent;
                     notifyingDataSource2.VectorChanged += _weakVectorChangedListener.OnEvent;
                 }
             }
