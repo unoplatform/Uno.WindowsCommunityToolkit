@@ -124,6 +124,87 @@ namespace CommunityToolkit.WinUI.RuntimeTests.Tests
             GC.KeepAlive(items);
         }
 
+        // The mouse wheel used to jump a fixed 30px per notch. It now moves like the ScrollViewer: 15% of the viewport per notch,
+        // animated, with rapid notches adding up to one target. Injected mouse input is unreliable with this engine (presses are lost
+        // and moves land offset, see Given_GridSplitter), so the tests call the grid's wheel handling directly.
+        [TestMethod]
+        public async Task When_Mouse_Wheel_Notch_Then_Scrolls_A_Share_Of_The_Viewport_With_An_Animation()
+        {
+            var grid = await LoadGrid(rows: 200);
+            var step = GetOffset(grid, "CellsHeight") * 0.15;
+
+            Assert.IsTrue(ScrollForMouseWheel(grid, -120));
+            Assert.AreEqual(0, GetOffset(grid, "VerticalOffset"), "The notch scrolled at once instead of animating");
+
+            await WaitForWheelMotion();
+            Assert.AreEqual(step, GetOffset(grid, "VerticalOffset"), 1);
+        }
+
+        [TestMethod]
+        public async Task When_Rapid_Mouse_Wheel_Notches_Then_They_Add_Up()
+        {
+            var grid = await LoadGrid(rows: 200);
+            var step = GetOffset(grid, "CellsHeight") * 0.15;
+
+            for (var i = 0; i < 6; i++)
+            {
+                Assert.IsTrue(ScrollForMouseWheel(grid, -120));
+            }
+
+            await WaitForWheelMotion();
+            Assert.AreEqual(6 * step, GetOffset(grid, "VerticalOffset"), 1);
+
+            // The rows under the new offset are realized.
+            Assert.IsTrue(grid.FindDescendants().OfType<DataGridRow>().Any(r => r.ActualHeight > 0 && r.GetIndex() > 5), "No row past the first ones was realized");
+        }
+
+        [TestMethod]
+        public async Task When_Mouse_Wheel_Turned_Up_At_The_Top_Then_It_Is_Left_To_A_Parent()
+        {
+            var grid = await LoadGrid(rows: 200);
+
+            Assert.IsFalse(ScrollForMouseWheel(grid, 120));
+        }
+
+        [TestMethod]
+        public async Task When_Mouse_Wheel_Is_Sideways_Then_Scrolls_Horizontally()
+        {
+            var grid = await LoadGrid(rows: 20);
+            grid.Width = 150;
+            grid.Columns[0].Width = new DataGridLength(400);
+            await UIHelper.WaitForIdle();
+
+            var step = GetOffset(grid, "CellsWidth") * 0.15;
+
+            // Turning the wheel toward the user with Shift scrolls to the right, as it does a ScrollViewer.
+            Assert.IsTrue(ScrollForMouseWheel(grid, -120, isForHorizontalScroll: true));
+            await WaitForWheelMotion();
+
+            Assert.AreEqual(step, GetOffset(grid, "HorizontalOffset"), 1);
+            Assert.AreEqual(0, GetOffset(grid, "VerticalOffset"));
+        }
+
+        private static bool ScrollForMouseWheel(DataGrid grid, double delta, bool isForHorizontalScroll = false)
+        {
+            var method = typeof(DataGrid).GetMethod("ScrollForMouseWheel", BindingFlags.Instance | BindingFlags.NonPublic);
+            Assert.IsNotNull(method, "DataGrid.ScrollForMouseWheel was not found");
+            return (bool)method.Invoke(grid, new object[] { delta, isForHorizontalScroll, false })!;
+        }
+
+        private static double GetOffset(DataGrid grid, string name)
+        {
+            var property = typeof(DataGrid).GetProperty(name, BindingFlags.Instance | BindingFlags.NonPublic);
+            Assert.IsNotNull(property, $"DataGrid.{name} was not found");
+            return (double)property.GetValue(grid)!;
+        }
+
+        // The motion runs for 220ms from its first frame.
+        private static async Task WaitForWheelMotion()
+        {
+            await Task.Delay(500);
+            await UIHelper.WaitForIdle();
+        }
+
         private static ObservableCollection<Row> CreateRows()
             => new(Enumerable.Range(0, 20).Select(i => new Row { Name = $"Row {i}" }));
 
@@ -171,13 +252,13 @@ namespace CommunityToolkit.WinUI.RuntimeTests.Tests
             return (new WeakReference(grid), view);
         }
 
-        private static async Task<DataGrid> LoadGrid()
+        private static async Task<DataGrid> LoadGrid(int rows = 20)
         {
             var grid = new DataGrid
             {
                 Height = 200,
                 AutoGenerateColumns = true,
-                ItemsSource = Enumerable.Range(0, 20).Select(i => new Person { Name = $"Person {i}", Age = 20 + i }).ToList(),
+                ItemsSource = Enumerable.Range(0, rows).Select(i => new Person { Name = $"Person {i}", Age = 20 + i }).ToList(),
             };
 
             await UIHelper.Load(grid);
