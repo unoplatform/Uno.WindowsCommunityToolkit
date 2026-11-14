@@ -124,7 +124,6 @@ namespace CommunityToolkit.WinUI.UI.Controls
         private const double DATAGRID_minimumColumnHeaderHeight = 4;
         internal const double DATAGRID_maximumStarColumnWidth = 10000;
         internal const double DATAGRID_minimumStarColumnWidth = 0.001;
-        private const double DATAGRID_mouseWheelDeltaDivider = 4.0;
         private const double DATAGRID_maxHeadersThickness = 32768;
 
         private const double DATAGRID_defaultRowHeight = 22;
@@ -3721,8 +3720,10 @@ namespace CommunityToolkit.WinUI.UI.Controls
             {
                 var pointerPoint = e.GetCurrentPoint(this);
 
-                // A horizontal scroll happens if the mouse has a horizontal wheel OR if the horizontal scrollbar is not disabled AND the vertical scrollbar IS disabled
+                // A horizontal scroll happens if the mouse has a horizontal wheel, if Shift is held and the horizontal scrollbar is not
+                // disabled as for a ScrollViewer, OR if the horizontal scrollbar is not disabled AND the vertical scrollbar IS disabled
                 bool isForHorizontalScroll = pointerPoint.Properties.IsHorizontalMouseWheel ||
+                    (e.KeyModifiers == VirtualKeyModifiers.Shift && this.HorizontalScrollBarVisibility != ScrollBarVisibility.Disabled) ||
                     (this.HorizontalScrollBarVisibility != ScrollBarVisibility.Disabled && this.VerticalScrollBarVisibility == ScrollBarVisibility.Disabled);
 
                 if ((isForHorizontalScroll && this.HorizontalScrollBarVisibility == ScrollBarVisibility.Disabled) ||
@@ -3731,13 +3732,7 @@ namespace CommunityToolkit.WinUI.UI.Controls
                     return;
                 }
 
-                double offsetDelta = -pointerPoint.Properties.MouseWheelDelta / DATAGRID_mouseWheelDeltaDivider;
-                if (isForHorizontalScroll && pointerPoint.Properties.IsHorizontalMouseWheel)
-                {
-                    offsetDelta *= -1.0;
-                }
-
-                e.Handled = ProcessScrollOffsetDelta(offsetDelta, isForHorizontalScroll);
+                e.Handled = ScrollForMouseWheel(pointerPoint.Properties.MouseWheelDelta, isForHorizontalScroll, pointerPoint.Properties.IsHorizontalMouseWheel);
             }
         }
 
